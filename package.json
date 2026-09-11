@@ -2,6 +2,11 @@
   "name": "eventmap",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CaptainDarkHeart/eventmap.git"
+  },
   "engines": {
     "node": ">=22.12.0"
   },

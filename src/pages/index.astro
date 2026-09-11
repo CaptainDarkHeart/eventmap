@@ -9,26 +9,26 @@ const cartoKey = import.meta.env.PUBLIC_CARTO_KEY;
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Tech Events Map | Global startup &amp; tech conferences</title>
-<meta name="description" content="An interactive map of tech, startup, AI, fintech and developer conferences around the world.">
+<meta name="description" content="An open source interactive map of tech, startup, AI, fintech and developer conferences around the world.">
 <link rel="canonical" href="https://techeventsmap.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tech Events Map">
 <meta property="og:title" content="Tech Events Map | Global startup &amp; tech conferences">
-<meta property="og:description" content="An interactive map of tech, startup, AI, fintech and developer conferences around the world.">
+<meta property="og:description" content="An open source interactive map of tech, startup, AI, fintech and developer conferences around the world.">
 <meta property="og:url" content="https://techeventsmap.com/">
 <meta property="og:image" content="https://techeventsmap.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tech Events Map | Global startup &amp; tech conferences">
-<meta name="twitter:description" content="An interactive map of tech, startup, AI, fintech and developer conferences around the world.">
+<meta name="twitter:description" content="An open source interactive map of tech, startup, AI, fintech and developer conferences around the world.">
 <meta name="twitter:image" content="https://techeventsmap.com/og-image.png">
 <script is:inline type="application/ld+json" set:html={JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "WebSite",
 	name: "Tech Events Map",
 	url: "https://techeventsmap.com/",
-	description: "An interactive map of tech, startup, AI and fintech conferences worldwide.",
+	description: "An open source interactive map of tech, startup, AI and fintech conferences worldwide.",
 })} />
 <link rel="icon" href="/favicon.svg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
@@ -48,6 +48,8 @@ header{position:fixed;top:0;left:0;right:0;display:grid;grid-template-columns:mi
 nav{display:flex;align-items:center;gap:20px;justify-content:center}
 nav a{font-family:var(--font);font-size:15.5px;color:var(--text-dim);text-decoration:none;text-transform:uppercase;letter-spacing:0.06em;transition:color 0.15s}
 nav a:hover{color:var(--text)}
+.github-link{display:none}
+.github-link svg{display:block;width:19px;height:19px;flex-shrink:0}
 .header-right{display:flex;align-items:center;gap:12px;justify-content:flex-end}
 .theme-toggle{background:none;border:1px solid var(--border);color:var(--text-dim);font-size:17.5px;width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;flex-shrink:0}
 .theme-toggle:hover{border-color:var(--text-dim);color:var(--text)}
@@ -85,6 +87,10 @@ nav a:hover{color:var(--text)}
 .mini-tag.major{color:var(--major)}
 .mini-tag.notable{color:var(--notable)}
 .empty-state{padding:24px 14px;color:var(--text-dim);font-size:16px;text-align:center}
+.sidebar-footer{padding:10px 14px;border-top:1px solid var(--border);display:flex;align-items:center;background:var(--bg);flex-shrink:0}
+.sidebar-footer a{display:inline-flex;align-items:center;color:var(--text-dim);transition:color 0.15s;text-decoration:none}
+.sidebar-footer a:hover{color:var(--text)}
+.sidebar-footer svg{width:20px;height:20px;display:block}
 .map-container{flex:1;position:relative}
 #map{width:100%;height:100%}
 .leaflet-container{background:var(--surface)}
@@ -106,6 +112,8 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
   nav.open{display:flex}
   nav a{width:100%;padding:14px 20px;border-top:1px solid var(--border)}
   nav a:first-child{border-top:none}
+  .github-link{display:inline-flex;align-items:center;gap:8px}
+  .github-text{display:inline}
   .sidebar{display:none}
   .leaflet-control-zoom{display:none!important}
   .nav-toggle{display:inline-block}
@@ -124,6 +132,10 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
     <a href="/submit">Submit Event</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a class="github-link" href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span class="github-text">GitHub</span>
+    </a>
   </nav>
   <div class="header-right">
     <button id="theme-toggle" class="theme-toggle" type="button" title="Toggle theme">&#9788;</button>
@@ -163,6 +175,11 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
       </div>
     </div>
     <div class="event-list" id="event-list"></div>
+    <div class="sidebar-footer">
+      <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener" aria-label="GitHub repository" title="GitHub repository">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </a>
+    </div>
   </aside>
 
   <div class="map-container">

@@ -35,7 +35,7 @@ function fmtDate(s: string, e: string) {
 	return `${sStr} – ${eStr}`;
 }
 ---
-<Layout title="All events — Tech Events Map" description="Tech, startup, AI and fintech events worldwide, listed by date.">
+<Layout title="All events — Tech Events Map" description="Open source directory of tech, startup, AI and fintech events worldwide, listed by date.">
 	<script is:inline type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "ItemList",
@@ -50,13 +50,15 @@ function fmtDate(s: string, e: string) {
 	<div class="wrap">
 		<div class="page-head">
 			<h1>All events</h1>
-			<p class="sub">Tech, startup, AI and fintech events worldwide.</p>
+			<p class="sub">Open source directory of tech, startup, AI and fintech conferences worldwide.</p>
 			<div class="head-links">
 				<a href="https://calendar.google.com/calendar/render?cid=https://techeventsmap.com/events.ics" target="_blank" rel="noopener">Subscribe (Google Calendar)</a>
 				<span>·</span>
 				<a href="/events.ics">Subscribe (Apple / Outlook)</a>
 				<span>·</span>
 				<button id="csv-btn" type="button">Export CSV</button>
+				<span>·</span>
+				<a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">GitHub</a>
 			</div>
 		</div>
 		<div class="controls">

@@ -1,8 +1,10 @@
 # Eventmap
 
-Interactive world map of tech, startup, AI and fintech conferences. Astro static site, Leaflet map with CARTO basemaps, plus a plain table view.
+An open source interactive world map of tech, startup, AI and fintech conferences. Astro static site, Leaflet map with CARTO basemaps, plus a plain table view.
 
-Live at: https://techeventsmap.com
+- **Website**: https://techeventsmap.com
+- **Source Code & Data**: https://github.com/CaptainDarkHeart/eventmap
+- **License**: MIT
 
 ## Features
 
@@ -88,3 +90,15 @@ A launchd job (`~/Library/LaunchAgents/com.dantaylor.eventmap-discovery.plist`, 
 Logs land in `logs/` (gitignored). Run it manually with `launchctl kickstart -k gui/$(id -u)/com.dantaylor.eventmap-discovery`, or run `scripts/discover-events-cron.sh` directly.
 
 A first attempt ran this as a scheduled cloud routine (Anthropic's remote-trigger API), but the sandbox environment's egress policy blanket-blocked almost all outbound HTTPS, making source verification impossible. The launchd approach uses this machine's normal internet access instead.
+
+## Contributing
+
+Tech Events Map is open source! Contributions are welcome:
+
+- **Add or update an event**: Edit `src/data/events.json` directly and submit a pull request, or use the [event submission form](https://techeventsmap.com/submit). Make sure to run `npm run validate-events` before committing.
+- **Fix bugs or suggest improvements**: Open an issue or submit a PR on [GitHub](https://github.com/CaptainDarkHeart/eventmap).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+

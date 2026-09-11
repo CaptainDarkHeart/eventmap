@@ -255,7 +255,7 @@
   {
     "id": 139,
     "slug": "les-assises-de-la-cybersecurite",
-    "name": "Les Assises de la Cybersécurité",
+    "name": "Les Assises de la Cybers\u00e9curit\u00e9",
     "city": "Monaco",
     "country": "Monaco",
     "lat": 43.7384,
@@ -2721,7 +2721,7 @@
     "v": 1
   },
   {
-    "id": 151,
+    "id": 163,
     "slug": "mxt-conference",
     "name": "MXT Conference",
     "city": "Groningen",

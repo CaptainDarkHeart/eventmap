@@ -9,7 +9,7 @@ const sourceCount = new Set(events.map((e) => e.source)).size;
 	<SiteHeader />
 	<div class="wrap">
 		<h1>About Tech Events Map</h1>
-		<p>Tech Events Map is a free, interactive map of tech, startup, AI and fintech conferences worldwide. It pulls listings from several sources into one place, on a map, so you can see what's happening and where without trawling separate event calendars city by city.</p>
+		<p>Tech Events Map is a free, open source interactive map of tech, startup, AI and fintech conferences worldwide. It pulls listings from several sources into one place, on a map, so you can see what's happening and where without trawling separate event calendars city by city.</p>
 
 		<h2>Data &amp; Accuracy</h2>
 		<p>Event dates and details are compiled from {sourceCount} public event listing sources:</p>
@@ -74,11 +74,15 @@ const sourceCount = new Set(events.map((e) => e.source)).size;
 		<p>Dates can shift year to year, so always confirm on the event's official site before booking travel. Every event page on this site links through to the official site where one is known.</p>
 		<p>Spot something wrong or missing? Get in touch below and I'll fix it.</p>
 
+		<h2>Open Source &amp; Contributing</h2>
+		<p>Tech Events Map is completely open source under the <a href="https://github.com/CaptainDarkHeart/eventmap/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>. The site source code, automated discovery pipeline, and conference dataset are hosted on GitHub at <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">CaptainDarkHeart/eventmap</a>.</p>
+		<p>Community contributions are warmly welcomed! You can suggest new conferences, fix existing details, or propose code improvements by submitting a pull request or opening an issue on GitHub. You can also submit new events via the <a href="/submit">submission form</a>.</p>
+
 		<h2>Who Built This</h2>
 		<div class="builder-row">
 			<div class="builder-text">
 				<p>Tech Events Map was built by me, <a href="https://dantaylor.me" target="_blank" rel="noopener">Dan Taylor</a>. I do a bunch of things, but mostly web development, photography, and PR-related stuff.</p>
-				<p>I built this map in response to the wide variety of tech event listings that are scattered across dozens of separate sites. Each has its own format and there's no easy way to compare them. This map seeks to bring them all together in one place, laid out on one map, so that you can see at a glance where and when things are happening instead of digging through calendars city by city.</p>
+				<p>I built this map as an open source project in response to the wide variety of tech event listings that are scattered across dozens of separate sites. Each has its own format and there's no easy way to compare them. This map seeks to bring them all together in one place, laid out on one map, so that you can see at a glance where and when things are happening instead of digging through calendars city by city.</p>
 			</div>
 			<div class="builder-pin">
 				<span class="pin-shape"><img src="/dan.jpg" alt="Dan Taylor" width="72" height="72" /></span>
@@ -87,7 +91,7 @@ const sourceCount = new Set(events.map((e) => e.source)).size;
 		</div>
 
 		<h2>Get in Touch</h2>
-		<p>Event suggestions, corrections, and feedback: <a href="mailto:hello@techeventsmap.com">hello@techeventsmap.com</a></p>
+		<p>Event suggestions, corrections, and feedback: <a href="mailto:hello@techeventsmap.com">hello@techeventsmap.com</a>, or open an issue on <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">GitHub</a>.</p>
 	</div>
 </Layout>
 

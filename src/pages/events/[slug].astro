@@ -64,7 +64,7 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 			<a class="cal-btn" href={gcalUrl} target="_blank" rel="noopener">+ Google Calendar</a>
 			<a class="cal-btn" href={`/events/${ev.slug}.ics`}>Download .ics (Apple / Outlook)</a>
 		</div>
-		<p class="source">Date sourced from {ev.source}. Dates can shift year to year, always confirm on the official site before booking travel.</p>
+		<p class="source">Date sourced from {ev.source}. Dates can shift year to year, always confirm on the official site before booking travel. Tech Events Map is open source — spot an error? <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">Edit on GitHub</a> or <a href="/contact">contact me</a>.</p>
 		<div class="bottom-links">
 			{ev.url && <a class="map-link" href={outboundUrl(ev.url, ev.slug)} target="_blank" rel="noopener">View event →</a>}
 			<a class="map-link view-map" href={`/#${ev.slug}`}>View on map →</a>
@@ -93,4 +93,5 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 	}
 	.cal-btn:hover { border-color: var(--accent); color: var(--accent); }
 	.source { color: var(--text-dim); font-size: 15px; font-family: var(--mono); margin-top: 20px; }
+	.source a { color: var(--accent); }
 </style>

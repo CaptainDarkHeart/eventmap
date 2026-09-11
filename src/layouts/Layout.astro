@@ -7,7 +7,7 @@ interface Props {
 }
 const {
 	title = "Tech Events Map | Global startup & tech conferences",
-	description = "An interactive map of tech, startup, AI, fintech and developer conferences around the world.",
+	description = "An open source interactive map of tech, startup, AI, fintech and developer conferences around the world.",
 	image = "/og-image.png",
 	type = "website",
 } = Astro.props;
@@ -45,7 +45,7 @@ const ogImageURL = new URL(image, Astro.site);
 			"@type": "WebSite",
 			name: "Tech Events Map",
 			url: Astro.site?.toString(),
-			description: "An interactive map of tech, startup, AI and fintech conferences worldwide.",
+			description: "An open source interactive map of tech, startup, AI and fintech conferences worldwide.",
 		})} />
 
 		<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet" />
