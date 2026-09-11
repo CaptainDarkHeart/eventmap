@@ -1,14 +1,14 @@
 #!/bin/zsh
-# Weekly headless event-discovery run, launched by launchd (com.dantaylor.eventmap-discovery.plist).
+# Weekly headless event-discovery run, launched by launchd.
 # Opens a PR only. Never pushes to main.
 set -euo pipefail
 
-REPO="/Users/dantaylor/Claude/eventmap"
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
 LOG_DIR="$REPO/logs"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/discovery-$(date +%Y-%m-%d).log"
 
-export PATH="/Users/dantaylor/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 cd "$REPO"
 git checkout main >> "$LOG_FILE" 2>&1

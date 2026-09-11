@@ -60,9 +60,10 @@ async function handleContact(request, env) {
 		return json({ ok: false, error: "Verification failed, please try again." }, 400);
 	}
 
+	const to = env.DESTINATION_EMAIL || "contact@techeventsmap.com";
 	try {
 		await env.EMAIL.send({
-			to: "dantaylormedia@gmail.com",
+			to,
 			from: "contact@techeventsmap.com",
 			reply_to: email,
 			subject: `Tech Events Map contact form: ${name}`,
@@ -121,9 +122,10 @@ async function handleSubmitEvent(request, env) {
 		submitterEmail ? `Submitter email: ${submitterEmail}` : null,
 	].filter(Boolean);
 
+	const to = env.DESTINATION_EMAIL || "contact@techeventsmap.com";
 	try {
 		await env.EMAIL.send({
-			to: "dantaylormedia@gmail.com",
+			to,
 			from: "contact@techeventsmap.com",
 			reply_to: submitterEmail || undefined,
 			subject: `Tech Events Map submission: ${name}`,

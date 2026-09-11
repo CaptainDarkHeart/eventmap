@@ -80,14 +80,14 @@ Edit `src/data/events.json`. Each entry needs: `id`, `slug`, `name`, `city`, `co
 
 ## Automated event discovery
 
-A launchd job (`~/Library/LaunchAgents/com.dantaylor.eventmap-discovery.plist`, not checked into this repo) runs `scripts/discover-events-cron.sh` every Monday at 08:00 local time. It invokes `claude -p` headlessly, with real internet access, to:
+A launchd job (e.g. `~/Library/LaunchAgents/com.eventmap.discovery.plist`, not checked into this repo) runs `scripts/discover-events-cron.sh` every Monday at 08:00 local time. It invokes `claude -p` headlessly, with real internet access, to:
 
 - check every existing source (see `/about`) plus search for legitimate new ones, for new future events
 - verify each candidate (url resolves, not a duplicate by name, future-dated) before adding it
 - add a new source's `/about` row + tag if one qualifies
 - open a PR with the additions (never pushes to main); anything ambiguous goes in a "Needs manual review" section instead of being guessed
 
-Logs land in `logs/` (gitignored). Run it manually with `launchctl kickstart -k gui/$(id -u)/com.dantaylor.eventmap-discovery`, or run `scripts/discover-events-cron.sh` directly.
+Logs land in `logs/` (gitignored). Run it manually with `launchctl kickstart -k gui/$(id -u)/com.eventmap.discovery`, or run `scripts/discover-events-cron.sh` directly.
 
 A first attempt ran this as a scheduled cloud routine (Anthropic's remote-trigger API), but the sandbox environment's egress policy blanket-blocked almost all outbound HTTPS, making source verification impossible. The launchd approach uses this machine's normal internet access instead.
 

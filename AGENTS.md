@@ -6,7 +6,7 @@ Data: `src/data/events.json`, single source of truth. Fields: id, slug, name, ci
 
 **Workflow for adding events from a new data source:** fetch/scrape the source, cross-check every candidate against existing `events.json` entries by name (not just slug, editions/years vary) to avoid duplicates, filter to future events only (relative to today), then confirm with the user before writing: (1) whether to introduce a new `source` tag (and matching `/about` row) vs reuse an existing one, and (2) any judgment call the source doesn't give a clean answer for (ambiguous topic mapping, missing exact date, conflicting dates vs. another source already in the data). Don't guess silently on those two things.
 
-**Automated weekly discovery:** a launchd job (`~/Library/LaunchAgents/com.dantaylor.eventmap-discovery.plist`) runs `scripts/discover-events-cron.sh` every Monday 08:00 local time. It runs `claude -p` headlessly (scoped `--allowedTools`, `--permission-mode acceptEdits`, `--permission-prompts none`, prompt in `scripts/discover-events-prompt.txt`) with real internet access to check existing sources plus hunt for legitimate new ones, verify candidates, and open a PR (never pushes to main; ambiguous calls go in a "Needs manual review" PR section instead of being guessed, same rule as manual additions above). Logs in `logs/` (gitignored). A first attempt used a scheduled cloud routine instead, but the sandbox environment blanket-blocked almost all outbound HTTPS, making verification impossible; local launchd has normal internet access.
+**Automated weekly discovery:** a launchd job (e.g. `~/Library/LaunchAgents/com.eventmap.discovery.plist`) runs `scripts/discover-events-cron.sh` every Monday 08:00 local time. It runs `claude -p` headlessly (scoped `--allowedTools`, `--permission-mode acceptEdits`, `--permission-prompts none`, prompt in `scripts/discover-events-prompt.txt`) with real internet access to check existing sources plus hunt for legitimate new ones, verify candidates, and open a PR (never pushes to main; ambiguous calls go in a "Needs manual review" PR section instead of being guessed, same rule as manual additions above). Logs in `logs/` (gitignored). A first attempt used a scheduled cloud routine instead, but the sandbox environment blanket-blocked almost all outbound HTTPS, making verification impossible; local launchd has normal internet access.
 
 Validate event data before committing changes to it:
 
@@ -48,16 +48,16 @@ Fonts: `--font` (PT Sans) and `--mono` (PT Mono) CSS custom properties defined o
 
 Not a pure static site anymore, `wrangler.jsonc` now points `main` at `worker/index.js`, a custom Worker that:
 - serves everything through the `ASSETS` binding (the built `./dist`), except
-- `POST /api/contact`, handled in `worker/index.js`: honeypot check, field validation, verifies the Turnstile token server-side against `TURNSTILE_SECRET_KEY`, then sends mail via the `EMAIL` binding (Cloudflare Email Routing, `send_email` in `wrangler.jsonc`) to dantaylormedia@gmail.com.
+- `POST /api/contact`, handled in `worker/index.js`: honeypot check, field validation, verifies the Turnstile token server-side against `TURNSTILE_SECRET_KEY`, then sends mail via the `EMAIL` binding (Cloudflare Email Routing, `send_email` in `wrangler.jsonc`) to the destination address (`env.DESTINATION_EMAIL`, default `contact@techeventsmap.com`).
 - `POST /api/submit-event`, same shape, sends "Tech Events Map submission" mail from `contact@techeventsmap.com`, reply-to the submitter's optional email. Manual review only, does not touch `events.json`.
 
-`TURNSTILE_SECRET_KEY` is set as a Worker secret (`wrangler secret list` shows it), not in `.env`, never commit it. The Turnstile site key is public and lives inline in `contact.astro` / `submit.astro`.
+`TURNSTILE_SECRET_KEY` and optional `DESTINATION_EMAIL` are set as Worker secrets / vars (`wrangler secret list` shows secrets), not in `.env`, never commit them. The Turnstile site key is public and lives inline in `contact.astro` / `submit.astro`.
 
-Email Routing (`EMAIL` binding, `send_email`) is live and verified on the `techeventsmap.com` zone: MX/SPF/DKIM records present, Email Routing status `ready`, destination `dantaylormedia@gmail.com` verified. Confirmed 2026-09-11.
+Email Routing (`EMAIL` binding, `send_email`) is live and verified on the `techeventsmap.com` zone: MX/SPF/DKIM records present, Email Routing status `ready`, destination email verified. Confirmed 2026-09-11.
 
 ## Deploy
 
-Cloudflare Worker (not Pages, not the `@astrojs/cloudflare` SSR adapter). Deployed under account `cd625a8a773318340cd24e10532aa135` (dantaylormedia@gmail.com), name `eventmap`.
+Cloudflare Worker (not Pages, not the `@astrojs/cloudflare` SSR adapter). Deployed under name `eventmap` (account resolved via `CLOUDFLARE_ACCOUNT_ID` or Wrangler auth).
 
 ```
 npm run deploy   # astro build && wrangler deploy

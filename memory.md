@@ -8,7 +8,7 @@ Live at techeventsmap.com (custom domain wired up and cut over 2026-09-11). Map 
 
 `scripts/validate-events.mjs` (`npm run validate-events`): duplicate id/slug, missing fields, lat/lng range, date validity, tier/topic validity, url format. Run after hand-editing events.json. `scripts/check-urls.mjs` (`npm run check-urls`, manual/periodic) checks every event url still resolves.
 
-Contact form (`/contact`) and event submission form (`/submit`) both post to Worker routes (`/api/contact`, `/api/submit-event`) in `worker/index.js`: honeypot, field validation, Turnstile server-side verification, mail via Cloudflare Email Routing (`EMAIL` binding) to dantaylormedia@gmail.com. Submission form emails only, doesn't touch events.json (manual review). `TURNSTILE_SECRET_KEY` is a Worker secret, not in any repo file.
+Contact form (`/contact`) and event submission form (`/submit`) both post to Worker routes (`/api/contact`, `/api/submit-event`) in `worker/index.js`: honeypot, field validation, Turnstile server-side verification, mail via Cloudflare Email Routing (`EMAIL` binding) to destination address (`env.DESTINATION_EMAIL`, default `contact@techeventsmap.com`). Submission form emails only, doesn't touch events.json (manual review). `TURNSTILE_SECRET_KEY` is a Worker secret, not in any repo file.
 
 `assets-src/dan-original.png` is the unprocessed source photo for the about-page headshot (`public/dan.jpg` is the processed/served version), keep both.
 
@@ -26,7 +26,7 @@ Fonts: PT Sans / PT Mono loaded once via Google Fonts, exposed as `--font` / `--
 ## Resolved (previously open questions)
 
 - Custom domain: techeventsmap.com and www.techeventsmap.com are both attached to the `eventmap` Worker, zone cut over and certs issued 2026-09-11. `astro.config.mjs`'s `site` value updated to match, no longer the `eventmap.dantaylor.net` placeholder.
-- Email Routing (`EMAIL` binding) sending address verified on the techeventsmap.com zone: MX/SPF/DKIM present, status `ready`, destination dantaylormedia@gmail.com verified.
+- Email Routing (`EMAIL` binding) sending address verified on the techeventsmap.com zone: MX/SPF/DKIM present, status `ready`, destination email verified.
 
 ## Open questions / not yet decided
 

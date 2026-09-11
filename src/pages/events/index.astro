@@ -71,48 +71,101 @@ function fmtDate(s: string, e: string) {
 			</div>
 		</div>
 		<p id="empty" class="empty" hidden>No events match these filters.</p>
-		<table id="events-table">
-			<thead>
-				<tr>
-					<th>Event</th>
-					<th>Dates</th>
-					<th>Location</th>
-					<th>Topic</th>
-					<th>Size</th>
-					<th class="cal-col"></th>
-				</tr>
-			</thead>
-			<tbody>
-				{sorted.map((ev) => (
-					<tr
-						data-name={ev.name.toLowerCase()}
-						data-city={ev.city.toLowerCase()}
-						data-country={ev.country.toLowerCase()}
-						data-tier={ev.tier}
-						data-csv={[ev.name, ev.start, ev.end, ev.city, ev.country, ev.topics.map((t) => TOPICS[t]?.label ?? t).join("; "), TIERS[ev.tier], ev.url].join("\t")}
-					>
-						<td><a href={`/events/${ev.slug}`}>{ev.name}</a></td>
-						<td>{fmtDate(ev.start, ev.end)}</td>
-						<td>{ev.city}, {ev.country}</td>
-						<td>{ev.topics.map((t) => TOPICS[t]?.label ?? t).join(", ")}</td>
-						<td class={`tier-${ev.tier}`}>{TIERS[ev.tier]}</td>
-						<td class="cal-col">
-							<a class="cal-link" href={gcalUrl(ev)} target="_blank" rel="noopener" title={`Add ${ev.name} to Google Calendar`}>Google</a>
-							<a class="cal-link" href={`/events/${ev.slug}.ics`} title={`Download ${ev.name} for Apple / Outlook`}>Apple/Outlook</a>
-						</td>
+		<div class="table-wrap">
+			<table id="events-table">
+				<thead>
+					<tr>
+						<th scope="col" aria-sort="none">
+							<button type="button" class="sort-btn" data-col="name" title="Sort by Event (ascending)">
+								<span class="sort-label">Event</span>
+								<svg class="sort-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+									<path class="sort-arrow-up" d="M4 1.5L7.5 5.5H0.5L4 1.5Z" fill="currentColor" />
+									<path class="sort-arrow-down" d="M4 10.5L0.5 6.5H7.5L4 10.5Z" fill="currentColor" />
+								</svg>
+							</button>
+						</th>
+						<th scope="col" aria-sort="ascending">
+							<button type="button" class="sort-btn" data-col="date" title="Sort by Dates (descending)">
+								<span class="sort-label">Dates</span>
+								<svg class="sort-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+									<path class="sort-arrow-up" d="M4 1.5L7.5 5.5H0.5L4 1.5Z" fill="currentColor" />
+									<path class="sort-arrow-down" d="M4 10.5L0.5 6.5H7.5L4 10.5Z" fill="currentColor" />
+								</svg>
+							</button>
+						</th>
+						<th scope="col" aria-sort="none">
+							<button type="button" class="sort-btn" data-col="country" title="Sort by Country (ascending)">
+								<span class="sort-label">Location</span>
+								<svg class="sort-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+									<path class="sort-arrow-up" d="M4 1.5L7.5 5.5H0.5L4 1.5Z" fill="currentColor" />
+									<path class="sort-arrow-down" d="M4 10.5L0.5 6.5H7.5L4 10.5Z" fill="currentColor" />
+								</svg>
+							</button>
+						</th>
+						<th scope="col" aria-sort="none">
+							<button type="button" class="sort-btn" data-col="topic" title="Sort by Topic (ascending)">
+								<span class="sort-label">Topic</span>
+								<svg class="sort-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+									<path class="sort-arrow-up" d="M4 1.5L7.5 5.5H0.5L4 1.5Z" fill="currentColor" />
+									<path class="sort-arrow-down" d="M4 10.5L0.5 6.5H7.5L4 10.5Z" fill="currentColor" />
+								</svg>
+							</button>
+						</th>
+						<th scope="col" aria-sort="none">
+							<button type="button" class="sort-btn" data-col="size" title="Sort by Size (descending)">
+								<span class="sort-label">Size</span>
+								<svg class="sort-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+									<path class="sort-arrow-up" d="M4 1.5L7.5 5.5H0.5L4 1.5Z" fill="currentColor" />
+									<path class="sort-arrow-down" d="M4 10.5L0.5 6.5H7.5L4 10.5Z" fill="currentColor" />
+								</svg>
+							</button>
+						</th>
+						<th class="cal-col"></th>
 					</tr>
-				))}
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					{sorted.map((ev) => (
+						<tr
+							data-name={ev.name.toLowerCase()}
+							data-start={ev.start}
+							data-city={ev.city.toLowerCase()}
+							data-country={ev.country.toLowerCase()}
+							data-topics={ev.topics.map((t) => TOPICS[t]?.label ?? t).join(", ").toLowerCase()}
+							data-tier={ev.tier}
+							data-tier-rank={ev.tier === "mega" ? 3 : ev.tier === "major" ? 2 : 1}
+							data-csv={[ev.name, ev.start, ev.end, ev.city, ev.country, ev.topics.map((t) => TOPICS[t]?.label ?? t).join("; "), TIERS[ev.tier], ev.url].join("\t")}
+						>
+							<td><a href={`/events/${ev.slug}`}>{ev.name}</a></td>
+							<td>{fmtDate(ev.start, ev.end)}</td>
+							<td>{ev.city}, {ev.country}</td>
+							<td>{ev.topics.map((t) => TOPICS[t]?.label ?? t).join(", ")}</td>
+							<td class={`tier-${ev.tier}`}>{TIERS[ev.tier]}</td>
+							<td class="cal-col">
+								<a class="cal-link" href={gcalUrl(ev)} target="_blank" rel="noopener" title={`Add ${ev.name} to Google Calendar`}>Google</a>
+								<a class="cal-link" href={`/events/${ev.slug}.ics`} title={`Download ${ev.name} for Apple / Outlook`}>Apple/Outlook</a>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
 	</div>
 </Layout>
 
 <script>
+	type SortCol = "name" | "date" | "country" | "topic" | "size";
+	type SortDir = "asc" | "desc";
+
 	const search = document.getElementById("search") as HTMLInputElement;
+	const tbody = document.querySelector("#events-table tbody") as HTMLTableSectionElement;
 	const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>("#events-table tbody tr"));
 	const empty = document.getElementById("empty") as HTMLElement;
 	const tierTags = document.getElementById("tier-tags") as HTMLElement;
+	const sortThs = Array.from(document.querySelectorAll<HTMLTableCellElement>("#events-table thead th[scope='col']"));
+
 	let activeTier = "all";
+	let currentSortCol: SortCol = "date";
+	let currentSortDir: SortDir = "asc";
 
 	function applyFilters() {
 		const q = search.value.trim().toLowerCase();
@@ -130,6 +183,77 @@ function fmtDate(s: string, e: string) {
 		}
 		empty.hidden = visibleCount > 0;
 	}
+
+	function updateHeaderState() {
+		for (const th of sortThs) {
+			const btn = th.querySelector<HTMLButtonElement>(".sort-btn");
+			if (!btn) continue;
+			const col = btn.dataset.col as SortCol;
+			const label = btn.querySelector(".sort-label")?.textContent ?? col;
+			if (col === currentSortCol) {
+				const ariaSort = currentSortDir === "asc" ? "ascending" : "descending";
+				th.setAttribute("aria-sort", ariaSort);
+				const nextDir = currentSortDir === "asc" ? "descending" : "ascending";
+				btn.title = `Sort by ${label} (${nextDir})`;
+			} else {
+				th.setAttribute("aria-sort", "none");
+				const defaultDir = col === "size" ? "descending" : "ascending";
+				btn.title = `Sort by ${label} (${defaultDir})`;
+			}
+		}
+	}
+
+	function sortRows(col: SortCol, dir: SortDir) {
+		currentSortCol = col;
+		currentSortDir = dir;
+		const mult = dir === "asc" ? 1 : -1;
+
+		rows.sort((a, b) => {
+			let diff = 0;
+			if (col === "name") {
+				diff = (a.dataset.name ?? "").localeCompare(b.dataset.name ?? "");
+			} else if (col === "date") {
+				diff = (a.dataset.start ?? "").localeCompare(b.dataset.start ?? "");
+			} else if (col === "country") {
+				diff = (a.dataset.country ?? "").localeCompare(b.dataset.country ?? "");
+				if (diff === 0) {
+					diff = (a.dataset.city ?? "").localeCompare(b.dataset.city ?? "");
+				}
+			} else if (col === "topic") {
+				diff = (a.dataset.topics ?? "").localeCompare(b.dataset.topics ?? "");
+			} else if (col === "size") {
+				const aRank = parseInt(a.dataset.tierRank ?? "0", 10);
+				const bRank = parseInt(b.dataset.tierRank ?? "0", 10);
+				diff = aRank - bRank;
+			}
+
+			if (diff !== 0) return diff * mult;
+
+			// Stable tie-breaker: date ascending, then name ascending
+			const dateDiff = (a.dataset.start ?? "").localeCompare(b.dataset.start ?? "");
+			if (dateDiff !== 0) return dateDiff;
+			return (a.dataset.name ?? "").localeCompare(b.dataset.name ?? "");
+		});
+
+		tbody.append(...rows);
+		updateHeaderState();
+	}
+
+	sortThs.forEach((th) => {
+		th.addEventListener("click", () => {
+			const btn = th.querySelector<HTMLButtonElement>(".sort-btn");
+			if (!btn) return;
+			const col = btn.dataset.col as SortCol;
+			if (!col) return;
+			let nextDir: SortDir;
+			if (col === currentSortCol) {
+				nextDir = currentSortDir === "asc" ? "desc" : "asc";
+			} else {
+				nextDir = col === "size" ? "desc" : "asc";
+			}
+			sortRows(col, nextDir);
+		});
+	});
 
 	search.addEventListener("input", applyFilters);
 	tierTags.addEventListener("click", (e) => {
@@ -203,9 +327,85 @@ function fmtDate(s: string, e: string) {
 	.filter-tag:hover { border-color: var(--text-dim); color: var(--text); }
 	.filter-tag.active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 	.empty { color: var(--text-dim); font-family: var(--mono); padding: 20px 0; }
+	.table-wrap {
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
 	table { width: 100%; border-collapse: collapse; font-size: 17px; }
 	th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
 	th { color: var(--text-dim); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--mono); }
+	th[scope="col"] {
+		cursor: pointer;
+		user-select: none;
+		transition: color 0.15s ease;
+	}
+	th[scope="col"]:hover {
+		color: var(--text);
+	}
+	.sort-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		background: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+		font: inherit;
+		color: inherit;
+		text-transform: inherit;
+		letter-spacing: inherit;
+		cursor: pointer;
+		user-select: none;
+		white-space: nowrap;
+		transition: color 0.15s ease;
+	}
+	.sort-btn:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+		border-radius: 2px;
+	}
+	th[aria-sort="ascending"],
+	th[aria-sort="descending"] {
+		color: var(--text);
+	}
+	th[aria-sort="ascending"] .sort-btn,
+	th[aria-sort="descending"] .sort-btn {
+		color: var(--text);
+	}
+	.sort-icon {
+		display: inline-block;
+		width: 8px;
+		height: 12px;
+		flex-shrink: 0;
+		vertical-align: middle;
+	}
+	.sort-arrow-up,
+	.sort-arrow-down {
+		transition: opacity 0.15s ease, fill 0.15s ease;
+	}
+	th[aria-sort="none"] .sort-arrow-up,
+	th[aria-sort="none"] .sort-arrow-down {
+		opacity: 0.25;
+	}
+	th[aria-sort="none"]:hover .sort-arrow-up,
+	th[aria-sort="none"]:hover .sort-arrow-down {
+		opacity: 0.6;
+	}
+	th[aria-sort="ascending"] .sort-arrow-up {
+		opacity: 1;
+		fill: var(--accent);
+	}
+	th[aria-sort="ascending"] .sort-arrow-down {
+		opacity: 0.15;
+	}
+	th[aria-sort="descending"] .sort-arrow-down {
+		opacity: 1;
+		fill: var(--accent);
+	}
+	th[aria-sort="descending"] .sort-arrow-up {
+		opacity: 0.15;
+	}
 	td { font-family: var(--font); }
 	a { text-decoration: none; color: var(--text); }
 	td a:hover { color: var(--accent); }
