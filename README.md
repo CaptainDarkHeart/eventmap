@@ -11,7 +11,8 @@ Live at: https://techeventsmap.com
 - Per-event pages (`/events/[slug]`) with dates, location, topics, official site link
 - Calendar (ICS) feeds: `/events.ics` for everything, `/events/[slug].ics` per event, plus an "Add to calendar" link per row on the table view
 - Light/dark theme toggle, preference saved locally
-- Contact form (`/contact`) and event submission form (`/submit`), both Turnstile + honeypot protected, handled by a Cloudflare Worker
+- Contact form (`/contact`) and event submission form (`/submit`), both Turnstile + honeypot protected, handled by a Cloudflare Worker (submissions are emailed for manual review, not written to `events.json`)
+- Custom 404 page
 
 ## Project structure
 
@@ -35,6 +36,7 @@ Live at: https://techeventsmap.com
 │   └── pages/
 │       ├── index.astro       # map view
 │       ├── about.astro, contact.astro, submit.astro
+│       ├── 404.astro
 │       ├── events.ics.ts     # all-events calendar feed
 │       └── events/
 │           ├── index.astro   # table view (search, filter, CSV export)

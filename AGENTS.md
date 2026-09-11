@@ -32,6 +32,8 @@ Pages:
 
 Env: `PUBLIC_CARTO_KEY` (CARTO basemap key), set in `.env`, required for map tiles to load. It's a public/client-side key, gets baked into the static HTML at build time, that's expected.
 
+Fonts: `--font` (PT Sans) and `--mono` (PT Mono) CSS custom properties defined once in `Layout.astro` / `index.astro`'s global styles, loaded via a single Google Fonts `<link>`. Body text and nav use `var(--font)`, filter tags/meta/dates use `var(--mono)` (established pattern, keep new UI text on `var(--font)` unless it matches that mono use case). Don't hardcode a font-family anywhere, always reference the token.
+
 ## Contact form / Worker
 
 Not a pure static site anymore, `wrangler.jsonc` now points `main` at `worker/index.js`, a custom Worker that:
