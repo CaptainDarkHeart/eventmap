@@ -6,7 +6,8 @@
 	"main": "worker/index.js",
 	"assets": {
 		"directory": "./dist",
-		"binding": "ASSETS"
+		"binding": "ASSETS",
+		"not_found_handling": "404-page"
 	},
 	"send_email": [
 		{ "name": "EMAIL" }

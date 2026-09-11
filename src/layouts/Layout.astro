@@ -21,7 +21,7 @@ const {
 		<script is:inline>
 			(function () {
 				var saved = localStorage.getItem("em_theme");
-				var theme = saved || "light";
+				var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 				document.documentElement.classList.toggle("dark", theme === "dark");
 			})();
 		</script>
