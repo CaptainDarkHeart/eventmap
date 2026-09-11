@@ -1,5 +1,222 @@
 [
   {
+    "id": 151,
+    "slug": "dbt-summit",
+    "name": "dbt Summit",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2026-09-15",
+    "end": "2026-09-18",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://www.getdbt.com/dbt-summit",
+    "v": 1
+  },
+  {
+    "id": 152,
+    "slug": "tokyo-game-show-2026",
+    "name": "Tokyo Game Show",
+    "city": "Tokyo",
+    "country": "Japan",
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "start": "2026-09-17",
+    "end": "2026-09-21",
+    "tier": "mega",
+    "topics": [
+      "gaming"
+    ],
+    "source": "techmeme",
+    "url": "https://tgs.cesa.or.jp/2026/en",
+    "v": 1
+  },
+  {
+    "id": 153,
+    "slug": "sido-lyon",
+    "name": "SIDO Lyon",
+    "city": "Lyon",
+    "country": "France",
+    "lat": 45.764,
+    "lng": 4.8357,
+    "start": "2026-09-16",
+    "end": "2026-09-17",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "general-tech"
+    ],
+    "source": "sesamers",
+    "url": "https://www.sido-lyon.com/en/",
+    "v": 1
+  },
+  {
+    "id": 154,
+    "slug": "oktane-2026",
+    "name": "Oktane",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2026-09-22",
+    "end": "2026-09-24",
+    "tier": "major",
+    "topics": [
+      "security"
+    ],
+    "source": "techmeme",
+    "url": "https://www.okta.com/oktane/",
+    "v": 1
+  },
+  {
+    "id": 155,
+    "slug": "cppcon-2026",
+    "name": "CppCon",
+    "city": "Aurora",
+    "country": "United States",
+    "lat": 39.7294,
+    "lng": -104.8319,
+    "start": "2026-09-12",
+    "end": "2026-09-18",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://cppcon.org/",
+    "v": 1
+  },
+  {
+    "id": 156,
+    "slug": "mlcon-nyc-2026",
+    "name": "MLCon NYC",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "start": "2026-09-28",
+    "end": "2026-10-02",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "confstech",
+    "url": "https://mlconference.ai/new-york/",
+    "v": 1
+  },
+  {
+    "id": 157,
+    "slug": "cloudflare-connect-2026",
+    "name": "Cloudflare Connect",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-10-19",
+    "end": "2026-10-21",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "techmeme",
+    "url": "https://www.cloudflare.com/connect/",
+    "v": 1
+  },
+  {
+    "id": 158,
+    "slug": "swampup-europe-2026",
+    "name": "swampUP Europe",
+    "city": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3874,
+    "lng": 2.1686,
+    "start": "2026-10-20",
+    "end": "2026-10-22",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://swampup.jfrog.com/europe/",
+    "v": 1
+  },
+  {
+    "id": 159,
+    "slug": "github-universe-2026",
+    "name": "GitHub Universe",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-10-28",
+    "end": "2026-10-29",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://githubuniverse.com/",
+    "v": 1
+  },
+  {
+    "id": 160,
+    "slug": "nullcon-berlin-2026",
+    "name": "Nullcon Berlin",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-11-02",
+    "end": "2026-11-06",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "confstech",
+    "url": "https://nullcon.net/event/nullcon-berlin-2026/",
+    "v": 1
+  },
+  {
+    "id": 161,
+    "slug": "microsoft-ignite-2026",
+    "name": "Microsoft Ignite",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-11-17",
+    "end": "2026-11-20",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "techmeme",
+    "url": "https://ignite.microsoft.com/",
+    "v": 1
+  },
+  {
+    "id": 162,
+    "slug": "neurips-2026",
+    "name": "NeurIPS",
+    "city": "Sydney",
+    "country": "Australia",
+    "lat": -33.8688,
+    "lng": 151.2093,
+    "start": "2026-12-06",
+    "end": "2026-12-12",
+    "tier": "mega",
+    "topics": [
+      "ai"
+    ],
+    "source": "techmeme",
+    "url": "https://neurips.cc/",
+    "v": 1
+  },
+  {
     "id": 149,
     "slug": "dmexco",
     "name": "DMEXCO",
