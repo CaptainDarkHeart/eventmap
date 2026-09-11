@@ -1,0 +1,67 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import { TOPICS, TIERS } from "../../lib/topics";
+import events from "../../data/events.json";
+
+const sorted = [...events].sort((a, b) => a.start.localeCompare(b.start));
+
+function fmtDate(s: string, e: string) {
+	const opts: Intl.DateTimeFormatOptions = { month: "short", day: "numeric", year: "numeric" };
+	const sd = new Date(s + "T00:00:00");
+	const ed = new Date(e + "T00:00:00");
+	const sStr = sd.toLocaleDateString("en-GB", { month: "short", day: "numeric" });
+	if (s === e) return sd.toLocaleDateString("en-GB", opts);
+	const eStr = ed.toLocaleDateString("en-GB", opts);
+	return `${sStr} – ${eStr}`;
+}
+---
+<Layout title="All events — Tech Events Map">
+	<SiteHeader />
+	<div class="wrap">
+		<div class="page-head">
+			<h1>All events</h1>
+			<p class="sub">{events.length} tech, startup, AI and fintech events worldwide.</p>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>Event</th>
+					<th>Dates</th>
+					<th>Location</th>
+					<th>Topic</th>
+					<th>Size</th>
+				</tr>
+			</thead>
+			<tbody>
+				{sorted.map((ev) => (
+					<tr>
+						<td><a href={`/events/${ev.slug}`}>{ev.name}</a></td>
+						<td>{fmtDate(ev.start, ev.end)}</td>
+						<td>{ev.city}, {ev.country}</td>
+						<td>{ev.topics.map((t) => TOPICS[t]?.label ?? t).join(", ")}</td>
+						<td class={`tier-${ev.tier}`}>{TIERS[ev.tier]}</td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	</div>
+</Layout>
+
+<style>
+	.wrap {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 24px 16px 60px;
+	}
+	.page-head { margin-bottom: 18px; }
+	h1 { margin: 0 0 4px; font-size: 24px; font-weight: 700; }
+	.sub { color: var(--text-dim); margin: 0; font-size: 13.5px; font-family: var(--mono); }
+	table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+	th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
+	th { color: var(--text-dim); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--mono); }
+	td { font-family: var(--font); }
+	a { text-decoration: none; color: var(--text); }
+	td a:hover { color: var(--accent); }
+	.tier-mega, .tier-major, .tier-notable { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+</style>

@@ -1,46 +1,58 @@
-# Astro Starter Kit: Basics
+# Eventmap
 
-```sh
-npm create astro@latest -- --template basics
-```
+Interactive world map of tech, startup, AI and fintech conferences. Astro static site, Leaflet map with CARTO basemaps, plus a plain table view.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Live at: https://eventmap.dantaylor.net
 
-## 🚀 Project Structure
+## Features
 
-Inside of your Astro project, you'll see the following folders and files:
+- Map view (`/`) with topic/size/date filters and search
+- Table view (`/events`) of all events, sortable by date
+- Per-event pages (`/events/[slug]`) with dates, location, topics, official site link
+- Light/dark theme toggle, preference saved locally
+
+## Project structure
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+│   └── favicon.svg, favicon.ico
+├── src/
+│   ├── components/
+│   │   └── SiteHeader.astro
+│   ├── data/
+│   │   └── events.json       # source of truth for all event data
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── lib/
+│   │   └── topics.ts         # topic labels/colors, tier labels
+│   └── pages/
+│       ├── index.astro       # map view
+│       └── events/
+│           ├── index.astro   # table view
+│           └── [slug].astro  # per-event page
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+| Command | Action |
+| :--- | :--- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start dev server at `localhost:4321` |
+| `npm run build` | Build production site to `./dist/` |
+| `npm run preview` | Preview the build locally |
+| `npm run check` | Run Astro type checking |
 
-All commands are run from the root of the project, from a terminal:
+## Setup
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Requires a CARTO basemaps API key for map tiles.
 
-## 👀 Want to learn more?
+```sh
+cp .env.example .env
+# then set PUBLIC_CARTO_KEY in .env
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Adding events
+
+Edit `src/data/events.json`. Each entry needs: `id`, `slug`, `name`, `city`, `country`, `lat`, `lng`, `start`, `end`, `tier` (`mega` / `major` / `notable`), `topics` (array of keys from `src/lib/topics.ts`), `source`, `url`.

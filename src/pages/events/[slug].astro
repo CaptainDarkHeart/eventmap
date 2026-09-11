@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import { TOPICS, TIERS } from "../../lib/topics";
+import events from "../../data/events.json";
+
+export function getStaticPaths() {
+	return events.map((ev) => ({ params: { slug: ev.slug }, props: { ev } }));
+}
+
+const { ev } = Astro.props;
+
+function fmtDate(s: string, e: string) {
+	const opts: Intl.DateTimeFormatOptions = { month: "long", day: "numeric", year: "numeric" };
+	const sd = new Date(s + "T00:00:00");
+	const ed = new Date(e + "T00:00:00");
+	if (s === e) return sd.toLocaleDateString("en-GB", opts);
+	return `${sd.toLocaleDateString("en-GB", { month: "long", day: "numeric" })} – ${ed.toLocaleDateString("en-GB", opts)}`;
+}
+---
+<Layout title={`${ev.name} — Tech Events Map`} description={`${ev.name}, ${fmtDate(ev.start, ev.end)}, ${ev.city}, ${ev.country}.`}>
+	<SiteHeader />
+	<div class="wrap">
+		<a class="back" href="/events">← All events</a>
+		<h1>{ev.name}</h1>
+		<div class="meta">
+			<span>{fmtDate(ev.start, ev.end)}</span>
+			<span>·</span>
+			<span>{ev.city}, {ev.country}</span>
+			<span>·</span>
+			<span class={`tier-${ev.tier}`}>{TIERS[ev.tier]}</span>
+		</div>
+		<div class="topics">
+			{ev.topics.map((t: string) => <span class="pill">{TOPICS[t]?.label ?? t}</span>)}
+		</div>
+		{ev.url && <p><a class="site-link" href={ev.url} target="_blank" rel="noopener">Official site →</a></p>}
+		<p class="source">Date sourced from {ev.source}. Dates can shift year to year, always confirm on the official site before booking travel.</p>
+		<a class="map-link" href={`/#${ev.slug}`}>View on map →</a>
+	</div>
+</Layout>
+
+<style>
+	.wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 60px; }
+	.back { text-decoration: none; color: var(--text-dim); font-size: 13px; font-family: var(--mono); }
+	h1 { margin: 14px 0 6px; font-size: 26px; font-weight: 700; }
+	.meta { color: var(--text-dim); font-size: 13px; font-family: var(--mono); display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+	.topics { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+	.site-link, .map-link { color: var(--accent); text-decoration: none; font-size: 14px; }
+	.source { color: var(--text-dim); font-size: 12px; font-family: var(--mono); margin-top: 20px; }
+</style>

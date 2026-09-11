@@ -1,11 +1,306 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import events from "../data/events.json";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const cartoKey = import.meta.env.PUBLIC_CARTO_KEY;
 ---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Tech Events Map | Global startup &amp; tech conferences</title>
+<meta name="description" content="An interactive map of tech, startup, AI, fintech and developer conferences around the world.">
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
+<style is:global>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#ffffff;--surface:#f7f7f7;--surface-2:#ececec;--border:#dddddd;--text:#000000;--text-dim:#666666;--accent:#e04a2e;--mega:#c04040;--major:#b8860b;--notable:#3a7a30;--font:'PT Sans',-apple-system,sans-serif;--mono:'PT Mono',monospace}
+html.dark{--bg:#0e0e0e;--surface:#161616;--surface-2:#222222;--border:#333333;--text:#f2f2f0;--text-dim:#9a9a9a;--accent:#ff5a3c;--mega:#ff6b6b;--major:#e8b84b;--notable:#7fb07f}
+html{height:100%;overflow:hidden;overscroll-behavior:none}
+body{font-family:var(--font);background:var(--bg);color:var(--text);height:100dvh;overflow:hidden;overscroll-behavior:none;position:relative}
+header{position:fixed;top:0;left:0;right:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:12px 20px;border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:1000}
+.header-right{position:absolute;top:50%;right:20px;transform:translateY(-50%)}
+.logo{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:inherit}
+.logo h1{font-size:18px;font-weight:700;letter-spacing:0.01em;text-transform:uppercase}
+.logo span{font-family:var(--mono);font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em}
+nav{display:flex;align-items:center;gap:20px;justify-content:center}
+nav a{font-family:var(--mono);font-size:12.5px;color:var(--text-dim);text-decoration:none;text-transform:uppercase;letter-spacing:0.06em;transition:color 0.15s}
+nav a:hover{color:var(--text)}
+.header-right{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.event-count{font-family:var(--mono);font-size:12px;color:var(--text-dim)}
+.event-count strong{color:var(--accent);font-weight:700}
+.theme-toggle{background:none;border:1px solid var(--border);color:var(--text-dim);font-size:14px;width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;flex-shrink:0}
+.theme-toggle:hover{border-color:var(--text-dim);color:var(--text)}
+.main{position:fixed;inset:0;display:flex;overflow:hidden}
+.sidebar{width:320px;flex-shrink:0;display:flex;flex-direction:column;border-right:1px solid var(--border);background:var(--bg);overflow:hidden;padding-top:54px}
+.filters{padding:12px;border-bottom:1px solid var(--border)}
+.filters-header{font-size:13px;font-weight:700;letter-spacing:-0.01em;color:var(--text);margin-bottom:10px}
+.filter-group{margin-bottom:10px}.filter-group:last-child{margin-bottom:0}
+.filter-group h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:7px}
+.filter-tags{display:flex;flex-wrap:wrap;gap:5px}
+.filter-tag{font-family:var(--mono);font-size:11px;padding:4px 9px;border-radius:3px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all 0.15s;user-select:none;display:inline-flex;align-items:center;gap:5px}
+.filter-tag:hover{border-color:var(--text-dim);color:var(--text)}
+.filter-tag.active{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.filter-tag .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.search-wrap{position:relative;margin-bottom:10px}
+.search-input{width:100%;background:var(--surface-2);border:1px solid var(--border);color:var(--text);font-family:var(--font);font-size:13px;padding:7px 30px 7px 9px;border-radius:4px;outline:none}
+.search-input::placeholder{color:var(--text-dim)}
+.search-input:focus{border-color:var(--accent)}
+.event-list{flex:1;overflow-y:auto;padding:6px}
+.event-list::-webkit-scrollbar{width:4px}
+.event-list::-webkit-scrollbar-track{background:transparent}
+.event-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.event-card{padding:10px;border-radius:5px;cursor:pointer;transition:background-color 0.15s,border-color 0.15s;border:1px solid transparent;margin-bottom:3px}
+.event-card:hover{background:var(--surface);border-color:var(--border)}
+.event-card.selected{background:var(--surface);border-color:var(--accent)}
+.event-card .name{font-size:14px;font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.event-card .name .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.event-card .meta{font-family:var(--font);font-size:11px;color:var(--text-dim);margin-bottom:5px}
+.event-card .tags{display:flex;flex-wrap:wrap;gap:3px}
+.mini-tag{font-family:var(--mono);font-size:10px;padding:2px 6px;border-radius:2px;background:var(--surface-2);color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em}
+.mini-tag.mega{color:var(--mega)}
+.mini-tag.major{color:var(--major)}
+.mini-tag.notable{color:var(--notable)}
+.empty-state{padding:24px 14px;color:var(--text-dim);font-size:13px;text-align:center}
+.map-container{flex:1;position:relative}
+#map{width:100%;height:100%}
+.leaflet-container{background:var(--surface)}
+.leaflet-top{margin-top:66px}
+.leaflet-control-zoom{border:1px solid var(--border)!important}
+.leaflet-control-zoom a{background:var(--surface)!important;color:var(--text)!important;border-color:var(--border)!important}
+.leaflet-control-zoom a:hover{background:var(--surface-2)!important}
+.leaflet-control-attribution{background:rgba(255,255,255,0.8)!important;color:var(--text-dim)!important;font-size:9px!important}
+html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
+.leaflet-control-attribution a{color:var(--text-dim)!important}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--surface);color:var(--text)}
+.leaflet-popup-content{font-family:var(--font);font-size:13px}
+.leaflet-popup-content a{color:var(--accent)}
+.list-link{position:absolute;bottom:16px;right:16px;z-index:800;background:var(--surface);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:13px;text-decoration:none;color:var(--text);box-shadow:0 4px 16px rgba(0,0,0,0.12)}
+@media(max-width:768px){
+  header{padding:10px 16px}
+  nav{display:none}
+  .event-count{display:none}
+  .sidebar{display:none}
+  .leaflet-control-zoom{display:none!important}
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/">
+    <h1>Tech Events</h1>
+    <span>Map</span>
+  </a>
+  <nav>
+    <a href="/">Map</a>
+    <a href="/events">All Events</a>
+  </nav>
+  <div class="header-right">
+    <span class="event-count"><strong id="visible-count">{events.length}</strong> / {events.length} events</span>
+    <button id="theme-toggle" class="theme-toggle" type="button" title="Toggle theme">&#9788;</button>
+  </div>
+</header>
 
-<Layout>
-	<Welcome />
-</Layout>
+<div class="main">
+  <aside class="sidebar">
+    <div class="filters">
+      <div class="filters-header">Filter</div>
+      <div class="search-wrap">
+        <input id="search" class="search-input" type="text" placeholder="Search events, cities..." autocomplete="off">
+      </div>
+      <div class="filter-group">
+        <h3>Topic</h3>
+        <div class="filter-tags" id="topic-tags">
+          <button class="filter-tag active" data-topic="all">All</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <h3>Size</h3>
+        <div class="filter-tags" id="tier-tags">
+          <button class="filter-tag active" data-tier="all">All</button>
+          <button class="filter-tag" data-tier="mega">Mega</button>
+          <button class="filter-tag" data-tier="major">Major</button>
+          <button class="filter-tag" data-tier="notable">Notable</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <h3>When</h3>
+        <div class="filter-tags" id="when-tags">
+          <button class="filter-tag active" data-when="all">All upcoming</button>
+          <button class="filter-tag" data-when="30">Next 30 days</button>
+          <button class="filter-tag" data-when="90">Next 3 months</button>
+        </div>
+      </div>
+    </div>
+    <div class="event-list" id="event-list"></div>
+  </aside>
+
+  <div class="map-container">
+    <div id="map"></div>
+    <a class="list-link" href="/events">View all events &rarr;</a>
+  </div>
+</div>
+
+<script define:vars={{ events, cartoKey }}>
+const TOPICS = {
+  "startup-vc": { label: "Startup / VC", color: "#e04a2e" },
+  "fintech": { label: "Fintech", color: "#2a6898" },
+  "ai": { label: "AI", color: "#7c3aed" },
+  "dev-eng": { label: "Dev / Eng", color: "#3a7a30" },
+  "general-tech": { label: "General tech", color: "#b8860b" },
+  "crypto": { label: "Crypto", color: "#a08a00" },
+  "gaming": { label: "Gaming", color: "#c23b7a" },
+  "security": { label: "Security", color: "#666666" },
+};
+const TIER_LABEL = { mega: "Mega", major: "Major", notable: "Notable" };
+
+function applyTheme(theme) {
+  document.documentElement.classList.toggle("dark", theme === "dark");
+  localStorage.setItem("em_theme", theme);
+}
+(function () {
+  var saved = localStorage.getItem("em_theme");
+  var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  applyTheme(theme);
+})();
+
+// build topic filter buttons
+const topicTagsEl = document.getElementById("topic-tags");
+Object.entries(TOPICS).forEach(([key, meta]) => {
+  const btn = document.createElement("button");
+  btn.className = "filter-tag";
+  btn.dataset.topic = key;
+  btn.innerHTML = `<span class="dot" style="background:${meta.color}"></span>${meta.label}`;
+  topicTagsEl.appendChild(btn);
+});
+
+function tileUrl(dark) {
+  const style = dark ? "dark_all" : "voyager";
+  return `https://basemaps.cartocdn.com/rastertiles/${style}/{z}/{x}/{y}{r}.png?key=${cartoKey}`;
+}
+
+const map = L.map("map", {
+  zoomControl: true,
+  worldCopyJump: true,
+  minZoom: 3,
+  maxBounds: [[-85, -Infinity], [85, Infinity]],
+  maxBoundsViscosity: 1.0,
+}).setView([20, 10], 3);
+let tileLayer = L.tileLayer(tileUrl(document.documentElement.classList.contains("dark")), {
+  attribution: "&copy; OpenStreetMap &copy; CARTO",
+  maxZoom: 19,
+}).addTo(map);
+
+function fmtDate(s, e) {
+  const opts = { month: "short", day: "numeric" };
+  const sd = new Date(s + "T00:00:00");
+  const ed = new Date(e + "T00:00:00");
+  const sStr = sd.toLocaleDateString("en-GB", opts);
+  if (s === e) return sStr;
+  return `${sStr} – ${ed.toLocaleDateString("en-GB", opts)}`;
+}
+
+const sorted = [...events].sort((a, b) => a.start.localeCompare(b.start));
+const listEl = document.getElementById("event-list");
+const countEl = document.getElementById("visible-count");
+
+const items = sorted.map((ev) => {
+  const color = TOPICS[ev.topics[0]]?.color || "#999";
+  const radius = ev.tier === "mega" ? 9 : ev.tier === "major" ? 7 : 5;
+  const marker = L.circleMarker([ev.lat, ev.lng], {
+    radius, color, weight: 1.5, fillColor: color, fillOpacity: 0.8,
+  });
+  const url = ev.url ? `<a href="${ev.url}" target="_blank" rel="noopener">${ev.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</a>` : "";
+  marker.bindPopup(`<strong>${ev.name}</strong><br/>${ev.city}, ${ev.country}<br/>${fmtDate(ev.start, ev.end)}${url ? "<br/>" + url : ""}`);
+  marker.addTo(map);
+
+  const card = document.createElement("div");
+  card.className = "event-card";
+  card.innerHTML = `
+    <div class="name"><span class="dot" style="background:${color}"></span>${ev.name}</div>
+    <div class="meta">${fmtDate(ev.start, ev.end)} &middot; ${ev.city}, ${ev.country}</div>
+    <div class="tags"><span class="mini-tag ${ev.tier}">${TIER_LABEL[ev.tier]}</span></div>
+  `;
+  card.addEventListener("click", () => {
+    map.flyTo([ev.lat, ev.lng], Math.max(map.getZoom(), 5), { duration: 0.6 });
+    marker.openPopup();
+    document.querySelectorAll(".event-card.selected").forEach((c) => c.classList.remove("selected"));
+    card.classList.add("selected");
+  });
+  listEl.appendChild(card);
+
+  return { ev, marker, card };
+});
+
+const state = { topic: "all", tier: "all", when: "all", q: "" };
+
+function applyFilters() {
+  const now = new Date();
+  const cutoff = state.when === "all" ? null : new Date(now.getTime() + Number(state.when) * 86400000);
+  let visibleCount = 0;
+  for (const { ev, marker, card } of items) {
+    const topicOk = state.topic === "all" || ev.topics.includes(state.topic);
+    const tierOk = state.tier === "all" || ev.tier === state.tier;
+    const endDate = new Date(ev.end + "T23:59:59");
+    const upcoming = endDate >= now;
+    const whenOk = state.when === "all" ? upcoming : upcoming && new Date(ev.start + "T00:00:00") <= cutoff;
+    const q = state.q.trim().toLowerCase();
+    const searchOk = !q || ev.name.toLowerCase().includes(q) || ev.city.toLowerCase().includes(q) || ev.country.toLowerCase().includes(q);
+    const visible = topicOk && tierOk && whenOk && searchOk;
+
+    if (visible && !map.hasLayer(marker)) marker.addTo(map);
+    if (!visible && map.hasLayer(marker)) map.removeLayer(marker);
+    card.style.display = visible ? "" : "none";
+    if (visible) visibleCount++;
+  }
+  countEl.textContent = visibleCount;
+  const anyVisible = visibleCount > 0;
+  listEl.querySelector(".empty-state")?.remove();
+  if (!anyVisible) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "No events match these filters.";
+    listEl.appendChild(empty);
+  }
+}
+applyFilters();
+
+document.getElementById("topic-tags").addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-topic]");
+  if (!btn) return;
+  document.querySelectorAll("#topic-tags .filter-tag").forEach((b) => b.classList.remove("active"));
+  btn.classList.add("active");
+  state.topic = btn.dataset.topic;
+  applyFilters();
+});
+document.getElementById("tier-tags").addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-tier]");
+  if (!btn) return;
+  document.querySelectorAll("#tier-tags .filter-tag").forEach((b) => b.classList.remove("active"));
+  btn.classList.add("active");
+  state.tier = btn.dataset.tier;
+  applyFilters();
+});
+document.getElementById("when-tags").addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-when]");
+  if (!btn) return;
+  document.querySelectorAll("#when-tags .filter-tag").forEach((b) => b.classList.remove("active"));
+  btn.classList.add("active");
+  state.when = btn.dataset.when;
+  applyFilters();
+});
+document.getElementById("search").addEventListener("input", (e) => {
+  state.q = e.target.value;
+  applyFilters();
+});
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  const isDark = !document.documentElement.classList.contains("dark");
+  applyTheme(isDark ? "dark" : "light");
+  tileLayer.setUrl(tileUrl(isDark));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,2198 @@
+[
+  {
+    "id": 83,
+    "slug": "techbbq",
+    "name": "TechBBQ",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6761,
+    "lng": 12.5683,
+    "start": "2026-08-26",
+    "end": "2026-08-27",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 118,
+    "slug": "ifa-berlin",
+    "name": "IFA Berlin",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-09-04",
+    "end": "2026-09-08",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "sesamers",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 1,
+    "slug": "nordic-tech-week",
+    "name": "Nordic Tech Week",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "lat": 59.3293,
+    "lng": 18.0686,
+    "start": "2026-09-07",
+    "end": "2026-09-11",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 2,
+    "slug": "global-fintech-fest",
+    "name": "Global Fintech Fest",
+    "city": "Mumbai",
+    "country": "India",
+    "lat": 19.076,
+    "lng": 72.8777,
+    "start": "2026-09-08",
+    "end": "2026-09-11",
+    "tier": "mega",
+    "topics": [
+      "fintech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 94,
+    "slug": "rustconf",
+    "name": "RustConf",
+    "city": "Montreal",
+    "country": "Canada",
+    "lat": 45.5019,
+    "lng": -73.5674,
+    "start": "2026-09-08",
+    "end": "2026-09-12",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 119,
+    "slug": "ipem-global",
+    "name": "IPEM Global",
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "start": "2026-09-08",
+    "end": "2026-09-10",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "sesamers",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 95,
+    "slug": "finovatefall",
+    "name": "FinovateFall",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "start": "2026-09-09",
+    "end": "2026-09-12",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "techmeme",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 96,
+    "slug": "kcdc",
+    "name": "KCDC",
+    "city": "Kansas City",
+    "country": "United States",
+    "lat": 39.0997,
+    "lng": -94.5786,
+    "start": "2026-09-09",
+    "end": "2026-09-13",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 120,
+    "slug": "pydata-amsterdam",
+    "name": "PyData Amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2026-09-10",
+    "end": "2026-09-12",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "sesamers",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 102,
+    "slug": "fyne-conf",
+    "name": "Fyne Conf",
+    "city": "Eindhoven",
+    "country": "Netherlands",
+    "lat": 51.4416,
+    "lng": 5.4697,
+    "start": "2026-09-11",
+    "end": "2026-09-11",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 113,
+    "slug": "ibc",
+    "name": "IBC",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2026-09-11",
+    "end": "2026-09-14",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "sesamers",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 97,
+    "slug": "blizzcon",
+    "name": "BlizzCon",
+    "city": "Anaheim",
+    "country": "United States",
+    "lat": 33.8366,
+    "lng": -117.9143,
+    "start": "2026-09-12",
+    "end": "2026-09-14",
+    "tier": "major",
+    "topics": [
+      "gaming"
+    ],
+    "source": "techmeme",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 3,
+    "slug": "all-in-summit",
+    "name": "All-In Summit",
+    "city": "Los Angeles",
+    "country": "United States",
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "start": "2026-09-13",
+    "end": "2026-09-15",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 4,
+    "slug": "infobip-shift",
+    "name": "Infobip Shift",
+    "city": "Zadar",
+    "country": "Croatia",
+    "lat": 44.1194,
+    "lng": 15.2314,
+    "start": "2026-09-13",
+    "end": "2026-09-15",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 5,
+    "slug": "money20-20-middle-east",
+    "name": "Money20/20 Middle East",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "lat": 24.7136,
+    "lng": 46.6753,
+    "start": "2026-09-14",
+    "end": "2026-09-16",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 103,
+    "slug": "code-europe",
+    "name": "Code Europe",
+    "city": "Warsaw",
+    "country": "Poland",
+    "lat": 52.2297,
+    "lng": 21.0122,
+    "start": "2026-09-14",
+    "end": "2026-09-15",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 114,
+    "slug": "cambridge-tech-week",
+    "name": "Cambridge Tech Week",
+    "city": "Cambridge",
+    "country": "United Kingdom",
+    "lat": 52.2053,
+    "lng": 0.1218,
+    "start": "2026-09-14",
+    "end": "2026-09-18",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "sesamers",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 115,
+    "slug": "ndc-oslo",
+    "name": "NDC Oslo",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.9139,
+    "lng": 10.7522,
+    "start": "2026-09-14",
+    "end": "2026-09-18",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "sesamers",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 98,
+    "slug": "dreamforce",
+    "name": "Dreamforce",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-09-15",
+    "end": "2026-09-18",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "techmeme",
+    "url": "https://www.salesforce.com/dreamforce/",
+    "v": 1
+  },
+  {
+    "id": 104,
+    "slug": "productlab-conf",
+    "name": "ProductLab Conf",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-09-15",
+    "end": "2026-09-17",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 116,
+    "slug": "zukunft-personal-europe",
+    "name": "Zukunft Personal Europe",
+    "city": "Cologne",
+    "country": "Germany",
+    "lat": 50.9375,
+    "lng": 6.9603,
+    "start": "2026-09-15",
+    "end": "2026-09-17",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "sesamers",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 117,
+    "slug": "cyprus-cyber-security-conference",
+    "name": "Cyprus Cyber Security Conference",
+    "city": "Nicosia",
+    "country": "Cyprus",
+    "lat": 35.1856,
+    "lng": 33.3823,
+    "start": "2026-09-15",
+    "end": "2026-09-15",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "sesamers",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 121,
+    "slug": "big-data-ai-paris",
+    "name": "Big Data & AI Paris",
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "start": "2026-09-15",
+    "end": "2026-09-16",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "sesamers",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 6,
+    "slug": "france-digitale-day",
+    "name": "France Digitale Day",
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "start": "2026-09-16",
+    "end": "2026-09-16",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 105,
+    "slug": "hatch-conference",
+    "name": "Hatch Conference",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-09-16",
+    "end": "2026-09-18",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 84,
+    "slug": "startup-fair",
+    "name": "Startup Fair",
+    "city": "Vilnius",
+    "country": "Lithuania",
+    "lat": 54.6872,
+    "lng": 25.2797,
+    "start": "2026-09-17",
+    "end": "2026-09-17",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 106,
+    "slug": "api-platform-conference",
+    "name": "API Platform Conference",
+    "city": "Lille",
+    "country": "France",
+    "lat": 50.6292,
+    "lng": 3.0573,
+    "start": "2026-09-17",
+    "end": "2026-09-18",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 122,
+    "slug": "brain-bar",
+    "name": "Brain Bar",
+    "city": "Budapest",
+    "country": "Hungary",
+    "lat": 47.4979,
+    "lng": 19.0402,
+    "start": "2026-09-17",
+    "end": "2026-09-18",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "sesamers",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 107,
+    "slug": "starwest",
+    "name": "STARWEST",
+    "city": "Anaheim",
+    "country": "United States",
+    "lat": 33.8366,
+    "lng": -117.9143,
+    "start": "2026-09-20",
+    "end": "2026-09-25",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 7,
+    "slug": "elevate-festival",
+    "name": "Elevate Festival",
+    "city": "Toronto",
+    "country": "Canada",
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "start": "2026-09-22",
+    "end": "2026-09-24",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 108,
+    "slug": "nerdearla-argentina",
+    "name": "Nerdearla Argentina",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "lat": -34.6037,
+    "lng": -58.3816,
+    "start": "2026-09-22",
+    "end": "2026-09-26",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 8,
+    "slug": "0100-emerging-europe",
+    "name": "0100 Emerging Europe",
+    "city": "Budapest",
+    "country": "Hungary",
+    "lat": 47.4979,
+    "lng": 19.0402,
+    "start": "2026-09-23",
+    "end": "2026-09-24",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 9,
+    "slug": "finnosummit",
+    "name": "FINNOSUMMIT",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "lat": 19.4326,
+    "lng": -99.1332,
+    "start": "2026-09-23",
+    "end": "2026-09-24",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 99,
+    "slug": "meta-connect",
+    "name": "Meta Connect",
+    "city": "Menlo Park",
+    "country": "United States",
+    "lat": 37.453,
+    "lng": -122.1817,
+    "start": "2026-09-23",
+    "end": "2026-09-25",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "techmeme",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 109,
+    "slug": "smartdata",
+    "name": "SmartData",
+    "city": "Moscow",
+    "country": "Russia",
+    "lat": 55.7558,
+    "lng": 37.6173,
+    "start": "2026-09-23",
+    "end": "2026-09-24",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 10,
+    "slug": "it-arena",
+    "name": "IT Arena",
+    "city": "Lviv",
+    "country": "Ukraine",
+    "lat": 49.8397,
+    "lng": 24.0297,
+    "start": "2026-09-25",
+    "end": "2026-09-27",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 110,
+    "slug": "dotnext",
+    "name": "DotNext",
+    "city": "Moscow",
+    "country": "Russia",
+    "lat": 55.7558,
+    "lng": 37.6173,
+    "start": "2026-09-25",
+    "end": "2026-09-26",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 11,
+    "slug": "bits-pretzels",
+    "name": "Bits & Pretzels",
+    "city": "Munich",
+    "country": "Germany",
+    "lat": 48.1351,
+    "lng": 11.582,
+    "start": "2026-09-28",
+    "end": "2026-09-30",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 12,
+    "slug": "superreturn-asia",
+    "name": "SuperReturn Asia",
+    "city": "Singapore",
+    "country": "Singapore",
+    "lat": 1.3521,
+    "lng": 103.8198,
+    "start": "2026-09-28",
+    "end": "2026-10-01",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 111,
+    "slug": "basta-herbst",
+    "name": "BASTA! Herbst",
+    "city": "Mainz",
+    "country": "Germany",
+    "lat": 49.9929,
+    "lng": 8.2473,
+    "start": "2026-09-28",
+    "end": "2026-10-02",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 112,
+    "slug": "devopscon-nyc",
+    "name": "DevOpsCon NYC",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "start": "2026-09-28",
+    "end": "2026-10-02",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 100,
+    "slug": "openai-devday",
+    "name": "OpenAI DevDay",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-09-29",
+    "end": "2026-10-02",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "techmeme",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 13,
+    "slug": "sifted-summit",
+    "name": "Sifted Summit",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2026-09-30",
+    "end": "2026-10-01",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 14,
+    "slug": "sf-tech-week",
+    "name": "SF Tech Week",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-10-05",
+    "end": "2026-10-11",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 15,
+    "slug": "how-to-web",
+    "name": "How to Web",
+    "city": "Bucharest",
+    "country": "Romania",
+    "lat": 44.4268,
+    "lng": 26.1025,
+    "start": "2026-10-06",
+    "end": "2026-10-08",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 16,
+    "slug": "italian-tech-week-wave-by-vento",
+    "name": "Italian Tech Week (Wave by Vento)",
+    "city": "Turin",
+    "country": "Italy",
+    "lat": 45.0703,
+    "lng": 7.6869,
+    "start": "2026-10-07",
+    "end": "2026-10-09",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 17,
+    "slug": "milken-institute-asia-summit",
+    "name": "Milken Institute Asia Summit",
+    "city": "Singapore",
+    "country": "Singapore",
+    "lat": 1.3521,
+    "lng": 103.8198,
+    "start": "2026-10-07",
+    "end": "2026-10-09",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 18,
+    "slug": "token2049-singapore",
+    "name": "TOKEN2049 Singapore",
+    "city": "Singapore",
+    "country": "Singapore",
+    "lat": 1.3521,
+    "lng": 103.8198,
+    "start": "2026-10-07",
+    "end": "2026-10-08",
+    "tier": "mega",
+    "topics": [
+      "crypto"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 19,
+    "slug": "world-summit-ai",
+    "name": "World Summit AI",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2026-10-07",
+    "end": "2026-10-08",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 20,
+    "slug": "ceatec",
+    "name": "CEATEC",
+    "city": "Chiba",
+    "country": "Japan",
+    "lat": 35.6073,
+    "lng": 140.1233,
+    "start": "2026-10-13",
+    "end": "2026-10-16",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 21,
+    "slug": "techcrunch-disrupt",
+    "name": "TechCrunch Disrupt",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-10-13",
+    "end": "2026-10-15",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "https://techcrunch.com/events/tc-disrupt-2026/",
+    "v": 1
+  },
+  {
+    "id": 22,
+    "slug": "invest-europe-venture-capital-forum",
+    "name": "Invest Europe Venture Capital Forum",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2026-10-14",
+    "end": "2026-10-15",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 23,
+    "slug": "norrsken-impact-week",
+    "name": "Norrsken Impact/Week",
+    "city": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3874,
+    "lng": 2.1686,
+    "start": "2026-10-14",
+    "end": "2026-10-15",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 24,
+    "slug": "money20-20-usa",
+    "name": "Money20/20 USA",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2026-10-18",
+    "end": "2026-10-21",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "dealroom",
+    "url": "https://us.money2020.com/",
+    "v": 1
+  },
+  {
+    "id": 25,
+    "slug": "oslo-innovation-week",
+    "name": "Oslo Innovation Week",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.9139,
+    "lng": 10.7522,
+    "start": "2026-10-19",
+    "end": "2026-10-23",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 101,
+    "slug": "gartner-it-symposium-xpo",
+    "name": "Gartner IT Symposium/Xpo",
+    "city": "Orlando",
+    "country": "United States",
+    "lat": 28.5383,
+    "lng": -81.3792,
+    "start": "2026-10-19",
+    "end": "2026-10-23",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "techmeme",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 26,
+    "slug": "tecweek",
+    "name": "Tecweek",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "lat": -34.6037,
+    "lng": -58.3816,
+    "start": "2026-10-21",
+    "end": "2026-10-31",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 27,
+    "slug": "valencia-digital-summit",
+    "name": "Valencia Digital Summit",
+    "city": "Valencia",
+    "country": "Spain",
+    "lat": 39.4699,
+    "lng": -0.3763,
+    "start": "2026-10-21",
+    "end": "2026-10-22",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 28,
+    "slug": "webrazzi-summit",
+    "name": "Webrazzi Summit",
+    "city": "Istanbul",
+    "country": "Turkey",
+    "lat": 41.0082,
+    "lng": 28.9784,
+    "start": "2026-10-21",
+    "end": "2026-10-21",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 29,
+    "slug": "future-investment-initiative-fii10",
+    "name": "Future Investment Initiative (FII10)",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "lat": 24.7136,
+    "lng": 46.6753,
+    "start": "2026-10-26",
+    "end": "2026-10-29",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 30,
+    "slug": "mexico-tech-week",
+    "name": "Mexico Tech Week",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "lat": 19.4326,
+    "lng": -99.1332,
+    "start": "2026-10-26",
+    "end": "2026-11-01",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 31,
+    "slug": "0100-international",
+    "name": "0100 International",
+    "city": "Milan",
+    "country": "Italy",
+    "lat": 45.4642,
+    "lng": 9.19,
+    "start": "2026-10-27",
+    "end": "2026-10-29",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 32,
+    "slug": "switch",
+    "name": "SWITCH",
+    "city": "Singapore",
+    "country": "Singapore",
+    "lat": 1.3521,
+    "lng": 103.8198,
+    "start": "2026-10-27",
+    "end": "2026-10-29",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 33,
+    "slug": "moonshot-by-techcabal",
+    "name": "Moonshot by TechCabal",
+    "city": "Lagos",
+    "country": "Nigeria",
+    "lat": 6.5244,
+    "lng": 3.3792,
+    "start": "2026-10-28",
+    "end": "2026-10-29",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 34,
+    "slug": "crossroads",
+    "name": "Crossroads",
+    "city": "Sofia",
+    "country": "Bulgaria",
+    "lat": 42.6977,
+    "lng": 23.3219,
+    "start": "2026-10-29",
+    "end": "2026-10-30",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 35,
+    "slug": "hong-kong-fintech-week",
+    "name": "Hong Kong FinTech Week",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "lat": 22.3193,
+    "lng": 114.1694,
+    "start": "2026-11-02",
+    "end": "2026-11-06",
+    "tier": "mega",
+    "topics": [
+      "fintech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 36,
+    "slug": "startup-nights",
+    "name": "Startup Nights",
+    "city": "Winterthur",
+    "country": "Switzerland",
+    "lat": 47.5,
+    "lng": 8.75,
+    "start": "2026-11-05",
+    "end": "2026-11-06",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 37,
+    "slug": "web-summit",
+    "name": "Web Summit",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "lat": 38.7223,
+    "lng": -9.1393,
+    "start": "2026-11-09",
+    "end": "2026-11-12",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://websummit.com/",
+    "v": 1
+  },
+  {
+    "id": 38,
+    "slug": "africa-tech-festival-africacom",
+    "name": "Africa Tech Festival (AfricaCom)",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "lat": -33.9249,
+    "lng": 18.4241,
+    "start": "2026-11-17",
+    "end": "2026-11-19",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 39,
+    "slug": "bengaluru-tech-summit",
+    "name": "Bengaluru Tech Summit",
+    "city": "Bengaluru",
+    "country": "India",
+    "lat": 12.9716,
+    "lng": 77.5946,
+    "start": "2026-11-17",
+    "end": "2026-11-19",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 40,
+    "slug": "singapore-fintech-festival",
+    "name": "Singapore FinTech Festival",
+    "city": "Singapore",
+    "country": "Singapore",
+    "lat": 1.3521,
+    "lng": 103.8198,
+    "start": "2026-11-18",
+    "end": "2026-11-20",
+    "tier": "mega",
+    "topics": [
+      "fintech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 41,
+    "slug": "slush",
+    "name": "Slush",
+    "city": "Helsinki",
+    "country": "Finland",
+    "lat": 60.1699,
+    "lng": 24.9384,
+    "start": "2026-11-18",
+    "end": "2026-11-19",
+    "tier": "mega",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "https://www.slush.org/",
+    "v": 1
+  },
+  {
+    "id": 42,
+    "slug": "case-conferencia-anual-de-startups-e-empreendedorismo",
+    "name": "CASE - Conferencia Anual de Startups e Empreendedorismo",
+    "city": "Sao Paulo",
+    "country": "Brazil",
+    "lat": -23.5505,
+    "lng": -46.6333,
+    "start": "2026-11-26",
+    "end": "2026-11-27",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 43,
+    "slug": "aws-re-invent",
+    "name": "AWS re:Invent",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2026-11-30",
+    "end": "2026-12-04",
+    "tier": "mega",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "dealroom",
+    "url": "https://reinvent.awsevents.com/",
+    "v": 1
+  },
+  {
+    "id": 44,
+    "slug": "yc-fall-2026-demo-day",
+    "name": "YC Fall 2026 Demo Day",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-12-02",
+    "end": "2026-12-02",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 45,
+    "slug": "abu-dhabi-finance-week",
+    "name": "Abu Dhabi Finance Week",
+    "city": "Abu Dhabi",
+    "country": "UAE",
+    "lat": 24.4539,
+    "lng": 54.3773,
+    "start": "2026-12-07",
+    "end": "2026-12-10",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 46,
+    "slug": "gitex-global-expand-north-star",
+    "name": "GITEX Global (Expand North Star)",
+    "city": "Dubai",
+    "country": "UAE",
+    "lat": 25.2048,
+    "lng": 55.2708,
+    "start": "2026-12-07",
+    "end": "2026-12-11",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 47,
+    "slug": "comeup",
+    "name": "COMEUP",
+    "city": "Seoul",
+    "country": "South Korea",
+    "lat": 37.5665,
+    "lng": 126.978,
+    "start": "2026-12-09",
+    "end": "2026-12-11",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 48,
+    "slug": "ces",
+    "name": "CES",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2027-01-06",
+    "end": "2027-01-09",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://www.ces.tech/",
+    "v": 1
+  },
+  {
+    "id": 49,
+    "slug": "cybertech-global-tel-aviv",
+    "name": "Cybertech Global Tel Aviv",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.0853,
+    "lng": 34.7818,
+    "start": "2027-01-25",
+    "end": "2027-01-27",
+    "tier": "major",
+    "topics": [
+      "security"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 50,
+    "slug": "startup-day",
+    "name": "sTARTUp Day",
+    "city": "Tartu",
+    "country": "Estonia",
+    "lat": 58.3776,
+    "lng": 26.729,
+    "start": "2027-01-26",
+    "end": "2027-01-28",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 51,
+    "slug": "web-summit-qatar",
+    "name": "Web Summit Qatar",
+    "city": "Doha",
+    "country": "Qatar",
+    "lat": 25.2854,
+    "lng": 51.531,
+    "start": "2027-01-31",
+    "end": "2027-02-03",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://websummitqatar.com/",
+    "v": 1
+  },
+  {
+    "id": 52,
+    "slug": "step-conference-dubai",
+    "name": "Step Conference Dubai",
+    "city": "Dubai",
+    "country": "UAE",
+    "lat": 25.2048,
+    "lng": 55.2708,
+    "start": "2027-02-03",
+    "end": "2027-02-04",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 53,
+    "slug": "techarena",
+    "name": "Techarena",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "lat": 59.3293,
+    "lng": 18.0686,
+    "start": "2027-02-03",
+    "end": "2027-02-04",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 54,
+    "slug": "africa-tech-summit-nairobi",
+    "name": "Africa Tech Summit Nairobi",
+    "city": "Nairobi",
+    "country": "Kenya",
+    "lat": -1.2921,
+    "lng": 36.8219,
+    "start": "2027-02-10",
+    "end": "2027-02-11",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 55,
+    "slug": "mwc-barcelona-4yfn",
+    "name": "MWC Barcelona (4YFN)",
+    "city": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3874,
+    "lng": 2.1686,
+    "start": "2027-03-01",
+    "end": "2027-03-04",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://www.mwcbarcelona.com/",
+    "v": 1
+  },
+  {
+    "id": 56,
+    "slug": "humanx",
+    "name": "HumanX",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2027-03-07",
+    "end": "2027-03-10",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 57,
+    "slug": "startup-mahakumbh",
+    "name": "Startup Mahakumbh",
+    "city": "New Delhi",
+    "country": "India",
+    "lat": 28.6139,
+    "lng": 77.209,
+    "start": "2027-03-12",
+    "end": "2027-03-14",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 58,
+    "slug": "nvidia-gtc",
+    "name": "NVIDIA GTC",
+    "city": "San Jose",
+    "country": "United States",
+    "lat": 37.3382,
+    "lng": -121.8863,
+    "start": "2027-03-15",
+    "end": "2027-03-18",
+    "tier": "mega",
+    "topics": [
+      "ai"
+    ],
+    "source": "dealroom",
+    "url": "https://www.nvidia.com/gtc/",
+    "v": 1
+  },
+  {
+    "id": 59,
+    "slug": "sxsw",
+    "name": "SXSW",
+    "city": "Austin",
+    "country": "United States",
+    "lat": 30.2672,
+    "lng": -97.7431,
+    "start": "2027-03-15",
+    "end": "2027-03-21",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://www.sxsw.com/",
+    "v": 1
+  },
+  {
+    "id": 60,
+    "slug": "start-summit",
+    "name": "START Summit",
+    "city": "St. Gallen",
+    "country": "Switzerland",
+    "lat": 47.4245,
+    "lng": 9.3767,
+    "start": "2027-03-18",
+    "end": "2027-03-19",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 61,
+    "slug": "techchill-riga",
+    "name": "TechChill Riga",
+    "city": "Riga",
+    "country": "Latvia",
+    "lat": 56.9496,
+    "lng": 24.1052,
+    "start": "2027-03-18",
+    "end": "2027-03-19",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 62,
+    "slug": "south-summit-brazil",
+    "name": "South Summit Brazil",
+    "city": "Porto Alegre",
+    "country": "Brazil",
+    "lat": -30.0346,
+    "lng": -51.2177,
+    "start": "2027-04-14",
+    "end": "2027-04-16",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 85,
+    "slug": "iceland-innovation-week",
+    "name": "Iceland Innovation Week",
+    "city": "Reykjavik",
+    "country": "Iceland",
+    "lat": 64.1466,
+    "lng": -21.9426,
+    "start": "2027-04-26",
+    "end": "2027-04-29",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 63,
+    "slug": "talent-land-mexico",
+    "name": "Talent Land Mexico",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "lat": 19.4326,
+    "lng": -99.1332,
+    "start": "2027-04-27",
+    "end": "2027-04-29",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 64,
+    "slug": "gitex-ai-asia",
+    "name": "GITEX AI Asia",
+    "city": "Singapore",
+    "country": "Singapore",
+    "lat": 1.3521,
+    "lng": 103.8198,
+    "start": "2027-04-29",
+    "end": "2027-04-30",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 65,
+    "slug": "milken-institute-global-conference",
+    "name": "Milken Institute Global Conference",
+    "city": "Los Angeles",
+    "country": "United States",
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "start": "2027-05-02",
+    "end": "2027-05-05",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 66,
+    "slug": "omr-festival",
+    "name": "OMR Festival",
+    "city": "Hamburg",
+    "country": "Germany",
+    "lat": 53.5511,
+    "lng": 9.9937,
+    "start": "2027-05-03",
+    "end": "2027-05-05",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://omr.com/",
+    "v": 1
+  },
+  {
+    "id": 67,
+    "slug": "consensus-miami",
+    "name": "Consensus Miami",
+    "city": "Miami Beach",
+    "country": "United States",
+    "lat": 25.7907,
+    "lng": -80.13,
+    "start": "2027-05-04",
+    "end": "2027-05-06",
+    "tier": "major",
+    "topics": [
+      "crypto"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 68,
+    "slug": "gramado-summit",
+    "name": "Gramado Summit",
+    "city": "Gramado",
+    "country": "Brazil",
+    "lat": -29.3789,
+    "lng": -50.8768,
+    "start": "2027-05-05",
+    "end": "2027-05-07",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 86,
+    "slug": "viennaup",
+    "name": "ViennaUP",
+    "city": "Vienna",
+    "country": "Austria",
+    "lat": 48.2082,
+    "lng": 16.3738,
+    "start": "2027-05-10",
+    "end": "2027-05-14",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 87,
+    "slug": "eu-startups-summit",
+    "name": "EU Startups Summit",
+    "city": "Valletta",
+    "country": "Malta",
+    "lat": 35.8989,
+    "lng": 14.5146,
+    "start": "2027-05-13",
+    "end": "2027-05-14",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 89,
+    "slug": "infoshare",
+    "name": "Infoshare",
+    "city": "Gdansk",
+    "country": "Poland",
+    "lat": 54.352,
+    "lng": 18.6466,
+    "start": "2027-05-15",
+    "end": "2027-05-16",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 88,
+    "slug": "podim",
+    "name": "PODIM",
+    "city": "Maribor",
+    "country": "Slovenia",
+    "lat": 46.5547,
+    "lng": 15.6459,
+    "start": "2027-05-17",
+    "end": "2027-05-19",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 69,
+    "slug": "latitude59",
+    "name": "Latitude59",
+    "city": "Tallinn",
+    "country": "Estonia",
+    "lat": 59.437,
+    "lng": 24.7536,
+    "start": "2027-05-19",
+    "end": "2027-05-21",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "https://latitude59.ee/",
+    "v": 1
+  },
+  {
+    "id": 70,
+    "slug": "sushi-tech-tokyo",
+    "name": "SusHi Tech Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "start": "2027-05-20",
+    "end": "2027-05-22",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 71,
+    "slug": "web-summit-vancouver",
+    "name": "Web Summit Vancouver",
+    "city": "Vancouver",
+    "country": "Canada",
+    "lat": 49.2827,
+    "lng": -123.1207,
+    "start": "2027-05-25",
+    "end": "2027-05-28",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://websummitvancouver.com/",
+    "v": 1
+  },
+  {
+    "id": 72,
+    "slug": "asia-tech-x-singapore",
+    "name": "Asia Tech x Singapore",
+    "city": "Singapore",
+    "country": "Singapore",
+    "lat": 1.3521,
+    "lng": 103.8198,
+    "start": "2027-05-26",
+    "end": "2027-05-28",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 73,
+    "slug": "dublin-tech-summit",
+    "name": "Dublin Tech Summit",
+    "city": "Dublin",
+    "country": "Ireland",
+    "lat": 53.3498,
+    "lng": -6.2603,
+    "start": "2027-05-26",
+    "end": "2027-05-27",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 90,
+    "slug": "panathenea",
+    "name": "Panathenea",
+    "city": "Athens",
+    "country": "Greece",
+    "lat": 37.9838,
+    "lng": 23.7275,
+    "start": "2027-05-27",
+    "end": "2027-05-28",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 74,
+    "slug": "vtex-day",
+    "name": "VTEX DAY",
+    "city": "Sao Paulo",
+    "country": "Brazil",
+    "lat": -23.5505,
+    "lng": -46.6333,
+    "start": "2027-05-31",
+    "end": "2027-06-01",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 75,
+    "slug": "london-tech-week",
+    "name": "London Tech Week",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-06-07",
+    "end": "2027-06-11",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 76,
+    "slug": "superreturn-international",
+    "name": "SuperReturn International",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2027-06-07",
+    "end": "2027-06-11",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 77,
+    "slug": "money20-20-europe",
+    "name": "Money20/20 Europe",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2027-06-08",
+    "end": "2027-06-10",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 78,
+    "slug": "superreturn-venture-superventure",
+    "name": "SuperReturn Venture (SuperVenture)",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2027-06-08",
+    "end": "2027-06-10",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 79,
+    "slug": "web-summit-rio",
+    "name": "Web Summit Rio",
+    "city": "Rio de Janeiro",
+    "country": "Brazil",
+    "lat": -22.9068,
+    "lng": -43.1729,
+    "start": "2027-06-14",
+    "end": "2027-06-17",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://websummitrio.com/",
+    "v": 1
+  },
+  {
+    "id": 92,
+    "slug": "hinterland-of-things",
+    "name": "Hinterland of Things",
+    "city": "Bielefeld",
+    "country": "Germany",
+    "lat": 52.0302,
+    "lng": 8.5325,
+    "start": "2027-06-15",
+    "end": "2027-06-16",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 80,
+    "slug": "arctic15",
+    "name": "Arctic15",
+    "city": "Helsinki",
+    "country": "Finland",
+    "lat": 60.1699,
+    "lng": 24.9384,
+    "start": "2027-06-16",
+    "end": "2027-06-17",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 81,
+    "slug": "vivatech",
+    "name": "VivaTech",
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "start": "2027-06-16",
+    "end": "2027-06-19",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://vivatechnology.com/",
+    "v": 1
+  },
+  {
+    "id": 91,
+    "slug": "perspektywy-women-in-tech",
+    "name": "Perspektywy Women in Tech",
+    "city": "Warsaw",
+    "country": "Poland",
+    "lat": 52.2297,
+    "lng": 21.0122,
+    "start": "2027-06-16",
+    "end": "2027-06-17",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 93,
+    "slug": "techsylvania",
+    "name": "Techsylvania",
+    "city": "Cluj-Napoca",
+    "country": "Romania",
+    "lat": 46.7712,
+    "lng": 23.6236,
+    "start": "2027-06-24",
+    "end": "2027-06-25",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "blackunicorn",
+    "url": "",
+    "v": 1
+  },
+  {
+    "id": 82,
+    "slug": "startupfest",
+    "name": "Startupfest",
+    "city": "Montreal",
+    "country": "Canada",
+    "lat": 45.5019,
+    "lng": -73.5674,
+    "start": "2027-07-07",
+    "end": "2027-07-09",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "",
+    "v": 1
+  }
+]
