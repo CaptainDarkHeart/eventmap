@@ -138,7 +138,7 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
     </a>
   </nav>
   <div class="header-right">
-    <button id="theme-toggle" class="theme-toggle" type="button" title="Toggle theme">&#9788;</button>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light or dark theme" title="Toggle theme">&#9788;</button>
     <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
   </div>
 </header>
@@ -214,10 +214,11 @@ const TIER_LABEL = { mega: "Mega", major: "Major", notable: "Notable" };
 
 function applyTheme(theme) {
   document.documentElement.classList.toggle("dark", theme === "dark");
-  localStorage.setItem("em_theme", theme);
+  try { localStorage.setItem("em_theme", theme); } catch {}
 }
 (function () {
-  var saved = localStorage.getItem("em_theme");
+  var saved = null;
+  try { saved = localStorage.getItem("em_theme"); } catch {}
   var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   document.documentElement.classList.toggle("dark", theme === "dark");
 })();

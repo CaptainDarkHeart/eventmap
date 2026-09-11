@@ -60,17 +60,24 @@ async function handleContact(request, env) {
 		return json({ ok: false, error: "Verification failed, please try again." }, 400);
 	}
 
-	const to = env.DESTINATION_EMAIL || "contact@techeventsmap.com";
+	// Must be an address verified as an Email Routing destination on the account,
+	// otherwise the send binding rejects it. Set as a Worker secret, never hardcoded.
+	const to = env.DESTINATION_EMAIL;
+	if (!to) {
+		console.error("DESTINATION_EMAIL is not configured");
+		return json({ ok: false, error: "Could not send message, please email hello@techeventsmap.com directly." }, 500);
+	}
 	try {
 		await env.EMAIL.send({
 			to,
 			from: "contact@techeventsmap.com",
-			reply_to: email,
+			replyTo: email,
 			subject: `Tech Events Map contact form: ${name}`,
 			text: `From: ${name} <${email}>\n\n${message}`,
 			html: `<p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`,
 		});
-	} catch {
+	} catch (err) {
+		console.error("contact send failed", err);
 		return json({ ok: false, error: "Could not send message, please email hello@techeventsmap.com directly." }, 502);
 	}
 
@@ -104,6 +111,15 @@ async function handleSubmitEvent(request, env) {
 	if (!name || !url || !city || !country || !start || !token) {
 		return json({ ok: false, error: "Please fill in the required fields." }, 400);
 	}
+	if (!/^\d{4}-\d{2}-\d{2}$/.test(start) || (end && !/^\d{4}-\d{2}-\d{2}$/.test(end))) {
+		return json({ ok: false, error: "Please use valid dates." }, 400);
+	}
+	if (end && end < start) {
+		return json({ ok: false, error: "The end date can't be before the start date." }, 400);
+	}
+	if (!/^https?:\/\/\S+\.\S+/.test(url)) {
+		return json({ ok: false, error: "Please give a full website URL, starting with https://" }, 400);
+	}
 	if (submitterEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(submitterEmail)) {
 		return json({ ok: false, error: "That doesn't look like a valid email." }, 400);
 	}
@@ -122,17 +138,22 @@ async function handleSubmitEvent(request, env) {
 		submitterEmail ? `Submitter email: ${submitterEmail}` : null,
 	].filter(Boolean);
 
-	const to = env.DESTINATION_EMAIL || "contact@techeventsmap.com";
+	const to = env.DESTINATION_EMAIL;
+	if (!to) {
+		console.error("DESTINATION_EMAIL is not configured");
+		return json({ ok: false, error: "Could not send suggestion, please email hello@techeventsmap.com directly." }, 500);
+	}
 	try {
 		await env.EMAIL.send({
 			to,
 			from: "contact@techeventsmap.com",
-			reply_to: submitterEmail || undefined,
+			replyTo: submitterEmail || undefined,
 			subject: `Tech Events Map submission: ${name}`,
 			text: lines.join("\n"),
 			html: `<p>${lines.map(escapeHtml).join("<br>")}</p>`,
 		});
-	} catch {
+	} catch (err) {
+		console.error("submit-event send failed", err);
 		return json({ ok: false, error: "Could not send suggestion, please email hello@techeventsmap.com directly." }, 502);
 	}
 

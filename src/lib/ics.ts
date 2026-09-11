@@ -27,6 +27,25 @@ function dtstamp(): string {
 	return new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
 }
 
+// RFC 5545 caps content lines at 75 octets; longer lines must be folded onto
+// continuation lines starting with a single space, or strict parsers reject the file.
+function fold(line: string): string {
+	const bytes = new TextEncoder().encode(line);
+	if (bytes.length <= 75) return line;
+	const chunks: string[] = [];
+	let start = 0;
+	while (start < bytes.length) {
+		// first line takes 75 octets, continuations 74 (the leading space counts)
+		const limit = start === 0 ? 75 : 74;
+		let end = Math.min(start + limit, bytes.length);
+		// never split a multi-byte UTF-8 sequence
+		while (end > start && end < bytes.length && (bytes[end] & 0xc0) === 0x80) end--;
+		chunks.push(new TextDecoder().decode(bytes.slice(start, end)));
+		start = end;
+	}
+	return chunks.join("\r\n ");
+}
+
 export function buildVEvent(ev: IcsEvent): string {
 	const detailUrl = `https://techeventsmap.com/events/${ev.slug}`;
 	const lines = [
@@ -41,7 +60,7 @@ export function buildVEvent(ev: IcsEvent): string {
 		`DESCRIPTION:${escapeText(`${ev.name}, ${ev.city}, ${ev.country}. Details: ${detailUrl}`)}`,
 		"END:VEVENT",
 	];
-	return lines.join("\r\n");
+	return lines.map(fold).join("\r\n");
 }
 
 export function buildCalendar(events: IcsEvent[], calname = "Tech Events Map"): string {
@@ -54,5 +73,7 @@ export function buildCalendar(events: IcsEvent[], calname = "Tech Events Map"): 
 		`X-WR-CALNAME:${escapeText(calname)}`,
 		...events.map(buildVEvent),
 		"END:VCALENDAR",
-	].join("\r\n");
+	]
+		.map((line) => (line.startsWith("BEGIN:VEVENT") ? line : fold(line)))
+		.join("\r\n");
 }

@@ -17,11 +17,24 @@
 		</a>
 	</nav>
 	<div class="header-right">
+		<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light or dark theme" title="Toggle theme">&#9788;</button>
 		<button id="nav-toggle" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
 	</div>
 </header>
 
 <script>
+	// Same key the map page writes, so the choice carries across every page
+	const themeToggle = document.getElementById("theme-toggle");
+	themeToggle?.addEventListener("click", () => {
+		const dark = !document.documentElement.classList.contains("dark");
+		document.documentElement.classList.toggle("dark", dark);
+		try {
+			localStorage.setItem("em_theme", dark ? "dark" : "light");
+		} catch {
+			// private mode or blocked storage: the toggle still works for this page
+		}
+	});
+
 	const toggle = document.getElementById("nav-toggle");
 	const nav = document.getElementById("site-nav");
 	toggle?.addEventListener("click", () => {
@@ -83,7 +96,22 @@
 		height: 19px;
 		flex-shrink: 0;
 	}
-	.header-right { display: flex; align-items: center; gap: 14px; justify-content: flex-end; }
+	.header-right { display: flex; align-items: center; gap: 12px; justify-content: flex-end; }
+	.theme-toggle {
+		background: none;
+		border: 1px solid var(--border);
+		color: var(--text-dim);
+		font-size: 17.5px;
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+	.theme-toggle:hover { border-color: var(--text-dim); color: var(--text); }
 	.nav-toggle {
 		display: none;
 		align-items: center;

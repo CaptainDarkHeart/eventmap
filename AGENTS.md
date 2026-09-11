@@ -51,7 +51,9 @@ Not a pure static site anymore, `wrangler.jsonc` now points `main` at `worker/in
 - `POST /api/contact`, handled in `worker/index.js`: honeypot check, field validation, verifies the Turnstile token server-side against `TURNSTILE_SECRET_KEY`, then sends mail via the `EMAIL` binding (Cloudflare Email Routing, `send_email` in `wrangler.jsonc`) to the destination address (`env.DESTINATION_EMAIL`, default `contact@techeventsmap.com`).
 - `POST /api/submit-event`, same shape, sends "Tech Events Map submission" mail from `contact@techeventsmap.com`, reply-to the submitter's optional email. Manual review only, does not touch `events.json`.
 
-`TURNSTILE_SECRET_KEY` and optional `DESTINATION_EMAIL` are set as Worker secrets / vars (`wrangler secret list` shows secrets), not in `.env`, never commit them. The Turnstile site key is public and lives inline in `contact.astro` / `submit.astro`.
+`TURNSTILE_SECRET_KEY` and `DESTINATION_EMAIL` are set as Worker secrets (`wrangler secret list` shows secrets), not in `.env`, never commit them. `DESTINATION_EMAIL` is required, not optional: the `send_email` binding will only deliver to an address **verified as an Email Routing destination address** on the account, and `contact@techeventsmap.com` is a routing rule source, not a verified destination, so it is not a usable value. With the secret unset both form endpoints return a 500 and log `DESTINATION_EMAIL is not configured`. Use a secret rather than a plain var: `wrangler deploy` wipes plain vars that aren't declared in `wrangler.jsonc`, secrets survive.
+
+The send payload uses the Email Sending Workers API shape (`env.EMAIL.send({ from, to, replyTo, subject, text, html })`). The reply-to field is `replyTo`, camelCase, not `reply_to`. The Turnstile site key is public and lives inline in `contact.astro` / `submit.astro`.
 
 Email Routing (`EMAIL` binding, `send_email`) is live and verified on the `techeventsmap.com` zone: MX/SPF/DKIM records present, Email Routing status `ready`, destination email verified. Confirmed 2026-09-11.
 

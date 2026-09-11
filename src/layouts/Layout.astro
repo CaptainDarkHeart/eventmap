@@ -51,7 +51,8 @@ const ogImageURL = new URL(image, Astro.site);
 		<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet" />
 		<script is:inline>
 			(function () {
-				var saved = localStorage.getItem("em_theme");
+				var saved = null;
+				try { saved = localStorage.getItem("em_theme"); } catch (e) {}
 				var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 				document.documentElement.classList.toggle("dark", theme === "dark");
 			})();

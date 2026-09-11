@@ -78,7 +78,11 @@ const TURNSTILE_SITEKEY = "0x4AAAAAAEwHeenj5gz4VHU9";
 		submitBtn.disabled = true;
 
 		const fd = new FormData(form);
-		if (String(fd.get("company") || "").trim() !== "") return;
+		if (String(fd.get("company") || "").trim() !== "") {
+			resultEl.textContent = "";
+			submitBtn.disabled = false;
+			return;
+		}
 
 		const payload = {
 			company: fd.get("company"),

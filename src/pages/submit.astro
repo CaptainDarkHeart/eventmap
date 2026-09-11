@@ -95,13 +95,28 @@ const TURNSTILE_SITEKEY = "0x4AAAAAAEwHeenj5gz4VHU9";
 	const resultEl = document.getElementById("submit-result") as HTMLParagraphElement;
 	const submitBtn = form.querySelector("button[type=submit]") as HTMLButtonElement;
 
+	const startInput = form.querySelector("input[name=start]") as HTMLInputElement;
+	const endInput = form.querySelector("input[name=end]") as HTMLInputElement;
+	// An end date before the start date is never valid, so block it in the picker itself
+	startInput.addEventListener("change", () => {
+		endInput.min = startInput.value;
+	});
+
 	form.addEventListener("submit", async (e) => {
 		e.preventDefault();
+		if (endInput.value && startInput.value && endInput.value < startInput.value) {
+			resultEl.textContent = "The end date can't be before the start date.";
+			return;
+		}
 		resultEl.textContent = "Submitting...";
 		submitBtn.disabled = true;
 
 		const fd = new FormData(form);
-		if (String(fd.get("company") || "").trim() !== "") return;
+		if (String(fd.get("company") || "").trim() !== "") {
+			resultEl.textContent = "";
+			submitBtn.disabled = false;
+			return;
+		}
 
 		const payload = {
 			company: fd.get("company"),

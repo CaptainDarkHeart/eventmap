@@ -62,7 +62,7 @@ function fmtDate(s: string, e: string) {
 			</div>
 		</div>
 		<div class="controls">
-			<input id="search" class="search-input" type="text" placeholder="Search events, cities, countries..." autocomplete="off" />
+			<input id="search" class="search-input" type="text" placeholder="Search events, cities, countries, topics..." autocomplete="off" />
 			<div class="filter-tags" id="tier-tags">
 				<button class="filter-tag active" data-tier="all">All</button>
 				<button class="filter-tag" data-tier="mega">Mega</button>
@@ -133,7 +133,7 @@ function fmtDate(s: string, e: string) {
 							data-topics={ev.topics.map((t) => TOPICS[t]?.label ?? t).join(", ").toLowerCase()}
 							data-tier={ev.tier}
 							data-tier-rank={ev.tier === "mega" ? 3 : ev.tier === "major" ? 2 : 1}
-							data-csv={[ev.name, ev.start, ev.end, ev.city, ev.country, ev.topics.map((t) => TOPICS[t]?.label ?? t).join("; "), TIERS[ev.tier], ev.url].join("\t")}
+							data-csv={JSON.stringify([ev.name, ev.start, ev.end, ev.city, ev.country, ev.topics.map((t) => TOPICS[t]?.label ?? t).join("; "), TIERS[ev.tier], ev.url ?? ""])}
 						>
 							<td><a href={`/events/${ev.slug}`}>{ev.name}</a></td>
 							<td>{fmtDate(ev.start, ev.end)}</td>
@@ -176,7 +176,8 @@ function fmtDate(s: string, e: string) {
 				!q ||
 				(row.dataset.name ?? "").includes(q) ||
 				(row.dataset.city ?? "").includes(q) ||
-				(row.dataset.country ?? "").includes(q);
+				(row.dataset.country ?? "").includes(q) ||
+				(row.dataset.topics ?? "").includes(q);
 			const visible = tierOk && searchOk;
 			row.hidden = !visible;
 			if (visible) visibleCount++;
@@ -265,16 +266,25 @@ function fmtDate(s: string, e: string) {
 		applyFilters();
 	});
 
+	function csvCell(value: string) {
+		// RFC 4180: quote anything containing a comma, quote or newline, doubling inner quotes
+		return /[",\r\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value;
+	}
+
 	document.getElementById("csv-btn")?.addEventListener("click", () => {
-		const header = ["Event", "Start", "End", "City", "Country", "Topics", "Size", "URL"].join("\t");
-		const visibleRows = rows.filter((r) => !r.hidden).map((r) => r.dataset.csv ?? "");
-		const csv = [header, ...visibleRows].join("\n");
-		const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+		const header = ["Event", "Start", "End", "City", "Country", "Topics", "Size", "URL"];
+		const visibleRows = rows
+			.filter((r) => !r.hidden)
+			.map((r) => JSON.parse(r.dataset.csv ?? "[]") as string[]);
+		const csv = [header, ...visibleRows].map((cells) => cells.map(csvCell).join(",")).join("\r\n");
+		const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8" });
 		const url = URL.createObjectURL(blob);
 		const a = document.createElement("a");
 		a.href = url;
 		a.download = "tech-events.csv";
+		document.body.appendChild(a);
 		a.click();
+		a.remove();
 		URL.revokeObjectURL(url);
 	});
 </script>
