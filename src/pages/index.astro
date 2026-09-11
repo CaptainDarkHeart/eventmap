@@ -263,16 +263,35 @@ function gcalLink(ev) {
 const sorted = [...events].sort((a, b) => a.start.localeCompare(b.start));
 const listEl = document.getElementById("event-list");
 
+// Many sources give a generic city centroid rather than a venue address, so
+// events in the same city land on the exact same lat/lng and permanently
+// overlap at every zoom level. Spread duplicates onto a small spiral around
+// the shared point so they separate as you zoom in.
+const coordCounts = {};
+
 const items = sorted.map((ev) => {
   const color = TOPICS[ev.topics[0]]?.color || "#999";
   const radius = ev.tier === "mega" ? 9 : ev.tier === "major" ? 7 : 5;
-  const marker = L.circleMarker([ev.lat, ev.lng], {
+
+  const coordKey = `${ev.lat},${ev.lng}`;
+  const dupIndex = coordCounts[coordKey] || 0;
+  coordCounts[coordKey] = dupIndex + 1;
+  let plotLat = ev.lat, plotLng = ev.lng;
+  if (dupIndex > 0) {
+    const angle = dupIndex * 2.399963229728653; // golden angle, spreads points evenly
+    const spread = 0.008 * Math.sqrt(dupIndex); // ~0.9km per sqrt(step)
+    plotLat += spread * Math.cos(angle);
+    plotLng += (spread * Math.sin(angle)) / Math.cos((ev.lat * Math.PI) / 180);
+  }
+
+  const marker = L.circleMarker([plotLat, plotLng], {
     radius, color, weight: 1.5, fillColor: color, fillOpacity: 0.8,
   });
   const url = ev.url ? `<a href="${outboundUrl(ev.url, ev.slug)}" target="_blank" rel="noopener">${ev.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</a>` : "";
   const links = `<div class="popup-links"><a href="/events/${ev.slug}">Details</a> &middot; <a href="${gcalLink(ev)}" target="_blank" rel="noopener">+ Google Calendar</a></div>`;
   marker.bindPopup(`<strong>${ev.name}</strong><br/>${ev.city}, ${ev.country}<br/>${fmtDate(ev.start, ev.end)}${url ? "<br/>" + url : ""}${links}`);
   marker.addTo(map);
+  marker.on("click", () => selectCard(ev.slug));
 
   const card = document.createElement("div");
   card.className = "event-card";
@@ -289,7 +308,7 @@ const items = sorted.map((ev) => {
   });
   listEl.appendChild(card);
 
-  return { ev, marker, card };
+  return { ev, marker, card, plotLat, plotLng };
 });
 
 const state = { topic: "all", tier: "all", when: "all", q: "" };
@@ -324,15 +343,21 @@ function applyFilters() {
 }
 applyFilters();
 
+function selectCard(slug) {
+  const match = items.find((i) => i.ev.slug === slug);
+  if (!match) return;
+  document.querySelectorAll(".event-card.selected").forEach((c) => c.classList.remove("selected"));
+  match.card.classList.add("selected");
+  match.card.scrollIntoView({ block: "nearest" });
+}
+
 function focusEvent(slug) {
   const match = items.find((i) => i.ev.slug === slug);
   if (!match) return;
-  const { ev, marker, card } = match;
-  map.flyTo([ev.lat, ev.lng], Math.max(map.getZoom(), 5), { duration: 0.6 });
+  const { marker, plotLat, plotLng } = match;
+  map.flyTo([plotLat, plotLng], Math.max(map.getZoom(), 12), { duration: 0.6 });
   marker.openPopup();
-  document.querySelectorAll(".event-card.selected").forEach((c) => c.classList.remove("selected"));
-  card.classList.add("selected");
-  card.scrollIntoView({ block: "nearest" });
+  selectCard(slug);
 }
 
 function tryHashFocus() {

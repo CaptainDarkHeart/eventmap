@@ -60,13 +60,15 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 		<div class="topics">
 			{ev.topics.map((t: string) => <span class="pill">{TOPICS[t]?.label ?? t}</span>)}
 		</div>
-		{ev.url && <p><a class="site-link" href={outboundUrl(ev.url, ev.slug)} target="_blank" rel="noopener">Official site →</a></p>}
 		<div class="cal-actions">
 			<a class="cal-btn" href={gcalUrl} target="_blank" rel="noopener">+ Google Calendar</a>
 			<a class="cal-btn" href={`/events/${ev.slug}.ics`}>Download .ics (Apple / Outlook)</a>
 		</div>
 		<p class="source">Date sourced from {ev.source}. Dates can shift year to year, always confirm on the official site before booking travel.</p>
-		<a class="map-link" href={`/#${ev.slug}`}>View on map →</a>
+		<div class="bottom-links">
+			{ev.url && <a class="map-link" href={outboundUrl(ev.url, ev.slug)} target="_blank" rel="noopener">View event →</a>}
+			<a class="map-link view-map" href={`/#${ev.slug}`}>View on map →</a>
+		</div>
 	</div>
 </Layout>
 
@@ -76,7 +78,9 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 	h1 { margin: 14px 0 6px; font-size: 32.5px; font-weight: 700; }
 	.meta { color: var(--text-dim); font-size: 16px; font-family: var(--mono); display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
 	.topics { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
-	.site-link, .map-link { color: var(--accent); text-decoration: none; font-size: 17.5px; }
+	.bottom-links { display: flex; align-items: center; gap: 16px; }
+	.bottom-links .view-map { margin-left: auto; }
+	.map-link { color: var(--accent); text-decoration: none; font-size: 17.5px; }
 	.cal-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
 	.cal-btn {
 		font-family: var(--mono);
