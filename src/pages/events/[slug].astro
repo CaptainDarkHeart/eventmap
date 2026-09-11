@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import { TOPICS, TIERS } from "../../lib/topics";
+import { outboundUrl } from "../../lib/utm";
 import events from "../../data/events.json";
 
 export function getStaticPaths() {
@@ -59,7 +60,7 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 		<div class="topics">
 			{ev.topics.map((t: string) => <span class="pill">{TOPICS[t]?.label ?? t}</span>)}
 		</div>
-		{ev.url && <p><a class="site-link" href={ev.url} target="_blank" rel="noopener">Official site →</a></p>}
+		{ev.url && <p><a class="site-link" href={outboundUrl(ev.url, ev.slug)} target="_blank" rel="noopener">Official site →</a></p>}
 		<div class="cal-actions">
 			<a class="cal-btn" href={gcalUrl} target="_blank" rel="noopener">+ Google Calendar</a>
 			<a class="cal-btn" href={`/events/${ev.slug}.ics`}>Download .ics (Apple / Outlook)</a>

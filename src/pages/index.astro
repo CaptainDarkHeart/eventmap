@@ -78,6 +78,8 @@ nav a:hover{color:var(--text)}
 .event-card .name .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .event-card .meta{font-family:var(--font);font-size:14px;color:var(--text-dim);margin-bottom:5px}
 .event-card .tags{display:flex;flex-wrap:wrap;gap:3px}
+.event-card .card-links{margin-top:5px;font-size:13.5px}
+.event-card .card-links a{position:relative;z-index:1}
 .mini-tag{font-family:var(--mono);font-size:12.5px;padding:2px 6px;border-radius:2px;background:var(--surface-2);color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em}
 .mini-tag.mega{color:var(--mega)}
 .mini-tag.major{color:var(--major)}
@@ -170,6 +172,17 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
 </div>
 
 <script define:vars={{ events, cartoKey }}>
+function outboundUrl(url, slug) {
+  try {
+    const u = new URL(url);
+    u.searchParams.set("utm_source", "techeventsmap.com");
+    u.searchParams.set("utm_medium", "referral");
+    u.searchParams.set("utm_campaign", slug);
+    return u.toString();
+  } catch {
+    return url;
+  }
+}
 const TOPICS = {
   "startup-vc": { label: "Startup / VC", color: "#e04a2e" },
   "fintech": { label: "Fintech", color: "#2a6898" },
@@ -256,7 +269,7 @@ const items = sorted.map((ev) => {
   const marker = L.circleMarker([ev.lat, ev.lng], {
     radius, color, weight: 1.5, fillColor: color, fillOpacity: 0.8,
   });
-  const url = ev.url ? `<a href="${ev.url}" target="_blank" rel="noopener">${ev.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</a>` : "";
+  const url = ev.url ? `<a href="${outboundUrl(ev.url, ev.slug)}" target="_blank" rel="noopener">${ev.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</a>` : "";
   const links = `<div class="popup-links"><a href="/events/${ev.slug}">Details</a> &middot; <a href="${gcalLink(ev)}" target="_blank" rel="noopener">+ Google Calendar</a></div>`;
   marker.bindPopup(`<strong>${ev.name}</strong><br/>${ev.city}, ${ev.country}<br/>${fmtDate(ev.start, ev.end)}${url ? "<br/>" + url : ""}${links}`);
   marker.addTo(map);
@@ -268,8 +281,12 @@ const items = sorted.map((ev) => {
     <div class="name"><span class="dot" style="background:${color}"></span>${ev.name}</div>
     <div class="meta">${fmtDate(ev.start, ev.end)} &middot; ${ev.city}, ${ev.country}</div>
     <div class="tags"><span class="mini-tag ${ev.tier}">${TIER_LABEL[ev.tier]}</span></div>
+    <div class="card-links"><a href="/events/${ev.slug}">Details</a>${ev.url ? ` &middot; <a href="${outboundUrl(ev.url, ev.slug)}" target="_blank" rel="noopener">Website ↗</a>` : ""}</div>
   `;
-  card.addEventListener("click", () => focusEvent(ev.slug));
+  card.addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
+    focusEvent(ev.slug);
+  });
   listEl.appendChild(card);
 
   return { ev, marker, card };
