@@ -1,0 +1,31 @@
+You are running a weekly automated event-discovery job for the Tech Events Map project (Astro static site, single data file src/data/events.json). Read CLAUDE.md in the repo root first for full field/schema and workflow context.
+
+GOAL: find NEW future tech/startup/AI/fintech conferences not already in events.json, verify them, and open a pull request adding only the ones you are confident about. Also seek out and verify NEW event-listing sources beyond the current roster, and if you add one, register it properly (source tag + /about page row). Never push to main directly.
+
+EXISTING SOURCES (do not re-propose these, use them as-is): Dealroom (dealroom), Techmeme (techmeme), dev.events (devevents), Sesamers (sesamers), Black Unicorn PR (blackunicorn), confs.tech (confstech), Tech.eu (techeu), TechCrunch (techcrunch), Ballou PR (balloupr), Gallium Ventures (galliumventures), Qolaig (qolaig), plus 'manual' for individually verified one-offs. Check each of these for new listings via WebFetch/WebSearch.
+
+PART A -- NEW SOURCE DISCOVERY:
+1. Search for other public sites/pages that maintain an ongoing list of tech/startup/AI/fintech conferences (event aggregators, PR agency event pages, VC firm blogs, industry association calendars) that are NOT already in the roster above.
+2. A candidate source qualifies only if: it is a real, currently-maintained public listing (updated within the last 6-12 months), it lists multiple qualifying events (not just one), and it is not a near-duplicate of an existing source (e.g. don't add a second generic 'dev conference aggregator' if confs.tech already covers that ground).
+3. For each qualifying new source, pick a short lowercase tag in the same style as the existing ones (single word, no spaces/hyphens, e.g. 'techmeme', 'balloupr'), and a one-line 'what it covers' description in the same style as src/pages/about.astro's existing rows.
+4. Add a new row to the sources table in src/pages/about.astro (same tbody structure as the existing rows, insert before the 'Manual research' row), and use the new tag as the 'source' field for any events you pull from it in this same run.
+5. In the PR description, call out any new source you added under a 'New sources added' heading with the site URL and why it qualified, so it can be spot-checked on review. Do not add a source you are not confident is legitimate and ongoing -- if borderline, list it under 'Needs manual review' instead of adding it.
+
+PART B -- EVENT DISCOVERY (existing + any newly added sources):
+1. Read src/data/events.json fully to know what already exists (match by id, slug, AND name since editions/years vary and slugs may differ year to year).
+2. For each source (existing roster + any new ones from Part A), fetch/search for upcoming conferences. Extract: name, city, country, exact start/end date (YYYY-MM-DD), official url, tier (mega/major/notable, judge by scale/prominence versus existing entries of each tier), and topics (only from the valid set in src/lib/topics.ts).
+3. Look up lat/lng for the city using well-known coordinates (major cities only need reasonable precision; do not fabricate wildly wrong coordinates).
+4. Cross-check every candidate against existing events.json entries by NAME first (not just slug) to avoid duplicates across editions/years.
+5. Filter to future events only, relative to today's date (check with `date`).
+6. Verify each candidate's url resolves (curl -I or -L, follow redirects, accept 2xx/3xx).
+7. Assign the next available integer id and a kebab-case slug (name + year if a same-name event already exists from a prior year).
+8. Add confident, fully-verified candidates to src/data/events.json in the existing format/ordering.
+9. Run `npm run validate-events` and fix any errors before proceeding.
+10. For anything ambiguous (ambiguous topic mapping, missing exact date, conflicting date vs an existing entry, uncertain tier) -- do NOT guess and do NOT add it to events.json. Instead list it under a "Needs manual review" section in the PR description with the source URL and what's ambiguous about it.
+
+PART C -- SHIP IT:
+1. Create a new branch (e.g. `event-discovery-YYYY-MM-DD`), commit the events.json (and about.astro, if changed) changes with a clear message, push the branch, and open a pull request against main using `gh pr create` with: a summary of events added (name, city, dates, source), a 'New sources added' section if applicable, and a 'Needs manual review' section for anything you skipped. If you found zero confident new events AND zero new sources, do not open a PR -- just stop.
+2. End the commit message and PR description with:
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+
+Be conservative throughout: only add events and sources you are genuinely confident are real, correctly dated/maintained, and not duplicates. When in doubt, put it in "Needs manual review" instead of guessing.
