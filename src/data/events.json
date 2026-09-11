@@ -1,5 +1,132 @@
 [
   {
+    "id": 149,
+    "slug": "dmexco",
+    "name": "DMEXCO",
+    "city": "Cologne",
+    "country": "Germany",
+    "lat": 50.9375,
+    "lng": 6.9603,
+    "start": "2026-09-23",
+    "end": "2026-09-24",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "qolaig",
+    "url": "https://www.dmexco.com/",
+    "v": 1
+  },
+  {
+    "id": 148,
+    "slug": "finovate-europe",
+    "name": "Finovate Europe",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-02-01",
+    "end": "2027-02-01",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "galliumventures",
+    "url": "https://informaconnect.com/finovate-europe/",
+    "v": 1
+  },
+  {
+    "id": 139,
+    "slug": "les-assises-de-la-cybersecurite",
+    "name": "Les Assises de la Cybersécurité",
+    "city": "Monaco",
+    "country": "Monaco",
+    "lat": 43.7384,
+    "lng": 7.4246,
+    "start": "2026-10-07",
+    "end": "2026-10-10",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "balloupr",
+    "url": "https://www.lesassisesdelacybersecurite.com/",
+    "v": 1
+  },
+  {
+    "id": 140,
+    "slug": "european-blockchain-convention",
+    "name": "European Blockchain Convention",
+    "city": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3874,
+    "lng": 2.1686,
+    "start": "2026-10-16",
+    "end": "2026-10-17",
+    "tier": "notable",
+    "topics": [
+      "crypto"
+    ],
+    "source": "balloupr",
+    "url": "https://eblockchainconvention.com/",
+    "v": 1
+  },
+  {
+    "id": 141,
+    "slug": "unleash",
+    "name": "UNLEASH",
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "start": "2026-10-20",
+    "end": "2026-10-22",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "balloupr",
+    "url": "https://unleash.ai/",
+    "v": 1
+  },
+  {
+    "id": 138,
+    "slug": "techcrunch-founder-summit",
+    "name": "TechCrunch Founder Summit",
+    "city": "Boston",
+    "country": "United States",
+    "lat": 42.3601,
+    "lng": -71.0589,
+    "start": "2026-11-04",
+    "end": "2026-11-04",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "techcrunch",
+    "url": "https://techcrunch.com/events/techcrunch-founder-summit-2026/",
+    "v": 1
+  },
+  {
+    "id": 137,
+    "slug": "tech-eu-summit-london",
+    "name": "Tech.eu Summit London",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5072,
+    "lng": -0.1276,
+    "start": "2026-04-21",
+    "end": "2026-04-22",
+    "tier": "major",
+    "topics": [
+      "startup-vc",
+      "general-tech"
+    ],
+    "source": "techeu",
+    "url": "https://tech.eu/event/2026/summit-london/",
+    "v": 1
+  },
+  {
     "id": 83,
     "slug": "techbbq",
     "name": "TechBBQ",
@@ -2445,6 +2572,116 @@
     ],
     "source": "confstech",
     "url": "https://www.wearedevelopers.com/conference-india",
+    "v": 1
+  },
+  {
+    "id": 142,
+    "slug": "tech-show-london",
+    "name": "Tech Show London",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-03-10",
+    "end": "2027-03-11",
+    "tier": "mega",
+    "topics": [
+      "ai",
+      "security",
+      "general-tech"
+    ],
+    "source": "galliumventures",
+    "url": "https://www.techshowlondon.co.uk/",
+    "v": 1
+  },
+  {
+    "id": 143,
+    "slug": "ai-big-data-expo-global",
+    "name": "AI & Big Data Expo Global",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-02-03",
+    "end": "2027-02-04",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "galliumventures",
+    "url": "https://www.ai-expo.net/global/",
+    "v": 1
+  },
+  {
+    "id": 144,
+    "slug": "ethcc-10",
+    "name": "EthCC[10] (Ethereum Community Conference)",
+    "city": "Cannes",
+    "country": "France",
+    "lat": 43.5528,
+    "lng": 7.0174,
+    "start": "2027-04-12",
+    "end": "2027-04-15",
+    "tier": "major",
+    "topics": [
+      "crypto"
+    ],
+    "source": "galliumventures",
+    "url": "https://ethcc.io/",
+    "v": 1
+  },
+  {
+    "id": 145,
+    "slug": "rsac-conference",
+    "name": "RSAC Conference",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2027-04-05",
+    "end": "2027-04-08",
+    "tier": "mega",
+    "topics": [
+      "security"
+    ],
+    "source": "galliumventures",
+    "url": "https://www.rsaconference.com/",
+    "v": 1
+  },
+  {
+    "id": 146,
+    "slug": "qcon-london",
+    "name": "QCon London",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-04-13",
+    "end": "2027-04-16",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://qconlondon.com/",
+    "v": 1
+  },
+  {
+    "id": 147,
+    "slug": "european-chatbot-ai-summit",
+    "name": "European Chatbot & Conversational AI Summit",
+    "city": "Edinburgh",
+    "country": "United Kingdom",
+    "lat": 55.9533,
+    "lng": -3.1883,
+    "start": "2027-03-17",
+    "end": "2027-03-18",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://theeuropeanchatbot.com/",
     "v": 1
   }
 ]

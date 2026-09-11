@@ -6,6 +6,25 @@ import events from "../../data/events.json";
 
 const sorted = [...events].sort((a, b) => a.start.localeCompare(b.start));
 
+function ymd(s: string) {
+	return s.replace(/-/g, "");
+}
+function addDay(s: string) {
+	const d = new Date(s + "T00:00:00Z");
+	d.setUTCDate(d.getUTCDate() + 1);
+	return d.toISOString().slice(0, 10);
+}
+function gcalUrl(ev: (typeof events)[number]) {
+	const params = new URLSearchParams({
+		action: "TEMPLATE",
+		text: ev.name,
+		dates: `${ymd(ev.start)}/${ymd(addDay(ev.end))}`,
+		details: ev.url || `https://techeventsmap.com/events/${ev.slug}`,
+		location: `${ev.city}, ${ev.country}`,
+	});
+	return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
 function fmtDate(s: string, e: string) {
 	const opts: Intl.DateTimeFormatOptions = { month: "short", day: "numeric", year: "numeric" };
 	const sd = new Date(s + "T00:00:00");
@@ -32,8 +51,25 @@ function fmtDate(s: string, e: string) {
 		<div class="page-head">
 			<h1>All events</h1>
 			<p class="sub">{events.length} tech, startup, AI and fintech events worldwide.</p>
+			<div class="head-links">
+				<a href="https://calendar.google.com/calendar/render?cid=https://techeventsmap.com/events.ics" target="_blank" rel="noopener">Subscribe (Google Calendar)</a>
+				<span>·</span>
+				<a href="/events.ics">Subscribe (Apple / Outlook)</a>
+				<span>·</span>
+				<button id="csv-btn" type="button">Export CSV</button>
+			</div>
 		</div>
-		<table>
+		<div class="controls">
+			<input id="search" class="search-input" type="text" placeholder="Search events, cities, countries..." autocomplete="off" />
+			<div class="filter-tags" id="tier-tags">
+				<button class="filter-tag active" data-tier="all">All</button>
+				<button class="filter-tag" data-tier="mega">Mega</button>
+				<button class="filter-tag" data-tier="major">Major</button>
+				<button class="filter-tag" data-tier="notable">Notable</button>
+			</div>
+		</div>
+		<p id="empty" class="empty" hidden>No events match these filters.</p>
+		<table id="events-table">
 			<thead>
 				<tr>
 					<th>Event</th>
@@ -41,22 +77,81 @@ function fmtDate(s: string, e: string) {
 					<th>Location</th>
 					<th>Topic</th>
 					<th>Size</th>
+					<th class="cal-col"></th>
 				</tr>
 			</thead>
 			<tbody>
 				{sorted.map((ev) => (
-					<tr>
+					<tr
+						data-name={ev.name.toLowerCase()}
+						data-city={ev.city.toLowerCase()}
+						data-country={ev.country.toLowerCase()}
+						data-tier={ev.tier}
+						data-csv={[ev.name, ev.start, ev.end, ev.city, ev.country, ev.topics.map((t) => TOPICS[t]?.label ?? t).join("; "), TIERS[ev.tier], ev.url].join("\t")}
+					>
 						<td><a href={`/events/${ev.slug}`}>{ev.name}</a></td>
 						<td>{fmtDate(ev.start, ev.end)}</td>
 						<td>{ev.city}, {ev.country}</td>
 						<td>{ev.topics.map((t) => TOPICS[t]?.label ?? t).join(", ")}</td>
 						<td class={`tier-${ev.tier}`}>{TIERS[ev.tier]}</td>
+						<td class="cal-col">
+							<a class="cal-link" href={gcalUrl(ev)} target="_blank" rel="noopener" title={`Add ${ev.name} to Google Calendar`}>Google</a>
+							<a class="cal-link" href={`/events/${ev.slug}.ics`} title={`Download ${ev.name} for Apple / Outlook`}>Apple/Outlook</a>
+						</td>
 					</tr>
 				))}
 			</tbody>
 		</table>
 	</div>
 </Layout>
+
+<script>
+	const search = document.getElementById("search") as HTMLInputElement;
+	const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>("#events-table tbody tr"));
+	const empty = document.getElementById("empty") as HTMLElement;
+	const tierTags = document.getElementById("tier-tags") as HTMLElement;
+	let activeTier = "all";
+
+	function applyFilters() {
+		const q = search.value.trim().toLowerCase();
+		let visibleCount = 0;
+		for (const row of rows) {
+			const tierOk = activeTier === "all" || row.dataset.tier === activeTier;
+			const searchOk =
+				!q ||
+				(row.dataset.name ?? "").includes(q) ||
+				(row.dataset.city ?? "").includes(q) ||
+				(row.dataset.country ?? "").includes(q);
+			const visible = tierOk && searchOk;
+			row.hidden = !visible;
+			if (visible) visibleCount++;
+		}
+		empty.hidden = visibleCount > 0;
+	}
+
+	search.addEventListener("input", applyFilters);
+	tierTags.addEventListener("click", (e) => {
+		const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".filter-tag");
+		if (!btn) return;
+		tierTags.querySelectorAll(".filter-tag").forEach((b) => b.classList.remove("active"));
+		btn.classList.add("active");
+		activeTier = btn.dataset.tier ?? "all";
+		applyFilters();
+	});
+
+	document.getElementById("csv-btn")?.addEventListener("click", () => {
+		const header = ["Event", "Start", "End", "City", "Country", "Topics", "Size", "URL"].join("\t");
+		const visibleRows = rows.filter((r) => !r.hidden).map((r) => r.dataset.csv ?? "");
+		const csv = [header, ...visibleRows].join("\n");
+		const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement("a");
+		a.href = url;
+		a.download = "tech-events.csv";
+		a.click();
+		URL.revokeObjectURL(url);
+	});
+</script>
 
 <style>
 	.wrap {
@@ -66,7 +161,46 @@ function fmtDate(s: string, e: string) {
 	}
 	.page-head { margin-bottom: 18px; }
 	h1 { margin: 0 0 4px; font-size: 30px; font-weight: 700; }
-	.sub { color: var(--text-dim); margin: 0; font-size: 17px; font-family: var(--font); }
+	.sub { color: var(--text-dim); margin: 0 0 8px; font-size: 17px; font-family: var(--font); }
+	.head-links { display: flex; align-items: center; gap: 10px; font-family: var(--font); font-size: 17px; color: var(--text-dim); }
+	.head-links a { color: var(--accent); text-decoration: none; }
+	.head-links button {
+		background: none;
+		border: none;
+		color: var(--accent);
+		font-family: var(--font);
+		font-size: 17px;
+		cursor: pointer;
+		padding: 0;
+	}
+	.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
+	.search-input {
+		flex: 1 1 220px;
+		background: var(--surface-2);
+		border: 1px solid var(--border);
+		color: var(--text);
+		font-family: var(--font);
+		font-size: 16px;
+		padding: 8px 10px;
+		border-radius: 4px;
+		outline: none;
+	}
+	.search-input::placeholder { color: var(--text-dim); }
+	.search-input:focus { border-color: var(--accent); }
+	.filter-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+	.filter-tag {
+		font-family: var(--mono);
+		font-size: 14px;
+		padding: 6px 10px;
+		border-radius: 3px;
+		border: 1px solid var(--border);
+		background: transparent;
+		color: var(--text-dim);
+		cursor: pointer;
+	}
+	.filter-tag:hover { border-color: var(--text-dim); color: var(--text); }
+	.filter-tag.active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+	.empty { color: var(--text-dim); font-family: var(--mono); padding: 20px 0; }
 	table { width: 100%; border-collapse: collapse; font-size: 17px; }
 	th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
 	th { color: var(--text-dim); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--mono); }
@@ -74,4 +208,11 @@ function fmtDate(s: string, e: string) {
 	a { text-decoration: none; color: var(--text); }
 	td a:hover { color: var(--accent); }
 	.tier-mega, .tier-major, .tier-notable { font-family: var(--mono); font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; }
+	.cal-col { white-space: nowrap; text-align: right; }
+	.cal-link { color: var(--accent) !important; font-family: var(--font); font-size: 15px; }
+	.cal-link:hover { text-decoration: underline; }
+	.cal-link + .cal-link { margin-left: 10px; }
+	@media (max-width: 640px) {
+		.cal-col { display: none; }
+	}
 </style>

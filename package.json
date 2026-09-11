@@ -12,6 +12,7 @@
     "astro": "astro",
     "check": "astro check",
     "validate-events": "node scripts/validate-events.mjs",
+    "check-urls": "node scripts/check-urls.mjs",
     "deploy": "astro build && wrangler deploy"
   },
   "dependencies": {

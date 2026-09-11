@@ -98,6 +98,7 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
 .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--surface);color:var(--text)}
 .leaflet-popup-content{font-family:var(--font);font-size:16px}
 .leaflet-popup-content a{color:var(--accent)}
+.popup-links{margin-top:6px;font-size:14px}
 .list-link{position:absolute;bottom:16px;right:16px;z-index:800;background:var(--surface);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:16px;text-decoration:none;color:var(--text);box-shadow:0 4px 16px rgba(0,0,0,0.12)}
 @media(max-width:900px){
   header{padding:10px 16px}
@@ -231,6 +232,25 @@ function fmtDate(s, e) {
   return `${sStr} – ${ed.toLocaleDateString("en-GB", opts)}`;
 }
 
+function ymd(s) {
+  return s.replace(/-/g, "");
+}
+function addDay(s) {
+  const d = new Date(s + "T00:00:00Z");
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
+function gcalLink(ev) {
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: ev.name,
+    dates: `${ymd(ev.start)}/${ymd(addDay(ev.end))}`,
+    details: ev.url || `https://techeventsmap.com/events/${ev.slug}`,
+    location: `${ev.city}, ${ev.country}`,
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
 const sorted = [...events].sort((a, b) => a.start.localeCompare(b.start));
 const listEl = document.getElementById("event-list");
 const countEl = document.getElementById("visible-count");
@@ -242,7 +262,8 @@ const items = sorted.map((ev) => {
     radius, color, weight: 1.5, fillColor: color, fillOpacity: 0.8,
   });
   const url = ev.url ? `<a href="${ev.url}" target="_blank" rel="noopener">${ev.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</a>` : "";
-  marker.bindPopup(`<strong>${ev.name}</strong><br/>${ev.city}, ${ev.country}<br/>${fmtDate(ev.start, ev.end)}${url ? "<br/>" + url : ""}`);
+  const links = `<div class="popup-links"><a href="/events/${ev.slug}">Details</a> &middot; <a href="${gcalLink(ev)}" target="_blank" rel="noopener">+ Google Calendar</a></div>`;
+  marker.bindPopup(`<strong>${ev.name}</strong><br/>${ev.city}, ${ev.country}<br/>${fmtDate(ev.start, ev.end)}${url ? "<br/>" + url : ""}${links}`);
   marker.addTo(map);
 
   const card = document.createElement("div");

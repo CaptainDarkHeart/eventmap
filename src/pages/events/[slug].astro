@@ -17,6 +17,16 @@ function fmtDate(s: string, e: string) {
 	if (s === e) return sd.toLocaleDateString("en-GB", opts);
 	return `${sd.toLocaleDateString("en-GB", { month: "long", day: "numeric" })} – ${ed.toLocaleDateString("en-GB", opts)}`;
 }
+
+function ymd(s: string) {
+	return s.replace(/-/g, "");
+}
+function addDay(s: string) {
+	const d = new Date(s + "T00:00:00Z");
+	d.setUTCDate(d.getUTCDate() + 1);
+	return d.toISOString().slice(0, 10);
+}
+const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(ev.name)}&dates=${ymd(ev.start)}/${ymd(addDay(ev.end))}&details=${encodeURIComponent(ev.url || `https://techeventsmap.com/events/${ev.slug}`)}&location=${encodeURIComponent(`${ev.city}, ${ev.country}`)}`;
 ---
 <Layout title={`${ev.name} — Tech Events Map`} description={`${ev.name}, ${fmtDate(ev.start, ev.end)}, ${ev.city}, ${ev.country}.`}>
 	<script is:inline type="application/ld+json" set:html={JSON.stringify({
@@ -50,6 +60,10 @@ function fmtDate(s: string, e: string) {
 			{ev.topics.map((t: string) => <span class="pill">{TOPICS[t]?.label ?? t}</span>)}
 		</div>
 		{ev.url && <p><a class="site-link" href={ev.url} target="_blank" rel="noopener">Official site →</a></p>}
+		<div class="cal-actions">
+			<a class="cal-btn" href={gcalUrl} target="_blank" rel="noopener">+ Google Calendar</a>
+			<a class="cal-btn" href={`/events/${ev.slug}.ics`}>Download .ics (Apple / Outlook)</a>
+		</div>
 		<p class="source">Date sourced from {ev.source}. Dates can shift year to year, always confirm on the official site before booking travel.</p>
 		<a class="map-link" href={`/#${ev.slug}`}>View on map →</a>
 	</div>
@@ -62,5 +76,16 @@ function fmtDate(s: string, e: string) {
 	.meta { color: var(--text-dim); font-size: 16px; font-family: var(--mono); display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
 	.topics { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
 	.site-link, .map-link { color: var(--accent); text-decoration: none; font-size: 17.5px; }
+	.cal-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+	.cal-btn {
+		font-family: var(--mono);
+		font-size: 14.5px;
+		padding: 8px 14px;
+		border-radius: 4px;
+		border: 1px solid var(--border);
+		color: var(--text);
+		text-decoration: none;
+	}
+	.cal-btn:hover { border-color: var(--accent); color: var(--accent); }
 	.source { color: var(--text-dim); font-size: 15px; font-family: var(--mono); margin-top: 20px; }
 </style>
