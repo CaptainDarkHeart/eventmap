@@ -79,7 +79,7 @@ nav a:hover{color:var(--text)}
 .event-card .meta{font-family:var(--font);font-size:14px;color:var(--text-dim);margin-bottom:5px}
 .event-card .tags{display:flex;flex-wrap:wrap;gap:3px}
 .event-card .card-links{margin-top:5px;font-size:13.5px}
-.event-card .card-links a{position:relative;z-index:1}
+.event-card .card-links a{position:relative;z-index:1;color:var(--accent)}
 .mini-tag{font-family:var(--mono);font-size:12.5px;padding:2px 6px;border-radius:2px;background:var(--surface-2);color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em}
 .mini-tag.mega{color:var(--mega)}
 .mini-tag.major{color:var(--major)}
@@ -300,7 +300,7 @@ const items = sorted.map((ev) => {
     <div class="name"><span class="dot" style="background:${color}"></span>${ev.name}</div>
     <div class="meta">${fmtDate(ev.start, ev.end)} &middot; ${ev.city}, ${ev.country}</div>
     <div class="tags"><span class="mini-tag ${ev.tier}">${TIER_LABEL[ev.tier]}</span></div>
-    <div class="card-links"><a href="/events/${ev.slug}">Details</a>${ev.url ? ` &middot; <a href="${outboundUrl(ev.url, ev.slug)}" target="_blank" rel="noopener">Website ↗</a>` : ""}</div>
+    <div class="card-links"><a href="/events/${ev.slug}">Details</a></div>
   `;
   card.addEventListener("click", (e) => {
     if (e.target.closest("a")) return;
