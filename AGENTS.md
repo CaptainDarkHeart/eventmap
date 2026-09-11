@@ -6,6 +6,8 @@ Data: `src/data/events.json`, single source of truth. Fields: id, slug, name, ci
 
 **Workflow for adding events from a new data source:** fetch/scrape the source, cross-check every candidate against existing `events.json` entries by name (not just slug, editions/years vary) to avoid duplicates, filter to future events only (relative to today), then confirm with the user before writing: (1) whether to introduce a new `source` tag (and matching `/about` row) vs reuse an existing one, and (2) any judgment call the source doesn't give a clean answer for (ambiguous topic mapping, missing exact date, conflicting dates vs. another source already in the data). Don't guess silently on those two things.
 
+**Automated weekly discovery:** a launchd job (`~/Library/LaunchAgents/com.dantaylor.eventmap-discovery.plist`) runs `scripts/discover-events-cron.sh` every Monday 08:00 local time. It runs `claude -p` headlessly (scoped `--allowedTools`, `--permission-mode acceptEdits`, `--permission-prompts none`, prompt in `scripts/discover-events-prompt.txt`) with real internet access to check existing sources plus hunt for legitimate new ones, verify candidates, and open a PR (never pushes to main; ambiguous calls go in a "Needs manual review" PR section instead of being guessed, same rule as manual additions above). Logs in `logs/` (gitignored). A first attempt used a scheduled cloud routine instead, but the sandbox environment blanket-blocked almost all outbound HTTPS, making verification impossible; local launchd has normal internet access.
+
 Validate event data before committing changes to it:
 
 ```

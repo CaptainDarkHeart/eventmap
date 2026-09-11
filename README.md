@@ -21,8 +21,11 @@ Live at: https://techeventsmap.com
 ├── public/
 │   └── favicon.svg, favicon.ico
 ├── scripts/
-│   ├── validate-events.mjs   # data integrity checks for events.json
-│   └── check-urls.mjs        # checks every event's url still resolves
+│   ├── validate-events.mjs         # data integrity checks for events.json
+│   ├── check-urls.mjs              # checks every event's url still resolves
+│   ├── prune-past-events.mjs       # removes events whose end date has passed
+│   ├── discover-events-prompt.txt  # prompt for the weekly discovery agent
+│   └── discover-events-cron.sh     # headless `claude -p` wrapper, run by launchd
 ├── src/
 │   ├── components/
 │   │   └── SiteHeader.astro
@@ -72,3 +75,16 @@ cp .env.example .env
 ## Adding events
 
 Edit `src/data/events.json`. Each entry needs: `id`, `slug`, `name`, `city`, `country`, `lat`, `lng`, `start`, `end`, `tier` (`mega` / `major` / `notable`), `topics` (array of keys from `src/lib/topics.ts`), `source`, `url`. Run `npm run validate-events` before committing. Sources are listed with attribution on `/about`; adding events from a new source means adding its row there too.
+
+## Automated event discovery
+
+A launchd job (`~/Library/LaunchAgents/com.dantaylor.eventmap-discovery.plist`, not checked into this repo) runs `scripts/discover-events-cron.sh` every Monday at 08:00 local time. It invokes `claude -p` headlessly, with real internet access, to:
+
+- check every existing source (see `/about`) plus search for legitimate new ones, for new future events
+- verify each candidate (url resolves, not a duplicate by name, future-dated) before adding it
+- add a new source's `/about` row + tag if one qualifies
+- open a PR with the additions (never pushes to main); anything ambiguous goes in a "Needs manual review" section instead of being guessed
+
+Logs land in `logs/` (gitignored). Run it manually with `launchctl kickstart -k gui/$(id -u)/com.dantaylor.eventmap-discovery`, or run `scripts/discover-events-cron.sh` directly.
+
+A first attempt ran this as a scheduled cloud routine (Anthropic's remote-trigger API), but the sandbox environment's egress policy blanket-blocked almost all outbound HTTPS, making source verification impossible. The launchd approach uses this machine's normal internet access instead.
