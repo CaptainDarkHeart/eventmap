@@ -2683,5 +2683,23 @@
     "source": "manual",
     "url": "https://theeuropeanchatbot.com/",
     "v": 1
+  },
+  {
+    "id": 150,
+    "slug": "resilience-conference-london",
+    "name": "Resilience Conference London",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2026-10-05",
+    "end": "2026-10-06",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://resiliencemedia.co/events/resilience-conference-london/",
+    "v": 1
   }
 ]

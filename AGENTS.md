@@ -2,7 +2,9 @@
 
 Eventmap, branded "Tech Events Map" (domain: techeventsmap.com, live, wired up 2026-09-11). Astro static site. Interactive world map (Leaflet + CARTO basemaps) of tech, startup, AI, fintech conferences. Plus a plain table view, an about page, a contact form, and an event submission form.
 
-Data: `src/data/events.json`, single source of truth. Fields: id, slug, name, city, country, lat, lng, start, end, tier (mega/major/notable), topics (array, keys in `src/lib/topics.ts`), source, url, v. Sources listed on `/about`: Dealroom, Techmeme, dev.events, Sesamers, Black Unicorn PR.
+Data: `src/data/events.json`, single source of truth. Fields: id, slug, name, city, country, lat, lng, start, end, tier (mega/major/notable), topics (array, keys in `src/lib/topics.ts`), source, url, v. Sources listed on `/about` (each with a short tag used in the `source` field): Dealroom (`dealroom`), Techmeme (`techmeme`), dev.events (`devevents`), Sesamers (`sesamers`), Black Unicorn PR (`blackunicorn`), confs.tech (`confstech`), Tech.eu (`techeu`), TechCrunch (`techcrunch`), Ballou PR (`balloupr`), Gallium Ventures (`galliumventures`), Qolaig (`qolaig`), plus `manual` for individually verified one-offs.
+
+**Workflow for adding events from a new data source:** fetch/scrape the source, cross-check every candidate against existing `events.json` entries by name (not just slug, editions/years vary) to avoid duplicates, filter to future events only (relative to today), then confirm with the user before writing: (1) whether to introduce a new `source` tag (and matching `/about` row) vs reuse an existing one, and (2) any judgment call the source doesn't give a clean answer for (ambiguous topic mapping, missing exact date, conflicting dates vs. another source already in the data). Don't guess silently on those two things.
 
 Validate event data before committing changes to it:
 
@@ -12,9 +14,18 @@ npm run validate-events
 
 Checks (`scripts/validate-events.mjs`): duplicate id/slug, missing name/city/country, lat/lng range, date format and start<=end, valid tier, non-empty valid topics, url format.
 
+Check that event URLs still resolve (not run automatically, run manually / periodically):
+
+```
+npm run check-urls
+```
+
+`scripts/check-urls.mjs`: HEAD (falling back to GET on 403/405) every event's `url`, 8 concurrent, 10s timeout, reports broken links.
+
 Pages:
 - `src/pages/index.astro` (map, client script inlined via `define:vars`)
-- `src/pages/events/index.astro` (table), `src/pages/events/[slug].astro` (static per-event page via `getStaticPaths`)
+- `src/pages/events/index.astro` (table view: tier filter, free-text search across name/city/country, "Export CSV" of the currently visible rows, per-row "Add to calendar" link), `src/pages/events/[slug].astro` (static per-event page via `getStaticPaths`)
+- `src/pages/events.ics.ts` (single ICS feed of every event, `/events.ics`), `src/pages/events/[slug].ics.ts` (per-event ICS download, static via `getStaticPaths`) — both built from `src/lib/ics.ts` (`buildVEvent`/`buildCalendar`, end date is exclusive per iCal spec so it adds a day internally)
 - `src/pages/about.astro` (data sources, builder bio, uses `public/dan.jpg`, original source photo kept in `assets-src/dan-original.png`)
 - `src/pages/contact.astro` (contact form, Cloudflare Turnstile widget, honeypot field, posts to `/api/contact`)
 - `src/pages/submit.astro` (event submission form, same Turnstile/honeypot pattern, posts to `/api/submit-event`, does not write to `events.json`, just emails the submission for manual review)

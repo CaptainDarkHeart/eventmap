@@ -24,6 +24,12 @@ import SiteHeader from "../components/SiteHeader.astro";
 </Layout>
 
 <style>
+	@font-face {
+		font-family: 'Star Jedi';
+		font-style: normal;
+		font-weight: 400;
+		src: url('/fonts/Starjedi.ttf') format('truetype');
+	}
 	.bg-video {
 		position: fixed;
 		inset: 0;
@@ -39,7 +45,7 @@ import SiteHeader from "../components/SiteHeader.astro";
 		min-width: 100vw;
 		height: 56.25vw;
 		min-height: 100vh;
-		transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%) scale(1.4);
 	}
 	.overlay {
 		position: fixed;
@@ -52,12 +58,25 @@ import SiteHeader from "../components/SiteHeader.astro";
 		z-index: 1;
 		max-width: 640px;
 		margin: 0 auto;
-		padding: 160px 16px 60px;
+		padding: 16px;
 		text-align: center;
 		min-height: 100vh;
 		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
-	h1 { margin: 0 0 20px; font-size: 32px; font-weight: 700; color: #fff; line-height: 1.3; }
+	h1 {
+		margin: 0 0 24px;
+		font-family: 'Star Jedi', sans-serif;
+		font-size: 30px;
+		font-weight: 400;
+		letter-spacing: 2px;
+		color: #ffe81f;
+		text-shadow: 0 0 12px rgba(255, 232, 31, 0.6);
+		line-height: 1.5;
+	}
 	.links { display: flex; gap: 20px; justify-content: center; margin-top: 20px; }
 	a { color: #fff; font-weight: 700; text-decoration: underline; }
 	a:hover { opacity: 0.8; }
