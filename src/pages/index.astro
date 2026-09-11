@@ -49,8 +49,6 @@ nav{display:flex;align-items:center;gap:20px;justify-content:center}
 nav a{font-family:var(--font);font-size:15.5px;color:var(--text-dim);text-decoration:none;text-transform:uppercase;letter-spacing:0.06em;transition:color 0.15s}
 nav a:hover{color:var(--text)}
 .header-right{display:flex;align-items:center;gap:12px;justify-content:flex-end}
-.event-count{font-family:var(--font);font-size:15px;color:var(--text-dim)}
-.event-count strong{color:var(--accent);font-weight:700}
 .theme-toggle{background:none;border:1px solid var(--border);color:var(--text-dim);font-size:17.5px;width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;flex-shrink:0}
 .theme-toggle:hover{border-color:var(--text-dim);color:var(--text)}
 .nav-toggle{display:none;align-items:center;justify-content:center;width:30px;height:30px;background:none;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:var(--font);font-size:19px;line-height:1;cursor:pointer;padding:0;flex-shrink:0}
@@ -61,7 +59,7 @@ nav a:hover{color:var(--text)}
 .filter-group{margin-bottom:10px}.filter-group:last-child{margin-bottom:0}
 .filter-group h3{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:7px}
 .filter-tags{display:flex;flex-wrap:wrap;gap:5px}
-.filter-tag{font-family:var(--mono);font-size:14px;padding:4px 9px;border-radius:3px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all 0.15s;user-select:none;display:inline-flex;align-items:center;gap:5px}
+.filter-tag{font-family:var(--font);font-size:14px;padding:4px 9px;border-radius:3px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all 0.15s;user-select:none;display:inline-flex;align-items:center;gap:5px}
 .filter-tag:hover{border-color:var(--text-dim);color:var(--text)}
 .filter-tag.active{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 .filter-tag .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
@@ -106,7 +104,6 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
   nav.open{display:flex}
   nav a{width:100%;padding:14px 20px;border-top:1px solid var(--border)}
   nav a:first-child{border-top:none}
-  .event-count{display:none}
   .sidebar{display:none}
   .leaflet-control-zoom{display:none!important}
   .nav-toggle{display:inline-block}
@@ -127,7 +124,6 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
     <a href="/contact">Contact</a>
   </nav>
   <div class="header-right">
-    <span class="event-count"><strong id="visible-count">{events.length}</strong> / {events.length} events</span>
     <button id="theme-toggle" class="theme-toggle" type="button" title="Toggle theme">&#9788;</button>
     <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
   </div>
@@ -253,7 +249,6 @@ function gcalLink(ev) {
 
 const sorted = [...events].sort((a, b) => a.start.localeCompare(b.start));
 const listEl = document.getElementById("event-list");
-const countEl = document.getElementById("visible-count");
 
 const items = sorted.map((ev) => {
   const color = TOPICS[ev.topics[0]]?.color || "#999";
@@ -301,7 +296,6 @@ function applyFilters() {
     card.style.display = visible ? "" : "none";
     if (visible) visibleCount++;
   }
-  countEl.textContent = visibleCount;
   const anyVisible = visibleCount > 0;
   listEl.querySelector(".empty-state")?.remove();
   if (!anyVisible) {
