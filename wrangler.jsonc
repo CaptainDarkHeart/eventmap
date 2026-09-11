@@ -1,0 +1,9 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "eventmap",
+	"account_id": "cd625a8a773318340cd24e10532aa135",
+	"compatibility_date": "2026-09-11",
+	"assets": {
+		"directory": "./dist"
+	}
+}

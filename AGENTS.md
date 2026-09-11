@@ -6,7 +6,17 @@ Data: `src/data/events.json`, single source of truth. Fields: id, slug, name, ci
 
 Pages: `src/pages/index.astro` (map, client script inlined via `define:vars`), `src/pages/events/index.astro` (table), `src/pages/events/[slug].astro` (static per-event page via `getStaticPaths`).
 
-Env: `PUBLIC_CARTO_KEY` (CARTO basemap key), set in `.env`, required for map tiles to load.
+Env: `PUBLIC_CARTO_KEY` (CARTO basemap key), set in `.env`, required for map tiles to load. It's a public/client-side key, gets baked into the static HTML at build time, that's expected.
+
+## Deploy
+
+Cloudflare Worker, static assets mode (`wrangler.jsonc`, `assets.directory: ./dist`, no adapter). Deployed under account `cd625a8a773318340cd24e10532aa135` (dantaylormedia@gmail.com), name `eventmap`.
+
+```
+npm run deploy   # astro build && wrangler deploy
+```
+
+Currently live at the default `*.workers.dev` address, no custom domain wired up yet.
 
 ## Development
 

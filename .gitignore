@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # playwright cli session output
 .playwright-cli/
+
+# wrangler local state
+.wrangler/

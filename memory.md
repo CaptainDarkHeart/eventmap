@@ -16,4 +16,8 @@ Working prototype. Map view + table view + per-event pages. ~2200 lines of event
 
 - No process yet for adding/updating events (manual JSON edit only). No validation script for lat/lng, duplicate slugs, or stale dates.
 - `public/events.json` vs `src/data/events.json` duplication not resolved, pick one and delete the other.
-- No deploy target confirmed yet (`astro.config.mjs` site is `eventmap.dantaylor.net`, implies Cloudflare Pages or similar per other Dan Taylor projects, not yet wired up).
+- Custom domain not wired up (2026-09-11: Dan said `eventmap.dantaylor.net` in `astro.config.mjs` has nothing to do with this deploy, real URL comes later). Live on default `eventmap.workers.dev` for now.
+
+## Deploy (2026-09-11)
+
+Wired to Cloudflare as a Worker in static-assets mode, not Pages, not the `@astrojs/cloudflare` SSR adapter, this site has no server logic. Account is Dan's main one (dantaylormedia@gmail.com), picked explicitly since `wrangler whoami` showed two accounts and non-interactive deploy needs `account_id` pinned in `wrangler.jsonc`.
