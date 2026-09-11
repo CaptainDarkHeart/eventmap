@@ -12,8 +12,9 @@
     "astro": "astro",
     "check": "astro check",
     "validate-events": "node scripts/validate-events.mjs",
+    "prune-past-events": "node scripts/prune-past-events.mjs",
     "check-urls": "node scripts/check-urls.mjs",
-    "deploy": "astro build && wrangler deploy"
+    "deploy": "node scripts/prune-past-events.mjs && astro build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

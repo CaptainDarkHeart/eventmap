@@ -22,6 +22,14 @@ npm run check-urls
 
 `scripts/check-urls.mjs`: HEAD (falling back to GET on 403/405) every event's `url`, 8 concurrent, 10s timeout, reports broken links.
 
+Past events are removed from `events.json` entirely, not just filtered client-side, this is a current/upcoming listing only:
+
+```
+npm run prune-past-events
+```
+
+`scripts/prune-past-events.mjs`: drops any event whose `end` date is before today, overwrites `events.json`. Runs automatically as part of `npm run deploy` (before `astro build`), so it doesn't need to be run manually before a deploy. Run it manually if checking for stale entries outside a deploy.
+
 Pages:
 - `src/pages/index.astro` (map, client script inlined via `define:vars`)
 - `src/pages/events/index.astro` (table view: tier filter, free-text search across name/city/country, "Export CSV" of the currently visible rows, per-row "Add to calendar" link), `src/pages/events/[slug].astro` (static per-event page via `getStaticPaths`)

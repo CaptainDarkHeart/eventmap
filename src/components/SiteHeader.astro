@@ -1,5 +1,4 @@
 ---
-import events from "../data/events.json";
 ---
 <header>
 	<a class="logo" href="/">
@@ -14,7 +13,6 @@ import events from "../data/events.json";
 		<a href="/contact">Contact</a>
 	</nav>
 	<div class="header-right">
-		<span class="event-count">{events.length} events</span>
 		<button id="nav-toggle" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
 	</div>
 </header>
@@ -73,7 +71,6 @@ import events from "../data/events.json";
 	}
 	nav a:hover { color: var(--text); }
 	.header-right { display: flex; align-items: center; gap: 14px; justify-content: flex-end; }
-	.event-count { font-family: var(--font); font-size: 15px; color: var(--text-dim); }
 	.nav-toggle {
 		display: none;
 		align-items: center;
@@ -110,8 +107,5 @@ import events from "../data/events.json";
 		nav a:first-child { border-top: none; }
 		header { position: relative; }
 		.nav-toggle { display: inline-block; }
-	}
-	@media (max-width: 480px) {
-		.event-count { display: none; }
 	}
 </style>
