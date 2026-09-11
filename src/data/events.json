@@ -2502,5 +2502,24 @@
     "source": "manual",
     "url": "https://resiliencemedia.co/events/resilience-conference-london/",
     "v": 1
+  },
+  {
+    "id": 151,
+    "slug": "mxt-conference",
+    "name": "MXT Conference",
+    "city": "Groningen",
+    "country": "Netherlands",
+    "lat": 53.2194,
+    "lng": 6.5665,
+    "start": "2027-01-13",
+    "end": "2027-01-13",
+    "tier": "notable",
+    "topics": [
+      "startup-vc",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://mxtconference.com/",
+    "v": 1
   }
 ]
