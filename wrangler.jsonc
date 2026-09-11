@@ -3,7 +3,12 @@
 	"name": "eventmap",
 	"account_id": "cd625a8a773318340cd24e10532aa135",
 	"compatibility_date": "2026-09-11",
+	"main": "worker/index.js",
 	"assets": {
-		"directory": "./dist"
-	}
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"send_email": [
+		{ "name": "EMAIL" }
+	]
 }

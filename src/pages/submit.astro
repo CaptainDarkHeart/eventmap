@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import { TOPICS } from "../lib/topics";
+
+const TURNSTILE_SITEKEY = "0x4AAAAAAEwHeenj5gz4VHU9";
+---
+<Layout title="Submit an Event — Tech Events Map" description="Know a tech, startup, AI or fintech conference that's missing? Submit it to Tech Events Map.">
+	<SiteHeader />
+	<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+	<div class="wrap">
+		<h1>Submit an Event</h1>
+		<p>Know a tech, startup, AI or fintech conference that isn't on the map? Fill in what you know below. I check every submission before it goes live, so it won't appear instantly.</p>
+
+		<form id="submit-form">
+			<input type="text" name="company" tabindex="-1" autocomplete="off" class="hp-field" />
+
+			<label>Event name *<input type="text" name="name" required maxlength="150" /></label>
+			<label>Website *<input type="text" name="url" required maxlength="300" placeholder="https://event.example.com" /></label>
+			<label>City *<input type="text" name="city" required maxlength="100" /></label>
+			<label>Country *<input type="text" name="country" required maxlength="100" /></label>
+			<div class="row">
+				<label>Start date *<input type="date" name="start" required /></label>
+				<label>End date<input type="date" name="end" /></label>
+			</div>
+
+			<fieldset>
+				<legend>Topics</legend>
+				{Object.entries(TOPICS).map(([key, t]) => (
+					<label class="checkbox"><input type="checkbox" name="topics" value={key} /> {t.label}</label>
+				))}
+			</fieldset>
+
+			<label>Anything else?<textarea name="notes" maxlength="500" rows="3"></textarea></label>
+			<label>Your email (optional, in case I have questions)<input type="email" name="submitterEmail" maxlength="200" /></label>
+
+			<div class="cf-turnstile" data-sitekey={TURNSTILE_SITEKEY}></div>
+
+			<button type="submit">Submit event</button>
+			<p id="submit-result" role="status"></p>
+		</form>
+
+		<p class="alt">Spotted incorrect info on an existing listing? <a href="/contact">Contact me</a> instead.</p>
+	</div>
+</Layout>
+
+<style>
+	.wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 60px; }
+	h1 { margin: 14px 0 16px; font-size: 32.5px; font-weight: 700; }
+	p { color: var(--text); font-size: 17.5px; line-height: 1.6; margin: 0 0 10px; }
+	a { color: var(--accent); }
+	form { display: flex; flex-direction: column; gap: 16px; max-width: 480px; margin: 24px 0; }
+	form label { display: flex; flex-direction: column; gap: 6px; font-family: var(--font); font-size: 15px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
+	form input[type="text"], form input[type="email"], form input[type="date"], form textarea {
+		padding: 10px 12px;
+		font: inherit;
+		font-size: 17px;
+		text-transform: none;
+		letter-spacing: normal;
+		color: var(--text);
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 6px;
+	}
+	form textarea { resize: vertical; }
+	.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+	form fieldset { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; border: 1px solid var(--border); border-radius: 6px; padding: 14px; }
+	form fieldset legend { padding: 0 6px; font-family: var(--font); font-size: 14px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+	form label.checkbox { flex-direction: row; align-items: center; gap: 8px; text-transform: none; font-size: 16px; color: var(--text); }
+	.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+	form button {
+		align-self: flex-start;
+		padding: 10px 22px;
+		font-family: var(--font);
+		font-size: 15.5px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--bg);
+		background: var(--accent);
+		border: none;
+		border-radius: 6px;
+		cursor: pointer;
+	}
+	form button:disabled { opacity: 0.6; cursor: default; }
+	#submit-result { font-size: 15.5px; margin-top: 4px; }
+	.alt { font-size: 16px; color: var(--text-dim); }
+	@media (max-width: 460px) {
+		.row, form fieldset { grid-template-columns: 1fr; }
+	}
+</style>
+
+<script>
+	const form = document.getElementById("submit-form") as HTMLFormElement;
+	const resultEl = document.getElementById("submit-result") as HTMLParagraphElement;
+	const submitBtn = form.querySelector("button[type=submit]") as HTMLButtonElement;
+
+	form.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		resultEl.textContent = "Submitting...";
+		submitBtn.disabled = true;
+
+		const fd = new FormData(form);
+		if (String(fd.get("company") || "").trim() !== "") return;
+
+		const payload = {
+			company: fd.get("company"),
+			name: fd.get("name"),
+			url: fd.get("url"),
+			city: fd.get("city"),
+			country: fd.get("country"),
+			start: fd.get("start"),
+			end: fd.get("end"),
+			topics: fd.getAll("topics"),
+			notes: fd.get("notes"),
+			submitterEmail: fd.get("submitterEmail"),
+			turnstileToken: fd.get("cf-turnstile-response"),
+		};
+
+		try {
+			const res = await fetch("/api/submit-event", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(payload),
+			});
+			const data = await res.json();
+			resultEl.textContent = data.message || data.error || "Something went wrong.";
+			if (data.ok) form.reset();
+		} catch {
+			resultEl.textContent = "Network error, please try again.";
+		} finally {
+			submitBtn.disabled = false;
+		}
+	});
+</script>

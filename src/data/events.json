@@ -2194,5 +2194,257 @@
     "source": "dealroom",
     "url": "",
     "v": 1
+  },
+  {
+    "id": 123,
+    "slug": "vuejs-amsterdam",
+    "name": "Vuejs Amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2026-03-12",
+    "end": "2026-03-13",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://www.vuejs.amsterdam",
+    "v": 1
+  },
+  {
+    "id": 124,
+    "slug": "pyconf-hyderabad",
+    "name": "PyConf Hyderabad",
+    "city": "Hyderabad",
+    "country": "India",
+    "lat": 17.385,
+    "lng": 78.4867,
+    "start": "2026-03-14",
+    "end": "2026-03-15",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://2026.pyconfhyd.org",
+    "v": 1
+  },
+  {
+    "id": 125,
+    "slug": "kubecon-cloudnativecon-europe",
+    "name": "KubeCon + CloudNativeCon Europe",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2026-03-23",
+    "end": "2026-03-26",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe-2026",
+    "v": 1
+  },
+  {
+    "id": 126,
+    "slug": "react-summit",
+    "name": "React Summit",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2026-06-12",
+    "end": "2026-06-16",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://reactsummit.com",
+    "v": 1
+  },
+  {
+    "id": 127,
+    "slug": "wearedevelopers-world-congress",
+    "name": "WeAreDevelopers World Congress",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-07-08",
+    "end": "2026-07-10",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://www.wearedevelopers.com/world-congress",
+    "v": 1
+  },
+  {
+    "id": 128,
+    "slug": "djangocon-us",
+    "name": "DjangoCon US",
+    "city": "Chicago",
+    "country": "United States",
+    "lat": 41.8781,
+    "lng": -87.6298,
+    "start": "2026-08-24",
+    "end": "2026-08-28",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://2026.djangocon.us",
+    "v": 1
+  },
+  {
+    "id": 129,
+    "slug": "devopsdays-graz",
+    "name": "DevOpsDays Graz",
+    "city": "Graz",
+    "country": "Austria",
+    "lat": 47.0707,
+    "lng": 15.4395,
+    "start": "2026-09-04",
+    "end": "2026-09-05",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://www.devopsdays.at",
+    "v": 1
+  },
+  {
+    "id": 130,
+    "slug": "wearedevelopers-world-congress-na",
+    "name": "WeAreDevelopers World Congress North America",
+    "city": "San Jose",
+    "country": "United States",
+    "lat": 37.3382,
+    "lng": -121.8863,
+    "start": "2026-09-23",
+    "end": "2026-09-25",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://www.wearedevelopers.com/world-congress-us",
+    "v": 1
+  },
+  {
+    "id": 131,
+    "slug": "goto-copenhagen",
+    "name": "GOTO Copenhagen",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6761,
+    "lng": 12.5683,
+    "start": "2026-09-28",
+    "end": "2026-10-02",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://gotocph.com/2026",
+    "v": 1
+  },
+  {
+    "id": 132,
+    "slug": "devopsdays-berlin",
+    "name": "Devopsdays Berlin",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-09-29",
+    "end": "2026-09-30",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://devopsdays.org/events/2026-berlin/welcome",
+    "v": 1
+  },
+  {
+    "id": 133,
+    "slug": "kubecon-cloudnativecon-north-america",
+    "name": "KubeCon + CloudNativeCon North America",
+    "city": "Los Angeles",
+    "country": "United States",
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "start": "2026-10-26",
+    "end": "2026-10-29",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2026",
+    "v": 1
+  },
+  {
+    "id": 134,
+    "slug": "ai-engineering-summit",
+    "name": "AI Engineering Summit",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-11-16",
+    "end": "2026-11-20",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "confstech",
+    "url": "https://ai-engineering-summit.de",
+    "v": 1
+  },
+  {
+    "id": 135,
+    "slug": "react-summit-us",
+    "name": "React Summit US",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "start": "2026-11-17",
+    "end": "2026-11-20",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://reactsummit.us",
+    "v": 1
+  },
+  {
+    "id": 136,
+    "slug": "wearedevelopers-conference-india",
+    "name": "WeAreDevelopers Conference India",
+    "city": "Bengaluru",
+    "country": "India",
+    "lat": 12.9716,
+    "lng": 77.5946,
+    "start": "2026-11-25",
+    "end": "2026-11-26",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "confstech",
+    "url": "https://www.wearedevelopers.com/conference-india",
+    "v": 1
   }
 ]

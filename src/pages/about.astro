@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import events from "../data/events.json";
+
+const sourceCount = new Set(events.map((e) => e.source)).size;
+---
+<Layout title="About — Tech Events Map" description="What Tech Events Map is, where the data comes from, and who built it.">
+	<SiteHeader />
+	<div class="wrap">
+		<h1>About Tech Events Map</h1>
+		<p>Tech Events Map is a free, interactive map of tech, startup, AI and fintech conferences worldwide. It pulls listings from several sources into one place, on a map, so you can see what's happening and where without trawling separate event calendars city by city.</p>
+
+		<h2>Data &amp; Accuracy</h2>
+		<p>Event dates and details are compiled from {sourceCount} public event listing sources:</p>
+		<table class="sources">
+			<thead>
+				<tr>
+					<th>Source</th>
+					<th>What it covers</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="https://dealroom.co/events/" target="_blank" rel="noopener">Dealroom</a></td>
+					<td>Global startup &amp; tech ecosystem events</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.techmeme.com/events" target="_blank" rel="noopener">Techmeme</a></td>
+					<td>Major tech industry conferences</td>
+				</tr>
+				<tr>
+					<td><a href="https://dev.events/" target="_blank" rel="noopener">dev.events</a></td>
+					<td>Developer &amp; engineering conferences</td>
+				</tr>
+				<tr>
+					<td><a href="https://sesamers.com/events/" target="_blank" rel="noopener">Sesamers</a></td>
+					<td>Tech, startup &amp; industry tradeshows, mostly Europe</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.blackunicornpr.com/" target="_blank" rel="noopener">Black Unicorn PR</a></td>
+					<td>European &amp; North American startup events</td>
+				</tr>
+				<tr>
+					<td><a href="https://confs.tech/" target="_blank" rel="noopener">confs.tech</a></td>
+					<td>Open source, crowd sourced developer &amp; AI conferences</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>Dates can shift year to year, so always confirm on the event's official site before booking travel. Every event page on this site links through to the official site where one is known.</p>
+		<p>Spot something wrong or missing? Get in touch below and I'll fix it.</p>
+
+		<h2>Who Built This</h2>
+		<div class="builder-row">
+			<div class="builder-text">
+				<p>Tech Events Map was built by me, <a href="https://dantaylor.me" target="_blank" rel="noopener">Dan Taylor</a>. I do a bunch of things, but mostly web development, photography, and PR-related stuff.</p>
+				<p>I built this map in response to the wide variety of tech event listings that are scattered across dozens of separate sites. Each has its own format and there's no easy way to compare them. This map seeks to bring them all together in one place, laid out on one map, so that you can see at a glance where and when things are happening instead of digging through calendars city by city.</p>
+			</div>
+			<div class="builder-pin">
+				<span class="pin-shape"><img src="/dan.jpg" alt="Dan Taylor" width="72" height="72" /></span>
+				<p class="pin-name"><a href="https://dantaylor.me" target="_blank" rel="noopener">Dan Taylor</a><br /><span class="pin-role">Builder</span></p>
+			</div>
+		</div>
+
+		<h2>Get in Touch</h2>
+		<p>Event suggestions, corrections, and feedback: <a href="mailto:dantaylormedia@gmail.com">dantaylormedia@gmail.com</a></p>
+	</div>
+</Layout>
+
+<style>
+	.wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 60px; }
+	h1 { margin: 14px 0 16px; font-size: 32.5px; font-weight: 700; }
+	h2 { margin: 28px 0 8px; font-size: 19px; font-weight: 700; }
+	p { color: var(--text); font-size: 17.5px; line-height: 1.6; margin: 0 0 10px; }
+	a { color: var(--accent); }
+	table.sources { width: 100%; border-collapse: collapse; font-size: 17px; margin: 12px 0 16px; }
+	table.sources th, table.sources td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+	table.sources th { color: var(--text-dim); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; }
+	table.sources td a { text-decoration: none; font-weight: 700; }
+	table.sources td a:hover { text-decoration: underline; }
+	.builder-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+	.builder-text { flex: 1; min-width: 0; }
+	.builder-text p:last-child { margin-bottom: 0; }
+	.builder-pin { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.6rem; flex-shrink: 0; }
+	.pin-shape { display: block; width: 72px; height: 72px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); overflow: hidden; border: 3px solid var(--text); }
+	.pin-shape img { display: block; width: 100%; height: 100%; object-fit: cover; transform: rotate(45deg) scale(1.4); }
+	.pin-name { margin: 0; font-size: 0.9rem; line-height: 1.4; }
+	.pin-role { font-size: 0.8rem; opacity: 0.7; }
+	@media (max-width: 520px) {
+		.builder-row { flex-direction: column-reverse; align-items: flex-start; }
+	}
+</style>

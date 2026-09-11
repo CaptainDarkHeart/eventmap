@@ -21,7 +21,7 @@ const {
 		<script is:inline>
 			(function () {
 				var saved = localStorage.getItem("em_theme");
-				var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+				var theme = saved || "light";
 				document.documentElement.classList.toggle("dark", theme === "dark");
 			})();
 		</script>
@@ -39,7 +39,7 @@ const {
 		--border: #dddddd;
 		--text: #000000;
 		--text-dim: #666666;
-		--accent: #e04a2e;
+		--accent: #e00000;
 		--mega: #c04040;
 		--major: #b8860b;
 		--notable: #3a7a30;
@@ -53,7 +53,7 @@ const {
 		--border: #333333;
 		--text: #f2f2f0;
 		--text-dim: #9a9a9a;
-		--accent: #ff5a3c;
+		--accent: #ff2b2b;
 		--mega: #ff6b6b;
 		--major: #e8b84b;
 		--notable: #7fb07f;
@@ -66,6 +66,7 @@ const {
 		background: var(--bg);
 		color: var(--text);
 		font-family: var(--font);
+		font-size: 20px;
 	}
 	a { color: inherit; }
 	.pill {
@@ -77,7 +78,7 @@ const {
 		border: 1px solid var(--border);
 		background: transparent;
 		font-family: var(--mono);
-		font-size: 12px;
+		font-size: 15px;
 		cursor: pointer;
 		color: var(--text-dim);
 		user-select: none;

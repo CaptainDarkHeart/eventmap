@@ -6,14 +6,27 @@ import events from "../data/events.json";
 		<h1>Tech Events</h1>
 		<span>Map</span>
 	</a>
-	<nav>
+	<nav id="site-nav">
 		<a href="/">Map</a>
 		<a href="/events">All Events</a>
+		<a href="/submit">Submit Event</a>
+		<a href="/about">About</a>
+		<a href="/contact">Contact</a>
 	</nav>
 	<div class="header-right">
 		<span class="event-count">{events.length} events</span>
+		<button id="nav-toggle" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
 	</div>
 </header>
+
+<script>
+	const toggle = document.getElementById("nav-toggle");
+	const nav = document.getElementById("site-nav");
+	toggle?.addEventListener("click", () => {
+		const open = nav?.classList.toggle("open");
+		toggle.setAttribute("aria-expanded", open ? "true" : "false");
+	});
+</script>
 
 <style>
 	header {
@@ -32,14 +45,14 @@ import events from "../data/events.json";
 		color: inherit;
 	}
 	.logo h1 {
-		font-size: 18px;
+		font-size: 22.5px;
 		font-weight: 700;
 		letter-spacing: 0.01em;
 		text-transform: uppercase;
 	}
 	.logo span {
-		font-family: var(--mono);
-		font-size: 11px;
+		font-family: var(--font);
+		font-size: 14px;
 		color: var(--text-dim);
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
@@ -51,17 +64,50 @@ import events from "../data/events.json";
 		justify-content: center;
 	}
 	nav a {
-		font-family: var(--mono);
-		font-size: 12.5px;
+		font-family: var(--font);
+		font-size: 15.5px;
 		color: var(--text-dim);
 		text-decoration: none;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
 	}
 	nav a:hover { color: var(--text); }
-	.header-right { display: flex; justify-content: flex-end; }
-	.event-count { font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
+	.header-right { display: flex; align-items: center; gap: 14px; justify-content: flex-end; }
+	.event-count { font-family: var(--font); font-size: 15px; color: var(--text-dim); }
+	.nav-toggle {
+		display: none;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		background: none;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		color: var(--text);
+		font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+		font-size: 19px;
+		line-height: 1;
+		cursor: pointer;
+		padding: 0;
+	}
 	@media (max-width: 640px) {
-		nav { display: none; }
+		nav {
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0;
+			background: var(--bg);
+			border-bottom: 1px solid var(--border);
+			z-index: 10;
+		}
+		nav.open { display: flex; }
+		nav a { width: 100%; padding: 14px 20px; border-top: 1px solid var(--border); }
+		nav a:first-child { border-top: none; }
+		header { position: relative; }
+		.nav-toggle { display: inline-block; }
 	}
 </style>
