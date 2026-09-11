@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://eventmap.dantaylor.net',
+	site: 'https://techeventsmap.com',
 	integrations: [sitemap()],
 	devToolbar: { enabled: false },
 });

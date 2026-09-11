@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Mono&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#ffffff;--text:#000000;--text-dim:#666666;--border:#dddddd;--accent:#e00000;--mega:#c04040;--major:#b8860b;--notable:#3a7a30}
+
+body{
+  width:1200px;height:630px;
+  background:var(--bg);
+  font-family:'PT Sans',-apple-system,sans-serif;
+  color:var(--text);
+  position:relative;
+  overflow:hidden;
+}
+
+.border-line{position:absolute;left:0;right:0;height:1px;background:var(--border)}
+.border-top{top:150px}
+.border-bottom{top:478px}
+
+.map-shot{
+  position:absolute;top:0;right:0;width:700px;height:630px;
+  background-image:url('map-crop.png');
+  background-size:cover;
+  background-position:center;
+  -webkit-mask-image:linear-gradient(to left, rgba(0,0,0,1) 57%, rgba(0,0,0,0) 100%);
+  mask-image:linear-gradient(to left, rgba(0,0,0,1) 57%, rgba(0,0,0,0) 100%);
+}
+.map-shot::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(255,255,255,0.55), rgba(255,255,255,0) 30%);
+}
+
+.content{position:absolute;top:150px;left:88px;right:88px;bottom:152px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+
+.wordmark{display:flex;align-items:baseline;gap:14px}
+.wordmark .name{font-size:70px;font-weight:700;letter-spacing:-0.01em;line-height:1;text-transform:uppercase}
+.wordmark .map{font-family:'PT Mono',monospace;font-size:26px;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em}
+
+.tagline{font-size:26px;color:var(--text-dim);line-height:1.5;max-width:640px}
+
+.tags{position:absolute;left:88px;bottom:56px;display:flex;gap:16px;align-items:center;font-family:'PT Mono',monospace}
+.tag{font-size:18px;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-dim)}
+.tag.mega{color:var(--mega)}
+.tag.major{color:var(--major)}
+.tag.notable{color:var(--notable)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--border)}
+</style>
+</head>
+<body>
+  <div class="border-line border-top"></div>
+  <div class="border-line border-bottom"></div>
+
+  <div class="map-shot"></div>
+
+  <div class="content">
+    <div class="wordmark">
+      <span class="name">Tech Events</span>
+      <span class="map">map</span>
+    </div>
+    <p class="tagline">Every tech, startup, AI and fintech conference<br>worldwide, on one interactive map.</p>
+  </div>
+
+  <div class="tags">
+    <span class="tag mega">Mega</span>
+    <span class="dot"></span>
+    <span class="tag major">Major</span>
+    <span class="dot"></span>
+    <span class="tag notable">Notable</span>
+  </div>
+</body>
+</html>

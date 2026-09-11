@@ -16,7 +16,17 @@ function fmtDate(s: string, e: string) {
 	return `${sStr} – ${eStr}`;
 }
 ---
-<Layout title="All events — Tech Events Map">
+<Layout title="All events — Tech Events Map" description={`${events.length} tech, startup, AI and fintech events worldwide, listed by date.`}>
+	<script is:inline type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		itemListElement: sorted.slice(0, 50).map((ev, i) => ({
+			"@type": "ListItem",
+			position: i + 1,
+			url: `https://techeventsmap.com/events/${ev.slug}`,
+			name: ev.name,
+		})),
+	})} />
 	<SiteHeader />
 	<div class="wrap">
 		<div class="page-head">

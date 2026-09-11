@@ -19,6 +19,22 @@ function fmtDate(s: string, e: string) {
 }
 ---
 <Layout title={`${ev.name} — Tech Events Map`} description={`${ev.name}, ${fmtDate(ev.start, ev.end)}, ${ev.city}, ${ev.country}.`}>
+	<script is:inline type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Event",
+		name: ev.name,
+		startDate: ev.start,
+		endDate: ev.end,
+		eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+		eventStatus: "https://schema.org/EventScheduled",
+		location: {
+			"@type": "Place",
+			name: `${ev.city}, ${ev.country}`,
+			address: { "@type": "PostalAddress", addressLocality: ev.city, addressCountry: ev.country },
+			geo: { "@type": "GeoCoordinates", latitude: ev.lat, longitude: ev.lng },
+		},
+		url: ev.url || `https://techeventsmap.com/events/${ev.slug}`,
+	})} />
 	<SiteHeader />
 	<div class="wrap">
 		<a class="back" href="/events">← All events</a>

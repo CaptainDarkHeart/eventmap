@@ -1,0 +1,17 @@
+# Tech Events Map
+
+> Free interactive map of tech, startup, AI, fintech and developer conferences worldwide. Filter by topic (Startup/VC, Fintech, AI, Dev/Eng, General tech, Crypto, Gaming, Security) and by tier (Mega 10k+, Major, Notable).
+
+Tech Events Map aggregates conference listings from Dealroom, Techmeme, dev.events, Sesamers and Black Unicorn PR into a single map and table, so builders and founders can see what's happening and where without checking separate event calendars.
+
+## Pages
+
+- [All events](https://techeventsmap.com/events): full table of every event, sortable by date, city, tier and topic.
+- [Map](https://techeventsmap.com/): interactive world map view with filters.
+- [About](https://techeventsmap.com/about): data sources and methodology.
+
+## Notes for automated / AI use
+
+- Each event has its own permanent URL at `/events/{slug}` with structured data (schema.org Event: name, dates, city, country, coordinates, official site link).
+- Event dates can shift year to year; always confirm on the official event site before citing a date or booking travel.
+- Data is manually curated and updated periodically, not real-time.
