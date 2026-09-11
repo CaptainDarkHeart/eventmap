@@ -218,17 +218,13 @@ const items = sorted.map((ev) => {
 
   const card = document.createElement("div");
   card.className = "event-card";
+  card.id = `card-${ev.slug}`;
   card.innerHTML = `
     <div class="name"><span class="dot" style="background:${color}"></span>${ev.name}</div>
     <div class="meta">${fmtDate(ev.start, ev.end)} &middot; ${ev.city}, ${ev.country}</div>
     <div class="tags"><span class="mini-tag ${ev.tier}">${TIER_LABEL[ev.tier]}</span></div>
   `;
-  card.addEventListener("click", () => {
-    map.flyTo([ev.lat, ev.lng], Math.max(map.getZoom(), 5), { duration: 0.6 });
-    marker.openPopup();
-    document.querySelectorAll(".event-card.selected").forEach((c) => c.classList.remove("selected"));
-    card.classList.add("selected");
-  });
+  card.addEventListener("click", () => focusEvent(ev.slug));
   listEl.appendChild(card);
 
   return { ev, marker, card };
@@ -266,6 +262,24 @@ function applyFilters() {
   }
 }
 applyFilters();
+
+function focusEvent(slug) {
+  const match = items.find((i) => i.ev.slug === slug);
+  if (!match) return;
+  const { ev, marker, card } = match;
+  map.flyTo([ev.lat, ev.lng], Math.max(map.getZoom(), 5), { duration: 0.6 });
+  marker.openPopup();
+  document.querySelectorAll(".event-card.selected").forEach((c) => c.classList.remove("selected"));
+  card.classList.add("selected");
+  card.scrollIntoView({ block: "nearest" });
+}
+
+function tryHashFocus() {
+  const slug = window.location.hash.slice(1);
+  if (slug) focusEvent(slug);
+}
+tryHashFocus();
+window.addEventListener("hashchange", tryHashFocus);
 
 document.getElementById("topic-tags").addEventListener("click", (e) => {
   const btn = e.target.closest("[data-topic]");
