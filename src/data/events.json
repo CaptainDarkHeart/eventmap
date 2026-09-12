@@ -4744,5 +4744,263 @@
     "source": "manual",
     "url": "https://www.zerodaycon.com/",
     "v": 1
+  },
+  {
+    "id": 281,
+    "slug": "data-ai-leaders-summit-paris-2026",
+    "name": "Data & AI Leaders Summit",
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "start": "2026-11-18",
+    "end": "2026-11-19",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://www.dataaisummit.fr/",
+    "v": 1
+  },
+  {
+    "id": 282,
+    "slug": "ai-summit-barcelona-2026",
+    "name": "AI Summit Barcelona",
+    "city": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3874,
+    "lng": 2.1686,
+    "start": "2026-09-22",
+    "end": "2026-09-23",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://aisummitbarcelona.com/",
+    "v": 1
+  },
+  {
+    "id": 283,
+    "slug": "big-data-ai-world-madrid-2026",
+    "name": "Big Data & AI World Madrid",
+    "city": "Madrid",
+    "country": "Spain",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "start": "2026-11-04",
+    "end": "2026-11-05",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://www.techshowmadrid.es/en/big-data-ai-world",
+    "v": 1
+  },
+  {
+    "id": 284,
+    "slug": "portugal-tech-week-2026",
+    "name": "Portugal Tech Week",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "lat": 38.7223,
+    "lng": -9.1393,
+    "start": "2026-11-06",
+    "end": "2026-11-15",
+    "tier": "major",
+    "topics": [
+      "startup-vc",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://portugaltechweek.com/",
+    "v": 1
+  },
+  {
+    "id": 285,
+    "slug": "wired-next-fest-milan-2026",
+    "name": "Wired Next Fest",
+    "city": "Milan",
+    "country": "Italy",
+    "lat": 45.4642,
+    "lng": 9.1900,
+    "start": "2026-10-07",
+    "end": "2026-10-08",
+    "tier": "notable",
+    "topics": [
+      "general-tech",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://www.festivalinitalia.it/festival/wired-next-fest-milano",
+    "v": 1
+  },
+  {
+    "id": 286,
+    "slug": "devoxx-belgium-2026",
+    "name": "Devoxx Belgium",
+    "city": "Antwerp",
+    "country": "Belgium",
+    "lat": 51.2194,
+    "lng": 4.4025,
+    "start": "2026-10-05",
+    "end": "2026-10-09",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://devoxx.be/",
+    "v": 1
+  },
+  {
+    "id": 287,
+    "slug": "aaic-vienna-2026",
+    "name": "AAIC (Austrian AI Congress)",
+    "city": "Vienna",
+    "country": "Austria",
+    "lat": 48.2082,
+    "lng": 16.3738,
+    "start": "2026-09-24",
+    "end": "2026-09-24",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://ai-at.eu/en/news/ai-factory-austria-aiat-at-viennaup-2026/",
+    "v": 1
+  },
+  {
+    "id": 288,
+    "slug": "ai-festival-prague-2026",
+    "name": "AI Festival Prague",
+    "city": "Prague",
+    "country": "Czechia",
+    "lat": 50.0755,
+    "lng": 14.4378,
+    "start": "2026-11-21",
+    "end": "2026-11-23",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://ai-festival.cz/en/",
+    "v": 1
+  },
+  {
+    "id": 289,
+    "slug": "slovenia-games-conference-2026",
+    "name": "Slovenia Games Conference",
+    "city": "Ljubljana",
+    "country": "Slovenia",
+    "lat": 46.0569,
+    "lng": 14.5058,
+    "start": "2026-10-17",
+    "end": "2026-10-17",
+    "tier": "notable",
+    "topics": [
+      "gaming"
+    ],
+    "source": "manual",
+    "url": "https://europe-startup-guide.com/slovenia/event/slovenia-games-conference-2026",
+    "v": 1
+  },
+  {
+    "id": 290,
+    "slug": "genai-summit-athens-2026",
+    "name": "GenAI Summit Athens",
+    "city": "Athens",
+    "country": "Greece",
+    "lat": 37.9838,
+    "lng": 23.7275,
+    "start": "2026-11-16",
+    "end": "2026-11-16",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://www.genaisummitseeurope.com/",
+    "v": 1
+  },
+  {
+    "id": 291,
+    "slug": "dsc-europe-2026",
+    "name": "DSC Europe",
+    "city": "Belgrade",
+    "country": "Serbia",
+    "lat": 44.7866,
+    "lng": 20.4489,
+    "start": "2026-11-23",
+    "end": "2026-11-27",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://datasciconference.com/",
+    "v": 1
+  },
+  {
+    "id": 292,
+    "slug": "kyiv-ai-day-2026",
+    "name": "Kyiv AI Day",
+    "city": "Kyiv",
+    "country": "Ukraine",
+    "lat": 50.4501,
+    "lng": 30.5234,
+    "start": "2026-10-31",
+    "end": "2026-10-31",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://aiconf.com.ua/kyiv",
+    "v": 1
+  },
+  {
+    "id": 293,
+    "slug": "ai-poland-2026",
+    "name": "AI Poland",
+    "city": "Warsaw",
+    "country": "Poland",
+    "lat": 52.2297,
+    "lng": 21.0122,
+    "start": "2026-11-16",
+    "end": "2026-11-20",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://ai-poland.pl/",
+    "v": 1
+  },
+  {
+    "id": 294,
+    "slug": "riga-comm-2026",
+    "name": "RIGA COMM",
+    "city": "Riga",
+    "country": "Latvia",
+    "lat": 56.9496,
+    "lng": 24.1052,
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "tier": "notable",
+    "topics": [
+      "general-tech",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://rigacomm.com/en/",
+    "v": 1
   }
 ]
