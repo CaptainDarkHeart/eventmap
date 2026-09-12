@@ -4827,7 +4827,7 @@
     "city": "Milan",
     "country": "Italy",
     "lat": 45.4642,
-    "lng": 9.1900,
+    "lng": 9.19,
     "start": "2026-10-07",
     "end": "2026-10-08",
     "tier": "notable",
@@ -5001,6 +5001,119 @@
     ],
     "source": "manual",
     "url": "https://rigacomm.com/en/",
+    "v": 1
+  },
+  {
+    "id": 295,
+    "slug": "nordic-fintech-week-2026",
+    "name": "Nordic Fintech Week",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6601,
+    "lng": 12.6247,
+    "start": "2026-09-23",
+    "end": "2026-09-24",
+    "tier": "major",
+    "topics": [
+      "fintech",
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://nfweek.com/",
+    "v": 1
+  },
+  {
+    "id": 296,
+    "slug": "driving-it-2026",
+    "name": "Driving IT",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6669,
+    "lng": 12.5694,
+    "start": "2026-10-30",
+    "end": "2026-10-30",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "general-tech",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://ida.dk/arrangementer-og-kurser/konferencer/driving-it",
+    "v": 1
+  },
+  {
+    "id": 297,
+    "slug": "digital-tech-summit-2026",
+    "name": "Digital Tech Summit",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6698,
+    "lng": 12.5604,
+    "start": "2026-11-04",
+    "end": "2026-11-05",
+    "tier": "major",
+    "topics": [
+      "general-tech",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://digital-tech-summit.dk/",
+    "v": 1
+  },
+  {
+    "id": 298,
+    "slug": "v2-security-aarhus-2027",
+    "name": "V2 Security Aarhus",
+    "city": "Aarhus",
+    "country": "Denmark",
+    "lat": 56.1629,
+    "lng": 10.2039,
+    "start": "2027-02-24",
+    "end": "2027-02-25",
+    "tier": "major",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://v2security.dk/",
+    "v": 1
+  },
+  {
+    "id": 299,
+    "slug": "v2-security-copenhagen-2027",
+    "name": "V2 Security K\u00f8benhavn",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6698,
+    "lng": 12.5604,
+    "start": "2027-05-12",
+    "end": "2027-05-13",
+    "tier": "major",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://v2security.dk/",
+    "v": 1
+  },
+  {
+    "id": 300,
+    "slug": "codegarden-2027",
+    "name": "Codegarden",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6761,
+    "lng": 12.5683,
+    "start": "2027-06-09",
+    "end": "2027-06-10",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://codegarden.umbraco.com/",
     "v": 1
   }
 ]
