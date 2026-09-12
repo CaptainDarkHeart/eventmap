@@ -4516,5 +4516,157 @@
     "source": "manual",
     "url": "https://kenes-exhibitions.com/biomed/",
     "v": 1
+  },
+  {
+    "id": 269,
+    "slug": "dtx-manchester-2026",
+    "name": "DTX Manchester",
+    "city": "Manchester",
+    "country": "United Kingdom",
+    "lat": 53.4808,
+    "lng": -2.2426,
+    "start": "2026-04-29",
+    "end": "2026-04-30",
+    "tier": "notable",
+    "topics": [
+      "general-tech",
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://www.dtxevents.io/manchester",
+    "v": 1
+  },
+  {
+    "id": 270,
+    "slug": "birmingham-tech-week-2026",
+    "name": "Birmingham Tech Week",
+    "city": "Birmingham",
+    "country": "United Kingdom",
+    "lat": 52.4862,
+    "lng": -1.8904,
+    "start": "2026-10-19",
+    "end": "2026-10-23",
+    "tier": "notable",
+    "topics": [
+      "startup-vc",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://birminghamtechweek.com/",
+    "v": 1
+  },
+  {
+    "id": 271,
+    "slug": "scotsoft-2026",
+    "name": "ScotSoft",
+    "city": "Edinburgh",
+    "country": "United Kingdom",
+    "lat": 55.9533,
+    "lng": -3.1883,
+    "start": "2026-09-24",
+    "end": "2026-09-24",
+    "tier": "notable",
+    "topics": [
+      "dev-eng",
+      "ai",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://www.scotlandis.com/scotsoft-2026/",
+    "v": 1
+  },
+  {
+    "id": 272,
+    "slug": "digit-expo-2026",
+    "name": "DIGIT Expo",
+    "city": "Edinburgh",
+    "country": "United Kingdom",
+    "lat": 55.9533,
+    "lng": -3.1883,
+    "start": "2026-11-19",
+    "end": "2026-11-19",
+    "tier": "notable",
+    "topics": [
+      "general-tech",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://digit-expo.com/",
+    "v": 1
+  },
+  {
+    "id": 273,
+    "slug": "ai-business-summit-glasgow-2026",
+    "name": "AI Business Summit",
+    "city": "Glasgow",
+    "country": "United Kingdom",
+    "lat": 55.8642,
+    "lng": -4.2518,
+    "start": "2026-05-21",
+    "end": "2026-05-21",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://www.aibusinesssummit.co.uk/",
+    "v": 1
+  },
+  {
+    "id": 274,
+    "slug": "state-of-open-con-edinburgh-2026",
+    "name": "State of Open Con Edinburgh",
+    "city": "Edinburgh",
+    "country": "United Kingdom",
+    "lat": 55.9533,
+    "lng": -3.1883,
+    "start": "2026-06-05",
+    "end": "2026-06-05",
+    "tier": "notable",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://openuk.uk/press-releases-posts/soocon26edinburgh/",
+    "v": 1
+  },
+  {
+    "id": 275,
+    "slug": "cymrusec-summit-2026",
+    "name": "CymruSec Summit",
+    "city": "Cardiff",
+    "country": "United Kingdom",
+    "lat": 51.4816,
+    "lng": -3.1791,
+    "start": "2026-10-22",
+    "end": "2026-10-22",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://www.cymrusec.com/",
+    "v": 1
+  },
+  {
+    "id": 276,
+    "slug": "techtides-belfast-2026",
+    "name": "TechTides Belfast",
+    "city": "Belfast",
+    "country": "United Kingdom",
+    "lat": 54.5973,
+    "lng": -5.9301,
+    "start": "2026-06-11",
+    "end": "2026-06-11",
+    "tier": "notable",
+    "topics": [
+      "startup-vc",
+      "ai",
+      "fintech"
+    ],
+    "source": "manual",
+    "url": "https://techtides.co/",
+    "v": 1
   }
 ]
