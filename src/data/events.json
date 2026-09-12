@@ -3391,5 +3391,409 @@
     "source": "techmeme",
     "url": "https://www.mwcshanghai.com/",
     "v": 1
+  },
+  {
+    "id": 201,
+    "slug": "global-startup-expo-2026",
+    "name": "Global Startup EXPO",
+    "city": "Osaka",
+    "country": "Japan",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "start": "2026-10-05",
+    "end": "2026-10-07",
+    "tier": "major",
+    "topics": [
+      "startup-vc",
+      "ai"
+    ],
+    "source": "japanconf",
+    "url": "https://global-startup-expo.com/en/",
+    "v": 1
+  },
+  {
+    "id": 202,
+    "slug": "kaigi-on-rails-2026",
+    "name": "Kaigi on Rails",
+    "city": "Tokyo",
+    "country": "Japan",
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "start": "2026-10-16",
+    "end": "2026-10-17",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "japanconf",
+    "url": "https://kaigionrails.org/2026/",
+    "v": 1
+  },
+  {
+    "id": 203,
+    "slug": "b-dash-camp-2026-fall-fukuoka",
+    "name": "B Dash Camp 2026 Fall in Fukuoka",
+    "city": "Fukuoka",
+    "country": "Japan",
+    "lat": 33.5904,
+    "lng": 130.4017,
+    "start": "2026-11-11",
+    "end": "2026-11-13",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "japanconf",
+    "url": "https://camp.bdashventures.com/fukuoka/",
+    "v": 1
+  },
+  {
+    "id": 204,
+    "slug": "code-blue-2026",
+    "name": "CODE BLUE",
+    "city": "Tokyo",
+    "country": "Japan",
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "start": "2026-11-17",
+    "end": "2026-11-18",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "japanconf",
+    "url": "https://codeblue.jp/en/",
+    "v": 1
+  },
+  {
+    "id": 205,
+    "slug": "open-source-summit-japan-2026",
+    "name": "Open Source Summit Japan",
+    "city": "Tokyo",
+    "country": "Japan",
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "start": "2026-12-07",
+    "end": "2026-12-09",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "japanconf",
+    "url": "https://events.linuxfoundation.org/open-source-summit-japan/",
+    "v": 1
+  },
+  {
+    "id": 206,
+    "slug": "startup-japan-expo-2026-winter",
+    "name": "Startup JAPAN EXPO 2026 Winter",
+    "city": "Tokyo",
+    "country": "Japan",
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "start": "2026-12-16",
+    "end": "2026-12-17",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "japanconf",
+    "url": "https://eight-event.8card.net/lp/startup-japan/2026winter/",
+    "v": 1
+  },
+  {
+    "id": 207,
+    "slug": "interop-tokyo-2027",
+    "name": "Interop Tokyo",
+    "city": "Chiba",
+    "country": "Japan",
+    "lat": 35.6074,
+    "lng": 140.1065,
+    "start": "2027-06-09",
+    "end": "2027-06-11",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "japanconf",
+    "url": "https://www.interop.jp/",
+    "v": 1
+  },
+  {
+    "id": 208,
+    "slug": "google-cloud-next-tokyo-2027",
+    "name": "Google Cloud Next Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "start": "2027-08-05",
+    "end": "2027-08-06",
+    "tier": "major",
+    "topics": [
+      "general-tech",
+      "ai"
+    ],
+    "source": "japanconf",
+    "url": "https://www.googlecloudevents.com/next-tokyo",
+    "v": 1
+  },
+  {
+    "id": 209,
+    "slug": "nz-tech-expo-2026",
+    "name": "NZ Tech Expo",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "lat": -36.8485,
+    "lng": 174.7633,
+    "start": "2026-09-18",
+    "end": "2026-09-18",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://nztechexpo.co.nz/",
+    "v": 1
+  },
+  {
+    "id": 210,
+    "slug": "auckland-startup-week-2026",
+    "name": "Auckland Startup Week",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "lat": -36.8485,
+    "lng": 174.7633,
+    "start": "2026-10-12",
+    "end": "2026-10-16",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://www.aucklandstartupweek.com/",
+    "v": 1
+  },
+  {
+    "id": 211,
+    "slug": "agentic-engineering-day-new-zealand-2026",
+    "name": "Agentic Engineering Day New Zealand",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "lat": -36.8485,
+    "lng": 174.7633,
+    "start": "2026-10-21",
+    "end": "2026-10-22",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://www.agenticbuild.day/",
+    "v": 1
+  },
+  {
+    "id": 212,
+    "slug": "sunrise-aotearoa-2026",
+    "name": "Sunrise Aotearoa",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "lat": -36.8485,
+    "lng": 174.7633,
+    "start": "2026-10-29",
+    "end": "2026-10-29",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://www.thesunrise.live/",
+    "v": 1
+  },
+  {
+    "id": 213,
+    "slug": "fintech-hui-taumata-2027",
+    "name": "FinTech Hui Taumata",
+    "city": "Wellington",
+    "country": "New Zealand",
+    "lat": -41.2865,
+    "lng": 174.7762,
+    "start": "2027-03-17",
+    "end": "2027-03-18",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "manual",
+    "url": "https://www.fintechhui.nz/",
+    "v": 1
+  },
+  {
+    "id": 222,
+    "slug": "nz-tech-rally-2027",
+    "name": "NZ Tech Rally",
+    "city": "Wellington",
+    "country": "New Zealand",
+    "lat": -41.2865,
+    "lng": 174.7762,
+    "start": "2027-05-07",
+    "end": "2027-05-07",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://nztechrally.nz/",
+    "v": 1
+  },
+  {
+    "id": 223,
+    "slug": "devoops-2026",
+    "name": "DevOops",
+    "city": "Saint Petersburg",
+    "country": "Russia",
+    "lat": 59.9343,
+    "lng": 30.3351,
+    "start": "2026-10-12",
+    "end": "2026-10-13",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://devoops.ru/",
+    "v": 1
+  },
+  {
+    "id": 224,
+    "slug": "joker-2026",
+    "name": "Joker",
+    "city": "Saint Petersburg",
+    "country": "Russia",
+    "lat": 59.8427,
+    "lng": 30.3204,
+    "start": "2026-10-14",
+    "end": "2026-10-15",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "devevents",
+    "url": "https://jokerconf.com/",
+    "v": 1
+  },
+  {
+    "id": 225,
+    "slug": "heisenbug-2026",
+    "name": "Heisenbug",
+    "city": "Saint Petersburg",
+    "country": "Russia",
+    "lat": 59.8427,
+    "lng": 30.3204,
+    "start": "2026-10-16",
+    "end": "2026-10-17",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://heisenbug.ru/",
+    "v": 1
+  },
+  {
+    "id": 226,
+    "slug": "mobius-2026",
+    "name": "Mobius",
+    "city": "Saint Petersburg",
+    "country": "Russia",
+    "lat": 59.8055,
+    "lng": 30.334,
+    "start": "2026-10-21",
+    "end": "2026-10-22",
+    "tier": "notable",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "devevents",
+    "url": "https://mobiusconf.com/",
+    "v": 1
+  },
+  {
+    "id": 227,
+    "slug": "holyjs-2026",
+    "name": "HolyJS",
+    "city": "Saint Petersburg",
+    "country": "Russia",
+    "lat": 59.8055,
+    "lng": 30.334,
+    "start": "2026-10-23",
+    "end": "2026-10-24",
+    "tier": "notable",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "devevents",
+    "url": "https://holyjs.ru/",
+    "v": 1
+  },
+  {
+    "id": 228,
+    "slug": "ai-journey-2026",
+    "name": "AI Journey",
+    "city": "Moscow",
+    "country": "Russia",
+    "lat": 55.7001,
+    "lng": 37.5796,
+    "start": "2026-11-25",
+    "end": "2026-11-27",
+    "tier": "mega",
+    "topics": [
+      "ai",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://ai-journey.ru/",
+    "v": 1
+  },
+  {
+    "id": 229,
+    "slug": "highload-plus-plus-2026",
+    "name": "HighLoad++",
+    "city": "Moscow",
+    "country": "Russia",
+    "lat": 55.6961,
+    "lng": 37.3571,
+    "start": "2026-11-30",
+    "end": "2026-12-01",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://highload.ru/moscow/2026",
+    "v": 1
+  },
+  {
+    "id": 230,
+    "slug": "teamlead-conf-2026",
+    "name": "TeamLead Conf",
+    "city": "Moscow",
+    "country": "Russia",
+    "lat": 55.7558,
+    "lng": 37.6173,
+    "start": "2026-12-03",
+    "end": "2026-12-04",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://teamleadconf.ru/",
+    "v": 1
   }
 ]
