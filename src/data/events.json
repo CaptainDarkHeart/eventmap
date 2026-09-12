@@ -4346,5 +4346,175 @@
     "source": "manual",
     "url": "https://renderatl.com/",
     "v": 1
+  },
+  {
+    "id": 260,
+    "slug": "appsec-israel-2026",
+    "name": "AppSec Israel",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.1065,
+    "lng": 34.808,
+    "start": "2026-10-06",
+    "end": "2026-10-06",
+    "tier": "major",
+    "topics": [
+      "security",
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://appsecil.org/",
+    "v": 1
+  },
+  {
+    "id": 261,
+    "slug": "future-of-ai-tel-aviv-2026",
+    "name": "Future of AI",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.0884,
+    "lng": 34.7699,
+    "start": "2026-10-21",
+    "end": "2026-10-21",
+    "tier": "major",
+    "topics": [
+      "ai",
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://events.lynx.co/future-of-ai/",
+    "v": 1
+  },
+  {
+    "id": 262,
+    "slug": "israel-mobile-summit-2026",
+    "name": "Israel Mobile Summit",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.1065,
+    "lng": 34.808,
+    "start": "2026-10-29",
+    "end": "2026-10-29",
+    "tier": "major",
+    "topics": [
+      "gaming",
+      "dev-eng",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://www.israelmobilesummit.com/",
+    "v": 1
+  },
+  {
+    "id": 263,
+    "slug": "cyber-week-tel-aviv-2026",
+    "name": "Cyber Week",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.1133,
+    "lng": 34.8044,
+    "start": "2026-11-09",
+    "end": "2026-11-12",
+    "tier": "mega",
+    "topics": [
+      "security",
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://cyberweek.tau.ac.il/",
+    "v": 1
+  },
+  {
+    "id": 264,
+    "slug": "ai-week-tel-aviv-2026",
+    "name": "AI Week",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.1118,
+    "lng": 34.8028,
+    "start": "2026-11-09",
+    "end": "2026-11-11",
+    "tier": "major",
+    "topics": [
+      "ai",
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://ai-week.com/",
+    "v": 1
+  },
+  {
+    "id": 265,
+    "slug": "bsidestlv-2026",
+    "name": "BSidesTLV",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.1118,
+    "lng": 34.8028,
+    "start": "2026-11-11",
+    "end": "2026-11-11",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://bsidestlv.com/",
+    "v": 1
+  },
+  {
+    "id": 266,
+    "slug": "reversim-summit-2026",
+    "name": "Reversim Summit",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.1065,
+    "lng": 34.808,
+    "start": "2026-11-30",
+    "end": "2026-12-01",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://summit2026.reversim.com/",
+    "v": 1
+  },
+  {
+    "id": 267,
+    "slug": "devopsdays-tel-aviv-2026",
+    "name": "DevOpsDays Tel Aviv",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.0628,
+    "lng": 34.7641,
+    "start": "2026-12-22",
+    "end": "2026-12-22",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://devopsdays.org/events/2026-tel-aviv/welcome/",
+    "v": 1
+  },
+  {
+    "id": 268,
+    "slug": "biomed-israel-2027",
+    "name": "Biomed Israel",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.0628,
+    "lng": 34.7641,
+    "start": "2027-05-18",
+    "end": "2027-05-20",
+    "tier": "major",
+    "topics": [
+      "general-tech",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://kenes-exhibitions.com/biomed/",
+    "v": 1
   }
 ]
