@@ -3114,5 +3114,159 @@
     "source": "dealroom",
     "url": "https://webx-asia.com/",
     "v": 1
+  },
+  {
+    "id": 184,
+    "slug": "cairo-ict-2026",
+    "name": "Cairo ICT",
+    "city": "Cairo",
+    "country": "Egypt",
+    "lat": 30.0444,
+    "lng": 31.2357,
+    "start": "2026-11-07",
+    "end": "2026-11-10",
+    "tier": "mega",
+    "topics": [
+      "general-tech",
+      "ai",
+      "security",
+      "fintech"
+    ],
+    "source": "manual",
+    "url": "https://cairoict.com/",
+    "v": 1
+  },
+  {
+    "id": 185,
+    "slug": "devoxx-morocco-2026",
+    "name": "Devoxx Morocco",
+    "city": "Casablanca",
+    "country": "Morocco",
+    "lat": 33.5731,
+    "lng": -7.5898,
+    "start": "2026-11-04",
+    "end": "2026-11-05",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "devevents",
+    "url": "https://devoxx.ma/",
+    "v": 1
+  },
+  {
+    "id": 186,
+    "slug": "pyconza-2026",
+    "name": "PyConZA",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "lat": -33.9634,
+    "lng": 18.477,
+    "start": "2026-10-14",
+    "end": "2026-10-18",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://za.pycon.org/",
+    "v": 1
+  },
+  {
+    "id": 187,
+    "slug": "ai-expo-africa-2026",
+    "name": "AI Expo Africa",
+    "city": "Johannesburg",
+    "country": "South Africa",
+    "lat": -26.1065,
+    "lng": 28.0538,
+    "start": "2026-10-28",
+    "end": "2026-10-29",
+    "tier": "major",
+    "topics": [
+      "ai",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://aiexpoafrica.com/",
+    "v": 1
+  },
+  {
+    "id": 188,
+    "slug": "africa-cyber-defense-forum-2026",
+    "name": "Africa Cyber Defense Forum",
+    "city": "Nairobi",
+    "country": "Kenya",
+    "lat": -1.2647,
+    "lng": 36.8045,
+    "start": "2026-11-02",
+    "end": "2026-11-06",
+    "tier": "major",
+    "topics": [
+      "security",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://africacyberdefenseforum.com/",
+    "v": 1
+  },
+  {
+    "id": 189,
+    "slug": "droidcon-kenya-2026",
+    "name": "Droidcon Kenya",
+    "city": "Nairobi",
+    "country": "Kenya",
+    "lat": -1.2921,
+    "lng": 36.8219,
+    "start": "2026-11-05",
+    "end": "2026-11-06",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://droidcon.co.ke/",
+    "v": 1
+  },
+  {
+    "id": 190,
+    "slug": "tech-in-ghana-2026",
+    "name": "Tech in Ghana",
+    "city": "Accra",
+    "country": "Ghana",
+    "lat": 5.6037,
+    "lng": -0.187,
+    "start": "2026-11-24",
+    "end": "2026-11-25",
+    "tier": "major",
+    "topics": [
+      "general-tech",
+      "startup-vc",
+      "fintech"
+    ],
+    "source": "manual",
+    "url": "https://www.techinghanaconference.com/",
+    "v": 1
+  },
+  {
+    "id": 191,
+    "slug": "art-of-technology-lagos-2026",
+    "name": "Art of Technology Lagos (AOT Lagos)",
+    "city": "Lagos",
+    "country": "Nigeria",
+    "lat": 6.4253,
+    "lng": 3.4441,
+    "start": "2026-12-03",
+    "end": "2026-12-03",
+    "tier": "major",
+    "topics": [
+      "general-tech",
+      "ai",
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://aotlagos.com/",
+    "v": 1
   }
 ]
