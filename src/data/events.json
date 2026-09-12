@@ -3795,5 +3795,250 @@
     "source": "manual",
     "url": "https://teamleadconf.ru/",
     "v": 1
+  },
+  {
+    "id": 231,
+    "slug": "tdc-sao-paulo-2026",
+    "name": "TDC Business & Tech São Paulo",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "lat": -23.5061,
+    "lng": -46.6713,
+    "start": "2026-09-23",
+    "end": "2026-09-25",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://thedevelopersconference.com.br/tdc/2026/sao-paulo",
+    "v": 1
+  },
+  {
+    "id": 232,
+    "slug": "kcd-sao-paulo-2026",
+    "name": "KCD São Paulo",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "lat": -23.5329,
+    "lng": -46.7389,
+    "start": "2026-09-26",
+    "end": "2026-09-26",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://community2.cncf.io/events/details/cncf-kcd-brasil-presents-kcd-sao-paulo-2026/",
+    "v": 1
+  },
+  {
+    "id": 233,
+    "slug": "aws-community-day-peru-2026",
+    "name": "AWS Community Day Perú",
+    "city": "Lima",
+    "country": "Peru",
+    "lat": -12.1354,
+    "lng": -77.0224,
+    "start": "2026-10-03",
+    "end": "2026-10-03",
+    "tier": "notable",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "devevents",
+    "url": "https://awscommunityday.pe/",
+    "v": 1
+  },
+  {
+    "id": 234,
+    "slug": "futurecom-2026",
+    "name": "Futurecom",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "lat": -23.6478,
+    "lng": -46.6293,
+    "start": "2026-10-06",
+    "end": "2026-10-08",
+    "tier": "mega",
+    "topics": [
+      "general-tech",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://futurecom.com.br/",
+    "v": 1
+  },
+  {
+    "id": 235,
+    "slug": "ekoparty-security-conference-2026",
+    "name": "Ekoparty Security Conference",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "lat": -34.5833,
+    "lng": -58.3916,
+    "start": "2026-10-07",
+    "end": "2026-10-09",
+    "tier": "major",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://ekoparty.org/",
+    "v": 1
+  },
+  {
+    "id": 236,
+    "slug": "python-brasil-2026",
+    "name": "Python Brasil",
+    "city": "Florianópolis",
+    "country": "Brazil",
+    "lat": -27.4332,
+    "lng": -48.3975,
+    "start": "2026-10-14",
+    "end": "2026-10-18",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://2026.pythonbrasil.org.br/",
+    "v": 1
+  },
+  {
+    "id": 237,
+    "slug": "aws-community-day-paraguay-2026",
+    "name": "AWS Community Day Paraguay",
+    "city": "Asunción",
+    "country": "Paraguay",
+    "lat": -25.2925,
+    "lng": -57.6186,
+    "start": "2026-10-17",
+    "end": "2026-10-17",
+    "tier": "notable",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "devevents",
+    "url": "https://www.awscommunitydayparaguay.com/",
+    "v": 1
+  },
+  {
+    "id": 238,
+    "slug": "devopsdays-bogota-2026",
+    "name": "DevOpsDays Bogotá",
+    "city": "Bogotá",
+    "country": "Colombia",
+    "lat": 4.6591,
+    "lng": -74.0934,
+    "start": "2026-10-23",
+    "end": "2026-10-23",
+    "tier": "notable",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "devevents",
+    "url": "https://devopsdays.org/events/2026-bogota/welcome/",
+    "v": 1
+  },
+  {
+    "id": 239,
+    "slug": "connect-ia-2026",
+    "name": "ConnectIA",
+    "city": "Montevideo",
+    "country": "Uruguay",
+    "lat": -34.8794,
+    "lng": -56.0716,
+    "start": "2026-10-31",
+    "end": "2026-10-31",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://connectia.uy/",
+    "v": 1
+  },
+  {
+    "id": 240,
+    "slug": "black-alpaca-2026",
+    "name": "Black Alpaca",
+    "city": "Lima",
+    "country": "Peru",
+    "lat": -12.0969,
+    "lng": -77.0354,
+    "start": "2026-11-14",
+    "end": "2026-11-14",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://blackalpaca.org/",
+    "v": 1
+  },
+  {
+    "id": 241,
+    "slug": "devopsdays-brasilia-2026",
+    "name": "DevOpsDays Brasília",
+    "city": "Brasília",
+    "country": "Brazil",
+    "lat": -15.7942,
+    "lng": -47.8822,
+    "start": "2026-11-14",
+    "end": "2026-11-14",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://devopsdays.org/events/2026-brasilia/welcome/",
+    "v": 1
+  },
+  {
+    "id": 242,
+    "slug": "gitex-ai-latam-2027",
+    "name": "GITEX AI LATAM",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "lat": -23.6478,
+    "lng": -46.6293,
+    "start": "2027-03-16",
+    "end": "2027-03-17",
+    "tier": "mega",
+    "topics": [
+      "ai",
+      "general-tech",
+      "startup-vc"
+    ],
+    "source": "confstech",
+    "url": "https://www.gitexlatam.com/",
+    "v": 1
+  },
+  {
+    "id": 243,
+    "slug": "nerdearla-chile-2027",
+    "name": "Nerdearla Chile",
+    "city": "Santiago",
+    "country": "Chile",
+    "lat": -33.4385,
+    "lng": -70.6401,
+    "start": "2027-04-14",
+    "end": "2027-04-16",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "ai",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://nerdearla.com/chile/",
+    "v": 1
   }
 ]
