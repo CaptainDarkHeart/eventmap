@@ -325,42 +325,6 @@
     "v": 1
   },
   {
-    "id": 1,
-    "slug": "nordic-tech-week",
-    "name": "Nordic Tech Week",
-    "city": "Stockholm",
-    "country": "Sweden",
-    "lat": 59.3293,
-    "lng": 18.0686,
-    "start": "2026-09-07",
-    "end": "2026-09-11",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://nordictechweek.org/",
-    "v": 1
-  },
-  {
-    "id": 2,
-    "slug": "global-fintech-fest",
-    "name": "Global Fintech Fest",
-    "city": "Mumbai",
-    "country": "India",
-    "lat": 19.076,
-    "lng": 72.8777,
-    "start": "2026-09-08",
-    "end": "2026-09-11",
-    "tier": "mega",
-    "topics": [
-      "fintech"
-    ],
-    "source": "dealroom",
-    "url": "https://www.globalfintechfest.com/",
-    "v": 1
-  },
-  {
     "id": 94,
     "slug": "rustconf",
     "name": "RustConf",
@@ -430,24 +394,6 @@
     ],
     "source": "sesamers",
     "url": "https://amsterdam.pydata.org/",
-    "v": 1
-  },
-  {
-    "id": 102,
-    "slug": "fyne-conf",
-    "name": "Fyne Conf",
-    "city": "Eindhoven",
-    "country": "Netherlands",
-    "lat": 51.4416,
-    "lng": 5.4697,
-    "start": "2026-09-11",
-    "end": "2026-09-11",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://conf.fyne.io/",
     "v": 1
   },
   {
@@ -3267,6 +3213,183 @@
     ],
     "source": "manual",
     "url": "https://aotlagos.com/",
+    "v": 1
+  },
+  {
+    "id": 192,
+    "slug": "pycon-china-2026",
+    "name": "PyCon China",
+    "city": "Shenzhen",
+    "country": "China",
+    "lat": 22.5393,
+    "lng": 113.9554,
+    "start": "2026-09-13",
+    "end": "2026-09-13",
+    "tier": "notable",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "devevents",
+    "url": "https://cn.pycon.org/",
+    "v": 1
+  },
+  {
+    "id": 193,
+    "slug": "huawei-connect-2026",
+    "name": "Huawei Connect",
+    "city": "Shanghai",
+    "country": "China",
+    "lat": 31.1866,
+    "lng": 121.4937,
+    "start": "2026-09-17",
+    "end": "2026-09-19",
+    "tier": "mega",
+    "topics": [
+      "general-tech",
+      "ai",
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://www.huawei.com/en/events/huaweiconnect",
+    "v": 1
+  },
+  {
+    "id": 194,
+    "slug": "pt-expo-china-2026",
+    "name": "PT Expo China",
+    "city": "Beijing",
+    "country": "China",
+    "lat": 39.9928,
+    "lng": 116.386,
+    "start": "2026-09-22",
+    "end": "2026-09-24",
+    "tier": "mega",
+    "topics": [
+      "general-tech",
+      "ai",
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://www.ptexpo.com.cn/",
+    "v": 1
+  },
+  {
+    "id": 195,
+    "slug": "apsara-conference-2026",
+    "name": "Apsara Conference (云栖大会)",
+    "city": "Hangzhou",
+    "country": "China",
+    "lat": 30.1332,
+    "lng": 120.0827,
+    "start": "2026-09-22",
+    "end": "2026-09-24",
+    "tier": "mega",
+    "topics": [
+      "ai",
+      "dev-eng",
+      "general-tech"
+    ],
+    "source": "techmeme",
+    "url": "https://yunqi.aliyun.com/",
+    "v": 1
+  },
+  {
+    "id": 196,
+    "slug": "cpp-and-system-software-summit-2026",
+    "name": "Global C++ and System Software Technology Conference",
+    "city": "Shanghai",
+    "country": "China",
+    "lat": 31.2304,
+    "lng": 121.4737,
+    "start": "2026-11-20",
+    "end": "2026-11-21",
+    "tier": "notable",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "devevents",
+    "url": "https://cpp-summit.org/",
+    "v": 1
+  },
+  {
+    "id": 197,
+    "slug": "china-hi-tech-fair-2026",
+    "name": "China Hi-Tech Fair (CHTF 高交会)",
+    "city": "Shenzhen",
+    "country": "China",
+    "lat": 22.7001,
+    "lng": 113.7749,
+    "start": "2026-11-26",
+    "end": "2026-11-28",
+    "tier": "mega",
+    "topics": [
+      "general-tech",
+      "ai",
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://www.chtf.com/",
+    "v": 1
+  },
+  {
+    "id": 198,
+    "slug": "semicon-china-2027",
+    "name": "SEMICON China",
+    "city": "Shanghai",
+    "country": "China",
+    "lat": 31.212,
+    "lng": 121.5623,
+    "start": "2027-03-24",
+    "end": "2027-03-26",
+    "tier": "mega",
+    "topics": [
+      "general-tech",
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://www.semiconchina.org/",
+    "v": 1
+  },
+  {
+    "id": 199,
+    "slug": "beyond-expo-2027",
+    "name": "BEYOND Expo",
+    "city": "Macau",
+    "country": "Macau",
+    "lat": 22.1481,
+    "lng": 113.5606,
+    "start": "2027-05-26",
+    "end": "2027-05-29",
+    "tier": "mega",
+    "topics": [
+      "general-tech",
+      "ai",
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "https://beyondexpo.com/",
+    "v": 1
+  },
+  {
+    "id": 200,
+    "slug": "mwc-shanghai-2027",
+    "name": "MWC Shanghai",
+    "city": "Shanghai",
+    "country": "China",
+    "lat": 31.212,
+    "lng": 121.5623,
+    "start": "2027-06-23",
+    "end": "2027-06-25",
+    "tier": "mega",
+    "topics": [
+      "general-tech",
+      "ai",
+      "startup-vc"
+    ],
+    "source": "techmeme",
+    "url": "https://www.mwcshanghai.com/",
     "v": 1
   }
 ]
