@@ -4668,5 +4668,81 @@
     "source": "manual",
     "url": "https://techtides.co/",
     "v": 1
+  },
+  {
+    "id": 277,
+    "slug": "dublin-tech-summit-2026",
+    "name": "Dublin Tech Summit",
+    "city": "Dublin",
+    "country": "Ireland",
+    "lat": 53.3498,
+    "lng": -6.2603,
+    "start": "2026-05-27",
+    "end": "2026-05-28",
+    "tier": "major",
+    "topics": [
+      "general-tech",
+      "ai",
+      "fintech",
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://dublintechsummit.tech/",
+    "v": 1
+  },
+  {
+    "id": 278,
+    "slug": "dublin-ai-conference-2026",
+    "name": "The Dublin AI Conference",
+    "city": "Dublin",
+    "country": "Ireland",
+    "lat": 53.3498,
+    "lng": -6.2603,
+    "start": "2026-01-30",
+    "end": "2026-01-30",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://www.theccd.ie/event/the-dublin-ai-conference-2026/",
+    "v": 1
+  },
+  {
+    "id": 279,
+    "slug": "saastock-europe-2026",
+    "name": "SaaStock Europe",
+    "city": "Dublin",
+    "country": "Ireland",
+    "lat": 53.3498,
+    "lng": -6.2603,
+    "start": "2026-10-13",
+    "end": "2026-10-14",
+    "tier": "major",
+    "topics": [
+      "startup-vc",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://saastock.com/",
+    "v": 1
+  },
+  {
+    "id": 280,
+    "slug": "zero-day-con-2026",
+    "name": "Zero Day Con",
+    "city": "Dublin",
+    "country": "Ireland",
+    "lat": 53.3498,
+    "lng": -6.2603,
+    "start": "2026-04-29",
+    "end": "2026-04-29",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://www.zerodaycon.com/",
+    "v": 1
   }
 ]
