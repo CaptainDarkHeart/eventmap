@@ -4,70 +4,96 @@
 
 User-agent: *
 Allow: /
+Disallow: /api/
 
 # Named AI/LLM crawlers, explicitly allowed (belt and braces alongside the
 # wildcard rule above, in case any of these ever default to disallow).
 User-agent: GPTBot
 Allow: /
+Disallow: /api/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /api/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /api/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /api/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /api/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /api/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /api/
 
 User-agent: GoogleOther
 Allow: /
+Disallow: /api/
 
 User-agent: Applebot
 Allow: /
+Disallow: /api/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /api/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
 
 User-agent: CCBot
 Allow: /
+Disallow: /api/
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /api/
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /api/
 
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /api/
 
 User-agent: Meta-ExternalFetcher
 Allow: /
+Disallow: /api/
 
 User-agent: FacebookBot
 Allow: /
+Disallow: /api/
 
 User-agent: Diffbot
 Allow: /
+Disallow: /api/
 
 User-agent: Bytespider
 Allow: /
+Disallow: /api/
 
+# Content Signals (https://contentsignals.org/)
+Content-Signal: search=yes, ai-train=yes, ai-input=yes
+
+Sitemap: https://techeventsmap.com/sitemap.xml
 Sitemap: https://techeventsmap.com/sitemap-index.xml
