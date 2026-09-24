@@ -4669,5 +4669,77 @@
     "source": "manual",
     "url": "https://www.oracle.com/ai-world/",
     "v": 1
+  },
+  {
+    "id": 307,
+    "slug": "lend360",
+    "name": "LEND360",
+    "city": "Austin",
+    "country": "United States",
+    "lat": 30.2672,
+    "lng": -97.7431,
+    "start": "2026-10-12",
+    "end": "2026-10-14",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "fintechweekly",
+    "url": "https://www.lend360.org/",
+    "v": 1
+  },
+  {
+    "id": 308,
+    "slug": "black-hat-usa-2027",
+    "name": "Black Hat USA",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2027-07-31",
+    "end": "2027-08-05",
+    "tier": "mega",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://www.blackhat.com/us-27/",
+    "v": 1
+  },
+  {
+    "id": 309,
+    "slug": "world-ai-technology-expo-dubai",
+    "name": "World AI Technology Expo",
+    "city": "Dubai",
+    "country": "UAE",
+    "lat": 25.2048,
+    "lng": 55.2708,
+    "start": "2026-10-07",
+    "end": "2026-10-08",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "fintechweekly",
+    "url": "https://worldaiexpo.io/",
+    "v": 1
+  },
+  {
+    "id": 310,
+    "slug": "insurance-innovators-summit",
+    "name": "Insurance Innovators Summit",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2026-11-03",
+    "end": "2026-11-04",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "fintechweekly",
+    "url": "https://insurance-innovators.com/events/summit/",
+    "v": 1
   }
 ]
