@@ -171,6 +171,10 @@ export default {
 			return handleSubmitEvent(request, env);
 		}
 
+		if (url.pathname === "/sitemap.xml") {
+			return env.ASSETS.fetch(new Request(new URL("/sitemap-index.xml", request.url), request));
+		}
+
 		return env.ASSETS.fetch(request);
 	},
 };

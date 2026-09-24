@@ -36,25 +36,6 @@
     "v": 1
   },
   {
-    "id": 153,
-    "slug": "sido-lyon",
-    "name": "SIDO Lyon",
-    "city": "Lyon",
-    "country": "France",
-    "lat": 45.764,
-    "lng": 4.8357,
-    "start": "2026-09-16",
-    "end": "2026-09-17",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "general-tech"
-    ],
-    "source": "sesamers",
-    "url": "https://www.sido-lyon.com/en/",
-    "v": 1
-  },
-  {
     "id": 154,
     "slug": "oktane-2026",
     "name": "Oktane",
@@ -255,7 +236,7 @@
   {
     "id": 139,
     "slug": "les-assises-de-la-cybersecurite",
-    "name": "Les Assises de la Cybers\u00e9curit\u00e9",
+    "name": "Les Assises de la Cybersécurité",
     "city": "Monaco",
     "country": "Monaco",
     "lat": 43.7384,
@@ -325,186 +306,6 @@
     "v": 1
   },
   {
-    "id": 94,
-    "slug": "rustconf",
-    "name": "RustConf",
-    "city": "Montreal",
-    "country": "Canada",
-    "lat": 45.5019,
-    "lng": -73.5674,
-    "start": "2026-09-08",
-    "end": "2026-09-12",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "techmeme",
-    "url": "https://rustconf.com/",
-    "v": 1
-  },
-  {
-    "id": 95,
-    "slug": "finovatefall",
-    "name": "FinovateFall",
-    "city": "New York",
-    "country": "United States",
-    "lat": 40.7128,
-    "lng": -74.006,
-    "start": "2026-09-09",
-    "end": "2026-09-12",
-    "tier": "major",
-    "topics": [
-      "fintech"
-    ],
-    "source": "techmeme",
-    "url": "https://informaconnect.com/finovatefall/",
-    "v": 1
-  },
-  {
-    "id": 96,
-    "slug": "kcdc",
-    "name": "KCDC",
-    "city": "Kansas City",
-    "country": "United States",
-    "lat": 39.0997,
-    "lng": -94.5786,
-    "start": "2026-09-09",
-    "end": "2026-09-13",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "techmeme",
-    "url": "https://www.kcdc.info/",
-    "v": 1
-  },
-  {
-    "id": 120,
-    "slug": "pydata-amsterdam",
-    "name": "PyData Amsterdam",
-    "city": "Amsterdam",
-    "country": "Netherlands",
-    "lat": 52.3676,
-    "lng": 4.9041,
-    "start": "2026-09-10",
-    "end": "2026-09-12",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "sesamers",
-    "url": "https://amsterdam.pydata.org/",
-    "v": 1
-  },
-  {
-    "id": 113,
-    "slug": "ibc",
-    "name": "IBC",
-    "city": "Amsterdam",
-    "country": "Netherlands",
-    "lat": 52.3676,
-    "lng": 4.9041,
-    "start": "2026-09-11",
-    "end": "2026-09-14",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "sesamers",
-    "url": "https://show.ibc.org/",
-    "v": 1
-  },
-  {
-    "id": 97,
-    "slug": "blizzcon",
-    "name": "BlizzCon",
-    "city": "Anaheim",
-    "country": "United States",
-    "lat": 33.8366,
-    "lng": -117.9143,
-    "start": "2026-09-12",
-    "end": "2026-09-14",
-    "tier": "major",
-    "topics": [
-      "gaming"
-    ],
-    "source": "techmeme",
-    "url": "https://blizzcon.com/en-us/",
-    "v": 1
-  },
-  {
-    "id": 3,
-    "slug": "all-in-summit",
-    "name": "All-In Summit",
-    "city": "Los Angeles",
-    "country": "United States",
-    "lat": 34.0522,
-    "lng": -118.2437,
-    "start": "2026-09-13",
-    "end": "2026-09-15",
-    "tier": "major",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://theallinsummit.com/",
-    "v": 1
-  },
-  {
-    "id": 4,
-    "slug": "infobip-shift",
-    "name": "Infobip Shift",
-    "city": "Zadar",
-    "country": "Croatia",
-    "lat": 44.1194,
-    "lng": 15.2314,
-    "start": "2026-09-13",
-    "end": "2026-09-15",
-    "tier": "major",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "dealroom",
-    "url": "https://shift.ib-host.com/",
-    "v": 1
-  },
-  {
-    "id": 5,
-    "slug": "money20-20-middle-east",
-    "name": "Money20/20 Middle East",
-    "city": "Riyadh",
-    "country": "Saudi Arabia",
-    "lat": 24.7136,
-    "lng": 46.6753,
-    "start": "2026-09-14",
-    "end": "2026-09-16",
-    "tier": "major",
-    "topics": [
-      "fintech"
-    ],
-    "source": "dealroom",
-    "url": "https://money2020middleeast.com/",
-    "v": 1
-  },
-  {
-    "id": 103,
-    "slug": "code-europe",
-    "name": "Code Europe",
-    "city": "Warsaw",
-    "country": "Poland",
-    "lat": 52.2297,
-    "lng": 21.0122,
-    "start": "2026-09-14",
-    "end": "2026-09-15",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://www.codeeurope.pl/",
-    "v": 1
-  },
-  {
     "id": 114,
     "slug": "cambridge-tech-week",
     "name": "Cambridge Tech Week",
@@ -559,96 +360,6 @@
     "v": 1
   },
   {
-    "id": 104,
-    "slug": "productlab-conf",
-    "name": "ProductLab Conf",
-    "city": "Berlin",
-    "country": "Germany",
-    "lat": 52.52,
-    "lng": 13.405,
-    "start": "2026-09-15",
-    "end": "2026-09-17",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://productlab.app/",
-    "v": 1
-  },
-  {
-    "id": 116,
-    "slug": "zukunft-personal-europe",
-    "name": "Zukunft Personal Europe",
-    "city": "Cologne",
-    "country": "Germany",
-    "lat": 50.9375,
-    "lng": 6.9603,
-    "start": "2026-09-15",
-    "end": "2026-09-17",
-    "tier": "notable",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "sesamers",
-    "url": "https://www.zukunft-personal.com/en/",
-    "v": 1
-  },
-  {
-    "id": 117,
-    "slug": "cyprus-cyber-security-conference",
-    "name": "Cyprus Cyber Security Conference",
-    "city": "Nicosia",
-    "country": "Cyprus",
-    "lat": 35.1856,
-    "lng": 33.3823,
-    "start": "2026-09-15",
-    "end": "2026-09-15",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "sesamers",
-    "url": "https://cybersecurity.imhbusiness.com/",
-    "v": 1
-  },
-  {
-    "id": 121,
-    "slug": "big-data-ai-paris",
-    "name": "Big Data & AI Paris",
-    "city": "Paris",
-    "country": "France",
-    "lat": 48.8566,
-    "lng": 2.3522,
-    "start": "2026-09-15",
-    "end": "2026-09-16",
-    "tier": "major",
-    "topics": [
-      "ai"
-    ],
-    "source": "sesamers",
-    "url": "https://www.bigdataparis.com/",
-    "v": 1
-  },
-  {
-    "id": 6,
-    "slug": "france-digitale-day",
-    "name": "France Digitale Day",
-    "city": "Paris",
-    "country": "France",
-    "lat": 48.8566,
-    "lng": 2.3522,
-    "start": "2026-09-16",
-    "end": "2026-09-16",
-    "tier": "major",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://fdday.eu/",
-    "v": 1
-  },
-  {
     "id": 105,
     "slug": "hatch-conference",
     "name": "Hatch Conference",
@@ -664,24 +375,6 @@
     ],
     "source": "devevents",
     "url": "https://www.hatchconference.com/",
-    "v": 1
-  },
-  {
-    "id": 84,
-    "slug": "startup-fair",
-    "name": "Startup Fair",
-    "city": "Vilnius",
-    "country": "Lithuania",
-    "lat": 54.6872,
-    "lng": 25.2797,
-    "start": "2026-09-17",
-    "end": "2026-09-17",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "blackunicorn",
-    "url": "https://www.startupfair.lt/",
     "v": 1
   },
   {
@@ -2686,25 +2379,6 @@
     "v": 1
   },
   {
-    "id": 164,
-    "slug": "tech-in-asia-singapore-2026",
-    "name": "Tech in Asia Conference",
-    "city": "Singapore",
-    "country": "Singapore",
-    "lat": 1.3521,
-    "lng": 103.8198,
-    "start": "2026-09-15",
-    "end": "2026-09-16",
-    "tier": "major",
-    "topics": [
-      "startup-vc",
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://conference.techinasia.com/",
-    "v": 1
-  },
-  {
     "id": 165,
     "slug": "spark-festival-sydney-2026",
     "name": "Spark Festival",
@@ -3216,25 +2890,6 @@
     "v": 1
   },
   {
-    "id": 192,
-    "slug": "pycon-china-2026",
-    "name": "PyCon China",
-    "city": "Shenzhen",
-    "country": "China",
-    "lat": 22.5393,
-    "lng": 113.9554,
-    "start": "2026-09-13",
-    "end": "2026-09-13",
-    "tier": "notable",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "devevents",
-    "url": "https://cn.pycon.org/",
-    "v": 1
-  },
-  {
     "id": 193,
     "slug": "huawei-connect-2026",
     "name": "Huawei Connect",
@@ -3277,7 +2932,7 @@
   {
     "id": 195,
     "slug": "apsara-conference-2026",
-    "name": "Apsara Conference (\u4e91\u6816\u5927\u4f1a)",
+    "name": "Apsara Conference (云栖大会)",
     "city": "Hangzhou",
     "country": "China",
     "lat": 30.1332,
@@ -3316,7 +2971,7 @@
   {
     "id": 197,
     "slug": "china-hi-tech-fair-2026",
-    "name": "China Hi-Tech Fair (CHTF \u9ad8\u4ea4\u4f1a)",
+    "name": "China Hi-Tech Fair (CHTF 高交会)",
     "city": "Shenzhen",
     "country": "China",
     "lat": 22.7001,
@@ -3799,8 +3454,8 @@
   {
     "id": 231,
     "slug": "tdc-sao-paulo-2026",
-    "name": "TDC Business & Tech S\u00e3o Paulo",
-    "city": "S\u00e3o Paulo",
+    "name": "TDC Business & Tech São Paulo",
+    "city": "São Paulo",
     "country": "Brazil",
     "lat": -23.5061,
     "lng": -46.6713,
@@ -3818,8 +3473,8 @@
   {
     "id": 232,
     "slug": "kcd-sao-paulo-2026",
-    "name": "KCD S\u00e3o Paulo",
-    "city": "S\u00e3o Paulo",
+    "name": "KCD São Paulo",
+    "city": "São Paulo",
     "country": "Brazil",
     "lat": -23.5329,
     "lng": -46.7389,
@@ -3836,7 +3491,7 @@
   {
     "id": 233,
     "slug": "aws-community-day-peru-2026",
-    "name": "AWS Community Day Per\u00fa",
+    "name": "AWS Community Day Perú",
     "city": "Lima",
     "country": "Peru",
     "lat": -12.1354,
@@ -3856,7 +3511,7 @@
     "id": 234,
     "slug": "futurecom-2026",
     "name": "Futurecom",
-    "city": "S\u00e3o Paulo",
+    "city": "São Paulo",
     "country": "Brazil",
     "lat": -23.6478,
     "lng": -46.6293,
@@ -3893,7 +3548,7 @@
     "id": 236,
     "slug": "python-brasil-2026",
     "name": "Python Brasil",
-    "city": "Florian\u00f3polis",
+    "city": "Florianópolis",
     "country": "Brazil",
     "lat": -27.4332,
     "lng": -48.3975,
@@ -3912,7 +3567,7 @@
     "id": 237,
     "slug": "aws-community-day-paraguay-2026",
     "name": "AWS Community Day Paraguay",
-    "city": "Asunci\u00f3n",
+    "city": "Asunción",
     "country": "Paraguay",
     "lat": -25.2925,
     "lng": -57.6186,
@@ -3930,8 +3585,8 @@
   {
     "id": 238,
     "slug": "devopsdays-bogota-2026",
-    "name": "DevOpsDays Bogot\u00e1",
-    "city": "Bogot\u00e1",
+    "name": "DevOpsDays Bogotá",
+    "city": "Bogotá",
     "country": "Colombia",
     "lat": 4.6591,
     "lng": -74.0934,
@@ -3986,8 +3641,8 @@
   {
     "id": 241,
     "slug": "devopsdays-brasilia-2026",
-    "name": "DevOpsDays Bras\u00edlia",
-    "city": "Bras\u00edlia",
+    "name": "DevOpsDays Brasília",
+    "city": "Brasília",
     "country": "Brazil",
     "lat": -15.7942,
     "lng": -47.8822,
@@ -4005,7 +3660,7 @@
     "id": 242,
     "slug": "gitex-ai-latam-2027",
     "name": "GITEX AI LATAM",
-    "city": "S\u00e3o Paulo",
+    "city": "São Paulo",
     "country": "Brazil",
     "lat": -23.6478,
     "lng": -46.6293,
@@ -4042,44 +3697,6 @@
     "v": 1
   },
   {
-    "id": 244,
-    "slug": "web-summit-vancouver-2026",
-    "name": "Web Summit Vancouver",
-    "city": "Vancouver",
-    "country": "Canada",
-    "lat": 49.2827,
-    "lng": -123.1207,
-    "start": "2026-05-11",
-    "end": "2026-05-14",
-    "tier": "mega",
-    "topics": [
-      "startup-vc",
-      "general-tech",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://vancouver.websummit.com/",
-    "v": 1
-  },
-  {
-    "id": 245,
-    "slug": "all-in-montreal-2026",
-    "name": "ALL IN",
-    "city": "Montreal",
-    "country": "Canada",
-    "lat": 45.5088,
-    "lng": -73.5878,
-    "start": "2026-09-16",
-    "end": "2026-09-17",
-    "tier": "major",
-    "topics": [
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://allinevent.ai/",
-    "v": 1
-  },
-  {
     "id": 246,
     "slug": "sector-toronto-2026",
     "name": "SecTor",
@@ -4095,44 +3712,6 @@
     ],
     "source": "manual",
     "url": "https://www.blackhat.com/sector/",
-    "v": 1
-  },
-  {
-    "id": 247,
-    "slug": "toronto-tech-week-2026",
-    "name": "Toronto Tech Week",
-    "city": "Toronto",
-    "country": "Canada",
-    "lat": 43.6532,
-    "lng": -79.3832,
-    "start": "2026-05-25",
-    "end": "2026-05-29",
-    "tier": "notable",
-    "topics": [
-      "startup-vc",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://www.torontotechweek.com/",
-    "v": 1
-  },
-  {
-    "id": 248,
-    "slug": "waterloo-tech-week-2026",
-    "name": "Waterloo Tech Week",
-    "city": "Waterloo",
-    "country": "Canada",
-    "lat": 43.4643,
-    "lng": -80.5204,
-    "start": "2026-09-12",
-    "end": "2026-09-17",
-    "tier": "notable",
-    "topics": [
-      "startup-vc",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://luma.com/waterlootechweek",
     "v": 1
   },
   {
@@ -4518,25 +4097,6 @@
     "v": 1
   },
   {
-    "id": 269,
-    "slug": "dtx-manchester-2026",
-    "name": "DTX Manchester",
-    "city": "Manchester",
-    "country": "United Kingdom",
-    "lat": 53.4808,
-    "lng": -2.2426,
-    "start": "2026-04-29",
-    "end": "2026-04-30",
-    "tier": "notable",
-    "topics": [
-      "general-tech",
-      "dev-eng"
-    ],
-    "source": "manual",
-    "url": "https://www.dtxevents.io/manchester",
-    "v": 1
-  },
-  {
     "id": 270,
     "slug": "birmingham-tech-week-2026",
     "name": "Birmingham Tech Week",
@@ -4595,43 +4155,6 @@
     "v": 1
   },
   {
-    "id": 273,
-    "slug": "ai-business-summit-glasgow-2026",
-    "name": "AI Business Summit",
-    "city": "Glasgow",
-    "country": "United Kingdom",
-    "lat": 55.8642,
-    "lng": -4.2518,
-    "start": "2026-05-21",
-    "end": "2026-05-21",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://www.aibusinesssummit.co.uk/",
-    "v": 1
-  },
-  {
-    "id": 274,
-    "slug": "state-of-open-con-edinburgh-2026",
-    "name": "State of Open Con Edinburgh",
-    "city": "Edinburgh",
-    "country": "United Kingdom",
-    "lat": 55.9533,
-    "lng": -3.1883,
-    "start": "2026-06-05",
-    "end": "2026-06-05",
-    "tier": "notable",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://openuk.uk/press-releases-posts/soocon26edinburgh/",
-    "v": 1
-  },
-  {
     "id": 275,
     "slug": "cymrusec-summit-2026",
     "name": "CymruSec Summit",
@@ -4647,65 +4170,6 @@
     ],
     "source": "manual",
     "url": "https://www.cymrusec.com/",
-    "v": 1
-  },
-  {
-    "id": 276,
-    "slug": "techtides-belfast-2026",
-    "name": "TechTides Belfast",
-    "city": "Belfast",
-    "country": "United Kingdom",
-    "lat": 54.5973,
-    "lng": -5.9301,
-    "start": "2026-06-11",
-    "end": "2026-06-11",
-    "tier": "notable",
-    "topics": [
-      "startup-vc",
-      "ai",
-      "fintech"
-    ],
-    "source": "manual",
-    "url": "https://techtides.co/",
-    "v": 1
-  },
-  {
-    "id": 277,
-    "slug": "dublin-tech-summit-2026",
-    "name": "Dublin Tech Summit",
-    "city": "Dublin",
-    "country": "Ireland",
-    "lat": 53.3498,
-    "lng": -6.2603,
-    "start": "2026-05-27",
-    "end": "2026-05-28",
-    "tier": "major",
-    "topics": [
-      "general-tech",
-      "ai",
-      "fintech",
-      "startup-vc"
-    ],
-    "source": "manual",
-    "url": "https://dublintechsummit.tech/",
-    "v": 1
-  },
-  {
-    "id": 278,
-    "slug": "dublin-ai-conference-2026",
-    "name": "The Dublin AI Conference",
-    "city": "Dublin",
-    "country": "Ireland",
-    "lat": 53.3498,
-    "lng": -6.2603,
-    "start": "2026-01-30",
-    "end": "2026-01-30",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://www.theccd.ie/event/the-dublin-ai-conference-2026/",
     "v": 1
   },
   {
@@ -4725,24 +4189,6 @@
     ],
     "source": "manual",
     "url": "https://saastock.com/",
-    "v": 1
-  },
-  {
-    "id": 280,
-    "slug": "zero-day-con-2026",
-    "name": "Zero Day Con",
-    "city": "Dublin",
-    "country": "Ireland",
-    "lat": 53.3498,
-    "lng": -6.2603,
-    "start": "2026-04-29",
-    "end": "2026-04-29",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "manual",
-    "url": "https://www.zerodaycon.com/",
     "v": 1
   },
   {
@@ -5082,7 +4528,7 @@
   {
     "id": 299,
     "slug": "v2-security-copenhagen-2027",
-    "name": "V2 Security K\u00f8benhavn",
+    "name": "V2 Security København",
     "city": "Copenhagen",
     "country": "Denmark",
     "lat": 55.6698,
@@ -5118,187 +4564,97 @@
   },
   {
     "id": 301,
-    "slug": "sibos-2026",
-    "name": "Sibos",
-    "city": "Miami Beach",
+    "slug": "boston-fintech-week",
+    "name": "Boston Fintech Week",
+    "city": "Boston",
     "country": "United States",
-    "lat": 25.7907,
-    "lng": -80.13,
-    "start": "2026-09-28",
-    "end": "2026-10-01",
-    "tier": "mega",
+    "lat": 42.3601,
+    "lng": -71.0589,
+    "start": "2026-09-22",
+    "end": "2026-09-25",
+    "tier": "notable",
     "topics": [
       "fintech"
     ],
-    "source": "techmeme",
-    "url": "https://www.sibos.com/",
+    "source": "fintechweekly",
+    "url": "https://bostonfintechweek.org/",
     "v": 1
   },
   {
     "id": 302,
-    "slug": "itc-vegas-2026",
-    "name": "ITC Vegas",
-    "city": "Las Vegas",
-    "country": "United States",
-    "lat": 36.1699,
-    "lng": -115.1398,
-    "start": "2026-09-29",
-    "end": "2026-10-01",
-    "tier": "mega",
+    "slug": "plan-b-forum-lugano",
+    "name": "Plan ₿ Forum",
+    "city": "Lugano",
+    "country": "Switzerland",
+    "lat": 46.0037,
+    "lng": 8.9511,
+    "start": "2026-10-23",
+    "end": "2026-10-24",
+    "tier": "notable",
     "topics": [
-      "fintech"
+      "crypto"
     ],
-    "source": "techmeme",
-    "url": "https://vegas.insuretechconnect.com/",
+    "source": "fintechweekly",
+    "url": "https://planb.lugano.ch/planb-forum/",
     "v": 1
   },
   {
     "id": 303,
-    "slug": "civo-navigate-london-2026",
-    "name": "Civo Navigate London",
-    "city": "London",
-    "country": "United Kingdom",
-    "lat": 51.5074,
-    "lng": -0.1278,
-    "start": "2026-09-22",
-    "end": "2026-09-22",
+    "slug": "moneylive-nordic-banking",
+    "name": "MoneyLIVE Nordic Banking",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6761,
+    "lng": 12.5683,
+    "start": "2026-10-27",
+    "end": "2026-10-28",
     "tier": "notable",
     "topics": [
-      "dev-eng"
+      "fintech"
     ],
-    "source": "vestbee",
-    "url": "https://www.civo.com/navigate/london/2026",
+    "source": "fintechweekly",
+    "url": "https://moneylive-insights.com/events/nordic-banking/",
     "v": 1
   },
   {
     "id": 304,
-    "slug": "open-source-summit-europe-2026",
-    "name": "Open Source Summit Europe",
-    "city": "Prague",
-    "country": "Czech Republic",
-    "lat": 50.0755,
-    "lng": 14.4378,
-    "start": "2026-10-07",
-    "end": "2026-10-09",
+    "slug": "fintech-connect",
+    "name": "FinTech Connect",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2026-12-01",
+    "end": "2026-12-02",
     "tier": "major",
     "topics": [
-      "dev-eng"
+      "fintech"
     ],
-    "source": "techmeme",
-    "url": "https://events.linuxfoundation.org/open-source-summit-europe/",
+    "source": "fintechweekly",
+    "url": "https://www.fintechconnect.com/",
     "v": 1
   },
   {
     "id": 305,
-    "slug": "atlassian-team-europe-2026",
-    "name": "Atlassian Team '26 Europe",
-    "city": "Amsterdam",
-    "country": "Netherlands",
-    "lat": 52.3676,
-    "lng": 4.9041,
-    "start": "2026-10-06",
-    "end": "2026-10-08",
+    "slug": "moneylive-summit-2027",
+    "name": "MoneyLIVE Summit",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-03-02",
+    "end": "2027-03-03",
     "tier": "major",
     "topics": [
-      "dev-eng"
+      "fintech"
     ],
-    "source": "techmeme",
-    "url": "https://events.atlassian.com/teameurope",
+    "source": "fintechweekly",
+    "url": "https://moneylive-insights.com/events/summit/",
     "v": 1
   },
   {
     "id": 306,
-    "slug": "unlock-vc-summit-2026",
-    "name": "Unlock VC Summit",
-    "city": "Paris",
-    "country": "France",
-    "lat": 48.8566,
-    "lng": 2.3522,
-    "start": "2026-10-13",
-    "end": "2026-10-15",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "vestbee",
-    "url": "https://unlock-vc.com/",
-    "v": 1
-  },
-  {
-    "id": 307,
-    "slug": "czech-startup-week-2026",
-    "name": "Czech Startup Week",
-    "city": "Prague",
-    "country": "Czech Republic",
-    "lat": 50.0755,
-    "lng": 14.4378,
-    "start": "2026-10-19",
-    "end": "2026-10-23",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "vestbee",
-    "url": "https://czechstartups.gov.cz/en/czech-startup-week/",
-    "v": 1
-  },
-  {
-    "id": 308,
-    "slug": "mwc-las-vegas-2026",
-    "name": "MWC Las Vegas",
-    "city": "Las Vegas",
-    "country": "United States",
-    "lat": 36.1699,
-    "lng": -115.1398,
-    "start": "2026-10-14",
-    "end": "2026-10-16",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "techmeme",
-    "url": "https://www.mwclasvegas.com/",
-    "v": 1
-  },
-  {
-    "id": 309,
-    "slug": "high-tech-ventures-days-2026",
-    "name": "High Tech Ventures Days",
-    "city": "Dresden",
-    "country": "Germany",
-    "lat": 51.0504,
-    "lng": 13.7373,
-    "start": "2026-10-20",
-    "end": "2026-10-21",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "vestbee",
-    "url": "https://www.hightech-venture-days.com/",
-    "v": 1
-  },
-  {
-    "id": 310,
-    "slug": "nvidia-gtc-berlin-2026",
-    "name": "NVIDIA GTC Berlin",
-    "city": "Berlin",
-    "country": "Germany",
-    "lat": 52.52,
-    "lng": 13.405,
-    "start": "2026-10-20",
-    "end": "2026-10-22",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "techmeme",
-    "url": "https://www.nvidia.com/en-eu/gtc/",
-    "v": 1
-  },
-  {
-    "id": 311,
-    "slug": "oracle-ai-world-2026",
+    "slug": "oracle-ai-world",
     "name": "Oracle AI World",
     "city": "Las Vegas",
     "country": "United States",
@@ -5310,12 +4666,156 @@
     "topics": [
       "ai"
     ],
-    "source": "techmeme",
+    "source": "manual",
     "url": "https://www.oracle.com/ai-world/",
     "v": 1
   },
   {
+    "id": 307,
+    "slug": "sibos-2026",
+    "name": "Sibos",
+    "city": "Miami Beach",
+    "country": "United States",
+    "lat": 25.7907,
+    "lng": -80.13,
+    "start": "2026-09-28",
+    "end": "2026-10-01",
+    "tier": "mega",
+    "topics": ["fintech"],
+    "source": "techmeme",
+    "url": "https://www.sibos.com/",
+    "v": 1
+  },
+  {
+    "id": 308,
+    "slug": "itc-vegas-2026",
+    "name": "ITC Vegas",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2026-09-29",
+    "end": "2026-10-01",
+    "tier": "mega",
+    "topics": ["fintech"],
+    "source": "techmeme",
+    "url": "https://vegas.insuretechconnect.com/",
+    "v": 1
+  },
+  {
+    "id": 309,
+    "slug": "open-source-summit-europe-2026",
+    "name": "Open Source Summit Europe",
+    "city": "Prague",
+    "country": "Czech Republic",
+    "lat": 50.0755,
+    "lng": 14.4378,
+    "start": "2026-10-07",
+    "end": "2026-10-09",
+    "tier": "major",
+    "topics": ["dev-eng"],
+    "source": "techmeme",
+    "url": "https://events.linuxfoundation.org/open-source-summit-europe/",
+    "v": 1
+  },
+  {
+    "id": 310,
+    "slug": "atlassian-team-europe-2026",
+    "name": "Atlassian Team '26 Europe",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2026-10-06",
+    "end": "2026-10-08",
+    "tier": "major",
+    "topics": ["dev-eng"],
+    "source": "techmeme",
+    "url": "https://events.atlassian.com/teameurope",
+    "v": 1
+  },
+  {
+    "id": 311,
+    "slug": "unlock-vc-summit-2026",
+    "name": "Unlock VC Summit",
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "start": "2026-10-13",
+    "end": "2026-10-15",
+    "tier": "notable",
+    "topics": ["startup-vc"],
+    "source": "vestbee",
+    "url": "https://unlock-vc.com/",
+    "v": 1
+  },
+  {
     "id": 312,
+    "slug": "czech-startup-week-2026",
+    "name": "Czech Startup Week",
+    "city": "Prague",
+    "country": "Czech Republic",
+    "lat": 50.0755,
+    "lng": 14.4378,
+    "start": "2026-10-19",
+    "end": "2026-10-23",
+    "tier": "notable",
+    "topics": ["startup-vc"],
+    "source": "vestbee",
+    "url": "https://czechstartups.gov.cz/en/czech-startup-week/",
+    "v": 1
+  },
+  {
+    "id": 313,
+    "slug": "mwc-las-vegas-2026",
+    "name": "MWC Las Vegas",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2026-10-14",
+    "end": "2026-10-16",
+    "tier": "major",
+    "topics": ["general-tech"],
+    "source": "techmeme",
+    "url": "https://www.mwclasvegas.com/",
+    "v": 1
+  },
+  {
+    "id": 314,
+    "slug": "high-tech-ventures-days-2026",
+    "name": "High Tech Ventures Days",
+    "city": "Dresden",
+    "country": "Germany",
+    "lat": 51.0504,
+    "lng": 13.7373,
+    "start": "2026-10-20",
+    "end": "2026-10-21",
+    "tier": "notable",
+    "topics": ["startup-vc"],
+    "source": "vestbee",
+    "url": "https://www.hightech-venture-days.com/",
+    "v": 1
+  },
+  {
+    "id": 315,
+    "slug": "nvidia-gtc-berlin-2026",
+    "name": "NVIDIA GTC Berlin",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-10-20",
+    "end": "2026-10-22",
+    "tier": "notable",
+    "topics": ["ai"],
+    "source": "techmeme",
+    "url": "https://www.nvidia.com/en-eu/gtc/",
+    "v": 1
+  },
+  {
+    "id": 316,
     "slug": "grace-hopper-celebration-2026",
     "name": "Grace Hopper Celebration",
     "city": "Anaheim",
@@ -5325,15 +4825,13 @@
     "start": "2026-10-27",
     "end": "2026-10-30",
     "tier": "mega",
-    "topics": [
-      "general-tech"
-    ],
+    "topics": ["general-tech"],
     "source": "techmeme",
     "url": "https://ghc.anitab.org/",
     "v": 1
   },
   {
-    "id": 313,
+    "id": 317,
     "slug": "adobe-max-2026",
     "name": "Adobe MAX",
     "city": "Miami Beach",
@@ -5343,15 +4841,13 @@
     "start": "2026-11-10",
     "end": "2026-11-12",
     "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
+    "topics": ["general-tech"],
     "source": "techmeme",
     "url": "https://max.adobe.com/",
     "v": 1
   },
   {
-    "id": 314,
+    "id": 318,
     "slug": "electronica-2026",
     "name": "electronica",
     "city": "Munich",
@@ -5361,15 +4857,13 @@
     "start": "2026-11-10",
     "end": "2026-11-13",
     "tier": "mega",
-    "topics": [
-      "general-tech"
-    ],
+    "topics": ["general-tech"],
     "source": "techmeme",
     "url": "https://electronica.de/en/",
     "v": 1
   },
   {
-    "id": 315,
+    "id": 319,
     "slug": "twitchcon-san-diego-2026",
     "name": "TwitchCon San Diego",
     "city": "San Diego",
@@ -5379,15 +4873,13 @@
     "start": "2026-11-13",
     "end": "2026-11-15",
     "tier": "major",
-    "topics": [
-      "gaming"
-    ],
+    "topics": ["gaming"],
     "source": "techmeme",
     "url": "https://www.twitchcon.com/san-diego-2026/",
     "v": 1
   },
   {
-    "id": 316,
+    "id": 320,
     "slug": "afrotech-conference-2026",
     "name": "AfroTech Conference",
     "city": "Houston",
@@ -5397,15 +4889,13 @@
     "start": "2026-11-02",
     "end": "2026-11-06",
     "tier": "mega",
-    "topics": [
-      "general-tech"
-    ],
+    "topics": ["general-tech"],
     "source": "techmeme",
     "url": "https://afrotechconference.com/",
     "v": 1
   },
   {
-    "id": 317,
+    "id": 321,
     "slug": "40c3-chaos-communication-congress",
     "name": "40C3 (Chaos Communication Congress)",
     "city": "Hamburg",
@@ -5415,9 +4905,7 @@
     "start": "2026-12-27",
     "end": "2026-12-30",
     "tier": "major",
-    "topics": [
-      "security"
-    ],
+    "topics": ["security"],
     "source": "techmeme",
     "url": "https://events.ccc.de/en/congress/",
     "v": 1
