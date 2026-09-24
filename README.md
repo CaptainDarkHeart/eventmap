@@ -78,6 +78,8 @@ cp .env.example .env
 
 Edit `src/data/events.json`. Each entry needs: `id`, `slug`, `name`, `city`, `country`, `lat`, `lng`, `start`, `end`, `tier` (`mega` / `major` / `notable`), `topics` (array of keys from `src/lib/topics.ts`), `source`, `url`. Run `npm run validate-events` before committing. Sources are listed with attribution on `/about`; adding events from a new source means adding its row there too.
 
+If more than one PR adding events is open at the same time, expect an `id` collision when the second one merges (each PR numbers its new entries from the `id`s it can see on its own branch). Resolve by merging the latest `main` into the stale branch and renumbering that branch's new events past `main`'s current max `id`.
+
 ## Automated event discovery
 
 A launchd job (e.g. `~/Library/LaunchAgents/com.eventmap.discovery.plist`, not checked into this repo) runs `scripts/discover-events-cron.sh` every Monday at 08:00 local time. It invokes `claude -p` headlessly, with real internet access, to:
