@@ -69,6 +69,13 @@ npm run deploy   # astro build && wrangler deploy
 
 Custom domains `techeventsmap.com` and `www.techeventsmap.com` are attached to the `eventmap` Worker (zone added and nameservers cut over 2026-09-11, both hostnames enabled with certs issued). Not `eventmap.dantaylor.net` from the old `astro.config.mjs` site value, that was a placeholder.
 
+## Search and DNS (set up 2026-10-02)
+
+- Google Search Console: domain property `techeventsmap.com`, verified by a TXT record (`google-site-verification=...`) on the zone. Don't delete that record or verification lapses. Sitemap submitted: `https://techeventsmap.com/sitemap-index.xml`. Bing Webmaster Tools not set up (import from Search Console when signed in).
+- Cloudflare redirect rule (`http_request_dynamic_redirect`): `www.techeventsmap.com` 301s to the apex, path and query preserved. Lives in the zone, not in `wrangler.jsonc`.
+- Cloudflare Web Analytics is on for the zone (lite mode, auto-install). Zone-level request stats include bot noise (WordPress/.env scanners); use Web Analytics for human-only counts.
+- `npm run deploy` can fail with a multiple-accounts error. Set `CLOUDFLARE_ACCOUNT_ID=cd625a8a773318340cd24e10532aa135` (Dantaylormedia@gmail.com's account). Deploy also prunes `events.json` in place; commit that via PR or `git checkout src/data/events.json` afterwards.
+
 ## Development
 
 When starting the dev server, use background mode:
