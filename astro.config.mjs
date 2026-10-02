@@ -13,7 +13,7 @@ function sitemapAlias() {
 	return {
 		name: 'sitemap-alias',
 		hooks: {
-			'astro:build:done': async ({ dir }) => {
+			'astro:build:done': async (/** @type {{ dir: URL }} */ { dir }) => {
 				const outDir = fileURLToPath(dir);
 				const indexPath = path.join(outDir, 'sitemap-index.xml');
 				const aliasPath = path.join(outDir, 'sitemap.xml');

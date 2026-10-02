@@ -188,7 +188,7 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
   </div>
 </div>
 
-<script define:vars={{ events, cartoKey }}>
+<script is:inline define:vars={{ events, cartoKey }}>
 function outboundUrl(url, slug) {
   try {
     const u = new URL(url);
