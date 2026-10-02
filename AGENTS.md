@@ -91,3 +91,13 @@ Consult these guides before working on related tasks:
 - [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+
+## Decisions
+
+- Data lives as a static JSON file, no CMS/DB. Simplest thing that works for a hand-curated event list.
+- CARTO basemaps over Mapbox/OSM tiles directly: needs `PUBLIC_CARTO_KEY`, a public/client-side key (CARTO free tier).
+- Theme (light/dark) stored in `localStorage` under `em_theme`, no server-side pref.
+- Contact form backend is a hand-rolled Worker route, not a third-party form service (Formspree etc.), keeps it on the same Worker as the static site with no extra vendor.
+- Spam protection is Turnstile + honeypot, no rate limiting beyond that yet.
+- Deploy target is a Cloudflare Worker, not Cloudflare Pages and not the `@astrojs/cloudflare` SSR adapter.
+- No `.dev.vars` file for local Worker dev, so `TURNSTILE_SECRET_KEY` isn't available to `wrangler dev`, only to the deployed Worker. Testing happens against the deployed version.
