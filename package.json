@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.2"
+    "astro": "^7.3.5"
   },
   "allowScripts": {
     "esbuild": true
@@ -31,6 +31,6 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "typescript": "^6.0.3",
-    "wrangler": "^4.131.0"
+    "wrangler": "^4.146.0"
   }
 }
