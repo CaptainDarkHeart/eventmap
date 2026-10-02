@@ -4981,5 +4981,149 @@
     "source": "fintechweekly",
     "url": "https://insurance-innovators.com/events/summit/",
     "v": 1
+  },
+  {
+    "id": 326,
+    "slug": "la-tech-week-2026",
+    "name": "LA Tech Week",
+    "city": "Los Angeles",
+    "country": "United States",
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "start": "2026-10-12",
+    "end": "2026-10-18",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "https://luma.com/latw",
+    "v": 1
+  },
+  {
+    "id": 327,
+    "slug": "wolves-summit-krakow-2026",
+    "name": "Wolves Summit",
+    "city": "Krakow",
+    "country": "Poland",
+    "lat": 50.0647,
+    "lng": 19.945,
+    "start": "2026-10-14",
+    "end": "2026-10-15",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "https://www.wolvessummit.com/",
+    "v": 1
+  },
+  {
+    "id": 328,
+    "slug": "arrtist-ai-summit-2026",
+    "name": "ARRtist AI Summit",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-10-08",
+    "end": "2026-10-08",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "dealroom",
+    "url": "https://www.arrtist.net/",
+    "v": 1
+  },
+  {
+    "id": 329,
+    "slug": "drupalcon-europe-2026",
+    "name": "DrupalCon Europe",
+    "city": "Rotterdam",
+    "country": "Netherlands",
+    "lat": 51.9244,
+    "lng": 4.4777,
+    "start": "2026-09-28",
+    "end": "2026-10-01",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://events.drupal.org/rotterdam2026",
+    "v": 1
+  },
+  {
+    "id": 330,
+    "slug": "api-conference-nyc-2026",
+    "name": "API Conference NYC",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "start": "2026-09-28",
+    "end": "2026-10-02",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://apiconference.net/new-york/",
+    "v": 1
+  },
+  {
+    "id": 331,
+    "slug": "european-microsoft-fabric-sql-community-conference-2026",
+    "name": "European Microsoft Fabric + SQL Community Conference",
+    "city": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3874,
+    "lng": 2.1686,
+    "start": "2026-09-28",
+    "end": "2026-10-01",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "devevents",
+    "url": "https://espc.tech/conference/fabcon-europe-2026/",
+    "v": 1
+  },
+  {
+    "id": 332,
+    "slug": "istanbul-ignited-by-slush-d-2026",
+    "name": "Istanbul Ignited by Slush'D",
+    "city": "Istanbul",
+    "country": "Turkey",
+    "lat": 41.0082,
+    "lng": 28.9784,
+    "start": "2026-10-12",
+    "end": "2026-10-14",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "https://istanbulslushd.com/",
+    "v": 1
+  },
+  {
+    "id": 333,
+    "slug": "engaged-investments-conference-2026",
+    "name": "Engaged Investments Conference",
+    "city": "Prague",
+    "country": "Czech Republic",
+    "lat": 50.0755,
+    "lng": 14.4378,
+    "start": "2026-10-21",
+    "end": "2026-10-22",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "https://engaged.investments/",
+    "v": 1
   }
 ]
