@@ -10,7 +10,7 @@ An open source interactive world map of tech, startup, AI and fintech conference
 
 - Map view (`/`) with topic/size/date filters and search
 - Table view (`/events`), sortable by date, free-text search, tier filter, CSV export of visible rows
-- Per-event pages (`/events/[slug]`) with dates, location, topics, official site link
+- Per-event pages (`/events/[slug]`) with dates, location, topics, official site link, and schema.org Event structured data (optional `organizer`, `performers`, `offer` fields in `events.json` are emitted only when set)
 - Calendar (ICS) feeds: `/events.ics` for everything, `/events/[slug].ics` per event, plus an "Add to calendar" link per row on the table view
 - Light/dark theme toggle, preference saved locally
 - Contact form (`/contact`) and event submission form (`/submit`), both Turnstile + honeypot protected, handled by a Cloudflare Worker (submissions are emailed for manual review, not written to `events.json`)
