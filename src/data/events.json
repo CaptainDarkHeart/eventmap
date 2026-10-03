@@ -4041,7 +4041,8 @@
     ],
     "source": "vestbee",
     "url": "https://www.hightech-venture-days.com/",
-    "v": 1
+    "organizer": "HTSB | HighTech Startbahn",
+"v": 1
   },
   {
     "id": 315,
@@ -4113,7 +4114,8 @@
     ],
     "source": "techmeme",
     "url": "https://electronica.de/en/",
-    "v": 1
+    "organizer": "Messe München GmbH",
+"v": 1
   },
   {
     "id": 319,

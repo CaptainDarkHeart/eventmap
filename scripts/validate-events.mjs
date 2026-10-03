@@ -46,6 +46,14 @@ for (const [i, ev] of events.entries()) {
 	else for (const t of ev.topics) if (!VALID_TOPICS.has(t)) errors.push(`${ctx}: invalid topic "${t}"`);
 
 	if (ev.url && !/^https?:\/\//.test(ev.url)) errors.push(`${ctx}: url must be empty or start with http(s)://`);
+
+	if (ev.organizer !== undefined && (typeof ev.organizer !== "string" || !ev.organizer)) errors.push(`${ctx}: organizer must be a non-empty string`);
+	if (ev.performers !== undefined && (!Array.isArray(ev.performers) || ev.performers.length === 0 || ev.performers.some((p) => typeof p !== "string" || !p))) errors.push(`${ctx}: performers must be a non-empty array of strings`);
+	if (ev.offer !== undefined) {
+		if (typeof ev.offer.price !== "number" || ev.offer.price < 0) errors.push(`${ctx}: offer.price must be a number >= 0`);
+		if (ev.offer.price > 0 && !/^[A-Z]{3}$/.test(ev.offer.currency || "")) errors.push(`${ctx}: offer.currency must be a 3-letter code`);
+		if (ev.offer.url && !/^https?:\/\//.test(ev.offer.url)) errors.push(`${ctx}: offer.url must start with http(s)://`);
+	}
 }
 
 if (errors.length) {
