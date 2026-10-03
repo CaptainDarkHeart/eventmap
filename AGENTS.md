@@ -2,7 +2,7 @@
 
 Eventmap, branded "Tech Events Map" (domain: techeventsmap.com, live, wired up 2026-09-11). Astro static site. Interactive world map (Leaflet + CARTO basemaps) of tech, startup, AI, fintech conferences. Plus a plain table view, an about page, a contact form, and an event submission form.
 
-Data: `src/data/events.json`, single source of truth. Fields: id, slug, name, city, country, lat, lng, start, end, tier (mega/major/notable), topics (array, keys in `src/lib/topics.ts`), source, url, v. Sources listed on `/about` (each with a short tag used in the `source` field): Dealroom (`dealroom`), Techmeme (`techmeme`), dev.events (`devevents`), Sesamers (`sesamers`), Black Unicorn PR (`blackunicorn`), confs.tech (`confstech`), Tech.eu (`techeu`), TechCrunch (`techcrunch`), Ballou PR (`balloupr`), Gallium Ventures (`galliumventures`), Qolaig (`qolaig`), FinTech Weekly (`fintechweekly`), Vestbee (`vestbee`), plus `manual` for individually verified one-offs.
+Data: `src/data/events.json`, single source of truth. Fields: id, slug, name, city, country, lat, lng, start, end, tier (mega/major/notable), topics (array, keys in `src/lib/topics.ts`), source, url, v. Optional (only set when verified on the event's own site, never guessed): `organizer` (string), `performers` (string array), `offer` ({price, currency, url?}). Sources listed on `/about` (each with a short tag used in the `source` field): Dealroom (`dealroom`), Techmeme (`techmeme`), dev.events (`devevents`), Sesamers (`sesamers`), Black Unicorn PR (`blackunicorn`), confs.tech (`confstech`), Tech.eu (`techeu`), TechCrunch (`techcrunch`), Ballou PR (`balloupr`), Gallium Ventures (`galliumventures`), Qolaig (`qolaig`), FinTech Weekly (`fintechweekly`), Vestbee (`vestbee`), plus `manual` for individually verified one-offs.
 
 **Workflow for adding events from a new data source:** fetch/scrape the source, cross-check every candidate against existing `events.json` entries by name (not just slug, editions/years vary) to avoid duplicates, filter to future events only, checking each candidate's exact end date against today's actual date (not just "is the year current" — a 2026 event found in September 2026 can easily have already happened), then confirm with the user before writing: (1) whether to introduce a new `source` tag (and matching `/about` row) vs reuse an existing one, and (2) any judgment call the source doesn't give a clean answer for (ambiguous topic mapping, missing exact date, conflicting dates vs. another source already in the data). Don't guess silently on those two things.
 
@@ -45,6 +45,14 @@ Pages:
 Env: `PUBLIC_CARTO_KEY` (CARTO basemap key), set in `.env`, required for map tiles to load. It's a public/client-side key, gets baked into the static HTML at build time, that's expected.
 
 Fonts: `--font` (PT Sans) and `--mono` (PT Mono) CSS custom properties defined once in `Layout.astro` / `index.astro`'s global styles, loaded via a single Google Fonts `<link>`. Body text and nav use `var(--font)`, filter tags/meta/dates use `var(--mono)` (established pattern, keep new UI text on `var(--font)` unless it matches that mono use case). Don't hardcode a font-family anywhere, always reference the token.
+
+## Structured data (Search Console)
+
+Per-event pages (`src/pages/events/[slug].astro`) emit schema.org Event JSON-LD: always `description`, `image` (og-image), `organizer` (falls back to the event name), dates, location. `performer` and `offers` are emitted only when `performers` / `offer` exist in `events.json`. Search Console (2026-10-03) flags missing `offers`/`performer`/etc. as non-critical. Decision: do not stub them, most event sites publish no price or speakers, and fake values risk a misleading-markup action. "Validate fix" will keep failing for those two; ignore it. `npm run validate-events` checks the optional fields.
+
+## Structured data (Search Console)
+
+Per-event pages (`src/pages/events/[slug].astro`) emit schema.org Event JSON-LD: always `description`, `image` (og-image), `organizer` (falls back to the event name), dates, location. `performer` and `offers` are emitted only when `performers` / `offer` exist in `events.json`. Search Console (2026-10-03) flags missing `offers`/`performer`/etc. as non-critical. Decision: do not stub them, most event sites publish no price or speakers, and fake values risk a misleading-markup action. "Validate fix" will keep failing for those two; ignore it. `npm run validate-events` checks the optional fields.
 
 ## Contact form / Worker
 
