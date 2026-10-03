@@ -1,3 +1,5 @@
+import { autoAdd } from "./autoadd.js";
+
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 function json(data, status = 200) {
@@ -143,21 +145,49 @@ async function handleSubmitEvent(request, env) {
 		console.error("DESTINATION_EMAIL is not configured");
 		return json({ ok: false, error: "Could not send suggestion, please email hello@techeventsmap.com directly." }, 500);
 	}
+
+	// Verify the URL and dates, then commit to events.json (a GitHub Action deploys it).
+	// Any failure leaves events.json untouched and the email below carries the reason.
+	let result;
+	try {
+		result = await autoAdd(env, { name, url, city, country, start, end, topics });
+	} catch (err) {
+		console.error("autoAdd threw", err);
+		result = { ok: false, reason: `Unexpected error: ${err.message}` };
+	}
+
+	const status = result.ok
+		? `AUTO-ADDED to events.json (id ${result.event.id}, slug ${result.event.slug}). Live in a couple of minutes once the deploy finishes.`
+		: result.duplicate
+			? `NOT ADDED: ${result.reason}`
+			: `NEEDS MANUAL REVIEW: ${result.reason}`;
+	const prefix = result.ok ? "Added" : result.duplicate ? "Duplicate" : "Review needed";
+	const emailText = [status, "", ...lines].join("\n");
+
 	try {
 		await env.EMAIL.send({
 			to,
 			from: "contact@techeventsmap.com",
 			replyTo: submitterEmail || undefined,
-			subject: `Tech Events Map submission: ${name}`,
-			text: lines.join("\n"),
-			html: `<p>${lines.map(escapeHtml).join("<br>")}</p>`,
+			subject: `Tech Events Map submission (${prefix}): ${name}`,
+			text: emailText,
+			html: `<p>${emailText.split("\n").map(escapeHtml).join("<br>")}</p>`,
 		});
 	} catch (err) {
 		console.error("submit-event send failed", err);
-		return json({ ok: false, error: "Could not send suggestion, please email hello@techeventsmap.com directly." }, 502);
+		if (!result.ok) {
+			return json({ ok: false, error: "Could not send suggestion, please email hello@techeventsmap.com directly." }, 502);
+		}
 	}
 
-	return json({ ok: true, message: "Thanks, I'll review it and add it to the map." });
+	return json({
+		ok: true,
+		message: result.ok
+			? "Thanks, your event has been verified and added. It will appear on the map within a few minutes."
+			: result.duplicate
+				? "Thanks, that event is already on the map."
+				: "Thanks, I couldn't verify that automatically, so I'll review it by hand.",
+	});
 }
 
 export default {
