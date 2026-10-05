@@ -40,7 +40,7 @@ Pages:
 - `src/pages/events.ics.ts` (single ICS feed of every event, `/events.ics`), `src/pages/events/[slug].ics.ts` (per-event ICS download, static via `getStaticPaths`) — both built from `src/lib/ics.ts` (`buildVEvent`/`buildCalendar`, end date is exclusive per iCal spec so it adds a day internally)
 - `src/pages/about.astro` (data sources, builder bio, uses `public/dan.jpg`, original source photo kept in `assets-src/dan-original.png`)
 - `src/pages/contact.astro` (contact form, Cloudflare Turnstile widget, honeypot field, posts to `/api/contact`)
-- `src/pages/submit.astro` (event submission form, same Turnstile/honeypot pattern, posts to `/api/submit-event`, does not write to `events.json`, just emails the submission for manual review)
+- `src/pages/submit.astro` (event submission form, same Turnstile/honeypot pattern, posts to `/api/submit-event`, auto-verifies and publishes, see below)
 
 Env: `PUBLIC_CARTO_KEY` (CARTO basemap key), set in `.env`, required for map tiles to load. It's a public/client-side key, gets baked into the static HTML at build time, that's expected.
 
@@ -59,7 +59,7 @@ Per-event pages (`src/pages/events/[slug].astro`) emit schema.org Event JSON-LD:
 Not a pure static site anymore, `wrangler.jsonc` now points `main` at `worker/index.js`, a custom Worker that:
 - serves everything through the `ASSETS` binding (the built `./dist`), except
 - `POST /api/contact`, handled in `worker/index.js`: honeypot check, field validation, verifies the Turnstile token server-side against `TURNSTILE_SECRET_KEY`, then sends mail via the `EMAIL` binding (Cloudflare Email Routing, `send_email` in `wrangler.jsonc`) to the destination address (`env.DESTINATION_EMAIL`, default `contact@techeventsmap.com`).
-- `POST /api/submit-event`, same shape, sends "Tech Events Map submission" mail from `contact@techeventsmap.com`, reply-to the submitter's optional email. Manual review only, does not touch `events.json`.
+- `POST /api/submit-event`, same shape, sends "Tech Events Map submission" mail from `contact@techeventsmap.com`, reply-to the submitter's optional email. Auto-publishes: `worker/autoadd.js` checks the URL responds, the page mentions the event name and start date (meta tags and JSON-LD count), geocodes city/country via Nominatim, dedupes against `events.json` (URL or name+year), then commits the new row (tier `notable`, source `manual`) to `main` via the GitHub contents API using the `GITHUB_TOKEN` Worker secret (fine-grained PAT, Contents read/write on this repo only). `.github/workflows/deploy.yml` then validates, builds and deploys on push to `main` (repo secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `PUBLIC_CARTO_KEY`). Any failed check (dead URL, name/date not on page, no topic, past event, geocode miss, duplicate) leaves `events.json` untouched and the notification email says why. Success emails say AUTO-ADDED. JS-rendered event sites will often fail the date check and land in manual review.
 
 - Markdown for Agents: any GET/HEAD with `Accept: text/markdown` (q-value at least that of text/html) on an HTML page returns markdown (`worker/markdown.js`, regex converter, `x-markdown-tokens` estimate, `Vary: Accept`). HTML stays default. Done in the Worker because the zone is Free plan, so Cloudflare's zone-level Markdown for Agents toggle is not assumed.
 
