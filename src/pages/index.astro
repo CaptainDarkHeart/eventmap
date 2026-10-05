@@ -94,6 +94,10 @@ nav a:hover{color:var(--text)}
 .map-container{flex:1;position:relative}
 #map{width:100%;height:100%}
 .leaflet-container{background:var(--surface)}
+.pulse-ring{background:none;border:none;pointer-events:none}
+.pulse-ring span{display:block;width:100%;height:100%;box-sizing:border-box;border:2px solid;border-radius:50%;opacity:0;animation:pulse-ring 2s ease-out infinite}
+@keyframes pulse-ring{0%{transform:scale(.8);opacity:.9}100%{transform:scale(2.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){.pulse-ring span{animation:none;opacity:.6;transform:scale(1.5)}}
 .leaflet-top{margin-top:66px}
 .leaflet-control-zoom{border:1px solid var(--border)!important}
 .leaflet-control-zoom a{background:var(--surface)!important;color:var(--text)!important;border-color:var(--border)!important}
@@ -311,6 +315,25 @@ const items = sorted.map((ev) => {
   marker.addTo(map);
   marker.on("click", () => selectCard(ev.slug));
 
+  // Pulsing ring on events running today (start <= today <= end).
+  // Non-interactive divIcon so clicks fall through to the dot beneath.
+  let pulse = null;
+  const now = new Date();
+  const isActive = new Date(ev.start + "T00:00:00") <= now && new Date(ev.end + "T23:59:59") >= now;
+  if (isActive) {
+    const size = radius * 2 + 4;
+    pulse = L.marker([plotLat, plotLng], {
+      interactive: false,
+      keyboard: false,
+      icon: L.divIcon({
+        className: "pulse-ring",
+        html: `<span style="border-color:${color}"></span>`,
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size / 2],
+      }),
+    });
+  }
+
   const card = document.createElement("div");
   card.className = "event-card";
   card.id = `card-${ev.slug}`;
@@ -326,7 +349,7 @@ const items = sorted.map((ev) => {
   });
   listEl.appendChild(card);
 
-  return { ev, marker, card, plotLat, plotLng };
+  return { ev, marker, pulse, card, plotLat, plotLng };
 });
 
 const state = { topic: "all", tier: "all", when: "all", q: "" };
@@ -335,7 +358,7 @@ function applyFilters() {
   const now = new Date();
   const cutoff = state.when === "all" ? null : new Date(now.getTime() + Number(state.when) * 86400000);
   let visibleCount = 0;
-  for (const { ev, marker, card } of items) {
+  for (const { ev, marker, pulse, card } of items) {
     const topicOk = state.topic === "all" || ev.topics.includes(state.topic);
     const tierOk = state.tier === "all" || ev.tier === state.tier;
     const endDate = new Date(ev.end + "T23:59:59");
@@ -347,6 +370,10 @@ function applyFilters() {
 
     if (visible && !map.hasLayer(marker)) marker.addTo(map);
     if (!visible && map.hasLayer(marker)) map.removeLayer(marker);
+    if (pulse) {
+      if (visible && !map.hasLayer(pulse)) pulse.addTo(map);
+      if (!visible && map.hasLayer(pulse)) map.removeLayer(pulse);
+    }
     card.style.display = visible ? "" : "none";
     if (visible) visibleCount++;
   }
