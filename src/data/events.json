@@ -4445,5 +4445,23 @@
     "url": "https://agetechx.com",
     "organizer": "AgeTechX",
     "v": 1
+  },
+  {
+    "id": 339,
+    "slug": "developerweek-2027-2027",
+    "name": "DeveloperWeek 2027",
+    "city": "Santa Clara",
+    "country": "United States",
+    "lat": 37.2333,
+    "lng": -121.6846,
+    "start": "2027-02-09",
+    "end": "2027-02-11",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://www.developerweek.com/",
+    "v": 1
   }
 ]
