@@ -14,6 +14,15 @@ const VALID_TOPICS = new Set([
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 
+function distanceKm(a, b) {
+	const rad = (d) => (d * Math.PI) / 180;
+	const h = Math.sin(rad(b.lat - a.lat) / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(rad(b.lng - a.lng) / 2) ** 2;
+	return 6371 * 2 * Math.asin(Math.sqrt(h));
+}
+const norm = (s) => String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+const MAX_CITY_SPREAD_KM = 25;
+const firstInCity = new Map();
+
 const errors = [];
 const seenIds = new Set();
 const seenSlugs = new Set();
@@ -28,6 +37,16 @@ for (const [i, ev] of events.entries()) {
 	if (typeof ev.slug !== "string" || !SLUG_RE.test(ev.slug)) errors.push(`${ctx}: invalid slug format`);
 	else if (seenSlugs.has(ev.slug)) errors.push(`${ctx}: duplicate slug`);
 	else seenSlugs.add(ev.slug);
+
+	if (/(\d{4})-\1$/.test(String(ev.slug))) errors.push(`${ctx}: slug repeats the year`);
+
+	// Pins for the same city must sit together, catches a geocoder landing on a county or a namesake town.
+	if (typeof ev.lat === "number" && typeof ev.lng === "number" && ev.city && ev.country) {
+		const key = `${norm(ev.city)}|${norm(ev.country)}`;
+		const first = firstInCity.get(key);
+		if (!first) firstInCity.set(key, ev);
+		else if (distanceKm(first, ev) > MAX_CITY_SPREAD_KM) errors.push(`${ctx}: pin is ${Math.round(distanceKm(first, ev))} km from ${ev.city} event id ${first.id}`);
+	}
 
 	if (!ev.name) errors.push(`${ctx}: missing name`);
 	if (!ev.city) errors.push(`${ctx}: missing city`);
