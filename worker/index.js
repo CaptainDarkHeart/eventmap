@@ -1,4 +1,5 @@
 import { autoAdd } from "./autoadd.js";
+import { htmlToMarkdown, wantsMarkdown, estimateTokens } from "./markdown.js";
 
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
@@ -205,6 +206,22 @@ export default {
 			return env.ASSETS.fetch(new Request(new URL("/sitemap-index.xml", request.url), request));
 		}
 
-		return env.ASSETS.fetch(request);
+		const res = await env.ASSETS.fetch(request);
+
+		// Markdown for Agents: Accept: text/markdown gets a markdown rendering of HTML pages.
+		if (wantsMarkdown(request) && (res.headers.get("content-type") || "").includes("text/html")) {
+			const md = htmlToMarkdown(await res.text());
+			const headers = new Headers({
+				"content-type": "text/markdown; charset=utf-8",
+				"x-markdown-tokens": String(estimateTokens(md)),
+				vary: "Accept",
+			});
+			return new Response(request.method === "HEAD" ? null : md, { status: res.status, headers });
+		}
+
+		// Cache-safe: HTML and markdown share URLs.
+		const out = new Response(res.body, res);
+		if ((out.headers.get("content-type") || "").includes("text/html")) out.headers.append("vary", "Accept");
+		return out;
 	},
 };

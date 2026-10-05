@@ -4041,6 +4041,7 @@
     ],
     "source": "vestbee",
     "url": "https://www.hightech-venture-days.com/",
+    "organizer": "HTSB | HighTech Startbahn",
     "v": 1
   },
   {
@@ -4113,6 +4114,7 @@
     ],
     "source": "techmeme",
     "url": "https://electronica.de/en/",
+    "organizer": "Messe München GmbH",
     "v": 1
   },
   {
@@ -4347,6 +4349,101 @@
     ],
     "source": "dealroom",
     "url": "https://engaged.investments/",
+    "v": 1
+  },
+  {
+    "id": 334,
+    "slug": "nvidia-gtc-washington-dc-2026",
+    "name": "NVIDIA GTC Washington, D.C.",
+    "city": "Washington, D.C.",
+    "country": "United States",
+    "lat": 38.9072,
+    "lng": -77.0369,
+    "start": "2026-11-30",
+    "end": "2026-12-03",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://www.nvidia.com/gtc/dc/",
+    "v": 1
+  },
+  {
+    "id": 335,
+    "slug": "aaai-27",
+    "name": "AAAI-27",
+    "city": "Montréal",
+    "country": "Canada",
+    "lat": 45.5017,
+    "lng": -73.5673,
+    "start": "2027-02-16",
+    "end": "2027-02-23",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://aaai.org/conference/aaai/aaai-27/",
+    "v": 1
+  },
+  {
+    "id": 336,
+    "slug": "google-cloud-next-2027",
+    "name": "Google Cloud Next",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2027-04-13",
+    "end": "2027-04-15",
+    "tier": "mega",
+    "topics": [
+      "general-tech",
+      "dev-eng",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://www.googlecloudevents.com/next-vegas",
+    "v": 1
+  },
+  {
+    "id": 337,
+    "slug": "openssl-conference-prague-2026",
+    "name": "OpenSSL Conference",
+    "city": "Prague",
+    "country": "Czechia",
+    "lat": 50.0755,
+    "lng": 14.4378,
+    "start": "2026-10-12",
+    "end": "2026-10-15",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://openssl-conference.org/",
+    "organizer": "OpenSSL Corporation & Foundation",
+    "v": 1
+  },
+  {
+    "id": 338,
+    "slug": "agetechx-berlin-2026",
+    "name": "AgeTechX",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-10-05",
+    "end": "2026-10-06",
+    "tier": "notable",
+    "topics": [
+      "startup-vc",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://agetechx.com",
+    "organizer": "AgeTechX",
     "v": 1
   }
 ]
