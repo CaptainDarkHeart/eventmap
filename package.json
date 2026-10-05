@@ -20,7 +20,7 @@
     "prune-past-events": "node scripts/prune-past-events.mjs",
     "check-urls": "node scripts/check-urls.mjs",
     "deploy": "node scripts/prune-past-events.mjs && astro build && wrangler deploy",
-    "test": "node --test test/"
+    "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
