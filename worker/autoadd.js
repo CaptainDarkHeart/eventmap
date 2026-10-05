@@ -26,6 +26,13 @@ export function slugify(str) {
 		.replace(/^-+|-+$/g, "");
 }
 
+// Name + year, but not "developerweek-2027-2027" when the name already carries the year.
+export function makeSlug(name, start) {
+	const base = slugify(name);
+	const year = start.slice(0, 4);
+	return new RegExp(`(^|-)${year}($|-)`).test(base) ? base : `${base}-${year}`;
+}
+
 function normalise(str) {
 	return str.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "");
 }
@@ -105,24 +112,57 @@ export async function verifyUrlAndDates({ name, url, start }) {
 	return { ok: true, finalUrl: res.url };
 }
 
-export async function geocode(city, country) {
+// Great-circle distance in km.
+export function distanceKm(a, b) {
+	const rad = (d) => (d * Math.PI) / 180;
+	const dLat = rad(b.lat - a.lat);
+	const dLng = rad(b.lng - a.lng);
+	const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLng / 2) ** 2;
+	return 6371 * 2 * Math.asin(Math.sqrt(h));
+}
+
+// Two geocoders must agree before a pin is published. A free-text Nominatim query
+// once ranked "Santa Clara County" above the city (25 km off), so: structured query,
+// plus an independent second opinion. Disagreement means manual review, never a guess.
+export const GEOCODE_AGREE_KM = 25;
+
+async function nominatim(city, country, doFetch) {
+	const q = new URLSearchParams({ format: "json", limit: "3", addressdetails: "1", city, country });
+	const res = await doFetch(`https://nominatim.openstreetmap.org/search?${q}`, {
+		signal: AbortSignal.timeout(8000),
+		headers: { "user-agent": "TechEventsMap/1.0 (contact@techeventsmap.com)" },
+	});
+	if (!res.ok) throw new Error(`Nominatim HTTP ${res.status}`);
+	const hit = (await res.json())[0];
+	if (!hit) return null;
+	return { lat: Number(hit.lat), lng: Number(hit.lon), countryCode: String(hit.address?.country_code || "").toUpperCase() };
+}
+
+async function openMeteo(city, countryCode, doFetch) {
+	const q = new URLSearchParams({ name: city, count: "10", language: "en", format: "json" });
+	const res = await doFetch(`https://geocoding-api.open-meteo.com/v1/search?${q}`, { signal: AbortSignal.timeout(8000) });
+	if (!res.ok) throw new Error(`Open-Meteo HTTP ${res.status}`);
+	const hits = ((await res.json()).results || []).filter((h) => !countryCode || h.country_code === countryCode);
+	// Results come back ranked by population: take the largest place of that name.
+	return hits[0] ? { lat: Number(hits[0].latitude), lng: Number(hits[0].longitude) } : null;
+}
+
+export async function geocode(city, country, doFetch = fetch) {
 	try {
-		const res = await fetch(
-			`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(`${city}, ${country}`)}`,
-			{
-				signal: AbortSignal.timeout(8000),
-				headers: { "user-agent": "TechEventsMap/1.0 (contact@techeventsmap.com)" },
-			},
-		);
-		if (!res.ok) return { ok: false, reason: `Geocoder returned HTTP ${res.status}.` };
-		const hits = await res.json();
-		if (!hits.length) return { ok: false, reason: `Could not geocode "${city}, ${country}".` };
-		const lat = Math.round(Number(hits[0].lat) * 10000) / 10000;
-		const lng = Math.round(Number(hits[0].lon) * 10000) / 10000;
+		const a = await nominatim(city, country, doFetch);
+		if (!a) return { ok: false, reason: `Could not geocode "${city}, ${country}".` };
+		const b = await openMeteo(city, a.countryCode, doFetch);
+		if (!b) return { ok: false, reason: `Second geocoder could not confirm "${city}, ${country}".` };
+		const km = distanceKm(a, b);
+		if (km > GEOCODE_AGREE_KM) {
+			return { ok: false, reason: `Geocoders disagree on "${city}, ${country}" (${Math.round(km)} km apart), check the pin by hand.` };
+		}
+		const lat = Math.round(a.lat * 10000) / 10000;
+		const lng = Math.round(a.lng * 10000) / 10000;
 		if (!Number.isFinite(lat) || !Number.isFinite(lng)) return { ok: false, reason: "Geocoder returned bad coordinates." };
 		return { ok: true, lat, lng };
 	} catch (err) {
-		return { ok: false, reason: `Geocoder failed (${err.name || "error"}).` };
+		return { ok: false, reason: `Geocoder failed (${err.message || err.name || "error"}).` };
 	}
 }
 
@@ -176,9 +216,15 @@ export async function appendToRepo(env, candidate) {
 		if (dup) return { ok: false, reason: `Duplicate of existing event "${dup.name}" (id ${dup.id}).`, duplicate: true };
 
 		const slugs = new Set(events.map((e) => e.slug));
-		let slug = `${slugify(candidate.name)}-${candidate.start.slice(0, 4)}`;
+		let slug = makeSlug(candidate.name, candidate.start);
 		if (slugs.has(slug)) slug = `${slug}-${slugify(candidate.city)}`;
 		if (slugs.has(slug)) return { ok: false, reason: `Slug "${slug}" already exists.` };
+
+		// Same city already on the map? The pin must sit with the others.
+		const sameCity = events.find((e) => normalise(e.city) === normalise(candidate.city) && normalise(e.country) === normalise(candidate.country));
+		if (sameCity && distanceKm(sameCity, candidate) > GEOCODE_AGREE_KM) {
+			return { ok: false, reason: `Pin is ${Math.round(distanceKm(sameCity, candidate))} km from existing ${candidate.city} events (id ${sameCity.id}), check by hand.` };
+		}
 
 		const id = Math.max(0, ...events.map((e) => e.id)) + 1;
 		const event = { id, slug, ...candidate, v: 1 };
