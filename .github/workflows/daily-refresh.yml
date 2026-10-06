@@ -1,0 +1,48 @@
+name: Daily refresh
+
+# Prunes concluded events, commits the removal to main, rebuilds and deploys,
+# so the live map is current every day even if nothing else merged.
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    env:
+      PUBLIC_CARTO_KEY: ${{ secrets.PUBLIC_CARTO_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Prune concluded events
+        run: node scripts/prune-past-events.mjs
+      - run: npm run validate-events
+      - run: npm test
+      - name: Commit prune to main
+        run: |
+          if git diff --quiet src/data/events.json; then
+            echo "Nothing to prune."
+          else
+            git config user.name "eventmap-bot"
+            git config user.email "contact@techeventsmap.com"
+            git add src/data/events.json
+            git commit -m "Prune concluded events (daily refresh)"
+            git push origin HEAD:main
+          fi
+      - run: npx astro build
+      - run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
