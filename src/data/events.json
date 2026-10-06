@@ -5344,5 +5344,169 @@
     "source": "startupevents",
     "url": "https://en.wemakefuture.it/next/events/world-startup-fest/",
     "v": 1
+  },
+  {
+    "id": 388,
+    "slug": "open-source-ai-week-2026",
+    "name": "Open Source AI Week",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-10-16",
+    "end": "2026-10-25",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "dev-eng"
+    ],
+    "source": "lfai",
+    "url": "https://events.linuxfoundation.org/open-source-ai-week/",
+    "v": 1
+  },
+  {
+    "id": 389,
+    "slug": "entrepreneurship-summit-2026",
+    "name": "Entrepreneurship Summit",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-10-17",
+    "end": "2026-10-18",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "startupevents",
+    "url": "https://entrepreneurship.de/en/summit",
+    "v": 1
+  },
+  {
+    "id": 390,
+    "slug": "one-way-summit-2026",
+    "name": "One Way Summit",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-10-28",
+    "end": "2026-10-29",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "startupevents",
+    "url": "https://www.onewaysummit.com/",
+    "v": 1
+  },
+  {
+    "id": 391,
+    "slug": "ai-expo-europe-2026",
+    "name": "AI Expo Europe",
+    "city": "Bucharest",
+    "country": "Romania",
+    "lat": 44.4268,
+    "lng": 26.1025,
+    "start": "2026-11-01",
+    "end": "2026-11-02",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "startupevents",
+    "url": "https://aiexpoeurope.com/",
+    "v": 1
+  },
+  {
+    "id": 392,
+    "slug": "saastr-ai-annual-2027",
+    "name": "SaaStr AI Annual",
+    "city": "San Mateo",
+    "country": "United States",
+    "lat": 37.563,
+    "lng": -122.3255,
+    "start": "2027-05-11",
+    "end": "2027-05-12",
+    "tier": "major",
+    "topics": [
+      "startup-vc",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://www.saastrannual.com/",
+    "v": 1
+  },
+  {
+    "id": 393,
+    "slug": "saasiest-2027",
+    "name": "SaaSiest",
+    "city": "Malmö",
+    "country": "Sweden",
+    "lat": 55.605,
+    "lng": 13.0038,
+    "start": "2027-05-11",
+    "end": "2027-05-12",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://saasiest2027.com/",
+    "v": 1
+  },
+  {
+    "id": 394,
+    "slug": "k5-future-retail-conference-2027",
+    "name": "K5 Future Retail Conference",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2027-06-22",
+    "end": "2027-06-23",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://konferenz.k5.de/",
+    "v": 1
+  },
+  {
+    "id": 395,
+    "slug": "dmexco-2027",
+    "name": "DMEXCO",
+    "city": "Cologne",
+    "country": "Germany",
+    "lat": 50.9375,
+    "lng": 6.9603,
+    "start": "2027-09-22",
+    "end": "2027-09-23",
+    "tier": "major",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://dmexco.com/",
+    "v": 1
+  },
+  {
+    "id": 396,
+    "slug": "bits-and-pretzels-2027",
+    "name": "Bits & Pretzels",
+    "city": "Munich",
+    "country": "Germany",
+    "lat": 48.1351,
+    "lng": 11.582,
+    "start": "2027-09-27",
+    "end": "2027-09-29",
+    "tier": "major",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://www.bitsandpretzels.com/",
+    "v": 1
   }
 ]
