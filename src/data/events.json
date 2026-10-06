@@ -1,23 +1,5 @@
 [
   {
-    "id": 156,
-    "slug": "mlcon-nyc-2026",
-    "name": "MLCon NYC",
-    "city": "New York",
-    "country": "United States",
-    "lat": 40.7128,
-    "lng": -74.006,
-    "start": "2026-09-28",
-    "end": "2026-10-02",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "confstech",
-    "url": "https://mlconference.ai/new-york/",
-    "v": 1
-  },
-  {
     "id": 157,
     "slug": "cloudflare-connect-2026",
     "name": "Cloudflare Connect",
@@ -213,60 +195,6 @@
     ],
     "source": "techcrunch",
     "url": "https://techcrunch.com/events/techcrunch-founder-summit-2026/",
-    "v": 1
-  },
-  {
-    "id": 111,
-    "slug": "basta-herbst",
-    "name": "BASTA! Herbst",
-    "city": "Mainz",
-    "country": "Germany",
-    "lat": 49.9929,
-    "lng": 8.2473,
-    "start": "2026-09-28",
-    "end": "2026-10-02",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://basta.net/mainz-en/",
-    "v": 1
-  },
-  {
-    "id": 112,
-    "slug": "devopscon-nyc",
-    "name": "DevOpsCon NYC",
-    "city": "New York",
-    "country": "United States",
-    "lat": 40.7128,
-    "lng": -74.006,
-    "start": "2026-09-28",
-    "end": "2026-10-02",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://devopscon.io/new-york/",
-    "v": 1
-  },
-  {
-    "id": 100,
-    "slug": "openai-devday",
-    "name": "OpenAI DevDay",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-09-29",
-    "end": "2026-10-02",
-    "tier": "major",
-    "topics": [
-      "ai"
-    ],
-    "source": "techmeme",
-    "url": "https://devday.openai.com/",
     "v": 1
   },
   {
@@ -1692,24 +1620,6 @@
     "v": 1
   },
   {
-    "id": 131,
-    "slug": "goto-copenhagen",
-    "name": "GOTO Copenhagen",
-    "city": "Copenhagen",
-    "country": "Denmark",
-    "lat": 55.6761,
-    "lng": 12.5683,
-    "start": "2026-09-28",
-    "end": "2026-10-02",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "confstech",
-    "url": "https://gotocph.com/2026",
-    "v": 1
-  },
-  {
     "id": 133,
     "slug": "kubecon-cloudnativecon-north-america",
     "name": "KubeCon + CloudNativeCon North America",
@@ -2863,25 +2773,6 @@
     ],
     "source": "manual",
     "url": "https://teamleadconf.ru/",
-    "v": 1
-  },
-  {
-    "id": 233,
-    "slug": "aws-community-day-peru-2026",
-    "name": "AWS Community Day Perú",
-    "city": "Lima",
-    "country": "Peru",
-    "lat": -12.1354,
-    "lng": -77.0224,
-    "start": "2026-10-03",
-    "end": "2026-10-03",
-    "tier": "notable",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "devevents",
-    "url": "https://awscommunityday.pe/",
     "v": 1
   },
   {
@@ -4295,24 +4186,6 @@
     ],
     "source": "dealroom",
     "url": "https://www.arrtist.net/",
-    "v": 1
-  },
-  {
-    "id": 330,
-    "slug": "api-conference-nyc-2026",
-    "name": "API Conference NYC",
-    "city": "New York",
-    "country": "United States",
-    "lat": 40.7128,
-    "lng": -74.006,
-    "start": "2026-09-28",
-    "end": "2026-10-02",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://apiconference.net/new-york/",
     "v": 1
   },
   {
