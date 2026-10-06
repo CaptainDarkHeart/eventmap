@@ -5381,5 +5381,149 @@
     "source": "manual",
     "url": "https://www.bitsandpretzels.com/",
     "v": 1
+  },
+  {
+    "id": 397,
+    "slug": "dc-fintech-week-2026",
+    "name": "DC Fintech Week",
+    "city": "Washington, D.C.",
+    "country": "United States",
+    "lat": 38.9072,
+    "lng": -77.0369,
+    "start": "2026-10-13",
+    "end": "2026-10-16",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "techmeme",
+    "url": "https://www.dcfintechweek.org/",
+    "v": 1
+  },
+  {
+    "id": 398,
+    "slug": "tedai-vienna-2026",
+    "name": "TEDAI Vienna",
+    "city": "Vienna",
+    "country": "Austria",
+    "lat": 48.2082,
+    "lng": 16.3738,
+    "start": "2026-10-28",
+    "end": "2026-10-30",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "techmeme",
+    "url": "https://tedai-vienna.ted.com/",
+    "v": 1
+  },
+  {
+    "id": 399,
+    "slug": "dubai-fintech-summit-2026",
+    "name": "Dubai FinTech Summit",
+    "city": "Dubai",
+    "country": "UAE",
+    "lat": 25.2048,
+    "lng": 55.2708,
+    "start": "2026-11-02",
+    "end": "2026-11-03",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "techmeme",
+    "url": "https://dubaifintechsummit.com/",
+    "v": 1
+  },
+  {
+    "id": 400,
+    "slug": "barcelona-cybersecurity-congress-2026",
+    "name": "Barcelona Cybersecurity Congress",
+    "city": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3874,
+    "lng": 2.1686,
+    "start": "2026-11-03",
+    "end": "2026-11-05",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "techmeme",
+    "url": "https://www.barcelonacybersecuritycongress.com/",
+    "v": 1
+  },
+  {
+    "id": 401,
+    "slug": "bitcoin-amsterdam-2026",
+    "name": "Bitcoin Amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2026-11-05",
+    "end": "2026-11-06",
+    "tier": "notable",
+    "topics": [
+      "crypto"
+    ],
+    "source": "techmeme",
+    "url": "https://www.bitcoin.amsterdam/",
+    "v": 1
+  },
+  {
+    "id": 402,
+    "slug": "solana-breakpoint-2026",
+    "name": "Solana Breakpoint",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2026-11-15",
+    "end": "2026-11-17",
+    "tier": "major",
+    "topics": [
+      "crypto"
+    ],
+    "source": "techmeme",
+    "url": "https://solana.com/breakpoint",
+    "v": 1
+  },
+  {
+    "id": 403,
+    "slug": "droidcon-london-2026",
+    "name": "droidcon London",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2026-12-10",
+    "end": "2026-12-11",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://london.droidcon.com/",
+    "v": 1
+  },
+  {
+    "id": 404,
+    "slug": "consensus-hong-kong-2027",
+    "name": "Consensus Hong Kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "lat": 22.3193,
+    "lng": 114.1694,
+    "start": "2027-02-01",
+    "end": "2027-02-03",
+    "tier": "major",
+    "topics": [
+      "crypto"
+    ],
+    "source": "techmeme",
+    "url": "https://consensus-hongkong.coindesk.com/",
+    "v": 1
   }
 ]
