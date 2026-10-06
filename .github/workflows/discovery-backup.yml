@@ -1,0 +1,79 @@
+name: Discovery backup
+
+# Cloud fallback for the Mac launchd discovery job. Runs only when the Mac has
+# not reported in (vars.LAST_DISCOVERY_RUN, set by discover-events-cron.sh) and
+# has not opened a discovery PR in the last 24h.
+on:
+  schedule:
+    - cron: "0 10 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Run even if the Mac ran recently"
+        type: boolean
+        default: false
+
+concurrency:
+  group: discovery-backup
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Has the Mac run recently?
+        id: gate
+        run: |
+          now=$(date -u +%s)
+          last="${{ vars.LAST_DISCOVERY_RUN }}"
+          last_s=0; [ -n "$last" ] && last_s=$(date -u -d "$last" +%s 2>/dev/null || echo 0)
+          recent_pr=$(gh pr list --state all --limit 20 --json headRefName,createdAt \
+            --jq '[.[] | select(.headRefName|startswith("event-discovery")) | select(.createdAt > (now-86400|todate))] | length')
+          open_pr=$(gh pr list --state open --json headRefName --jq '[.[]|select(.headRefName|startswith("event-discovery"))]|length')
+          age=$(( now - last_s ))
+          echo "mac heartbeat age: ${age}s, discovery PRs last 24h: $recent_pr, open: $open_pr"
+          if [ "${{ inputs.force }}" = "true" ]; then run=true
+          elif [ "$open_pr" != "0" ] || [ "$recent_pr" != "0" ] || [ "$age" -lt 90000 ]; then run=false
+          else run=true; fi
+          echo "run=$run" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install
+        if: steps.gate.outputs.run == 'true'
+        run: npm ci && npm i -g @anthropic-ai/claude-code
+      - name: Discover
+        if: steps.gate.outputs.run == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          git config user.name "eventmap-bot"
+          git config user.email "contact@techeventsmap.com"
+          mkdir -p logs
+          claude -p "$(cat scripts/discover-events-prompt.txt)" \
+            --permission-mode acceptEdits \
+            --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "WebFetch" "WebSearch" "Bash(git *)" "Bash(gh *)" "Bash(npm *)" "Bash(curl *)" "Bash(date*)"
+      - name: Validate and merge
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          pr=$(gh pr list --state open --json number,headRefName --jq '[.[]|select(.headRefName|startswith("event-discovery"))][0].number // empty')
+          [ -z "$pr" ] && { echo "No PR opened."; exit 0; }
+          gh pr checkout "$pr"
+          if npm run validate-events && npm test; then
+            gh pr merge "$pr" --squash --delete-branch
+            # GITHUB_TOKEN merges do not trigger deploy.yml, so deploy explicitly.
+            gh workflow run daily-refresh.yml --ref main
+          else
+            echo "PR #$pr failed validation, left open for review."
+          fi

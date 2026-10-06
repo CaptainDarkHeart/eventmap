@@ -19,6 +19,7 @@ git pull --ff-only origin main >> "$LOG_FILE" 2>&1
 OPEN_PR="$(gh pr list --state open --json number,headRefName --jq '[.[] | select(.headRefName | startswith("event-discovery"))] | .[0].number // empty')"
 if [ -n "$OPEN_PR" ]; then
   echo "Open discovery PR #$OPEN_PR, skipping run $(date)" >> "$LOG_FILE"
+  gh variable set LAST_DISCOVERY_RUN --body "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$LOG_FILE" 2>&1 || true
   exit 0
 fi
 
@@ -44,5 +45,8 @@ if [ "${AUTO_MERGE:-0}" = "1" ]; then
     git checkout main >> "$LOG_FILE" 2>&1
   fi
 fi
+
+# Heartbeat for the cloud backup (.github/workflows/discovery-backup.yml).
+gh variable set LAST_DISCOVERY_RUN --body "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$LOG_FILE" 2>&1 || true
 
 echo "--- done $(date) ---" >> "$LOG_FILE"
