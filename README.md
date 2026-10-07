@@ -12,6 +12,7 @@ An open source interactive world map of tech, startup, AI and fintech conference
 - Table view (`/events`), sortable by date, free-text search, tier filter, CSV export of visible rows
 - Per-event pages (`/events/[slug]`) with dates, location, topics, official site link, and schema.org Event structured data (optional `organizer`, `performers`, `offer` fields in `events.json` are emitted only when set)
 - Calendar (ICS) feeds: `/events.ics` for everything, `/events/[slug].ics` per event, plus an "Add to calendar" link per row on the table view
+- Trip planner (`/plan`): pick topics, goal, home city and travel budget, get a ranked itinerary, `.ics` export and a share link. Runs entirely in the browser, nothing stored on a server. Next phases: [docs/plan-roadmap.md](docs/plan-roadmap.md)
 - Light/dark theme toggle, preference saved locally
 - Contact form (`/contact`) and event submission form (`/submit`), both Turnstile + honeypot protected, handled by a Cloudflare Worker (submissions are auto-verified and committed to `events.json`; failures are emailed for manual review)
 - Custom 404 page
@@ -37,9 +38,11 @@ An open source interactive world map of tech, startup, AI and fintech conference
 │   │   └── Layout.astro
 │   ├── lib/
 │   │   ├── topics.ts         # topic labels/colors, tier labels
-│   │   └── ics.ts            # builds iCalendar (.ics) output
+│   │   ├── ics.ts            # builds iCalendar (.ics) output
+│   │   └── planner.js        # scoring and itinerary logic for /plan
 │   └── pages/
 │       ├── index.astro       # map view
+│       ├── plan.astro        # trip planner
 │       ├── about.astro, contact.astro, submit.astro
 │       ├── 404.astro
 │       ├── events.ics.ts     # all-events calendar feed
