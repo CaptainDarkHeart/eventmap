@@ -5525,5 +5525,60 @@
     "source": "techmeme",
     "url": "https://consensus-hongkong.coindesk.com/",
     "v": 1
+  },
+  {
+    "id": 405,
+    "slug": "cerebral-valley-ai-summit-2026",
+    "name": "Cerebral Valley AI Summit",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-11-12",
+    "end": "2026-11-12",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "startup-vc"
+    ],
+    "source": "techmeme",
+    "url": "https://cerebralvalley.com",
+    "v": 1
+  },
+  {
+    "id": 406,
+    "slug": "current-2026",
+    "name": "Current",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-11-04",
+    "end": "2026-11-05",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://current.confluent.io",
+    "v": 1
+  },
+  {
+    "id": 407,
+    "slug": "tech-osaka-summit-2027",
+    "name": "Tech Osaka Summit",
+    "city": "Osaka",
+    "country": "Japan",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "start": "2027-01-26",
+    "end": "2027-01-27",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://www.innovation-osaka.jp/tech-osaka-summit-2027/",
+    "v": 1
   }
 ]
