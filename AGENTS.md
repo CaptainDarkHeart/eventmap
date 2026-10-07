@@ -42,6 +42,7 @@ Pages:
 - `src/pages/index.astro` (map, client script inlined via `define:vars`)
 - `src/pages/events/index.astro` (table view: tier filter, free-text search across name/city/country, "Export CSV" of the currently visible rows, per-row "Add to calendar" link), `src/pages/events/[slug].astro` (static per-event page via `getStaticPaths`)
 - `src/pages/events.ics.ts` (single ICS feed of every event, `/events.ics`), `src/pages/events/[slug].ics.ts` (per-event ICS download, static via `getStaticPaths`) — both built from `src/lib/ics.ts` (`buildVEvent`/`buildCalendar`, end date is exclusive per iCal spec so it adds a day internally)
+- `src/pages/plan.astro` (client-side trip planner: profile form, deterministic scoring and itinerary from `src/lib/planner.js`, ICS export, share link via URL hash, profile in `localStorage` key `em_plan_profile`; no backend. Network scoring uses event size only, no attendee data. Tests: `test/planner.test.mjs`)
 - `src/pages/about.astro` (data sources, builder bio, uses `public/dan.jpg`, original source photo kept in `assets-src/dan-original.png`)
 - `src/pages/contact.astro` (contact form, Cloudflare Turnstile widget, honeypot field, posts to `/api/contact`)
 - `src/pages/submit.astro` (event submission form, same Turnstile/honeypot pattern, posts to `/api/submit-event`, auto-verifies and publishes, see below)
