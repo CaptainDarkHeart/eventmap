@@ -1802,24 +1802,6 @@
     "v": 1
   },
   {
-    "id": 150,
-    "slug": "resilience-conference-london",
-    "name": "Resilience Conference London",
-    "city": "London",
-    "country": "United Kingdom",
-    "lat": 51.5074,
-    "lng": -0.1278,
-    "start": "2026-10-05",
-    "end": "2026-10-06",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "manual",
-    "url": "https://resiliencemedia.co/events/resilience-conference-london/",
-    "v": 1
-  },
-  {
     "id": 163,
     "slug": "mxt-conference",
     "name": "MXT Conference",
@@ -3176,25 +3158,6 @@
     "v": 1
   },
   {
-    "id": 260,
-    "slug": "appsec-israel-2026",
-    "name": "AppSec Israel",
-    "city": "Tel Aviv",
-    "country": "Israel",
-    "lat": 32.1065,
-    "lng": 34.808,
-    "start": "2026-10-06",
-    "end": "2026-10-06",
-    "tier": "major",
-    "topics": [
-      "security",
-      "dev-eng"
-    ],
-    "source": "manual",
-    "url": "https://appsecil.org/",
-    "v": 1
-  },
-  {
     "id": 261,
     "slug": "future-of-ai-tel-aviv-2026",
     "name": "Future of AI",
@@ -4297,26 +4260,6 @@
     "source": "manual",
     "url": "https://openssl-conference.org/",
     "organizer": "OpenSSL Corporation & Foundation",
-    "v": 1
-  },
-  {
-    "id": 338,
-    "slug": "agetechx-berlin-2026",
-    "name": "AgeTechX",
-    "city": "Berlin",
-    "country": "Germany",
-    "lat": 52.52,
-    "lng": 13.405,
-    "start": "2026-10-05",
-    "end": "2026-10-06",
-    "tier": "notable",
-    "topics": [
-      "startup-vc",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://agetechx.com",
-    "organizer": "AgeTechX",
     "v": 1
   },
   {
