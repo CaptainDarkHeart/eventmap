@@ -23,13 +23,13 @@ const cities = [...new Set(events.map((e) => e.city))].sort((a, b) => a.localeCo
 ---
 <Layout
 	title="Plan your event year | Tech Events Map"
-	description="Tell us your topics, goal and travel budget. Get a ranked itinerary of tech and startup conferences, ready for your calendar."
+	description="Tell me your topics, goal and travel budget. Get a ranked itinerary of tech and startup conferences, ready for your calendar."
 >
 	<SiteHeader />
 	<div class="wrap">
 		<div class="page-head">
 			<h1>Plan your event year</h1>
-			<p class="sub">Pick your topics, goal and travel budget. We rank every upcoming event and suggest a trip plan. Runs in your browser, nothing is stored on a server.</p>
+			<p class="sub">Pick your topics, goal and travel budget. I rank every upcoming event and suggest a trip plan. Runs in your browser, nothing is stored on a server.</p>
 		</div>
 
 		<form id="plan-form" class="form" autocomplete="off" onsubmit="return false">
@@ -39,7 +39,7 @@ const cities = [...new Set(events.map((e) => e.city))].sort((a, b) => a.localeCo
 				<datalist id="city-list">
 					{cities.map((c) => <option value={c} />)}
 				</datalist>
-				<p id="home-note" class="hint" hidden>Not one of our event cities, so distance is ignored.</p>
+				<p id="home-note" class="hint" hidden>Not one of my event cities, so distance is ignored.</p>
 			</div>
 
 			<div class="field">
@@ -104,7 +104,7 @@ const cities = [...new Set(events.map((e) => e.city))].sort((a, b) => a.localeCo
 			</div>
 		</form>
 
-		<p class="note">Scores use topic fit, event size, distance and lead time. Event size is the only networking signal for now: we do not have attendee lists.</p>
+		<p class="note">Scores use topic fit, event size, distance and lead time. Event size is the only networking signal for now: I do not have attendee lists.</p>
 
 		<div class="actions">
 			<button id="ics-btn" type="button" class="btn">Download .ics</button>
