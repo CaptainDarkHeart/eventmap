@@ -132,11 +132,11 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
   </a>
   <nav id="site-nav">
     <a href="/">Map</a>
-    <a href="/events">All Events</a>
-    <a href="/plan">Plan</a>
-    <a href="/submit">Submit Event</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
+    <a href="/events/">All Events</a>
+    <a href="/plan/">Plan</a>
+    <a href="/submit/">Submit Event</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
     <a class="github-link" href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener" aria-label="GitHub">
       <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
       <span class="github-text">GitHub</span>
@@ -189,7 +189,7 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
 
   <div class="map-container">
     <div id="map"></div>
-    <a class="list-link" href="/events">View all events &rarr;</a>
+    <a class="list-link" href="/events/">View all events &rarr;</a>
   </div>
 </div>
 
@@ -277,7 +277,7 @@ function gcalLink(ev) {
     action: "TEMPLATE",
     text: ev.name,
     dates: `${ymd(ev.start)}/${ymd(addDay(ev.end))}`,
-    details: ev.url || `https://techeventsmap.com/events/${ev.slug}`,
+    details: ev.url || `https://techeventsmap.com/events/${ev.slug}/`,
     location: `${ev.city}, ${ev.country}`,
   });
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
@@ -311,7 +311,7 @@ const items = sorted.map((ev) => {
     radius, color, weight: 1.5, fillColor: color, fillOpacity: 0.8,
   });
   const url = ev.url ? `<a href="${outboundUrl(ev.url, ev.slug)}" target="_blank" rel="noopener">${ev.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</a>` : "";
-  const links = `<div class="popup-links"><a href="/events/${ev.slug}">Details</a> &middot; <a href="${gcalLink(ev)}" target="_blank" rel="noopener">+ Google Calendar</a></div>`;
+  const links = `<div class="popup-links"><a href="/events/${ev.slug}/">Details</a> &middot; <a href="${gcalLink(ev)}" target="_blank" rel="noopener">+ Google Calendar</a></div>`;
   marker.bindPopup(`<strong>${ev.name}</strong><br/>${ev.city}, ${ev.country}<br/>${fmtDate(ev.start, ev.end)}${url ? "<br/>" + url : ""}${links}`);
   marker.addTo(map);
   marker.on("click", () => selectCard(ev.slug));
@@ -342,7 +342,7 @@ const items = sorted.map((ev) => {
     <div class="name"><span class="dot" style="background:${color}"></span>${ev.name}</div>
     <div class="meta">${fmtDate(ev.start, ev.end)} &middot; ${ev.city}, ${ev.country}</div>
     <div class="tags"><span class="mini-tag ${ev.tier}">${TIER_LABEL[ev.tier]}</span></div>
-    <div class="card-links"><a href="/events/${ev.slug}">Details</a></div>
+    <div class="card-links"><a href="/events/${ev.slug}/">Details</a></div>
   `;
   card.addEventListener("click", (e) => {
     if (e.target.closest("a")) return;
