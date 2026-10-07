@@ -208,10 +208,11 @@ export async function appendToRepo(env, candidate) {
 		const events = JSON.parse(b64decode(file.content));
 
 		const wantName = normalise(candidate.name);
+		// Same year only: series reuse one evergreen URL across editions.
 		const dup = events.find(
 			(e) =>
-				hostPath(e.url || "") === hostPath(candidate.url) ||
-				(normalise(e.name) === wantName && e.start.slice(0, 4) === candidate.start.slice(0, 4)),
+				e.start.slice(0, 4) === candidate.start.slice(0, 4) &&
+				(hostPath(e.url || "") === hostPath(candidate.url) || normalise(e.name) === wantName),
 		);
 		if (dup) return { ok: false, reason: `Duplicate of existing event "${dup.name}" (id ${dup.id}).`, duplicate: true };
 
