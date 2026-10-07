@@ -208,6 +208,12 @@ export default {
 
 		const res = await env.ASSETS.fetch(request);
 
+		// Concluded events are pruned from the data, so their pages 404. Send those
+		// URLs to the events list instead of leaving dead links in the index.
+		if (res.status === 404 && /^\/events\/[^/]+?(\.ics|\/)?$/.test(url.pathname)) {
+			return Response.redirect(new URL("/events/", url).href, 301);
+		}
+
 		// Markdown for Agents: Accept: text/markdown gets a markdown rendering of HTML pages.
 		if (wantsMarkdown(request) && (res.headers.get("content-type") || "").includes("text/html")) {
 			const md = htmlToMarkdown(await res.text());
