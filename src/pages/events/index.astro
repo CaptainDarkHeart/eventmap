@@ -19,7 +19,7 @@ function gcalUrl(ev: (typeof events)[number]) {
 		action: "TEMPLATE",
 		text: ev.name,
 		dates: `${ymd(ev.start)}/${ymd(addDay(ev.end))}`,
-		details: ev.url || `https://techeventsmap.com/events/${ev.slug}`,
+		details: ev.url || `https://techeventsmap.com/events/${ev.slug}/`,
 		location: `${ev.city}, ${ev.country}`,
 	});
 	return `https://calendar.google.com/calendar/render?${params.toString()}`;
@@ -42,7 +42,7 @@ function fmtDate(s: string, e: string) {
 		itemListElement: sorted.slice(0, 50).map((ev, i) => ({
 			"@type": "ListItem",
 			position: i + 1,
-			url: `https://techeventsmap.com/events/${ev.slug}`,
+			url: `https://techeventsmap.com/events/${ev.slug}/`,
 			name: ev.name,
 		})),
 	})} />
@@ -135,7 +135,7 @@ function fmtDate(s: string, e: string) {
 							data-tier-rank={ev.tier === "mega" ? 3 : ev.tier === "major" ? 2 : 1}
 							data-csv={JSON.stringify([ev.name, ev.start, ev.end, ev.city, ev.country, ev.topics.map((t) => TOPICS[t]?.label ?? t).join("; "), TIERS[ev.tier], ev.url ?? ""])}
 						>
-							<td><a href={`/events/${ev.slug}`}>{ev.name}</a></td>
+							<td><a href={`/events/${ev.slug}/`}>{ev.name}</a></td>
 							<td>{fmtDate(ev.start, ev.end)}</td>
 							<td>{ev.city}, {ev.country}</td>
 							<td>{ev.topics.map((t) => TOPICS[t]?.label ?? t).join(", ")}</td>

@@ -27,7 +27,7 @@ function addDay(s: string) {
 	d.setUTCDate(d.getUTCDate() + 1);
 	return d.toISOString().slice(0, 10);
 }
-const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(ev.name)}&dates=${ymd(ev.start)}/${ymd(addDay(ev.end))}&details=${encodeURIComponent(ev.url || `https://techeventsmap.com/events/${ev.slug}`)}&location=${encodeURIComponent(`${ev.city}, ${ev.country}`)}`;
+const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(ev.name)}&dates=${ymd(ev.start)}/${ymd(addDay(ev.end))}&details=${encodeURIComponent(ev.url || `https://techeventsmap.com/events/${ev.slug}/`)}&location=${encodeURIComponent(`${ev.city}, ${ev.country}`)}`;
 ---
 <Layout title={`${ev.name} — Tech Events Map`} description={`${ev.name}, ${fmtDate(ev.start, ev.end)}, ${ev.city}, ${ev.country}.`}>
 	<script is:inline type="application/ld+json" set:html={JSON.stringify({
@@ -36,7 +36,7 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 		name: ev.name,
 		description: `${ev.name}, ${fmtDate(ev.start, ev.end)}, ${ev.city}, ${ev.country}. ${ev.topics.map((t: string) => TOPICS[t]?.label ?? t).join(", ")} event.`,
 		image: ["https://techeventsmap.com/og-image.png"],
-		organizer: { "@type": "Organization", name: ev.organizer || ev.name, url: ev.url || `https://techeventsmap.com/events/${ev.slug}` },
+		organizer: { "@type": "Organization", name: ev.organizer || ev.name, url: ev.url || `https://techeventsmap.com/events/${ev.slug}/` },
 		...(ev.performers?.length ? { performer: ev.performers.map((n: string) => ({ "@type": "Person", name: n })) } : {}),
 		...(ev.offer ? { offers: { "@type": "Offer", url: ev.offer.url || ev.url, price: ev.offer.price, priceCurrency: ev.offer.currency || "USD", availability: "https://schema.org/InStock" } } : {}),
 		startDate: ev.start,
@@ -49,11 +49,11 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 			address: { "@type": "PostalAddress", addressLocality: ev.city, addressCountry: ev.country },
 			geo: { "@type": "GeoCoordinates", latitude: ev.lat, longitude: ev.lng },
 		},
-		url: ev.url || `https://techeventsmap.com/events/${ev.slug}`,
+		url: ev.url || `https://techeventsmap.com/events/${ev.slug}/`,
 	})} />
 	<SiteHeader />
 	<div class="wrap">
-		<a class="back" href="/events">← All events</a>
+		<a class="back" href="/events/">← All events</a>
 		<h1>{ev.name}</h1>
 		<div class="meta">
 			<span>{fmtDate(ev.start, ev.end)}</span>
@@ -69,7 +69,7 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 			<a class="cal-btn" href={gcalUrl} target="_blank" rel="noopener">+ Google Calendar</a>
 			<a class="cal-btn" href={`/events/${ev.slug}.ics`}>Download .ics (Apple / Outlook)</a>
 		</div>
-		<p class="source">Date sourced from {ev.source}. Dates can shift year to year, always confirm on the official site before booking travel. Tech Events Map is open source — spot an error? <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">Edit on GitHub</a> or <a href="/contact">contact me</a>.</p>
+		<p class="source">Date sourced from {ev.source}. Dates can shift year to year, always confirm on the official site before booking travel. Tech Events Map is open source — spot an error? <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">Edit on GitHub</a> or <a href="/contact/">contact me</a>.</p>
 		<div class="bottom-links">
 			{ev.url && <a class="map-link" href={outboundUrl(ev.url, ev.slug)} target="_blank" rel="noopener">View event →</a>}
 			<a class="map-link view-map" href={`/#${ev.slug}`}>View on map →</a>
