@@ -2372,25 +2372,6 @@
     "v": 1
   },
   {
-    "id": 201,
-    "slug": "global-startup-expo-2026",
-    "name": "Global Startup EXPO",
-    "city": "Osaka",
-    "country": "Japan",
-    "lat": 34.6937,
-    "lng": 135.5023,
-    "start": "2026-10-05",
-    "end": "2026-10-07",
-    "tier": "major",
-    "topics": [
-      "startup-vc",
-      "ai"
-    ],
-    "source": "japanconf",
-    "url": "https://global-startup-expo.com/en/",
-    "v": 1
-  },
-  {
     "id": 202,
     "slug": "kaigi-on-rails-2026",
     "name": "Kaigi on Rails",
