@@ -216,24 +216,6 @@
     "v": 1
   },
   {
-    "id": 15,
-    "slug": "how-to-web",
-    "name": "How to Web",
-    "city": "Bucharest",
-    "country": "Romania",
-    "lat": 44.4268,
-    "lng": 26.1025,
-    "start": "2026-10-06",
-    "end": "2026-10-08",
-    "tier": "major",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://www.howtoweb.co/",
-    "v": 1
-  },
-  {
     "id": 16,
     "slug": "italian-tech-week-wave-by-vento",
     "name": "Italian Tech Week (Wave by Vento)",
@@ -267,42 +249,6 @@
     ],
     "source": "dealroom",
     "url": "https://milkeninstitute.org/events/asia-summit-2026",
-    "v": 1
-  },
-  {
-    "id": 18,
-    "slug": "token2049-singapore",
-    "name": "TOKEN2049 Singapore",
-    "city": "Singapore",
-    "country": "Singapore",
-    "lat": 1.3521,
-    "lng": 103.8198,
-    "start": "2026-10-07",
-    "end": "2026-10-08",
-    "tier": "mega",
-    "topics": [
-      "crypto"
-    ],
-    "source": "dealroom",
-    "url": "https://www.token2049.com/singapore",
-    "v": 1
-  },
-  {
-    "id": 19,
-    "slug": "world-summit-ai",
-    "name": "World Summit AI",
-    "city": "Amsterdam",
-    "country": "Netherlands",
-    "lat": 52.3676,
-    "lng": 4.9041,
-    "start": "2026-10-07",
-    "end": "2026-10-08",
-    "tier": "major",
-    "topics": [
-      "ai"
-    ],
-    "source": "dealroom",
-    "url": "https://worldsummit.ai/",
     "v": 1
   },
   {
@@ -2739,25 +2685,6 @@
     "v": 1
   },
   {
-    "id": 234,
-    "slug": "futurecom-2026",
-    "name": "Futurecom",
-    "city": "São Paulo",
-    "country": "Brazil",
-    "lat": -23.6478,
-    "lng": -46.6293,
-    "start": "2026-10-06",
-    "end": "2026-10-08",
-    "tier": "mega",
-    "topics": [
-      "general-tech",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://futurecom.com.br/",
-    "v": 1
-  },
-  {
     "id": 235,
     "slug": "ekoparty-security-conference-2026",
     "name": "Ekoparty Security Conference",
@@ -2925,24 +2852,6 @@
     ],
     "source": "manual",
     "url": "https://nerdearla.com/chile/",
-    "v": 1
-  },
-  {
-    "id": 246,
-    "slug": "sector-toronto-2026",
-    "name": "SecTor",
-    "city": "Toronto",
-    "country": "Canada",
-    "lat": 43.6532,
-    "lng": -79.3832,
-    "start": "2026-10-05",
-    "end": "2026-10-08",
-    "tier": "major",
-    "topics": [
-      "security"
-    ],
-    "source": "manual",
-    "url": "https://www.blackhat.com/sector/",
     "v": 1
   },
   {
@@ -3422,25 +3331,6 @@
     "v": 1
   },
   {
-    "id": 285,
-    "slug": "wired-next-fest-milan-2026",
-    "name": "Wired Next Fest",
-    "city": "Milan",
-    "country": "Italy",
-    "lat": 45.4642,
-    "lng": 9.19,
-    "start": "2026-10-07",
-    "end": "2026-10-08",
-    "tier": "notable",
-    "topics": [
-      "general-tech",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://www.festivalinitalia.it/festival/wired-next-fest-milano",
-    "v": 1
-  },
-  {
     "id": 286,
     "slug": "devoxx-belgium-2026",
     "name": "Devoxx Belgium",
@@ -3789,24 +3679,6 @@
     "v": 1
   },
   {
-    "id": 310,
-    "slug": "atlassian-team-europe-2026",
-    "name": "Atlassian Team '26 Europe",
-    "city": "Amsterdam",
-    "country": "Netherlands",
-    "lat": 52.3676,
-    "lng": 4.9041,
-    "start": "2026-10-06",
-    "end": "2026-10-08",
-    "tier": "major",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "techmeme",
-    "url": "https://events.atlassian.com/teameurope",
-    "v": 1
-  },
-  {
     "id": 311,
     "slug": "unlock-vc-summit-2026",
     "name": "Unlock VC Summit",
@@ -4043,24 +3915,6 @@
     "v": 1
   },
   {
-    "id": 324,
-    "slug": "world-ai-technology-expo-dubai",
-    "name": "World AI Technology Expo",
-    "city": "Dubai",
-    "country": "UAE",
-    "lat": 25.2048,
-    "lng": 55.2708,
-    "start": "2026-10-07",
-    "end": "2026-10-08",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "fintechweekly",
-    "url": "https://worldaiexpo.io/",
-    "v": 1
-  },
-  {
     "id": 325,
     "slug": "insurance-innovators-summit",
     "name": "Insurance Innovators Summit",
@@ -4112,24 +3966,6 @@
     ],
     "source": "dealroom",
     "url": "https://www.wolvessummit.com/",
-    "v": 1
-  },
-  {
-    "id": 328,
-    "slug": "arrtist-ai-summit-2026",
-    "name": "ARRtist AI Summit",
-    "city": "Berlin",
-    "country": "Germany",
-    "lat": 52.52,
-    "lng": 13.405,
-    "start": "2026-10-08",
-    "end": "2026-10-08",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "dealroom",
-    "url": "https://www.arrtist.net/",
     "v": 1
   },
   {
