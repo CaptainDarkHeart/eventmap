@@ -5504,5 +5504,41 @@
     "source": "manual",
     "url": "https://www.innovation-osaka.jp/tech-osaka-summit-2027/",
     "v": 1
+  },
+  {
+    "id": 408,
+    "slug": "fintech-americas-miami-2027",
+    "name": "Fintech Americas Miami",
+    "city": "Miami Beach",
+    "country": "United States",
+    "lat": 25.7907,
+    "lng": -80.13,
+    "start": "2027-03-16",
+    "end": "2027-03-18",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "manual",
+    "url": "https://www.fintechamericas.co/en/",
+    "v": 1
+  },
+  {
+    "id": 409,
+    "slug": "forum-incyber-europe-2027",
+    "name": "Forum INCYBER Europe",
+    "city": "Lille",
+    "country": "France",
+    "lat": 50.6292,
+    "lng": 3.0573,
+    "start": "2027-03-09",
+    "end": "2027-03-11",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://europe.forum-incyber.com/en/",
+    "v": 1
   }
 ]
