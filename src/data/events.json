@@ -5376,5 +5376,23 @@
     "source": "manual",
     "url": "https://europe.forum-incyber.com/en/",
     "v": 1
+  },
+  {
+    "id": 410,
+    "slug": "upper-bound-2027",
+    "name": "Upper Bound",
+    "city": "Edmonton",
+    "country": "Canada",
+    "lat": 53.5461,
+    "lng": -113.4938,
+    "start": "2027-05-18",
+    "end": "2027-05-21",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://www.amii.ca/events/upper-bound-2027",
+    "v": 1
   }
 ]
