@@ -216,42 +216,6 @@
     "v": 1
   },
   {
-    "id": 16,
-    "slug": "italian-tech-week-wave-by-vento",
-    "name": "Italian Tech Week (Wave by Vento)",
-    "city": "Turin",
-    "country": "Italy",
-    "lat": 45.0703,
-    "lng": 7.6869,
-    "start": "2026-10-07",
-    "end": "2026-10-09",
-    "tier": "major",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://wavebyvento.com/",
-    "v": 1
-  },
-  {
-    "id": 17,
-    "slug": "milken-institute-asia-summit",
-    "name": "Milken Institute Asia Summit",
-    "city": "Singapore",
-    "country": "Singapore",
-    "lat": 1.3521,
-    "lng": 103.8198,
-    "start": "2026-10-07",
-    "end": "2026-10-09",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://milkeninstitute.org/events/asia-summit-2026",
-    "v": 1
-  },
-  {
     "id": 20,
     "slug": "ceatec",
     "name": "CEATEC",
@@ -2685,24 +2649,6 @@
     "v": 1
   },
   {
-    "id": 235,
-    "slug": "ekoparty-security-conference-2026",
-    "name": "Ekoparty Security Conference",
-    "city": "Buenos Aires",
-    "country": "Argentina",
-    "lat": -34.5833,
-    "lng": -58.3916,
-    "start": "2026-10-07",
-    "end": "2026-10-09",
-    "tier": "major",
-    "topics": [
-      "security"
-    ],
-    "source": "manual",
-    "url": "https://ekoparty.org/",
-    "v": 1
-  },
-  {
     "id": 236,
     "slug": "python-brasil-2026",
     "name": "Python Brasil",
@@ -3331,25 +3277,6 @@
     "v": 1
   },
   {
-    "id": 286,
-    "slug": "devoxx-belgium-2026",
-    "name": "Devoxx Belgium",
-    "city": "Antwerp",
-    "country": "Belgium",
-    "lat": 51.2194,
-    "lng": 4.4025,
-    "start": "2026-10-05",
-    "end": "2026-10-09",
-    "tier": "major",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://devoxx.be/",
-    "v": 1
-  },
-  {
     "id": 288,
     "slug": "ai-festival-prague-2026",
     "name": "AI Festival Prague",
@@ -3455,25 +3382,6 @@
     ],
     "source": "manual",
     "url": "https://ai-poland.pl/",
-    "v": 1
-  },
-  {
-    "id": 294,
-    "slug": "riga-comm-2026",
-    "name": "RIGA COMM",
-    "city": "Riga",
-    "country": "Latvia",
-    "lat": 56.9496,
-    "lng": 24.1052,
-    "start": "2026-10-08",
-    "end": "2026-10-09",
-    "tier": "notable",
-    "topics": [
-      "general-tech",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://rigacomm.com/en/",
     "v": 1
   },
   {
@@ -3658,24 +3566,6 @@
     ],
     "source": "manual",
     "url": "https://www.oracle.com/ai-world/",
-    "v": 1
-  },
-  {
-    "id": 309,
-    "slug": "open-source-summit-europe-2026",
-    "name": "Open Source Summit Europe",
-    "city": "Prague",
-    "country": "Czech Republic",
-    "lat": 50.0755,
-    "lng": 14.4378,
-    "start": "2026-10-07",
-    "end": "2026-10-09",
-    "tier": "major",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "techmeme",
-    "url": "https://events.linuxfoundation.org/open-source-summit-europe/",
     "v": 1
   },
   {
@@ -4095,24 +3985,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 340,
-    "slug": "cypher-2026",
-    "name": "Cypher",
-    "city": "Bengaluru",
-    "country": "India",
-    "lat": 12.9716,
-    "lng": 77.5946,
-    "start": "2026-10-07",
-    "end": "2026-10-09",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "lfai",
-    "url": "https://cypher.analyticsindiamag.com/",
     "v": 1
   },
   {
