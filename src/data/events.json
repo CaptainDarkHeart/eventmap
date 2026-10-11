@@ -5266,5 +5266,23 @@
     "source": "manual",
     "url": "https://www.amii.ca/events/upper-bound-2027",
     "v": 1
+  },
+  {
+    "id": 411,
+    "slug": "bitcoin-2027",
+    "name": "Bitcoin 2027",
+    "city": "Nashville",
+    "country": "United States",
+    "lat": 36.1627,
+    "lng": -86.7816,
+    "start": "2027-07-15",
+    "end": "2027-07-17",
+    "tier": "major",
+    "topics": [
+      "crypto"
+    ],
+    "source": "fintechweekly",
+    "url": "https://b.tc/conference",
+    "v": 1
   }
 ]
