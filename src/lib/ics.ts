@@ -47,7 +47,7 @@ function fold(line: string): string {
 }
 
 export function buildVEvent(ev: IcsEvent): string {
-	const detailUrl = `https://techeventsmap.com/events/${ev.slug}`;
+	const detailUrl = `https://techeventsmap.com/events/${ev.slug}/`;
 	const lines = [
 		"BEGIN:VEVENT",
 		`UID:${ev.uid}@techeventsmap.com`,
