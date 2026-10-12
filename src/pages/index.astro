@@ -36,6 +36,8 @@ const cartoKey = import.meta.env.PUBLIC_CARTO_KEY;
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/pipboy.css">
+<script is:inline src="/pipboy.js"></script>
 <style is:global>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#ffffff;--surface:#f7f7f7;--surface-2:#ececec;--border:#dddddd;--text:#000000;--text-dim:#666666;--accent:#e00000;--mega:#c04040;--major:#b8860b;--notable:#3a7a30;--font:'PT Sans',-apple-system,sans-serif;--mono:'PT Mono',monospace}
@@ -220,10 +222,12 @@ const TOPICS = {
 const TIER_LABEL = { mega: "Mega", major: "Major", notable: "Notable" };
 
 function applyTheme(theme) {
+  if (window.PipBoy && PipBoy.active()) return;
   document.documentElement.classList.toggle("dark", theme === "dark");
   try { localStorage.setItem("em_theme", theme); } catch {}
 }
 (function () {
+  if (window.PipBoy && PipBoy.active()) return;
   var saved = null;
   try { saved = localStorage.getItem("em_theme"); } catch {}
   var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -439,12 +443,15 @@ document.getElementById("when-tags").addEventListener("click", (e) => {
   state.when = btn.dataset.when;
   applyFilters();
 });
+// secret Pip-Boy theme (see public/pipboy.js): keep basemap in step when it flips on/off
+if (window.PipBoy) PipBoy.onChange(() => tileLayer.setUrl(tileUrl(document.documentElement.classList.contains("dark"))));
 document.getElementById("search").addEventListener("input", (e) => {
   state.q = e.target.value;
   applyFilters();
 });
 
 document.getElementById("theme-toggle").addEventListener("click", () => {
+  if (window.PipBoy && PipBoy.active()) return;
   const isDark = !document.documentElement.classList.contains("dark");
   applyTheme(isDark ? "dark" : "light");
   tileLayer.setUrl(tileUrl(isDark));

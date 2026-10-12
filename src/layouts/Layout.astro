@@ -57,6 +57,8 @@ const ogImageURL = new URL(image, Astro.site);
 				document.documentElement.classList.toggle("dark", theme === "dark");
 			})();
 		</script>
+		<link rel="stylesheet" href="/pipboy.css" />
+		<script is:inline src="/pipboy.js"></script>
 	</head>
 	<body>
 		<slot />
