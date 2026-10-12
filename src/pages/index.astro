@@ -1,5 +1,7 @@
 ---
-import events from "../data/events.json";
+import eventsData from "../data/events.json";
+import { regionsFor } from "../lib/regions.js";
+const events = eventsData.map((e) => ({ ...e, region: regionsFor(e.country) }));
 
 const cartoKey = import.meta.env.PUBLIC_CARTO_KEY;
 ---
@@ -153,7 +155,7 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
     <div class="filters">
       <div class="filters-header">Filter</div>
       <div class="search-wrap">
-        <input id="search" class="search-input" type="text" placeholder="Search events, cities..." autocomplete="off">
+        <input id="search" class="search-input" type="text" placeholder="Search events, cities, regions..." autocomplete="off">
       </div>
       <div class="filter-group">
         <h3>Topic</h3>
@@ -366,7 +368,7 @@ function applyFilters() {
     const upcoming = endDate >= now;
     const whenOk = state.when === "all" ? upcoming : upcoming && new Date(ev.start + "T00:00:00") <= cutoff;
     const q = state.q.trim().toLowerCase();
-    const searchOk = !q || ev.name.toLowerCase().includes(q) || ev.city.toLowerCase().includes(q) || ev.country.toLowerCase().includes(q);
+    const searchOk = !q || ev.name.toLowerCase().includes(q) || ev.city.toLowerCase().includes(q) || ev.country.toLowerCase().includes(q) || (ev.region || "").includes(q);
     const visible = topicOk && tierOk && whenOk && searchOk;
 
     if (visible && !map.hasLayer(marker)) marker.addTo(map);

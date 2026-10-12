@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import { TOPICS, TIERS } from "../../lib/topics";
 import events from "../../data/events.json";
+import { regionsFor } from "../../lib/regions.js";
 
 const sorted = [...events].sort((a, b) => a.start.localeCompare(b.start));
 
@@ -62,7 +63,7 @@ function fmtDate(s: string, e: string) {
 			</div>
 		</div>
 		<div class="controls">
-			<input id="search" class="search-input" type="text" placeholder="Search events, cities, countries, topics..." autocomplete="off" />
+			<input id="search" class="search-input" type="text" placeholder="Search events, cities, countries, regions, topics..." autocomplete="off" />
 			<div class="filter-tags" id="tier-tags">
 				<button class="filter-tag active" data-tier="all">All</button>
 				<button class="filter-tag" data-tier="mega">Mega</button>
@@ -130,6 +131,7 @@ function fmtDate(s: string, e: string) {
 							data-start={ev.start}
 							data-city={ev.city.toLowerCase()}
 							data-country={ev.country.toLowerCase()}
+							data-region={regionsFor(ev.country)}
 							data-topics={ev.topics.map((t) => TOPICS[t]?.label ?? t).join(", ").toLowerCase()}
 							data-tier={ev.tier}
 							data-tier-rank={ev.tier === "mega" ? 3 : ev.tier === "major" ? 2 : 1}
@@ -177,6 +179,7 @@ function fmtDate(s: string, e: string) {
 				(row.dataset.name ?? "").includes(q) ||
 				(row.dataset.city ?? "").includes(q) ||
 				(row.dataset.country ?? "").includes(q) ||
+				(row.dataset.region ?? "").includes(q) ||
 				(row.dataset.topics ?? "").includes(q);
 			const visible = tierOk && searchOk;
 			row.hidden = !visible;
