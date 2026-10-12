@@ -2,9 +2,26 @@
 
 Eventmap, branded "Tech Events Map" (domain: techeventsmap.com, live, wired up 2026-09-11). Astro static site. Interactive world map (Leaflet + CARTO basemaps) of tech, startup, AI, fintech conferences. Plus a plain table view, an about page, a contact form, and an event submission form.
 
+## Commands
+
+```bash
+npm run dev                # astro dev (or `astro dev --background`, see Development)
+npm run build              # static build, ~370 pages
+npm test                   # node --test test/*.test.mjs (also runs in deploy.yml)
+npm run validate-events    # data checks, run before committing events.json
+npm run check-urls         # manual, HEAD every event URL
+CLOUDFLARE_ACCOUNT_ID=cd625a8a773318340cd24e10532aa135 npm run deploy
+```
+
+## Data
+
 Data: `src/data/events.json`, single source of truth. Fields: id, slug, name, city, country, lat, lng, start, end, tier (mega/major/notable), topics (array, keys in `src/lib/topics.ts`), source, url, v. Optional (only set when verified on the event's own site, never guessed): `organizer` (string), `performers` (string array), `offer` ({price, currency, url?}). Sources listed on `/about` (each with a short tag used in the `source` field): Dealroom (`dealroom`), Techmeme (`techmeme`), dev.events (`devevents`), Sesamers (`sesamers`), Black Unicorn PR (`blackunicorn`), confs.tech (`confstech`), Tech.eu (`techeu`), TechCrunch (`techcrunch`), Ballou PR (`balloupr`), Gallium Ventures (`galliumventures`), Qolaig (`qolaig`), FinTech Weekly (`fintechweekly`), Vestbee (`vestbee`), Linux Foundation AI Calendar (`lfai`, industry/startup AI only, no academic ML conferences), StartupEvents.org (`startupevents`, large events only), plus `manual` for individually verified one-offs.
 
+## Workflow: adding events
+
 **Workflow for adding events from a new data source:** fetch/scrape the source, cross-check every candidate against existing `events.json` entries by name (not just slug, editions/years vary) to avoid duplicates, filter to future events only, checking each candidate's exact end date against today's actual date (not just "is the year current" — a 2026 event found in September 2026 can easily have already happened), then confirm with the user before writing: (1) whether to introduce a new `source` tag (and matching `/about` row) vs reuse an existing one, and (2) any judgment call the source doesn't give a clean answer for (ambiguous topic mapping, missing exact date, conflicting dates vs. another source already in the data). Don't guess silently on those two things.
+
+## Automation
 
 **Daily freshness (2026-10-06):** two jobs keep the map current. (1) `.github/workflows/daily-refresh.yml` (cloud, 05:00 UTC): prunes concluded events, commits the removal to `main`, builds and deploys, independent of the Mac. (2) Discovery below runs daily. The cron script skips if an `event-discovery*` PR is already open (avoids id collisions), and with `AUTO_MERGE=1` (set in the plist) squash-merges the PR only if `validate-events` and `npm test` pass on its branch; failures stay open for review. Merge triggers `deploy.yml`. Set `AUTO_MERGE` to 0 in the plist to return to review-every-PR.
 
@@ -13,6 +30,8 @@ Data: `src/data/events.json`, single source of truth. Fields: id, slug, name, ci
 **Automated discovery:** a launchd job (`~/Library/LaunchAgents/com.dantaylor.eventmap-discovery.plist`) runs `scripts/discover-events-cron.sh` daily at 08:00 local time (was Mondays only). It runs `claude -p` headlessly (scoped `--allowedTools`, `--permission-mode acceptEdits`, `--permission-prompts none`, prompt in `scripts/discover-events-prompt.txt`) with real internet access to check existing sources plus hunt for legitimate new ones, verify candidates, and open a PR (never pushes to main; ambiguous calls go in a "Needs manual review" PR section instead of being guessed, same rule as manual additions above). Logs in `logs/` (gitignored). A first attempt used a scheduled cloud routine instead, but the sandbox environment blanket-blocked almost all outbound HTTPS, making verification impossible; local launchd has normal internet access.
 
 **Concurrent discovery-PR gotcha:** each weekly discovery run assigns new `id`s starting from the max `id` it sees in its own branch's `events.json`. If two discovery PRs are open at once (e.g. one from last week not yet merged when this week's run opens a new one), whichever merges second will conflict: same insertion point in the JSON array, and often overlapping `id` numbers reused for different events. Resolve by merging the now-current `main` into the stale branch, keeping `main`'s content as the base, then re-appending the stale branch's *new* events renumbered to start after `main`'s current max `id` (cross-check names against `main` for duplicates the two runs may have both found independently, and re-check every date against today, since more time has passed). Re-run `npm run validate-events` after resolving. This can cascade: merging PR A after PR B changes `main`'s max `id` again, so PR C may now also conflict even if it didn't before.
+
+## Validation and pruning
 
 Validate event data before committing changes to it:
 
@@ -38,14 +57,15 @@ npm run prune-past-events
 
 `scripts/prune-past-events.mjs`: drops any event whose `end` date is before today, overwrites `events.json`. Runs automatically as part of `npm run deploy` (before `astro build`), so it doesn't need to be run manually before a deploy. Run it manually if checking for stale entries outside a deploy.
 
-Pages:
+## Pages
+
 - `src/pages/index.astro` (map, client script inlined via `define:vars`)
 - `src/pages/events/index.astro` (table view: tier filter, free-text search across name/city/country, "Export CSV" of the currently visible rows, per-row "Add to calendar" link), `src/pages/events/[slug].astro` (static per-event page via `getStaticPaths`)
 - `src/pages/events.ics.ts` (single ICS feed of every event, `/events.ics`), `src/pages/events/[slug].ics.ts` (per-event ICS download, static via `getStaticPaths`) — both built from `src/lib/ics.ts` (`buildVEvent`/`buildCalendar`, end date is exclusive per iCal spec so it adds a day internally)
 - `src/pages/plan.astro` (client-side trip planner: profile form, deterministic scoring and itinerary from `src/lib/planner.js`, ICS export, share link via URL hash, profile in `localStorage` key `em_plan_profile`; no backend. Network scoring uses event size only, no attendee data. Tests: `test/planner.test.mjs`. Phases 2 and 3 are planned in `docs/plan-roadmap.md`. Site copy is first person ("me", "I"), one-person operation, never "us"/"we")
 - Secret Pip-Boy theme (2026-10-12, ported from `../fundingmap`, guide in `docs/pipboy-theme.html`): double tap/click on the logo, or Konami code, toggles it. `public/pipboy.js` + `public/pipboy.css` (loaded in `Layout.astro` and `index.astro` heads), stats from `src/pages/pb-stats.json.ts`, state in `localStorage` `em_pipboy`. Map page guards its own theme code and swaps CARTO tiles via `PipBoy.onChange`. Nothing in the UI advertises it.
 - SEO/GEO (2026-10-12, ported from `../fundingmap`): programmatic browse pages `/countries/`, `/cities/`, `/topics/`, `/regions/` plus one page per group (`src/lib/areas.mjs`, `src/components/AreaPage.astro` and `AreaHub.astro`). Countries and cities need 3+ upcoming events (`MIN_EVENTS`), the build throws on slug collisions. Each page has BreadcrumbList, CollectionPage and a visible FAQ with matching FAQPage JSON-LD (`Layout.astro` takes `breadcrumbs` and `jsonLd` props). `llms.txt` and `llms-full.txt` are build-time endpoints (no static `public/llms.txt`), `/data/events.csv` is a download, sitemap `lastmod` is build time, homepage carries WebSite+Person+Dataset JSON-LD and a visually hidden crawlable summary. Region lists live in `src/lib/regions.js` (also drives region search).
-- Nav gotcha: the map page (`index.astro`) has its own inline `<nav>`, it does NOT use `SiteHeader.astro`. Any new nav link must be added in both places (Plan was missing from the map page until 2026-10-07).
+- Nav gotcha: the map page (`index.astro`) has its own inline `<nav>`, it does NOT use `SiteHeader.astro`. Any new nav link must be added in both places (Plan was missing from the map page until 2026-10-07; Browse, `/countries/`, is in both).
 - `src/pages/about.astro` (data sources, builder bio, uses `public/dan.jpg`, original source photo kept in `assets-src/dan-original.png`)
 - `src/pages/contact.astro` (contact form, Cloudflare Turnstile widget, honeypot field, posts to `/api/contact`)
 - `src/pages/submit.astro` (event submission form, same Turnstile/honeypot pattern, posts to `/api/submit-event`, auto-verifies and publishes, see below)
@@ -53,10 +73,6 @@ Pages:
 Env: `PUBLIC_CARTO_KEY` (CARTO basemap key), set in `.env`, required for map tiles to load. It's a public/client-side key, gets baked into the static HTML at build time, that's expected.
 
 Fonts: `--font` (PT Sans) and `--mono` (PT Mono) CSS custom properties defined once in `Layout.astro` / `index.astro`'s global styles, loaded via a single Google Fonts `<link>`. Body text and nav use `var(--font)`, filter tags/meta/dates use `var(--mono)` (established pattern, keep new UI text on `var(--font)` unless it matches that mono use case). Don't hardcode a font-family anywhere, always reference the token.
-
-## Structured data (Search Console)
-
-Per-event pages (`src/pages/events/[slug].astro`) emit schema.org Event JSON-LD: always `description`, `image` (og-image), `organizer` (falls back to the event name), dates, location. `performer` and `offers` are emitted only when `performers` / `offer` exist in `events.json`. Search Console (2026-10-03) flags missing `offers`/`performer`/etc. as non-critical. Decision: do not stub them, most event sites publish no price or speakers, and fake values risk a misleading-markup action. "Validate fix" will keep failing for those two; ignore it. `npm run validate-events` checks the optional fields.
 
 ## Structured data (Search Console)
 
