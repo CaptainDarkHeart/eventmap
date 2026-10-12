@@ -180,24 +180,6 @@
     "v": 1
   },
   {
-    "id": 14,
-    "slug": "sf-tech-week",
-    "name": "SF Tech Week",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-10-05",
-    "end": "2026-10-11",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://luma.com/sftw",
-    "v": 1
-  },
-  {
     "id": 20,
     "slug": "ceatec",
     "name": "CEATEC",
