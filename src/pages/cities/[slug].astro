@@ -1,0 +1,9 @@
+---
+import AreaPage from "../../components/AreaPage.astro";
+import { groupsFor } from "../../lib/areas.mjs";
+export function getStaticPaths() {
+	return groupsFor("cities").map((g) => ({ params: { slug: g.slug }, props: { group: g } }));
+}
+const { group } = Astro.props;
+---
+<AreaPage group={group} />

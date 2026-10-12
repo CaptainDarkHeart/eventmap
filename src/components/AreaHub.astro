@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteHeader from "./SiteHeader.astro";
+import BrowseNav from "./BrowseNav.astro";
+import { TYPES, groupsFor, fmtInt } from "../lib/areas.mjs";
+const { type } = Astro.props;
+const t = TYPES[type];
+const groups = groupsFor(type);
+const noun = type === "topics" ? "topic" : t.single;
+const title = `Tech events by ${t.single} | Tech Events Map`;
+const description = `Browse upcoming tech, startup, AI and fintech conferences by ${t.single}: ${groups.length} ${t.label.toLowerCase()} with event counts and the next dates.`;
+---
+<Layout title={title} description={description}
+	breadcrumbs={[{ name: "Home", path: "/" }, { name: t.label, path: `/${type}/` }]}
+	jsonLd={{ "@type": "CollectionPage", name: `Tech events by ${t.single}`, description, url: new URL(`/${type}/`, Astro.site).toString(),
+		mainEntity: { "@type": "ItemList", itemListElement: groups.map((g, i) => ({ "@type": "ListItem", position: i + 1, url: new URL(`/${type}/${g.slug}/`, Astro.site).toString(), name: g.name })) } }}>
+	<SiteHeader />
+	<main class="wrap">
+		<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span>{t.label}</nav>
+		<h1>Tech events by {t.single}</h1>
+		<p>{groups.length} {t.label.toLowerCase()}{t.min > 1 ? ` with at least ${t.min} upcoming events` : ""}. Pick a {noun} to see the next conferences, the biggest events and the dates.</p>
+		<BrowseNav current={type} />
+		<div class="tbl-wrap">
+			<table>
+				<thead><tr><th scope="col">{t.single[0].toUpperCase() + t.single.slice(1)}</th><th scope="col">Upcoming events</th></tr></thead>
+				<tbody>
+					{groups.map((g) => <tr><td><a href={`/${type}/${g.slug}/`}>{g.name}{g.cityCountry ? `, ${g.cityCountry}` : ""}</a></td><td class="num">{fmtInt(g.count)}</td></tr>)}
+				</tbody>
+			</table>
+		</div>
+		<p class="note">Events are listed until they end. See the <a href="/about/">about page</a> for sources.</p>
+	</main>
+</Layout>
+<style>
+	.wrap { max-width: 860px; margin: 0 auto; padding: 24px 16px 60px; }
+	.crumbs { font-size: 14px; color: var(--text-dim); margin-bottom: 6px; }
+	.crumbs a { color: var(--text-dim); }
+	.crumbs span { margin: 0 6px; }
+	h1 { margin: 8px 0 14px; font-size: 32.5px; font-weight: 700; line-height: 1.2; }
+	p { margin: 0 0 10px; font-size: 17.5px; line-height: 1.6; }
+	a { color: var(--accent); }
+	.tbl-wrap { overflow-x: auto; }
+	table { width: 100%; border-collapse: collapse; font-size: 17px; margin: 8px 0 16px; }
+	th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+	th { color: var(--text-dim); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--mono); }
+	td.num { font-family: var(--mono); white-space: nowrap; }
+	.note { color: var(--text-dim); font-size: 15px; }
+</style>

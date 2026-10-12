@@ -1,0 +1,14 @@
+---
+import { TYPES } from "../lib/areas.mjs";
+const { current } = Astro.props;
+---
+<div class="chips" aria-label="Browse by">
+	{Object.entries(TYPES).map(([k, t]) => (
+		<a href={`/${k}/`} aria-current={k === current ? "page" : undefined}>By {t.single}</a>
+	))}
+</div>
+<style>
+	.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 18px; }
+	.chips a { font-family: var(--font); font-size: 15px; text-decoration: none; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 4px 12px; border-radius: 999px; }
+	.chips a:hover, .chips a[aria-current] { border-color: var(--accent); color: var(--accent); }
+</style>

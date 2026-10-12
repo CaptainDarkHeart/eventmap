@@ -5,7 +5,7 @@ import events from "../data/events.json";
 
 const sourceCount = new Set(events.map((e) => e.source)).size;
 ---
-<Layout title="About — Tech Events Map" description="What Tech Events Map is, where the data comes from, and who built it.">
+<Layout title="About — Tech Events Map" description="What Tech Events Map is, where the data comes from, and who built it." breadcrumbs={[{ name: "Home", path: "/" }, { name: "About", path: "/about/" }]}>
 	<SiteHeader />
 	<div class="wrap">
 		<h1>About Tech Events Map</h1>

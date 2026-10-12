@@ -27,10 +27,29 @@ const cartoKey = import.meta.env.PUBLIC_CARTO_KEY;
 <meta name="twitter:image" content="https://techeventsmap.com/og-image.png">
 <script is:inline type="application/ld+json" set:html={JSON.stringify({
 	"@context": "https://schema.org",
-	"@type": "WebSite",
-	name: "Tech Events Map",
-	url: "https://techeventsmap.com/",
-	description: "An open source interactive map of tech, startup, AI and fintech conferences worldwide.",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			"@id": "https://techeventsmap.com/#website",
+			name: "Tech Events Map",
+			url: "https://techeventsmap.com/",
+			description: "An open source interactive map of tech, startup, AI and fintech conferences worldwide.",
+			publisher: { "@id": "https://techeventsmap.com/#author" },
+		},
+		{ "@type": "Person", "@id": "https://techeventsmap.com/#author", name: "Dan Taylor", url: "https://dantaylor.me" },
+		{
+			"@type": "Dataset",
+			name: "Tech Events Map: upcoming tech, startup, AI and fintech conferences",
+			description: `${events.length} upcoming tech, startup, AI and fintech conferences across ${new Set(events.map((e) => e.country)).size} countries, with dates, cities, coordinates, topics and size tier. Refreshed daily.`,
+			url: "https://techeventsmap.com/",
+			creator: { "@id": "https://techeventsmap.com/#author" },
+			license: "https://github.com/CaptainDarkHeart/eventmap/blob/main/LICENSE",
+			isAccessibleForFree: true,
+			keywords: ["tech conferences", "startup events", "AI conferences", "fintech events", "developer conferences"],
+			dateModified: new Date().toISOString().slice(0, 10),
+			distribution: [{ "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: "https://techeventsmap.com/data/events.csv" }],
+		},
+	],
 })} />
 <link rel="icon" href="/favicon.svg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
@@ -59,11 +78,12 @@ nav a:hover{color:var(--text)}
 .theme-toggle:hover{border-color:var(--text-dim);color:var(--text)}
 .nav-toggle{display:none;align-items:center;justify-content:center;width:30px;height:30px;background:none;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:var(--font);font-size:19px;line-height:1;cursor:pointer;padding:0;flex-shrink:0}
 .main{position:fixed;inset:0;display:flex;overflow:hidden}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .sidebar{width:320px;flex-shrink:0;display:flex;flex-direction:column;border-right:1px solid var(--border);background:var(--bg);overflow:hidden;padding-top:54px}
 .filters{padding:12px;border-bottom:1px solid var(--border)}
 .filters-header{font-size:16px;font-weight:700;letter-spacing:-0.01em;color:var(--text);margin-bottom:10px}
 .filter-group{margin-bottom:10px}.filter-group:last-child{margin-bottom:0}
-.filter-group h3{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:7px}
+.filter-group h2{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:7px}
 .filter-tags{display:flex;flex-wrap:wrap;gap:5px}
 .filter-tag{font-family:var(--font);font-size:14px;padding:4px 9px;border-radius:3px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all 0.15s;user-select:none;display:inline-flex;align-items:center;gap:5px}
 .filter-tag:hover{border-color:var(--text-dim);color:var(--text)}
@@ -137,6 +157,7 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
   <nav id="site-nav">
     <a href="/">Map</a>
     <a href="/events/">All Events</a>
+    <a href="/countries/">Browse</a>
     <a href="/plan/">Plan</a>
     <a href="/submit/">Submit Event</a>
     <a href="/about/">About</a>
@@ -152,6 +173,10 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
   </div>
 </header>
 
+<section class="sr-only" aria-label="About this map">
+  <h2>Upcoming tech, startup, AI and fintech conferences</h2>
+  <p>Tech Events Map lists {events.length} upcoming conferences in {new Set(events.map((e) => e.country)).size} countries, filterable by topic, size and date. Browse by <a href="/countries/">country</a>, <a href="/cities/">city</a>, <a href="/topics/">topic</a> or <a href="/regions/">region</a>, search <a href="/events/">every event</a>, or <a href="/plan/">plan a trip</a>.</p>
+</section>
 <div class="main">
   <aside class="sidebar">
     <div class="filters">
@@ -160,13 +185,13 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
         <input id="search" class="search-input" type="text" placeholder="Search events, cities, regions..." autocomplete="off">
       </div>
       <div class="filter-group">
-        <h3>Topic</h3>
+        <h2>Topic</h2>
         <div class="filter-tags" id="topic-tags">
           <button class="filter-tag active" data-topic="all">All</button>
         </div>
       </div>
       <div class="filter-group">
-        <h3>Size</h3>
+        <h2>Size</h2>
         <div class="filter-tags" id="tier-tags">
           <button class="filter-tag active" data-tier="all">All</button>
           <button class="filter-tag" data-tier="mega">Mega</button>
@@ -175,7 +200,7 @@ html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
         </div>
       </div>
       <div class="filter-group">
-        <h3>When</h3>
+        <h2>When</h2>
         <div class="filter-tags" id="when-tags">
           <button class="filter-tag active" data-when="all">All upcoming</button>
           <button class="filter-tag" data-when="30">Next 30 days</button>

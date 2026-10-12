@@ -28,6 +28,6 @@ function sitemapAlias() {
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://techeventsmap.com',
-	integrations: [sitemap(), sitemapAlias()],
+	integrations: [sitemap({ filter: (page) => !page.endsWith('/404/'), lastmod: new Date() }), sitemapAlias()],
 	devToolbar: { enabled: false },
 });

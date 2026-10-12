@@ -36,7 +36,7 @@ function fmtDate(s: string, e: string) {
 	return `${sStr} – ${eStr}`;
 }
 ---
-<Layout title="All events — Tech Events Map" description="Open source directory of tech, startup, AI and fintech events worldwide, listed by date.">
+<Layout title="All events — Tech Events Map" description="Open source directory of tech, startup, AI and fintech events worldwide, listed by date." breadcrumbs={[{ name: "Home", path: "/" }, { name: "All events", path: "/events/" }]}>
 	<script is:inline type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "ItemList",

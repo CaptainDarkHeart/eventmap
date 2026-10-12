@@ -9,17 +9,17 @@ const LATAM = ["Brazil", "Uruguay", "Peru", "Paraguay", "Colombia", "Chile", "Ar
 const SOUTH_AMERICA = ["Brazil", "Uruguay", "Peru", "Paraguay", "Colombia", "Chile", "Argentina"];
 const OCEANIA = ["Australia", "New Zealand"];
 
-const GROUPS = [
-	["europe", EUROPE],
-	["asia", ASIA],
-	["middle east", MIDDLE_EAST],
-	["africa", AFRICA],
-	["north america", NORTH_AMERICA],
-	["south america", SOUTH_AMERICA],
-	["latin america latam", LATAM],
-	["oceania", OCEANIA],
+export const REGION_GROUPS = [
+	{ key: "europe", label: "Europe", tokens: "europe", list: EUROPE },
+	{ key: "asia", label: "Asia", tokens: "asia", list: ASIA },
+	{ key: "middle-east", label: "the Middle East", title: "Middle East", tokens: "middle east", list: MIDDLE_EAST },
+	{ key: "africa", label: "Africa", tokens: "africa", list: AFRICA },
+	{ key: "north-america", label: "North America", tokens: "north america", list: NORTH_AMERICA },
+	{ key: "south-america", label: "South America", tokens: "south america", list: SOUTH_AMERICA },
+	{ key: "latin-america", label: "Latin America", tokens: "latin america latam", list: LATAM },
+	{ key: "oceania", label: "Oceania", tokens: "oceania", list: OCEANIA },
 ];
 
 export function regionsFor(country) {
-	return GROUPS.filter(([, list]) => list.includes(country)).map(([name]) => name).join(" ");
+	return REGION_GROUPS.filter((g) => g.list.includes(country)).map((g) => g.tokens).join(" ");
 }

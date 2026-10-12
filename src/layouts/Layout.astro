@@ -4,13 +4,28 @@ interface Props {
 	description?: string;
 	image?: string;
 	type?: "website" | "article";
+	breadcrumbs?: { name: string; path: string }[];
+	jsonLd?: object | object[];
 }
 const {
 	title = "Tech Events Map | Global startup & tech conferences",
 	description = "An open source interactive map of tech, startup, AI, fintech and developer conferences around the world.",
 	image = "/og-image.png",
 	type = "website",
+	breadcrumbs,
+	jsonLd,
 } = Astro.props;
+const abs = (path: string) => new URL(path, Astro.site).toString();
+const extraLd = [
+	...(breadcrumbs
+		? [{
+				"@context": "https://schema.org",
+				"@type": "BreadcrumbList",
+				itemListElement: breadcrumbs.map((b, i) => ({ "@type": "ListItem", position: i + 1, name: b.name, item: abs(b.path) })),
+			}]
+		: []),
+	...(jsonLd ? [jsonLd].flat().map((o) => ({ "@context": "https://schema.org", ...o })) : []),
+];
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
@@ -47,6 +62,8 @@ const ogImageURL = new URL(image, Astro.site);
 			url: Astro.site?.toString(),
 			description: "An open source interactive map of tech, startup, AI and fintech conferences worldwide.",
 		})} />
+
+		{extraLd.map((o) => <script is:inline type="application/ld+json" set:html={JSON.stringify(o)} />)}
 
 		<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet" />
 		<script is:inline>

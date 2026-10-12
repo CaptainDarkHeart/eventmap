@@ -92,6 +92,30 @@ User-agent: Bytespider
 Allow: /
 Disallow: /api/
 
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /api/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /api/
+
+User-agent: MistralAI-User
+Allow: /
+Disallow: /api/
+
+User-agent: YouBot
+Allow: /
+Disallow: /api/
+
+User-agent: Google-CloudVertexBot
+Allow: /
+Disallow: /api/
+
 # Content Signals (https://contentsignals.org/)
 Content-Signal: search=yes, ai-train=yes, ai-input=yes
 

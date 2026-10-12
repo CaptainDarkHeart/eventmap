@@ -4,12 +4,15 @@ import SiteHeader from "../../components/SiteHeader.astro";
 import { TOPICS, TIERS } from "../../lib/topics";
 import { outboundUrl } from "../../lib/utm";
 import events from "../../data/events.json";
+import { groupsFor, slugify, canonCountry } from "../../lib/areas.mjs";
 
 export function getStaticPaths() {
 	return events.map((ev) => ({ params: { slug: ev.slug }, props: { ev } }));
 }
 
 const { ev } = Astro.props;
+const cityHref = groupsFor("cities").some((g) => g.key === `${ev.city}|${canonCountry(ev.country)}`) ? `/cities/${slugify(ev.city)}/` : null;
+const countryHref = groupsFor("countries").some((g) => g.key === canonCountry(ev.country)) ? `/countries/${slugify(canonCountry(ev.country))}/` : null;
 
 function fmtDate(s: string, e: string) {
 	const opts: Intl.DateTimeFormatOptions = { month: "long", day: "numeric", year: "numeric" };
@@ -29,7 +32,7 @@ function addDay(s: string) {
 }
 const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(ev.name)}&dates=${ymd(ev.start)}/${ymd(addDay(ev.end))}&details=${encodeURIComponent(ev.url || `https://techeventsmap.com/events/${ev.slug}/`)}&location=${encodeURIComponent(`${ev.city}, ${ev.country}`)}`;
 ---
-<Layout title={`${ev.name} — Tech Events Map`} description={`${ev.name}, ${fmtDate(ev.start, ev.end)}, ${ev.city}, ${ev.country}.`}>
+<Layout title={`${ev.name} — Tech Events Map`} description={`${ev.name}, ${fmtDate(ev.start, ev.end)}, ${ev.city}, ${ev.country}.`} breadcrumbs={[{ name: "Home", path: "/" }, { name: "All events", path: "/events/" }, { name: ev.name, path: `/events/${ev.slug}/` }]}>
 	<script is:inline type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "Event",
@@ -58,7 +61,7 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 		<div class="meta">
 			<span>{fmtDate(ev.start, ev.end)}</span>
 			<span>·</span>
-			<span>{ev.city}, {ev.country}</span>
+			<span>{cityHref ? <a href={cityHref}>{ev.city}</a> : ev.city}, {countryHref ? <a href={countryHref}>{ev.country}</a> : ev.country}</span>
 			<span>·</span>
 			<span class={`tier-${ev.tier}`}>{TIERS[ev.tier]}</span>
 		</div>

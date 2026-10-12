@@ -1,0 +1,131 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteHeader from "./SiteHeader.astro";
+import BrowseNav from "./BrowseNav.astro";
+import { TYPES, slugify, fmtInt, fmtDate, list, groupsFor, canonCountry } from "../lib/areas.mjs";
+import { TIERS } from "../lib/topics";
+const { group: g } = Astro.props;
+const t = TYPES[g.type];
+const place = g.type === "cities" ? `${g.name}, ${g.cityCountry}` : g.name;
+const scope = t.scope(g.name);
+const h1 = t.title(g.name);
+
+// Cross-links only to pages that exist.
+const exists = {
+	countries: new Set(groupsFor("countries").map((x) => x.slug)),
+	cities: new Set(groupsFor("cities").map((x) => x.slug)),
+	topics: new Set(groupsFor("topics").map((x) => x.slug)),
+};
+const link = (type, name) => (exists[type].has(slugify(name)) ? `/${type}/${slugify(name)}/` : null);
+
+const today = new Date().toISOString().slice(0, 10);
+const next = g.events.find((e) => e.end >= today) ?? g.events[0];
+const soon = g.events.filter((e) => e.start <= new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10)).length;
+const three = g.events.slice(0, 3);
+const big = g.biggest;
+const otherTop = g.type === "countries" || g.type === "cities" ? { label: "topics", rows: g.topics } : g.type === "topics" ? { label: "countries", rows: g.countries } : { label: "countries", rows: g.countries };
+
+const faqs = [
+	{
+		q: `What tech conferences are happening ${scope}?`,
+		a: `${fmtInt(g.count)} upcoming tech, startup, AI and fintech events are listed ${scope}. The next ones are ${list(three.map((e) => `${e.name} (${fmtDate(e.start, e.end)}${g.type !== "cities" ? `, ${e.city}` : ""})`))}.`,
+	},
+	{
+		q: `What is the biggest tech event ${scope}?`,
+		a: `${big.name}, ${fmtDate(big.start, big.end)} in ${big.city}, ${canonCountry(big.country)}. It is listed as a ${TIERS[big.tier]} event.`,
+	},
+	{
+		q: `When is the next tech event ${scope}?`,
+		a: `${next.name} runs ${fmtDate(next.start, next.end)} in ${next.city}. ${soon > 0 ? `${fmtInt(soon)} event${soon === 1 ? " starts" : "s start"} in the next 30 days.` : "Nothing else starts in the next 30 days."}`,
+	},
+];
+if (otherTop.rows.length >= 3) {
+	faqs.push({
+		q: g.type === "topics" ? `Which countries host the most ${g.name} events?` : `Which topics do events ${scope} cover?`,
+		a: `${list(otherTop.rows.slice(0, 4).map(([n, c]) => `${n} (${fmtInt(c)})`))}, by number of upcoming events.`,
+	});
+}
+faqs.push({
+	q: "Where does this data come from?",
+	a: "Event dates come from public listings including Dealroom, Techmeme, dev.events and others, plus individually verified additions. Dates can shift year to year, so always confirm on the official event site before booking travel.",
+});
+
+const title = `${h1}: ${fmtInt(g.count)} upcoming | Tech Events Map`;
+const description = `${fmtInt(g.count)} upcoming tech, startup, AI and fintech conferences ${scope}. Next up: ${next.name}, ${fmtDate(next.start, next.end)}. Dates, cities and topics.`;
+const path = `/${g.type}/${g.slug}/`;
+---
+<Layout title={title} description={description}
+	breadcrumbs={[{ name: "Home", path: "/" }, { name: t.label, path: `/${g.type}/` }, { name: place, path }]}
+	jsonLd={[
+		{ "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
+		{ "@type": "CollectionPage", name: h1, description, url: new URL(path, Astro.site).toString(),
+			mainEntity: { "@type": "ItemList", itemListElement: g.events.slice(0, 50).map((e, i) => ({ "@type": "ListItem", position: i + 1, url: new URL(`/events/${e.slug}/`, Astro.site).toString(), name: e.name })) } },
+	]}>
+	<SiteHeader />
+	<main class="wrap">
+		<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href={`/${g.type}/`}>{t.label}</a><span>/</span>{place}</nav>
+		<h1>{h1}</h1>
+		<p>{fmtInt(g.count)} upcoming tech, startup, AI and fintech conferences {scope}. The next is {next.name} on {fmtDate(next.start, next.end)}{g.type !== "cities" ? ` in ${next.city}` : ""}. The biggest is {big.name}.</p>
+		<div class="tallies">
+			<div class="tally"><span class="num-big">{fmtInt(g.count)}</span><span class="tally-label">Upcoming</span></div>
+			<div class="tally"><span class="num-big">{fmtInt(soon)}</span><span class="tally-label">Next 30 days</span></div>
+			{g.tiers.mega + g.tiers.major > 0 && <div class="tally"><span class="num-big">{fmtInt(g.tiers.mega + g.tiers.major)}</span><span class="tally-label">Major or mega</span></div>}
+		</div>
+		<p><a href="/">See them on the map</a> or <a href="/events/">search every event</a>.</p>
+
+		{g.type !== "cities" && g.cities.length > 1 && (<>
+			<h2>Top cities</h2>
+			<div class="chips">{g.cities.map(([n, c]) => {
+				const ck = g.events.find((e) => e.city === n);
+				const h = ck ? link("cities", n) : null;
+				return h ? <a href={h}>{n}<small>{fmtInt(c)}</small></a> : <span class="chip-plain">{n} ({fmtInt(c)})</span>;
+			})}</div>
+		</>)}
+
+		{otherTop.rows.length > 0 && (<>
+			<h2>{g.type === "topics" ? "Top countries" : "Topics"}</h2>
+			<div class="chips">{otherTop.rows.map(([n, c, k]) => {
+				const h = g.type === "topics" ? link("countries", n) : link("topics", n);
+				return h ? <a href={h}>{n}<small>{fmtInt(c)}</small></a> : <span class="chip-plain">{n} ({fmtInt(c)})</span>;
+			})}</div>
+		</>)}
+
+		<h2>Upcoming events</h2>
+		<div class="tbl-wrap"><table>
+			<thead><tr><th scope="col">Event</th><th scope="col">Dates</th><th scope="col">{g.type === "cities" ? "Size" : "Location"}</th></tr></thead>
+			<tbody>{g.events.map((e) => <tr><td><a href={`/events/${e.slug}/`}>{e.name}</a></td><td class="num">{fmtDate(e.start, e.end)}</td><td>{g.type === "cities" ? TIERS[e.tier] : `${e.city}, ${canonCountry(e.country)}`}</td></tr>)}</tbody>
+		</table></div>
+
+		<h2>Frequently asked questions</h2>
+		<dl class="faq">{faqs.map((f) => <><dt>{f.q}</dt><dd>{f.a}</dd></>)}</dl>
+
+		<h2>Browse more</h2>
+		<BrowseNav current={g.type} />
+	</main>
+</Layout>
+<style>
+	.wrap { max-width: 860px; margin: 0 auto; padding: 24px 16px 60px; }
+	.crumbs { font-size: 14px; color: var(--text-dim); margin-bottom: 6px; }
+	.crumbs a { color: var(--text-dim); }
+	.crumbs span { margin: 0 6px; }
+	h1 { margin: 8px 0 14px; font-size: 32.5px; font-weight: 700; line-height: 1.2; }
+	h2 { margin: 30px 0 10px; font-size: 21px; font-weight: 700; }
+	p { margin: 0 0 10px; font-size: 17.5px; line-height: 1.6; }
+	a { color: var(--accent); }
+	.tallies { display: flex; gap: 28px; flex-wrap: wrap; margin: 16px 0 8px; }
+	.tally { display: flex; flex-direction: column; }
+	.num-big { font-size: 40px; font-weight: 700; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+	.tally-label { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-top: 6px; }
+	.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+	.chips a { font-size: 15px; text-decoration: none; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 3px 10px; border-radius: 999px; }
+	.chips a:hover { border-color: var(--accent); color: var(--accent); }
+	.chips small { color: var(--text-dim); font-size: 13px; margin-left: 4px; }
+	.chip-plain { font-size: 15px; color: var(--text-dim); padding: 3px 4px; }
+	.tbl-wrap { overflow-x: auto; }
+	table { width: 100%; border-collapse: collapse; font-size: 17px; margin: 8px 0 16px; }
+	th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+	th { color: var(--text-dim); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--mono); }
+	td.num { font-family: var(--mono); white-space: nowrap; font-size: 15px; }
+	dl.faq dt { font-weight: 700; font-size: 18px; margin: 16px 0 4px; }
+	dl.faq dd { font-size: 17.5px; line-height: 1.6; margin: 0 0 6px; }
+</style>
