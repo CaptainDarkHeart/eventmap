@@ -208,10 +208,14 @@ export default {
 
 		const res = await env.ASSETS.fetch(request);
 
-		// Concluded events are pruned from the data, so their pages 404. Send those
-		// URLs to the events list instead of leaving dead links in the index.
+		// Concluded events are pruned from the data, so their pages are gone for good.
+		// Answer 410 with the 404 page body: Google drops 410s from the index quickly,
+		// and unlike a redirect to /events/ it does not read as a soft 404.
 		if (res.status === 404 && /^\/events\/[^/]+?(\.ics|\/)?$/.test(url.pathname)) {
-			return Response.redirect(new URL("/events/", url).href, 301);
+			return new Response(request.method === "HEAD" ? null : res.body, {
+				status: 410,
+				headers: res.headers,
+			});
 		}
 
 		// Markdown for Agents: Accept: text/markdown gets a markdown rendering of HTML pages.
