@@ -5229,5 +5229,23 @@
     "source": "fintechweekly",
     "url": "https://b.tc/conference",
     "v": 1
+  },
+  {
+    "id": 412,
+    "slug": "kubecon-cloudnativecon-europe-2027",
+    "name": "KubeCon + CloudNativeCon Europe",
+    "city": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3874,
+    "lng": 2.1686,
+    "start": "2027-03-15",
+    "end": "2027-03-18",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/",
+    "v": 1
   }
 ]
