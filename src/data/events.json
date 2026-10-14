@@ -5247,5 +5247,23 @@
     "source": "manual",
     "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/",
     "v": 1
+  },
+  {
+    "id": 413,
+    "slug": "finovatespring-2027",
+    "name": "FinovateSpring",
+    "city": "Chula Vista",
+    "country": "United States",
+    "lat": 32.6401,
+    "lng": -117.0842,
+    "start": "2027-05-03",
+    "end": "2027-05-05",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "manual",
+    "url": "https://informaconnect.com/finovatespring/",
+    "v": 1
   }
 ]
