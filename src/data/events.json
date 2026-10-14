@@ -2445,24 +2445,6 @@
     "v": 1
   },
   {
-    "id": 223,
-    "slug": "devoops-2026",
-    "name": "DevOops",
-    "city": "Saint Petersburg",
-    "country": "Russia",
-    "lat": 59.9343,
-    "lng": 30.3351,
-    "start": "2026-10-12",
-    "end": "2026-10-13",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://devoops.ru/",
-    "v": 1
-  },
-  {
     "id": 224,
     "slug": "joker-2026",
     "name": "Joker",
@@ -3949,25 +3931,6 @@
     ],
     "source": "lfai",
     "url": "https://ai.engineer/nyc/2026",
-    "v": 1
-  },
-  {
-    "id": 342,
-    "slug": "interrupt-london-2026",
-    "name": "Interrupt London",
-    "city": "London",
-    "country": "United Kingdom",
-    "lat": 51.5074,
-    "lng": -0.1278,
-    "start": "2026-10-13",
-    "end": "2026-10-13",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "lfai",
-    "url": "https://interrupt.langchain.com/london",
     "v": 1
   },
   {
