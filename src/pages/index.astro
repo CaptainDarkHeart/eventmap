@@ -430,7 +430,10 @@ applyFilters();
 
 function fitToVisible() {
   const pts = items.filter((i) => map.hasLayer(i.marker)).map((i) => [i.plotLat, i.plotLng]);
-  if (pts.length) map.fitBounds(pts, { padding: [40, 40], maxZoom: 8 });
+  if (!pts.length) return;
+  map.invalidateSize();
+  // Cities: tight zoom so the dots fill the view. Wider areas are bounded by their spread anyway.
+  map.fitBounds(pts, { padding: [30, 30], maxZoom: state.area.startsWith("cities:") ? 13 : 10, animate: false });
 }
 if (state.area) {
   const label = state.area.split(":")[1].split("|")[0];
