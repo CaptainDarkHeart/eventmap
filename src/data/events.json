@@ -3128,25 +3128,6 @@
     "v": 1
   },
   {
-    "id": 279,
-    "slug": "saastock-europe-2026",
-    "name": "SaaStock Europe",
-    "city": "Dublin",
-    "country": "Ireland",
-    "lat": 53.3498,
-    "lng": -6.2603,
-    "start": "2026-10-13",
-    "end": "2026-10-14",
-    "tier": "major",
-    "topics": [
-      "startup-vc",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://saastock.com/",
-    "v": 1
-  },
-  {
     "id": 281,
     "slug": "data-ai-leaders-summit-paris-2026",
     "name": "Data & AI Leaders Summit",
@@ -3696,24 +3677,6 @@
     "v": 1
   },
   {
-    "id": 322,
-    "slug": "lend360",
-    "name": "LEND360",
-    "city": "Austin",
-    "country": "United States",
-    "lat": 30.2672,
-    "lng": -97.7431,
-    "start": "2026-10-12",
-    "end": "2026-10-14",
-    "tier": "notable",
-    "topics": [
-      "fintech"
-    ],
-    "source": "fintechweekly",
-    "url": "https://www.lend360.org/",
-    "v": 1
-  },
-  {
     "id": 323,
     "slug": "black-hat-usa-2027",
     "name": "Black Hat USA",
@@ -3783,24 +3746,6 @@
     ],
     "source": "dealroom",
     "url": "https://www.wolvessummit.com/",
-    "v": 1
-  },
-  {
-    "id": 332,
-    "slug": "istanbul-ignited-by-slush-d-2026",
-    "name": "Istanbul Ignited by Slush'D",
-    "city": "Istanbul",
-    "country": "Turkey",
-    "lat": 41.0082,
-    "lng": 28.9784,
-    "start": "2026-10-12",
-    "end": "2026-10-14",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://istanbulslushd.com/",
     "v": 1
   },
   {
@@ -3912,25 +3857,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 341,
-    "slug": "ai-engineer-new-york-2026",
-    "name": "AI Engineer New York",
-    "city": "New York",
-    "country": "United States",
-    "lat": 40.7128,
-    "lng": -74.006,
-    "start": "2026-10-12",
-    "end": "2026-10-14",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "lfai",
-    "url": "https://ai.engineer/nyc/2026",
     "v": 1
   },
   {
