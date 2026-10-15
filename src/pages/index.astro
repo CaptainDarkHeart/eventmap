@@ -1,7 +1,13 @@
 ---
 import eventsData from "../data/events.json";
 import { regionsFor } from "../lib/regions.js";
-const events = eventsData.map((e) => ({ ...e, region: regionsFor(e.country) }));
+import { TYPES } from "../lib/areas.mjs";
+// areas: "type:key" tokens so /?area=countries:Germany can scope the map (see AreaPage.astro)
+const events = eventsData.map((e) => ({
+	...e,
+	region: regionsFor(e.country),
+	areas: Object.entries(TYPES).flatMap(([type, t]) => t.keys(e).map((k) => `${type}:${k}`)),
+}));
 
 const cartoKey = import.meta.env.PUBLIC_CARTO_KEY;
 ---
@@ -384,7 +390,8 @@ const items = sorted.map((ev) => {
   return { ev, marker, pulse, card, plotLat, plotLng };
 });
 
-const state = { topic: "all", tier: "all", when: "all", q: "" };
+const areaParam = new URLSearchParams(window.location.search).get("area");
+const state = { topic: "all", tier: "all", when: "all", q: "", area: areaParam || "" };
 
 function applyFilters() {
   const now = new Date();
@@ -398,7 +405,8 @@ function applyFilters() {
     const whenOk = state.when === "all" ? upcoming : upcoming && new Date(ev.start + "T00:00:00") <= cutoff;
     const q = state.q.trim().toLowerCase();
     const searchOk = !q || ev.name.toLowerCase().includes(q) || ev.city.toLowerCase().includes(q) || ev.country.toLowerCase().includes(q) || (ev.region || "").includes(q);
-    const visible = topicOk && tierOk && whenOk && searchOk;
+    const areaOk = !state.area || ev.areas.includes(state.area);
+    const visible = topicOk && tierOk && whenOk && searchOk && areaOk;
 
     if (visible && !map.hasLayer(marker)) marker.addTo(map);
     if (!visible && map.hasLayer(marker)) map.removeLayer(marker);
@@ -419,6 +427,20 @@ function applyFilters() {
   }
 }
 applyFilters();
+
+function fitToVisible() {
+  const pts = items.filter((i) => map.hasLayer(i.marker)).map((i) => [i.plotLat, i.plotLng]);
+  if (pts.length) map.fitBounds(pts, { padding: [40, 40], maxZoom: 8 });
+}
+if (state.area) {
+  const label = state.area.split(":")[1].split("|")[0];
+  const chip = document.createElement("a");
+  chip.href = "/";
+  chip.className = "list-link";
+  chip.textContent = `Showing: ${label} \u2715 show all`;
+  listEl.parentNode.insertBefore(chip, listEl);
+  fitToVisible();
+}
 
 function selectCard(slug) {
   const match = items.find((i) => i.ev.slug === slug);

@@ -71,7 +71,7 @@ const path = `/${g.type}/${g.slug}/`;
 			<div class="tally"><span class="num-big">{fmtInt(soon)}</span><span class="tally-label">Next 30 days</span></div>
 			{g.tiers.mega + g.tiers.major > 0 && <div class="tally"><span class="num-big">{fmtInt(g.tiers.mega + g.tiers.major)}</span><span class="tally-label">Major or mega</span></div>}
 		</div>
-		<p><a href="/">See them on the map</a> or <a href="/events/">search every event</a>.</p>
+		<p><a href={`/?area=${encodeURIComponent(`${g.type}:${g.key}`)}`}>See them on the map</a> or <a href="/events/">search every event</a>.</p>
 
 		{g.type !== "cities" && g.cities.length > 1 && (<>
 			<h2>Top cities</h2>
