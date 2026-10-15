@@ -55,7 +55,7 @@ function fmtDate(s: string, e: string) {
 			<div class="head-links">
 				<a href="https://calendar.google.com/calendar/render?cid=https://techeventsmap.com/events.ics" target="_blank" rel="noopener">Subscribe (Google Calendar)</a>
 				<span>·</span>
-				<a href="/events.ics">Subscribe (Apple / Outlook)</a>
+				<a href="/events.ics" rel="nofollow">Subscribe (Apple / Outlook)</a>
 				<span>·</span>
 				<button id="csv-btn" type="button">Export CSV</button>
 				<span>·</span>
@@ -144,7 +144,7 @@ function fmtDate(s: string, e: string) {
 							<td class={`tier-${ev.tier}`}>{TIERS[ev.tier]}</td>
 							<td class="cal-col">
 								<a class="cal-link" href={gcalUrl(ev)} target="_blank" rel="noopener" title={`Add ${ev.name} to Google Calendar`}>Google</a>
-								<a class="cal-link" href={`/events/${ev.slug}.ics`} title={`Download ${ev.name} for Apple / Outlook`}>Apple/Outlook</a>
+								<a class="cal-link" href={`/events/${ev.slug}.ics`} rel="nofollow" title={`Download ${ev.name} for Apple / Outlook`}>Apple/Outlook</a>
 							</td>
 						</tr>
 					))}

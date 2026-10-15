@@ -9,6 +9,10 @@ export function GET() {
 	const cities = groupsFor("cities");
 	const topics = groupsFor("topics");
 	const regions = groupsFor("regions");
+	const upcoming = [...events].sort((a, b) => a.start.localeCompare(b.start));
+	const evLine = (e: (typeof events)[number]) => `- [${e.name}](${SITE}/events/${e.slug}/): ${fmtDate(e.start, e.end)}, ${e.city}, ${e.country}`;
+	const next = upcoming.slice(0, 15).map(evLine).join("\n");
+	const mega = upcoming.filter((e) => e.tier === "mega").slice(0, 15).map(evLine).join("\n");
 	const links = (type: string, gs: ReturnType<typeof groupsFor>, n = 10) =>
 		gs.slice(0, n).map((g) => `[${g.name}](${SITE}/${type}/${g.slug}/) (${fmtInt(g.count)})`).join(", ");
 
@@ -38,6 +42,14 @@ AI crawlers, assistants, agents, and answer engines (ChatGPT, Claude, Perplexity
 - Largest cities: ${links("cities", cities)}.
 - Topics: ${links("topics", topics)}.
 
+## Next events
+
+${next}
+
+## Largest events (10k+ attendees)
+
+${mega}
+
 ## Data downloads
 
 - [events.csv](${SITE}/data/events.csv): every upcoming event, one row each, rebuilt on every deploy.
@@ -47,7 +59,8 @@ AI crawlers, assistants, agents, and answer engines (ChatGPT, Claude, Perplexity
 
 - Each event has its own permanent URL at \`/events/{slug}/\` with structured data (schema.org Event: name, dates, city, country, coordinates, official site link). Concluded events are removed, and their old URLs return 410.
 - Event dates can shift year to year; always confirm on the official event site before citing a date or booking travel.
-- Data is compiled from public listings and refreshed daily, but it is not real-time.
+- Data is compiled from public listings and refreshed daily, but it is not real-time. This file was generated on ${today}.
+- Questions it answers well: which tech conferences are on in a given city, country, region or month, which are the biggest, and which cover a topic such as AI, fintech or security.
 - Plain-text access: send \`Accept: text/markdown\` to any page to get a markdown rendering.
 - Sitemap: ${SITE}/sitemap.xml
 `;

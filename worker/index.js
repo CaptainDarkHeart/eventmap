@@ -208,6 +208,21 @@ export default {
 
 		const res = await env.ASSETS.fetch(request);
 
+		// Static assets answer 307 when adding the trailing slash to a directory URL.
+		// Search Console files 307s under "Page with redirect" and keeps the unslashed URL
+		// in its queue, so make it permanent. 308 is already permanent, left alone.
+		if (res.status === 307 && res.headers.has("location")) {
+			return new Response(null, { status: 301, headers: res.headers });
+		}
+
+		// Calendar feeds and raw data files are not pages: keep them out of the index.
+		// Static Astro endpoints cannot set response headers, so it is done here.
+		if (res.status === 200 && (/\.ics$/.test(url.pathname) || url.pathname.startsWith("/data/") || url.pathname === "/pb-stats.json")) {
+			const out = new Response(res.body, res);
+			out.headers.set("x-robots-tag", "noindex, nofollow");
+			return out;
+		}
+
 		// Concluded events are pruned from the data, so their pages are gone for good.
 		// Answer 410 with the 404 page body: Google drops 410s from the index quickly,
 		// and unlike a redirect to /events/ it does not read as a soft 404.
