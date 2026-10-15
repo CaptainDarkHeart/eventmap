@@ -30,9 +30,39 @@ function addDay(s: string) {
 	d.setUTCDate(d.getUTCDate() + 1);
 	return d.toISOString().slice(0, 10);
 }
+const topicLabels = ev.topics.map((t: string) => TOPICS[t]?.label ?? t);
+const dayMs = 86400000;
+const startMs = new Date(ev.start + "T00:00:00Z").getTime();
+const others = events.filter((e) => e.slug !== ev.slug);
+const byStart = (a: any, b: any) => a.start.localeCompare(b.start);
+const sameCity = others.filter((e) => e.city === ev.city && canonCountry(e.country) === canonCountry(ev.country)).sort(byStart).slice(0, 6);
+const sameWeeks = others
+	.filter((e) => Math.abs(new Date(e.start + "T00:00:00Z").getTime() - startMs) <= 14 * dayMs && !sameCity.includes(e))
+	.sort((a, b) => Math.abs(new Date(a.start + "T00:00:00Z").getTime() - startMs) - Math.abs(new Date(b.start + "T00:00:00Z").getTime() - startMs))
+	.slice(0, 6);
+const sameTopic = others
+	.filter((e) => e.topics.some((t: string) => ev.topics.includes(t)) && !sameCity.includes(e) && !sameWeeks.includes(e))
+	.sort((a, b) => Math.abs(new Date(a.start + "T00:00:00Z").getTime() - startMs) - Math.abs(new Date(b.start + "T00:00:00Z").getTime() - startMs))
+	.slice(0, 6);
+const related = [
+	sameCity.length ? { title: `More events in ${ev.city}`, list: sameCity } : null,
+	sameWeeks.length ? { title: "Around the same dates", list: sameWeeks } : null,
+	sameTopic.length ? { title: `More ${topicLabels[0]} events`, list: sameTopic } : null,
+].filter(Boolean) as { title: string; list: any[] }[];
+const sizeText: Record<string, string> = {
+	mega: "one of the largest tech events on the map, with 10,000 or more attendees expected",
+	major: "a major event on the map",
+	notable: "a notable event on the map",
+};
+const faq = [
+	{ q: `When is ${ev.name}?`, a: `${ev.name} runs ${fmtDate(ev.start, ev.end)}. Dates can shift year to year, so confirm on the official site before booking travel.` },
+	{ q: `Where is ${ev.name}?`, a: `${ev.name} takes place in ${ev.city}, ${ev.country}.` },
+	{ q: `What topics does ${ev.name} cover?`, a: `It is listed under ${topicLabels.join(", ")}.` },
+];
+const year = String(new Date(ev.start + "T00:00:00Z").getUTCFullYear());
 const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(ev.name)}&dates=${ymd(ev.start)}/${ymd(addDay(ev.end))}&details=${encodeURIComponent(ev.url || `https://techeventsmap.com/events/${ev.slug}/`)}&location=${encodeURIComponent(`${ev.city}, ${ev.country}`)}`;
 ---
-<Layout title={`${ev.name} — Tech Events Map`} description={`${ev.name}, ${fmtDate(ev.start, ev.end)}, ${ev.city}, ${ev.country}.`} breadcrumbs={[{ name: "Home", path: "/" }, { name: "All events", path: "/events/" }, { name: ev.name, path: `/events/${ev.slug}/` }]}>
+<Layout title={`${ev.name.includes(year) ? ev.name : `${ev.name} ${year}`}: dates, location | Tech Events Map`} description={`${ev.name} runs ${fmtDate(ev.start, ev.end)} in ${ev.city}, ${ev.country}. ${topicLabels.join(", ")} event. Add it to your calendar and see other events nearby.`} jsonLd={{ "@type": "FAQPage", mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }} breadcrumbs={[{ name: "Home", path: "/" }, { name: "All events", path: "/events/" }, { name: ev.name, path: `/events/${ev.slug}/` }]}>
 	<script is:inline type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "Event",
@@ -68,11 +98,24 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 		<div class="topics">
 			{ev.topics.map((t: string) => <span class="pill">{TOPICS[t]?.label ?? t}</span>)}
 		</div>
+		<p class="summary">{ev.name} takes place {fmtDate(ev.start, ev.end)} in {cityHref ? <a href={cityHref}>{ev.city}</a> : ev.city}, {ev.country}. It is {sizeText[ev.tier] ?? "listed on the map"}, covering {topicLabels.join(", ")}.</p>
 		<div class="cal-actions">
 			<a class="cal-btn" href={gcalUrl} target="_blank" rel="noopener">+ Google Calendar</a>
 			<a class="cal-btn" href={`/events/${ev.slug}.ics`} rel="nofollow">Download .ics (Apple / Outlook)</a>
 		</div>
-		<p class="source">Date sourced from {ev.source}. Dates can shift year to year, always confirm on the official site before booking travel. Tech Events Map is open source — spot an error? <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">Edit on GitHub</a> or <a href="/contact/">contact me</a>.</p>
+		<p class="source">Date sourced from {ev.source}. Dates can shift year to year, always confirm on the official site before booking travel. Tech Events Map is open source. Spot an error? <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">Edit on GitHub</a> or <a href="/contact/">contact me</a>.</p>
+		<section class="faq">
+			<h2>Quick answers</h2>
+			{faq.map((f) => <><h3>{f.q}</h3><p>{f.a}</p></>)}
+		</section>
+		{related.map((r) => (
+			<section class="related">
+				<h2>{r.title}</h2>
+				<ul>
+					{r.list.map((e) => <li><a href={`/events/${e.slug}/`}>{e.name}</a> <span>{fmtDate(e.start, e.end)}, {e.city}</span></li>)}
+				</ul>
+			</section>
+		))}
 		<div class="bottom-links">
 			{ev.url && <a class="map-link" href={outboundUrl(ev.url, ev.slug)} target="_blank" rel="noopener">View event →</a>}
 			<a class="map-link view-map" href={`/#${ev.slug}`}>View on map →</a>
@@ -102,4 +145,15 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 	.cal-btn:hover { border-color: var(--accent); color: var(--accent); }
 	.source { color: var(--text-dim); font-size: 15px; font-family: var(--mono); margin-top: 20px; }
 	.source a { color: var(--accent); }
+	.summary { font-size: 18px; line-height: 1.5; margin: 0 0 8px; }
+	.summary a { color: var(--accent); }
+	.faq, .related { margin-top: 28px; }
+	.faq h2, .related h2 { font-size: 20px; margin: 0 0 10px; }
+	.faq h3 { font-size: 16px; margin: 12px 0 2px; }
+	.faq p { margin: 0; color: var(--text-dim); font-size: 16px; line-height: 1.5; }
+	.related ul { list-style: none; padding: 0; margin: 0; }
+	.related li { padding: 5px 0; font-size: 16px; }
+	.related li a { color: var(--accent); text-decoration: none; }
+	.related li span { color: var(--text-dim); font-family: var(--mono); font-size: 13.5px; margin-left: 6px; }
+	.bottom-links { margin-top: 28px; }
 </style>
