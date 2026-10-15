@@ -42,7 +42,7 @@ AI crawlers, assistants, agents, and answer engines (ChatGPT, Claude, Perplexity
 - Largest cities: ${links("cities", cities)}.
 - Topics: ${links("topics", topics)}.
 
-## Next events
+## Happening now and next
 
 ${next}
 
