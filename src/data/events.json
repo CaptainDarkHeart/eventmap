@@ -5228,5 +5228,41 @@
     "source": "manual",
     "url": "https://informaconnect.com/finovatespring/",
     "v": 1
+  },
+  {
+    "id": 414,
+    "slug": "saas-north-2026",
+    "name": "SaaS North",
+    "city": "Ottawa",
+    "country": "Canada",
+    "lat": 45.4215,
+    "lng": -75.6972,
+    "start": "2026-11-04",
+    "end": "2026-11-05",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://www.saasnorth.com",
+    "v": 1
+  },
+  {
+    "id": 415,
+    "slug": "red-hat-summit-2027",
+    "name": "Red Hat Summit",
+    "city": "Boston",
+    "country": "United States",
+    "lat": 42.3601,
+    "lng": -71.0589,
+    "start": "2027-05-25",
+    "end": "2027-05-27",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://www.redhat.com/en/summit",
+    "v": 1
   }
 ]
