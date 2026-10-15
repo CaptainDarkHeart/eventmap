@@ -33,7 +33,9 @@ jobs:
       # Prune in the runner only, same as `npm run deploy`. Not committed back.
       - run: node scripts/prune-past-events.mjs
       - run: npx astro build
+      - run: node scripts/indexnow.mjs prepare
       - run: npx wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - run: node scripts/indexnow.mjs submit
