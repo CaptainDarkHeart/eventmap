@@ -198,60 +198,6 @@
     "v": 1
   },
   {
-    "id": 21,
-    "slug": "techcrunch-disrupt",
-    "name": "TechCrunch Disrupt",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-10-13",
-    "end": "2026-10-15",
-    "tier": "major",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://techcrunch.com/events/tc-disrupt-2026/",
-    "v": 1
-  },
-  {
-    "id": 22,
-    "slug": "invest-europe-venture-capital-forum",
-    "name": "Invest Europe Venture Capital Forum",
-    "city": "Amsterdam",
-    "country": "Netherlands",
-    "lat": 52.3676,
-    "lng": 4.9041,
-    "start": "2026-10-14",
-    "end": "2026-10-15",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://vcf.investeurope.eu/",
-    "v": 1
-  },
-  {
-    "id": 23,
-    "slug": "norrsken-impact-week",
-    "name": "Norrsken Impact/Week",
-    "city": "Barcelona",
-    "country": "Spain",
-    "lat": 41.3874,
-    "lng": 2.1686,
-    "start": "2026-10-14",
-    "end": "2026-10-15",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://www.norrsken.org/impactweek",
-    "v": 1
-  },
-  {
     "id": 24,
     "slug": "money20-20-usa",
     "name": "Money20/20 USA",
@@ -2445,25 +2391,6 @@
     "v": 1
   },
   {
-    "id": 224,
-    "slug": "joker-2026",
-    "name": "Joker",
-    "city": "Saint Petersburg",
-    "country": "Russia",
-    "lat": 59.8427,
-    "lng": 30.3204,
-    "start": "2026-10-14",
-    "end": "2026-10-15",
-    "tier": "major",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "devevents",
-    "url": "https://jokerconf.com/",
-    "v": 1
-  },
-  {
     "id": 225,
     "slug": "heisenbug-2026",
     "name": "Heisenbug",
@@ -3477,24 +3404,6 @@
     "v": 1
   },
   {
-    "id": 311,
-    "slug": "unlock-vc-summit-2026",
-    "name": "Unlock VC Summit",
-    "city": "Paris",
-    "country": "France",
-    "lat": 48.8566,
-    "lng": 2.3522,
-    "start": "2026-10-13",
-    "end": "2026-10-15",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "vestbee",
-    "url": "https://unlock-vc.com/",
-    "v": 1
-  },
-  {
     "id": 312,
     "slug": "czech-startup-week-2026",
     "name": "Czech Startup Week",
@@ -3731,24 +3640,6 @@
     "v": 1
   },
   {
-    "id": 327,
-    "slug": "wolves-summit-krakow-2026",
-    "name": "Wolves Summit",
-    "city": "Krakow",
-    "country": "Poland",
-    "lat": 50.0647,
-    "lng": 19.945,
-    "start": "2026-10-14",
-    "end": "2026-10-15",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://www.wolvessummit.com/",
-    "v": 1
-  },
-  {
     "id": 333,
     "slug": "engaged-investments-conference-2026",
     "name": "Engaged Investments Conference",
@@ -3820,25 +3711,6 @@
     ],
     "source": "manual",
     "url": "https://www.googlecloudevents.com/next-vegas",
-    "v": 1
-  },
-  {
-    "id": 337,
-    "slug": "openssl-conference-prague-2026",
-    "name": "OpenSSL Conference",
-    "city": "Prague",
-    "country": "Czechia",
-    "lat": 50.0755,
-    "lng": 14.4378,
-    "start": "2026-10-12",
-    "end": "2026-10-15",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "manual",
-    "url": "https://openssl-conference.org/",
-    "organizer": "OpenSSL Corporation & Foundation",
     "v": 1
   },
   {
