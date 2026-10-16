@@ -5190,5 +5190,59 @@
     "source": "manual",
     "url": "https://www.redhat.com/en/summit",
     "v": 1
+  },
+  {
+    "id": 416,
+    "slug": "fortune-brainstorm-ai-2026",
+    "name": "Fortune Brainstorm AI",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-12-07",
+    "end": "2026-12-08",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "techmeme",
+    "url": "https://conferences.fortune.com/event/brainstorm-ai-2026/",
+    "v": 1
+  },
+  {
+    "id": 417,
+    "slug": "binance-blockchain-week-bangkok-2026",
+    "name": "Binance Blockchain Week Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "lat": 13.7563,
+    "lng": 100.5018,
+    "start": "2026-11-28",
+    "end": "2026-11-29",
+    "tier": "notable",
+    "topics": [
+      "crypto"
+    ],
+    "source": "techmeme",
+    "url": "https://www.binanceblockchainweek.com/event/Bangkok2026/Home",
+    "v": 1
+  },
+  {
+    "id": 418,
+    "slug": "gamesbeat-next-2026",
+    "name": "GamesBeat Next",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-11-02",
+    "end": "2026-11-03",
+    "tier": "notable",
+    "topics": [
+      "gaming"
+    ],
+    "source": "techmeme",
+    "url": "https://events.gamesbeat.com/next26/",
+    "v": 1
   }
 ]
