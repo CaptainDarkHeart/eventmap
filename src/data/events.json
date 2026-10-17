@@ -180,24 +180,6 @@
     "v": 1
   },
   {
-    "id": 20,
-    "slug": "ceatec",
-    "name": "CEATEC",
-    "city": "Chiba",
-    "country": "Japan",
-    "lat": 35.6073,
-    "lng": 140.1233,
-    "start": "2026-10-13",
-    "end": "2026-10-16",
-    "tier": "mega",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://www.ceatec.com/en/",
-    "v": 1
-  },
-  {
     "id": 24,
     "slug": "money20-20-usa",
     "name": "Money20/20 USA",
@@ -1641,24 +1623,6 @@
     "v": 1
   },
   {
-    "id": 169,
-    "slug": "australian-cyber-conference-2026",
-    "name": "Australian Cyber Conference",
-    "city": "Melbourne",
-    "country": "Australia",
-    "lat": -37.8136,
-    "lng": 144.9631,
-    "start": "2026-10-14",
-    "end": "2026-10-16",
-    "tier": "major",
-    "topics": [
-      "security"
-    ],
-    "source": "manual",
-    "url": "https://www.cyberconference.com.au/",
-    "v": 1
-  },
-  {
     "id": 170,
     "slug": "japan-it-week-autumn-2026",
     "name": "Japan IT Week Autumn",
@@ -2297,24 +2261,6 @@
     ],
     "source": "japanconf",
     "url": "https://www.googlecloudevents.com/next-tokyo",
-    "v": 1
-  },
-  {
-    "id": 210,
-    "slug": "auckland-startup-week-2026",
-    "name": "Auckland Startup Week",
-    "city": "Auckland",
-    "country": "New Zealand",
-    "lat": -36.8485,
-    "lng": 174.7633,
-    "start": "2026-10-12",
-    "end": "2026-10-16",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "manual",
-    "url": "https://www.aucklandstartupweek.com/",
     "v": 1
   },
   {
@@ -3419,24 +3365,6 @@
     ],
     "source": "vestbee",
     "url": "https://czechstartups.gov.cz/en/czech-startup-week/",
-    "v": 1
-  },
-  {
-    "id": 313,
-    "slug": "mwc-las-vegas-2026",
-    "name": "MWC Las Vegas",
-    "city": "Las Vegas",
-    "country": "United States",
-    "lat": 36.1699,
-    "lng": -115.1398,
-    "start": "2026-10-14",
-    "end": "2026-10-16",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "techmeme",
-    "url": "https://www.mwclasvegas.com/",
     "v": 1
   },
   {
@@ -4718,24 +4646,6 @@
     ],
     "source": "manual",
     "url": "https://www.bitsandpretzels.com/",
-    "v": 1
-  },
-  {
-    "id": 397,
-    "slug": "dc-fintech-week-2026",
-    "name": "DC Fintech Week",
-    "city": "Washington, D.C.",
-    "country": "United States",
-    "lat": 38.9072,
-    "lng": -77.0369,
-    "start": "2026-10-13",
-    "end": "2026-10-16",
-    "tier": "notable",
-    "topics": [
-      "fintech"
-    ],
-    "source": "techmeme",
-    "url": "https://www.dcfintechweek.org/",
     "v": 1
   },
   {
