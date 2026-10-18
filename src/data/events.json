@@ -5026,5 +5026,80 @@
     "source": "techmeme",
     "url": "https://events.gamesbeat.com/next26/",
     "v": 1
+  },
+  {
+    "id": 419,
+    "slug": "bloomberg-tech-london-2026",
+    "name": "Bloomberg Tech London",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2026-11-02",
+    "end": "2026-11-03",
+    "tier": "notable",
+    "topics": [
+      "general-tech",
+      "ai"
+    ],
+    "source": "techmeme",
+    "url": "https://events.bloomberglive.com/event/TechLondon2026/summary",
+    "v": 1
+  },
+  {
+    "id": 420,
+    "slug": "ripple-swell-2026",
+    "name": "Ripple Swell",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "start": "2026-10-27",
+    "end": "2026-10-29",
+    "tier": "notable",
+    "topics": [
+      "crypto",
+      "fintech"
+    ],
+    "source": "techmeme",
+    "url": "https://swell.ripple.com/",
+    "v": 1
+  },
+  {
+    "id": 421,
+    "slug": "qcon-ai-new-york-2026",
+    "name": "QCon AI New York",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "start": "2026-12-15",
+    "end": "2026-12-16",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://newyork.qcon.ai/",
+    "v": 1
+  },
+  {
+    "id": 422,
+    "slug": "ftt-fintech-festival-london-2026",
+    "name": "FTT Fintech Festival",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2026-11-09",
+    "end": "2026-11-10",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "techmeme",
+    "url": "https://www.fintechtalents.com/events/europe/festival-london/",
+    "v": 1
   }
 ]
