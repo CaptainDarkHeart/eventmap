@@ -126,24 +126,6 @@
     "v": 1
   },
   {
-    "id": 140,
-    "slug": "european-blockchain-convention",
-    "name": "European Blockchain Convention",
-    "city": "Barcelona",
-    "country": "Spain",
-    "lat": 41.3874,
-    "lng": 2.1686,
-    "start": "2026-10-16",
-    "end": "2026-10-17",
-    "tier": "notable",
-    "topics": [
-      "crypto"
-    ],
-    "source": "balloupr",
-    "url": "https://eblockchainconvention.com/",
-    "v": 1
-  },
-  {
     "id": 141,
     "slug": "unleash",
     "name": "UNLEASH",
@@ -2137,24 +2119,6 @@
     "v": 1
   },
   {
-    "id": 202,
-    "slug": "kaigi-on-rails-2026",
-    "name": "Kaigi on Rails",
-    "city": "Tokyo",
-    "country": "Japan",
-    "lat": 35.6762,
-    "lng": 139.6503,
-    "start": "2026-10-16",
-    "end": "2026-10-17",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "japanconf",
-    "url": "https://kaigionrails.org/2026/",
-    "v": 1
-  },
-  {
     "id": 203,
     "slug": "b-dash-camp-2026-fall-fukuoka",
     "name": "B Dash Camp 2026 Fall in Fukuoka",
@@ -2337,24 +2301,6 @@
     "v": 1
   },
   {
-    "id": 225,
-    "slug": "heisenbug-2026",
-    "name": "Heisenbug",
-    "city": "Saint Petersburg",
-    "country": "Russia",
-    "lat": 59.8427,
-    "lng": 30.3204,
-    "start": "2026-10-16",
-    "end": "2026-10-17",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://heisenbug.ru/",
-    "v": 1
-  },
-  {
     "id": 226,
     "slug": "mobius-2026",
     "name": "Mobius",
@@ -2465,25 +2411,6 @@
     ],
     "source": "manual",
     "url": "https://2026.pythonbrasil.org.br/",
-    "v": 1
-  },
-  {
-    "id": 237,
-    "slug": "aws-community-day-paraguay-2026",
-    "name": "AWS Community Day Paraguay",
-    "city": "Asunción",
-    "country": "Paraguay",
-    "lat": -25.2925,
-    "lng": -57.6186,
-    "start": "2026-10-17",
-    "end": "2026-10-17",
-    "tier": "notable",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "devevents",
-    "url": "https://www.awscommunitydayparaguay.com/",
     "v": 1
   },
   {
@@ -3073,24 +3000,6 @@
     ],
     "source": "manual",
     "url": "https://ai-festival.cz/en/",
-    "v": 1
-  },
-  {
-    "id": 289,
-    "slug": "slovenia-games-conference-2026",
-    "name": "Slovenia Games Conference",
-    "city": "Ljubljana",
-    "country": "Slovenia",
-    "lat": 46.0569,
-    "lng": 14.5058,
-    "start": "2026-10-17",
-    "end": "2026-10-17",
-    "tier": "notable",
-    "topics": [
-      "gaming"
-    ],
-    "source": "manual",
-    "url": "https://europe-startup-guide.com/slovenia/event/slovenia-games-conference-2026",
     "v": 1
   },
   {
