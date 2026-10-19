@@ -5010,5 +5010,23 @@
     "source": "techmeme",
     "url": "https://www.fintechtalents.com/events/europe/festival-london/",
     "v": 1
+  },
+  {
+    "id": 423,
+    "slug": "black-hat-mea-2026",
+    "name": "Black Hat MEA",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "lat": 24.7136,
+    "lng": 46.6753,
+    "start": "2026-12-01",
+    "end": "2026-12-03",
+    "tier": "notable",
+    "topics": [
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://blackhatmea.com",
+    "v": 1
   }
 ]
