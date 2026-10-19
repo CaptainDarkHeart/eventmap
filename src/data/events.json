@@ -1907,24 +1907,6 @@
     "v": 1
   },
   {
-    "id": 186,
-    "slug": "pyconza-2026",
-    "name": "PyConZA",
-    "city": "Cape Town",
-    "country": "South Africa",
-    "lat": -33.9634,
-    "lng": 18.477,
-    "start": "2026-10-14",
-    "end": "2026-10-18",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://za.pycon.org/",
-    "v": 1
-  },
-  {
     "id": 187,
     "slug": "ai-expo-africa-2026",
     "name": "AI Expo Africa",
@@ -2392,25 +2374,6 @@
     ],
     "source": "manual",
     "url": "https://teamleadconf.ru/",
-    "v": 1
-  },
-  {
-    "id": 236,
-    "slug": "python-brasil-2026",
-    "name": "Python Brasil",
-    "city": "Florianópolis",
-    "country": "Brazil",
-    "lat": -27.4332,
-    "lng": -48.3975,
-    "start": "2026-10-14",
-    "end": "2026-10-18",
-    "tier": "major",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://2026.pythonbrasil.org.br/",
     "v": 1
   },
   {
@@ -3459,24 +3422,6 @@
     "v": 1
   },
   {
-    "id": 326,
-    "slug": "la-tech-week-2026",
-    "name": "LA Tech Week",
-    "city": "Los Angeles",
-    "country": "United States",
-    "lat": 34.0522,
-    "lng": -118.2437,
-    "start": "2026-10-12",
-    "end": "2026-10-18",
-    "tier": "major",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://luma.com/latw",
-    "v": 1
-  },
-  {
     "id": 333,
     "slug": "engaged-investments-conference-2026",
     "name": "Engaged Investments Conference",
@@ -4410,24 +4355,6 @@
     ],
     "source": "lfai",
     "url": "https://events.linuxfoundation.org/open-source-ai-week/",
-    "v": 1
-  },
-  {
-    "id": 389,
-    "slug": "entrepreneurship-summit-2026",
-    "name": "Entrepreneurship Summit",
-    "city": "Berlin",
-    "country": "Germany",
-    "lat": 52.52,
-    "lng": 13.405,
-    "start": "2026-10-17",
-    "end": "2026-10-18",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "startupevents",
-    "url": "https://entrepreneurship.de/en/summit",
     "v": 1
   },
   {
