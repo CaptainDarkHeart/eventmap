@@ -4955,5 +4955,59 @@
     "source": "manual",
     "url": "https://blackhatmea.com",
     "v": 1
+  },
+  {
+    "id": 424,
+    "slug": "sap-teched-berlin-2026",
+    "name": "SAP TechEd Berlin",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2026-10-27",
+    "end": "2026-10-29",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://www.sap.com/events/teched/berlin.html",
+    "v": 1
+  },
+  {
+    "id": 425,
+    "slug": "j-on-the-beach-2026",
+    "name": "J On the Beach",
+    "city": "Málaga",
+    "country": "Spain",
+    "lat": 36.7213,
+    "lng": -4.4214,
+    "start": "2026-10-29",
+    "end": "2026-10-30",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://jonthebeach.com/",
+    "v": 1
+  },
+  {
+    "id": 426,
+    "slug": "masters-of-scale-summit-2026",
+    "name": "Masters of Scale Summit",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2026-10-20",
+    "end": "2026-10-22",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "techmeme",
+    "url": "https://www.summit.mastersofscale.com/",
+    "v": 1
   }
 ]
