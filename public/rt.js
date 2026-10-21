@@ -53,7 +53,7 @@
     emit();
   }
 
-  function toggle() { set(active() ? null : "blue"); }
+  function toggle() { set(active() ? null : "green"); }
 
   function syncPicker() {
     var host = document.querySelector(".header-right");
