@@ -191,9 +191,32 @@ async function handleSubmitEvent(request, env) {
 	});
 }
 
+const TRACKED = new Set(["csv_export", "calendar_ics", "calendar_google", "outbound", "event_view", "search", "form_submit"]);
+
+// First-party event log to Workers Analytics Engine. Never fails the request.
+function handleTrack(request, env) {
+	return request.text().then((raw) => {
+		try {
+			const { e, p, t } = JSON.parse(raw.slice(0, 1000));
+			if (TRACKED.has(e) && typeof p === "string" && env.ANALYTICS) {
+				env.ANALYTICS.writeDataPoint({
+					indexes: [e],
+					blobs: [e, p.slice(0, 200), String(t || "").slice(0, 200), request.cf?.country || ""],
+					doubles: [1],
+				});
+			}
+		} catch {}
+		return new Response(null, { status: 204 });
+	});
+}
+
 export default {
 	async fetch(request, env) {
 		const url = new URL(request.url);
+
+		if (url.pathname === "/api/e" && request.method === "POST") {
+			return handleTrack(request, env);
+		}
 
 		if (url.pathname === "/api/contact" && request.method === "POST") {
 			return handleContact(request, env);

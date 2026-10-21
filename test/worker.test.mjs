@@ -27,3 +27,14 @@ test("pruned event ics still 410s", async () => {
 	const out = await run("/events/gone-2026.ics", new Response("nf", { status: 404 }));
 	assert.equal(out.status, 410);
 });
+
+test("tracking endpoint writes allowed events and always 204s", async () => {
+	const points = [];
+	const env = { ANALYTICS: { writeDataPoint: (d) => points.push(d) }, ASSETS: { fetch: async () => new Response("x") } };
+	const post = (body) => worker.fetch(new Request("https://techeventsmap.com/api/e", { method: "POST", body }), env);
+	assert.equal((await post(JSON.stringify({ e: "csv_export", p: "/events/" }))).status, 204);
+	assert.equal((await post(JSON.stringify({ e: "evil", p: "/" }))).status, 204);
+	assert.equal((await post("not json")).status, 204);
+	assert.equal(points.length, 1);
+	assert.equal(points[0].indexes[0], "csv_export");
+});

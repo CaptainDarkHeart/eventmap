@@ -9,6 +9,9 @@
 		"not_found_handling": "404-page",
 		"run_worker_first": ["/*", "!/_astro/*", "!/fonts/*"]
 	},
+	"analytics_engine_datasets": [
+		{ "binding": "ANALYTICS", "dataset": "eventmap_events" }
+	],
 	"send_email": [
 		{ "name": "EMAIL" }
 	]
