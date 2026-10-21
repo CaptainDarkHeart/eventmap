@@ -30,3 +30,7 @@ logs/
 # wrangler local state
 .wrangler/
 indexnow-new-urls.json
+
+# local-only agent notes (internal ops detail)
+AGENTS.md
+CLAUDE.md
