@@ -2567,26 +2567,6 @@
     "v": 1
   },
   {
-    "id": 254,
-    "slug": "all-things-open-2026",
-    "name": "All Things Open",
-    "city": "Raleigh",
-    "country": "United States",
-    "lat": 35.7796,
-    "lng": -78.6382,
-    "start": "2026-10-19",
-    "end": "2026-10-20",
-    "tier": "major",
-    "topics": [
-      "dev-eng",
-      "ai",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://allthingsopen.org/",
-    "v": 1
-  },
-  {
     "id": 255,
     "slug": "seagl-2026",
     "name": "SeaGL",
@@ -3511,24 +3491,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 343,
-    "slug": "ai-and-big-data-expo-europe-2026",
-    "name": "AI & Big Data Expo Europe",
-    "city": "Amsterdam",
-    "country": "Netherlands",
-    "lat": 52.3676,
-    "lng": 4.9041,
-    "start": "2026-10-19",
-    "end": "2026-10-20",
-    "tier": "major",
-    "topics": [
-      "ai"
-    ],
-    "source": "lfai",
-    "url": "https://www.ai-expo.net/europe/",
     "v": 1
   },
   {
