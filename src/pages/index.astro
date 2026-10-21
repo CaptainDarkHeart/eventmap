@@ -123,9 +123,7 @@ nav a:hover{color:var(--text)}
 .sidebar-footer svg{width:20px;height:20px;display:block}
 .map-container{flex:1;position:relative}
 #map{width:100%;height:100%}
-.leaflet-container{background:var(--surface)}
-.leaflet-tile{mix-blend-mode:normal!important}
-.pulse-ring{background:none;border:none;pointer-events:none}
+.leaflet-container{background:var(--surface)}.pulse-ring{background:none;border:none;pointer-events:none}
 .pulse-ring span{display:block;width:100%;height:100%;box-sizing:border-box;border:2px solid;border-radius:50%;opacity:0;animation:pulse-ring 2s ease-out infinite}
 @keyframes pulse-ring{0%{transform:scale(.8);opacity:.9}100%{transform:scale(2.6);opacity:0}}
 @media (prefers-reduced-motion:reduce){.pulse-ring span{animation:none;opacity:.6;transform:scale(1.5)}}
@@ -278,7 +276,8 @@ Object.entries(TOPICS).forEach(([key, meta]) => {
 
 function tileUrl(dark) {
   const style = dark ? "dark_all" : "voyager";
-  return `https://basemaps.cartocdn.com/rastertiles/${style}/{z}/{x}/{y}{r}.png?key=${cartoKey}`;
+  // v= busts stale cached tiles from an older CARTO style (mixed old/new tiles showed as blocks)
+  return `https://basemaps.cartocdn.com/rastertiles/${style}/{z}/{x}/{y}{r}.png?key=${cartoKey}&v=2`;
 }
 
 const map = L.map("map", {
