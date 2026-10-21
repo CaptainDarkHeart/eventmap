@@ -4971,5 +4971,23 @@
     "source": "techmeme",
     "url": "https://www.summit.mastersofscale.com/",
     "v": 1
+  },
+  {
+    "id": 427,
+    "slug": "tech-weekend-silicon-valley-2026",
+    "name": "Tech Weekend Silicon Valley",
+    "city": "Menlo Park",
+    "country": "United States",
+    "lat": 37.4419,
+    "lng": -122.1737,
+    "start": "2026-11-19",
+    "end": "2026-11-20",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://techweekend.org/",
+    "v": 1
   }
 ]
