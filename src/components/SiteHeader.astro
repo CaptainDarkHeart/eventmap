@@ -27,7 +27,6 @@ const isContact = p.startsWith("/contact");
 		<a class="nav-submit-mobile" href="/submit/" aria-current={isSubmit ? "page" : undefined}>+ Submit Event</a>
 	</nav>
 	<div class="header-right">
-		<a class:list={["header-cta", { active: isSubmit }]} href="/submit/" aria-current={isSubmit ? "page" : undefined}>+ Submit Event</a>
 		<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light or dark theme" title="Toggle theme">&#9788;</button>
 		<button id="nav-toggle" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
 	</div>
@@ -138,25 +137,6 @@ const isContact = p.startsWith("/contact");
 		gap: 10px;
 		justify-content: flex-end;
 	}
-	.header-cta {
-		font-family: var(--font);
-		font-size: 12.5px;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		padding: 5px 11px;
-		border-radius: 4px;
-		border: 1px solid var(--border);
-		background: var(--surface);
-		color: var(--text);
-		text-decoration: none;
-		white-space: nowrap;
-		transition: border-color 0.15s, color 0.15s, background-color 0.15s;
-	}
-	.header-cta:hover,
-	.header-cta.active {
-		border-color: var(--accent);
-		color: var(--accent);
-	}
 	.theme-toggle {
 		background: none;
 		border: 1px solid var(--border);
@@ -232,9 +212,6 @@ const isContact = p.startsWith("/contact");
 		.nav-submit-mobile {
 			display: inline-flex;
 			color: var(--accent);
-		}
-		.header-cta {
-			display: none;
 		}
 		.nav-toggle {
 			display: inline-flex;
