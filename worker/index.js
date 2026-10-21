@@ -1,3 +1,4 @@
+import { handleTrack } from "./track-handler.js";
 import { autoAdd } from "./autoadd.js";
 import { htmlToMarkdown, wantsMarkdown, estimateTokens } from "./markdown.js";
 
@@ -188,25 +189,6 @@ async function handleSubmitEvent(request, env) {
 			: result.duplicate
 				? "Thanks, that event is already on the map."
 				: "Thanks, I couldn't verify that automatically, so I'll review it by hand.",
-	});
-}
-
-const TRACKED = new Set(["csv_export", "calendar_ics", "calendar_google", "outbound", "event_view", "search", "form_submit"]);
-
-// First-party event log to Workers Analytics Engine. Never fails the request.
-function handleTrack(request, env) {
-	return request.text().then((raw) => {
-		try {
-			const { e, p, t } = JSON.parse(raw.slice(0, 1000));
-			if (TRACKED.has(e) && typeof p === "string" && env.ANALYTICS) {
-				env.ANALYTICS.writeDataPoint({
-					indexes: [e],
-					blobs: [e, p.slice(0, 200), String(t || "").slice(0, 200), request.cf?.country || ""],
-					doubles: [1],
-				});
-			}
-		} catch {}
-		return new Response(null, { status: 204 });
 	});
 }
 
