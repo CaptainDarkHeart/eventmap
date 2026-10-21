@@ -19,7 +19,15 @@ function fmtDate(s: string, e: string) {
 	const sd = new Date(s + "T00:00:00");
 	const ed = new Date(e + "T00:00:00");
 	if (s === e) return sd.toLocaleDateString("en-GB", opts);
-	return `${sd.toLocaleDateString("en-GB", { month: "long", day: "numeric" })} – ${ed.toLocaleDateString("en-GB", opts)}`;
+	return `${sd.toLocaleDateString("en-GB", { month: "long", day: "numeric" })} - ${ed.toLocaleDateString("en-GB", opts)}`;
+}
+
+function fmtShortDate(s: string, e: string) {
+	const opts: Intl.DateTimeFormatOptions = { month: "short", day: "numeric", year: "numeric" };
+	const sd = new Date(s + "T00:00:00");
+	const ed = new Date(e + "T00:00:00");
+	if (s === e) return sd.toLocaleDateString("en-GB", opts);
+	return `${sd.toLocaleDateString("en-GB", { month: "short", day: "numeric" })} - ${ed.toLocaleDateString("en-GB", opts)}`;
 }
 
 function ymd(s: string) {
@@ -85,75 +93,351 @@ const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 		url: ev.url || `https://techeventsmap.com/events/${ev.slug}/`,
 	})} />
 	<SiteHeader />
-	<div class="wrap">
-		<a class="back" href="/events/">← All events</a>
-		<h1>{ev.name}</h1>
-		<div class="meta">
-			<span>{fmtDate(ev.start, ev.end)}</span>
-			<span>·</span>
-			<span>{cityHref ? <a href={cityHref}>{ev.city}</a> : ev.city}, {countryHref ? <a href={countryHref}>{ev.country}</a> : ev.country}</span>
-			<span>·</span>
-			<span class={`tier-${ev.tier}`}>{TIERS[ev.tier]}</span>
+	<main class="wrap-wide">
+		<nav class="crumbs" aria-label="Breadcrumb">
+			<a href="/">Home</a><span>/</span><a href="/events/">All events</a><span>/</span>{ev.name}
+		</nav>
+
+		<div class="dossier-grid">
+			<div class="dossier-main">
+				<div class="title-block">
+					<div class="topics">
+						{ev.topics.map((t: string) => (
+							<a class="pill" href={`/topics/${slugify(TOPICS[t]?.label ?? t)}/`}>
+								<span class="dot" style={`background:${TOPICS[t]?.color ?? "#999"}`}></span>
+								{TOPICS[t]?.label ?? t}
+							</a>
+						))}
+						<span class={`pill tier-${ev.tier}`}>{TIERS[ev.tier]}</span>
+					</div>
+					<h1>{ev.name}</h1>
+					<p class="summary">{ev.name} takes place {fmtDate(ev.start, ev.end)} in {cityHref ? <a href={cityHref}>{ev.city}</a> : ev.city}, {countryHref ? <a href={countryHref}>{ev.country}</a> : ev.country}. It is {sizeText[ev.tier] ?? "listed on the map"}, covering {topicLabels.join(", ")}.</p>
+				</div>
+
+				<div class="facts-grid card">
+					<div class="fact">
+						<span class="fact-label">Dates</span>
+						<span class="fact-val">{fmtDate(ev.start, ev.end)}</span>
+					</div>
+					<div class="fact">
+						<span class="fact-label">Location</span>
+						<span class="fact-val">
+							{cityHref ? <a href={cityHref}>{ev.city}</a> : ev.city}, {countryHref ? <a href={countryHref}>{ev.country}</a> : ev.country}
+						</span>
+					</div>
+					<div class="fact">
+						<span class="fact-label">Size Tier</span>
+						<span class={`fact-val tier-${ev.tier}`}>{TIERS[ev.tier]}</span>
+					</div>
+					<div class="fact">
+						<span class="fact-label">Coordinates</span>
+						<span class="fact-val">{ev.lat.toFixed(4)}, {ev.lng.toFixed(4)}</span>
+					</div>
+					{ev.organizer && (
+						<div class="fact">
+							<span class="fact-label">Organiser</span>
+							<span class="fact-val">{ev.organizer}</span>
+						</div>
+					)}
+					{ev.offer && (
+						<div class="fact">
+							<span class="fact-label">Ticket Guide</span>
+							<span class="fact-val">{ev.offer.currency || "USD"} {ev.offer.price}</span>
+						</div>
+					)}
+				</div>
+
+				<section class="faq-section">
+					<h2>Quick answers</h2>
+					<div class="faq-cards">
+						{faq.map((f) => (
+							<div class="faq-card card">
+								<h3>{f.q}</h3>
+								<p>{f.a}</p>
+							</div>
+						))}
+					</div>
+				</section>
+
+				<p class="source-note">
+					Date sourced from <strong>{ev.source}</strong>. Dates can shift year to year, always confirm on the official site before booking travel. Spot an error? <a href="/contact/">Contact me</a>.
+				</p>
+			</div>
+
+			<aside class="dossier-side">
+				<div class="action-card card">
+					<span class="side-heading">Actions &amp; Links</span>
+					<div class="action-stack">
+						{ev.url && (
+							<a class="btn btn-primary full-btn" href={outboundUrl(ev.url, ev.slug)} target="_blank" rel="noopener">
+								Official Website &rarr;
+							</a>
+						)}
+						<a class="btn full-btn" href={`/#${ev.slug}`}>
+							View on Interactive Map &rarr;
+						</a>
+					</div>
+
+					<hr class="divider" />
+
+					<span class="side-heading">Add to Calendar</span>
+					<div class="action-stack">
+						<a class="btn full-btn" href={gcalUrl} target="_blank" rel="noopener">+ Google Calendar</a>
+						<a class="btn full-btn" href={`/events/${ev.slug}.ics`} rel="nofollow">Download .ics (Apple / Outlook)</a>
+					</div>
+
+					<hr class="divider" />
+
+					<span class="side-heading">Trip Planning</span>
+					<p class="side-hint">Building a conference schedule around {ev.city}?</p>
+					<a class="side-link" href="/plan/">Open Trip Planner &rarr;</a>
+				</div>
+			</aside>
 		</div>
-		<div class="topics">
-			{ev.topics.map((t: string) => <span class="pill">{TOPICS[t]?.label ?? t}</span>)}
-		</div>
-		<p class="summary">{ev.name} takes place {fmtDate(ev.start, ev.end)} in {cityHref ? <a href={cityHref}>{ev.city}</a> : ev.city}, {ev.country}. It is {sizeText[ev.tier] ?? "listed on the map"}, covering {topicLabels.join(", ")}.</p>
-		<div class="cal-actions">
-			<a class="cal-btn" href={gcalUrl} target="_blank" rel="noopener">+ Google Calendar</a>
-			<a class="cal-btn" href={`/events/${ev.slug}.ics`} rel="nofollow">Download .ics (Apple / Outlook)</a>
-		</div>
-		<p class="source">Date sourced from {ev.source}. Dates can shift year to year, always confirm on the official site before booking travel. Tech Events Map is open source. Spot an error? <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">Edit on GitHub</a> or <a href="/contact/">contact me</a>.</p>
-		<section class="faq">
-			<h2>Quick answers</h2>
-			{faq.map((f) => <><h3>{f.q}</h3><p>{f.a}</p></>)}
-		</section>
-		{related.map((r) => (
-			<section class="related">
-				<h2>{r.title}</h2>
-				<ul>
-					{r.list.map((e) => <li><a href={`/events/${e.slug}/`}>{e.name}</a> <span>{fmtDate(e.start, e.end)}, {e.city}</span></li>)}
-				</ul>
+
+		{related.length > 0 && (
+			<section class="related-wrap">
+				<div class="related-grid">
+					{related.map((r) => (
+						<div class="related-col card">
+							<h2>{r.title}</h2>
+							<ul>
+								{r.list.map((e) => (
+									<li>
+										<a href={`/events/${e.slug}/`}>{e.name}</a>
+										<span>{fmtShortDate(e.start, e.end)} &middot; {e.city}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+					))}
+				</div>
 			</section>
-		))}
-		<div class="bottom-links">
-			{ev.url && <a class="map-link" href={outboundUrl(ev.url, ev.slug)} target="_blank" rel="noopener">View event →</a>}
-			<a class="map-link view-map" href={`/#${ev.slug}`}>View on map →</a>
-		</div>
-	</div>
+		)}
+	</main>
 </Layout>
 
 <style>
-	.wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 60px; }
-	.back { text-decoration: none; color: var(--text-dim); font-size: 16px; font-family: var(--mono); }
-	h1 { margin: 14px 0 6px; font-size: 32.5px; font-weight: 700; }
-	.meta { color: var(--text-dim); font-size: 16px; font-family: var(--mono); display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
-	.topics { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
-	.bottom-links { display: flex; align-items: center; gap: 16px; }
-	.bottom-links .view-map { margin-left: auto; }
-	.map-link { color: var(--accent); text-decoration: none; font-size: 17.5px; }
-	.cal-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-	.cal-btn {
-		font-family: var(--mono);
-		font-size: 14.5px;
-		padding: 8px 14px;
-		border-radius: 4px;
-		border: 1px solid var(--border);
-		color: var(--text);
+	.dossier-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 320px;
+		gap: 32px;
+		align-items: start;
+	}
+	.title-block {
+		margin-bottom: 24px;
+	}
+	.topics {
+		display: flex;
+		gap: 6px;
+		flex-wrap: wrap;
+		margin-bottom: 12px;
+	}
+	.topics a.pill {
 		text-decoration: none;
 	}
-	.cal-btn:hover { border-color: var(--accent); color: var(--accent); }
-	.source { color: var(--text-dim); font-size: 15px; font-family: var(--mono); margin-top: 20px; }
-	.source a { color: var(--accent); }
-	.summary { font-size: 18px; line-height: 1.5; margin: 0 0 8px; }
-	.summary a { color: var(--accent); }
-	.faq, .related { margin-top: 28px; }
-	.faq h2, .related h2 { font-size: 20px; margin: 0 0 10px; }
-	.faq h3 { font-size: 16px; margin: 12px 0 2px; }
-	.faq p { margin: 0; color: var(--text-dim); font-size: 16px; line-height: 1.5; }
-	.related ul { list-style: none; padding: 0; margin: 0; }
-	.related li { padding: 5px 0; font-size: 16px; }
-	.related li a { color: var(--accent); text-decoration: none; }
-	.related li span { color: var(--text-dim); font-family: var(--mono); font-size: 13.5px; margin-left: 6px; }
-	.bottom-links { margin-top: 28px; }
+	.topics a.pill:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+	.topics .dot {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+	}
+	h1 {
+		margin: 0 0 12px;
+		font-size: 36px;
+		font-weight: 700;
+		line-height: 1.15;
+	}
+	.summary {
+		font-size: 18px;
+		line-height: 1.55;
+		margin: 0;
+		color: var(--text);
+	}
+	.summary a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+	.summary a:hover {
+		text-decoration: underline;
+	}
+	.facts-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 18px 24px;
+		margin-bottom: 28px;
+	}
+	.fact {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+	.fact-label {
+		font-family: var(--font);
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: 0.07em;
+		color: var(--text-dim);
+	}
+	.fact-val {
+		font-size: 16.5px;
+		font-weight: 700;
+	}
+	.fact-val a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+	.fact-val a:hover {
+		text-decoration: underline;
+	}
+	.faq-section {
+		margin-bottom: 24px;
+	}
+	.faq-section h2 {
+		font-size: 20px;
+		margin: 0 0 12px;
+	}
+	.faq-cards {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	.faq-card {
+		padding: 14px 16px;
+	}
+	.faq-card h3 {
+		font-size: 16px;
+		margin: 0 0 4px;
+	}
+	.faq-card p {
+		margin: 0;
+		color: var(--text-dim);
+		font-size: 15.5px;
+		line-height: 1.5;
+	}
+	.source-note {
+		color: var(--text-dim);
+		font-size: 13.5px;
+		font-family: var(--font);
+		margin: 0;
+		line-height: 1.5;
+	}
+	.source-note a {
+		color: var(--accent);
+	}
+	.dossier-side {
+		position: sticky;
+		top: 76px;
+	}
+	.action-card {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	.side-heading {
+		font-family: var(--font);
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--text-dim);
+	}
+	.action-stack {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.full-btn {
+		width: 100%;
+		justify-content: center;
+		padding: 10px 14px;
+	}
+	.divider {
+		border: none;
+		border-top: 1px solid var(--border);
+		margin: 6px 0;
+	}
+	.side-hint {
+		margin: 0;
+		font-size: 14.5px;
+		color: var(--text-dim);
+	}
+	.side-link {
+		font-family: var(--font);
+		font-size: 13px;
+		color: var(--accent);
+		text-decoration: none;
+		font-weight: 700;
+	}
+	.side-link:hover {
+		text-decoration: underline;
+	}
+	.related-wrap {
+		margin-top: 40px;
+		padding-top: 32px;
+		border-top: 1px solid var(--border);
+	}
+	.related-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 20px;
+	}
+	.related-col h2 {
+		font-size: 17px;
+		margin: 0 0 12px;
+		font-family: var(--font);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--text-dim);
+	}
+	.related-col ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	.related-col li {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid var(--border);
+	}
+	.related-col li:last-child {
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+	.related-col li a {
+		color: var(--text);
+		font-weight: 700;
+		font-size: 15.5px;
+		text-decoration: none;
+	}
+	.related-col li a:hover {
+		color: var(--accent);
+	}
+	.related-col li span {
+		color: var(--text-dim);
+		font-family: var(--font);
+		font-size: 12.5px;
+	}
+	@media (max-width: 860px) {
+		.dossier-grid {
+			grid-template-columns: 1fr;
+		}
+		.dossier-side {
+			position: static;
+			order: -1;
+		}
+	}
+	@media (max-width: 520px) {
+		.facts-grid {
+			grid-template-columns: 1fr;
+		}
+	}
 </style>

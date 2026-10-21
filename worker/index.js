@@ -69,7 +69,7 @@ async function handleContact(request, env) {
 	const to = env.DESTINATION_EMAIL;
 	if (!to) {
 		console.error("DESTINATION_EMAIL is not configured");
-		return json({ ok: false, error: "Could not send message, please email hello@techeventsmap.com directly." }, 500);
+		return json({ ok: false, error: "Could not send message, please email contact@techeventsmap.com directly." }, 500);
 	}
 	try {
 		await env.EMAIL.send({
@@ -82,7 +82,7 @@ async function handleContact(request, env) {
 		});
 	} catch (err) {
 		console.error("contact send failed", err);
-		return json({ ok: false, error: "Could not send message, please email hello@techeventsmap.com directly." }, 502);
+		return json({ ok: false, error: "Could not send message, please email contact@techeventsmap.com directly." }, 502);
 	}
 
 	return json({ ok: true, message: "Message sent, thanks. I'll get back to you soon." });
@@ -145,7 +145,7 @@ async function handleSubmitEvent(request, env) {
 	const to = env.DESTINATION_EMAIL;
 	if (!to) {
 		console.error("DESTINATION_EMAIL is not configured");
-		return json({ ok: false, error: "Could not send suggestion, please email hello@techeventsmap.com directly." }, 500);
+		return json({ ok: false, error: "Could not send suggestion, please email contact@techeventsmap.com directly." }, 500);
 	}
 
 	// Verify the URL and dates, then commit to events.json (a GitHub Action deploys it).
@@ -178,7 +178,7 @@ async function handleSubmitEvent(request, env) {
 	} catch (err) {
 		console.error("submit-event send failed", err);
 		if (!result.ok) {
-			return json({ ok: false, error: "Could not send suggestion, please email hello@techeventsmap.com directly." }, 502);
+			return json({ ok: false, error: "Could not send suggestion, please email contact@techeventsmap.com directly." }, 502);
 		}
 	}
 
@@ -222,7 +222,7 @@ export default {
 
 		// Calendar feeds and raw data files are not pages: keep them out of the index.
 		// Static Astro endpoints cannot set response headers, so it is done here.
-		if (res.status === 200 && (/\.ics$/.test(url.pathname) || url.pathname.startsWith("/data/") || url.pathname === "/pb-stats.json")) {
+		if (res.status === 200 && (/\.ics$/.test(url.pathname) || url.pathname.startsWith("/data/") || url.pathname === "/rt.json")) {
 			const out = new Response(res.body, res);
 			out.headers.set("x-robots-tag", "noindex, nofollow");
 			return out;

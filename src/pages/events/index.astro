@@ -33,10 +33,10 @@ function fmtDate(s: string, e: string) {
 	const sStr = sd.toLocaleDateString("en-GB", { month: "short", day: "numeric" });
 	if (s === e) return sd.toLocaleDateString("en-GB", opts);
 	const eStr = ed.toLocaleDateString("en-GB", opts);
-	return `${sStr} – ${eStr}`;
+	return `${sStr} - ${eStr}`;
 }
 ---
-<Layout title="All events — Tech Events Map" description="Open source directory of tech, startup, AI and fintech events worldwide, listed by date." breadcrumbs={[{ name: "Home", path: "/" }, { name: "All events", path: "/events/" }]}>
+<Layout title="All events | Tech Events Map" description="Open source directory of tech, startup, AI and fintech events worldwide, listed by date." breadcrumbs={[{ name: "Home", path: "/" }, { name: "All events", path: "/events/" }]}>
 	<script is:inline type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "ItemList",
@@ -48,31 +48,64 @@ function fmtDate(s: string, e: string) {
 		})),
 	})} />
 	<SiteHeader />
-	<div class="wrap">
+	<main class="wrap-wide">
 		<div class="page-head">
-			<h1>All events</h1>
-			<p class="sub">Open source directory of tech, startup, AI and fintech conferences worldwide.</p>
-			<div class="head-links">
-				<a href="https://calendar.google.com/calendar/render?cid=https://techeventsmap.com/events.ics" target="_blank" rel="noopener">Subscribe (Google Calendar)</a>
-				<span>·</span>
-				<a href="/events.ics" rel="nofollow">Subscribe (Apple / Outlook)</a>
-				<span>·</span>
-				<button id="csv-btn" type="button">Export CSV</button>
-				<span>·</span>
-				<a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">GitHub</a>
+			<div>
+				<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span>All events</nav>
+				<h1 id="dir-caption">All events</h1>
+				<p class="sub">Open source directory of tech, startup, AI and fintech conferences worldwide.</p>
+			</div>
+			<div class="head-actions">
+				<a class="btn" href="https://calendar.google.com/calendar/render?cid=https://techeventsmap.com/events.ics" target="_blank" rel="noopener">+ Google Calendar</a>
+				<a class="btn" href="/events.ics" rel="nofollow">Subscribe (.ics)</a>
+				<button id="csv-btn" class="btn" type="button">Export CSV</button>
 			</div>
 		</div>
-		<div class="controls">
-			<input id="search" class="search-input" type="text" placeholder="Search events, cities, countries, regions, topics..." autocomplete="off" />
-			<div class="filter-tags" id="tier-tags">
-				<button class="filter-tag active" data-tier="all">All</button>
-				<button class="filter-tag" data-tier="mega">Mega</button>
-				<button class="filter-tag" data-tier="major">Major</button>
-				<button class="filter-tag" data-tier="notable">Notable</button>
+
+		<section class="filter-panel card" aria-label="Filter events">
+			<div class="search-bar-row">
+				<input id="search" class="search-input" type="text" placeholder="Search events, cities, countries, regions, topics..." autocomplete="off" />
+				<div class="count-box">
+					<span id="visible-count" class="count-pill">{sorted.length} events</span>
+					<button id="reset-all" class="reset-link" type="button" hidden>Reset</button>
+				</div>
 			</div>
-		</div>
+			<div class="filter-groups">
+				<div class="f-group">
+					<span class="f-label">Topic</span>
+					<div class="filter-tags" id="topic-tags">
+						<button class="filter-tag active" type="button" data-topic="all">All</button>
+						{Object.entries(TOPICS).map(([key, t]) => (
+							<button class="filter-tag" type="button" data-topic={key}>
+								<span class="dot" style={`background:${t.color}`}></span>{t.label}
+							</button>
+						))}
+					</div>
+				</div>
+				<div class="f-group-split">
+					<div class="f-group">
+						<span class="f-label">Size</span>
+						<div class="filter-tags" id="tier-tags">
+							<button class="filter-tag active" type="button" data-tier="all">All</button>
+							<button class="filter-tag" type="button" data-tier="mega">Mega</button>
+							<button class="filter-tag" type="button" data-tier="major">Major</button>
+							<button class="filter-tag" type="button" data-tier="notable">Notable</button>
+						</div>
+					</div>
+					<div class="f-group">
+						<span class="f-label">When</span>
+						<div class="filter-tags" id="when-tags">
+							<button class="filter-tag active" type="button" data-when="all">All upcoming</button>
+							<button class="filter-tag" type="button" data-when="30">Next 30d</button>
+							<button class="filter-tag" type="button" data-when="90">Next 90d</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<p id="empty" class="empty" hidden>No events match these filters.</p>
-		<div class="table-wrap">
+		<div class="table-wrap" tabindex="0" role="region" aria-labelledby="dir-caption">
 			<table id="events-table">
 				<thead>
 					<tr>
@@ -121,7 +154,7 @@ function fmtDate(s: string, e: string) {
 								</svg>
 							</button>
 						</th>
-						<th class="cal-col"></th>
+						<th class="cal-col" scope="col"><span class="sr-only">Calendar</span></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -132,26 +165,36 @@ function fmtDate(s: string, e: string) {
 							data-city={ev.city.toLowerCase()}
 							data-country={ev.country.toLowerCase()}
 							data-region={regionsFor(ev.country)}
+							data-topic-keys={ev.topics.join(",")}
 							data-topics={ev.topics.map((t) => TOPICS[t]?.label ?? t).join(", ").toLowerCase()}
 							data-tier={ev.tier}
 							data-tier-rank={ev.tier === "mega" ? 3 : ev.tier === "major" ? 2 : 1}
 							data-csv={JSON.stringify([ev.name, ev.start, ev.end, ev.city, ev.country, ev.topics.map((t) => TOPICS[t]?.label ?? t).join("; "), TIERS[ev.tier], ev.url ?? ""])}
 						>
-							<td><a href={`/events/${ev.slug}/`}>{ev.name}</a></td>
-							<td>{fmtDate(ev.start, ev.end)}</td>
-							<td>{ev.city}, {ev.country}</td>
-							<td>{ev.topics.map((t) => TOPICS[t]?.label ?? t).join(", ")}</td>
-							<td class={`tier-${ev.tier}`}>{TIERS[ev.tier]}</td>
+							<th scope="row" class="ev-cell"><a href={`/events/${ev.slug}/`}>{ev.name}</a></th>
+							<td class="date-cell">{fmtDate(ev.start, ev.end)}</td>
+							<td class="loc-cell">{ev.city}, {ev.country}</td>
+							<td class="topic-cell">
+								<div class="topic-badges">
+									{ev.topics.map((t) => (
+										<span class="topic-chip">
+											<span class="dot" style={`background:${TOPICS[t]?.color ?? "#999"}`}></span>
+											{TOPICS[t]?.label ?? t}
+										</span>
+									))}
+								</div>
+							</td>
+							<td class={`tier-cell tier-${ev.tier}`}>{TIERS[ev.tier]}</td>
 							<td class="cal-col">
-								<a class="cal-link" href={gcalUrl(ev)} target="_blank" rel="noopener" title={`Add ${ev.name} to Google Calendar`}>Google</a>
-								<a class="cal-link" href={`/events/${ev.slug}.ics`} rel="nofollow" title={`Download ${ev.name} for Apple / Outlook`}>Apple/Outlook</a>
+								<a class="cal-link" href={gcalUrl(ev)} target="_blank" rel="noopener" title={`Add ${ev.name} to Google Calendar`}>+GCal</a>
+								<a class="cal-link" href={`/events/${ev.slug}.ics`} rel="nofollow" title={`Download ${ev.name} for Apple / Outlook`}>.ics</a>
 							</td>
 						</tr>
 					))}
 				</tbody>
 			</table>
 		</div>
-	</div>
+	</main>
 </Layout>
 
 <script>
@@ -162,18 +205,30 @@ function fmtDate(s: string, e: string) {
 	const tbody = document.querySelector("#events-table tbody") as HTMLTableSectionElement;
 	const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>("#events-table tbody tr"));
 	const empty = document.getElementById("empty") as HTMLElement;
+	const topicTags = document.getElementById("topic-tags") as HTMLElement;
 	const tierTags = document.getElementById("tier-tags") as HTMLElement;
-	const sortThs = Array.from(document.querySelectorAll<HTMLTableCellElement>("#events-table thead th[scope='col']"));
+	const whenTags = document.getElementById("when-tags") as HTMLElement;
+	const visibleCountEl = document.getElementById("visible-count") as HTMLElement;
+	const resetAllBtn = document.getElementById("reset-all") as HTMLButtonElement;
+	const sortThs = Array.from(document.querySelectorAll<HTMLTableCellElement>("#events-table thead th[aria-sort]"));
 
+	let activeTopic = "all";
 	let activeTier = "all";
+	let activeWhen = "all";
 	let currentSortCol: SortCol = "date";
 	let currentSortDir: SortDir = "asc";
 
 	function applyFilters() {
 		const q = search.value.trim().toLowerCase();
+		const now = new Date();
+		const cutoff = activeWhen === "all" ? null : new Date(now.getTime() + Number(activeWhen) * 86400000).toISOString().slice(0, 10);
 		let visibleCount = 0;
 		for (const row of rows) {
+			const topicKeys = (row.dataset.topicKeys ?? "").split(",");
+			const topicOk = activeTopic === "all" || topicKeys.includes(activeTopic);
 			const tierOk = activeTier === "all" || row.dataset.tier === activeTier;
+			const start = row.dataset.start ?? "";
+			const whenOk = !cutoff || start <= cutoff;
 			const searchOk =
 				!q ||
 				(row.dataset.name ?? "").includes(q) ||
@@ -181,11 +236,14 @@ function fmtDate(s: string, e: string) {
 				(row.dataset.country ?? "").includes(q) ||
 				(row.dataset.region ?? "").includes(q) ||
 				(row.dataset.topics ?? "").includes(q);
-			const visible = tierOk && searchOk;
+			const visible = topicOk && tierOk && whenOk && searchOk;
 			row.hidden = !visible;
 			if (visible) visibleCount++;
 		}
 		empty.hidden = visibleCount > 0;
+		const filtered = activeTopic !== "all" || activeTier !== "all" || activeWhen !== "all" || q !== "";
+		visibleCountEl.textContent = filtered ? `${visibleCount} of ${rows.length} events` : `${visibleCount} events`;
+		resetAllBtn.hidden = !filtered;
 	}
 
 	function updateHeaderState() {
@@ -260,12 +318,39 @@ function fmtDate(s: string, e: string) {
 	});
 
 	search.addEventListener("input", applyFilters);
+	topicTags.addEventListener("click", (e) => {
+		const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".filter-tag");
+		if (!btn) return;
+		topicTags.querySelectorAll(".filter-tag").forEach((b) => b.classList.remove("active"));
+		btn.classList.add("active");
+		activeTopic = btn.dataset.topic ?? "all";
+		applyFilters();
+	});
 	tierTags.addEventListener("click", (e) => {
 		const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".filter-tag");
 		if (!btn) return;
 		tierTags.querySelectorAll(".filter-tag").forEach((b) => b.classList.remove("active"));
 		btn.classList.add("active");
 		activeTier = btn.dataset.tier ?? "all";
+		applyFilters();
+	});
+	whenTags.addEventListener("click", (e) => {
+		const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".filter-tag");
+		if (!btn) return;
+		whenTags.querySelectorAll(".filter-tag").forEach((b) => b.classList.remove("active"));
+		btn.classList.add("active");
+		activeWhen = btn.dataset.when ?? "all";
+		applyFilters();
+	});
+	resetAllBtn.addEventListener("click", () => {
+		activeTopic = "all";
+		activeTier = "all";
+		activeWhen = "all";
+		search.value = "";
+		document.querySelectorAll("#topic-tags .filter-tag, #tier-tags .filter-tag, #when-tags .filter-tag").forEach((b) => {
+			const el = b as HTMLElement;
+			b.classList.toggle("active", el.dataset.topic === "all" || el.dataset.tier === "all" || el.dataset.when === "all");
+		});
 		applyFilters();
 	});
 
@@ -293,68 +378,195 @@ function fmtDate(s: string, e: string) {
 </script>
 
 <style>
-	.wrap {
-		max-width: 960px;
-		margin: 0 auto;
-		padding: 24px 16px 60px;
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
 	}
-	.page-head { margin-bottom: 18px; }
-	h1 { margin: 0 0 4px; font-size: 30px; font-weight: 700; }
-	.sub { color: var(--text-dim); margin: 0 0 8px; font-size: 17px; font-family: var(--font); }
-	.head-links { display: flex; align-items: center; gap: 10px; font-family: var(--font); font-size: 17px; color: var(--text-dim); }
-	.head-links a { color: var(--accent); text-decoration: none; }
-	.head-links button {
-		background: none;
-		border: none;
-		color: var(--accent);
-		font-family: var(--font);
-		font-size: 17px;
-		cursor: pointer;
-		padding: 0;
+	.page-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 20px;
+		flex-wrap: wrap;
+		margin-bottom: 20px;
 	}
-	.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
+	h1 {
+		margin: 0 0 4px;
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 1.15;
+	}
+	.sub {
+		color: var(--text-dim);
+		margin: 0;
+		font-size: 16.5px;
+	}
+	.head-actions {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-wrap: wrap;
+	}
+	.filter-panel {
+		padding: 16px 18px;
+		margin-bottom: 20px;
+	}
+	.search-bar-row {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		flex-wrap: wrap;
+		margin-bottom: 14px;
+	}
 	.search-input {
-		flex: 1 1 220px;
-		background: var(--surface-2);
+		flex: 1 1 280px;
+		background: var(--bg);
 		border: 1px solid var(--border);
 		color: var(--text);
 		font-family: var(--font);
 		font-size: 16px;
-		padding: 8px 10px;
-		border-radius: 4px;
+		padding: 9px 12px;
+		border-radius: 5px;
 		outline: none;
 	}
-	.search-input::placeholder { color: var(--text-dim); }
-	.search-input:focus { border-color: var(--accent); }
-	.filter-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-	.filter-tag {
-		font-family: var(--font);
-		font-size: 14px;
-		padding: 6px 10px;
-		border-radius: 3px;
-		border: 1px solid var(--border);
-		background: transparent;
+	.search-input::placeholder {
 		color: var(--text-dim);
-		cursor: pointer;
 	}
-	.filter-tag:hover { border-color: var(--text-dim); color: var(--text); }
-	.filter-tag.active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-	.empty { color: var(--text-dim); font-family: var(--mono); padding: 20px 0; }
+	.search-input:focus {
+		border-color: var(--accent);
+	}
+	.count-box {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+	.count-pill {
+		font-family: var(--font);
+		font-size: 13px;
+		font-weight: 700;
+		color: var(--text);
+		background: var(--bg);
+		border: 1px solid var(--border);
+		padding: 6px 11px;
+		border-radius: 4px;
+		white-space: nowrap;
+	}
+	.reset-link {
+		background: none;
+		border: none;
+		color: var(--accent);
+		font-family: var(--font);
+		font-size: 12.5px;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		cursor: pointer;
+		padding: 4px;
+	}
+	.filter-groups {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+	.f-group-split {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px 28px;
+	}
+	.f-group {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+	.f-label {
+		font-family: var(--font);
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--text-dim);
+		min-width: 52px;
+	}
+	.filter-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+	}
+	.filter-tag {
+		background: var(--bg);
+	}
+	.empty {
+		color: var(--text-dim);
+		font-family: var(--font);
+		padding: 28px 0;
+		text-align: center;
+	}
 	.table-wrap {
 		width: 100%;
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch;
+		max-inline-size: 100%;
+		overflow: auto;
+		container-type: inline-size;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		background: var(--bg);
 	}
-	table { width: 100%; border-collapse: collapse; font-size: 17px; }
-	th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
-	th { color: var(--text-dim); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--mono); }
-	th[scope="col"] {
+	table {
+		width: 100%;
+		border-collapse: separate;
+		border-spacing: 0;
+		font-size: 16px;
+		--label-date: "Dates";
+		--label-loc: "Location";
+		--label-topic: "Topics";
+		--label-size: "Size";
+	}
+	thead {
+		position: sticky;
+		inset-block-start: 0;
+		z-index: 2;
+		background: var(--surface);
+	}
+	th, td {
+		text-align: left;
+		padding: 11px 14px;
+		border-bottom: 1px solid var(--border);
+		vertical-align: middle;
+	}
+	tbody tr:last-child th,
+	tbody tr:last-child td {
+		border-bottom: none;
+	}
+	tbody tr:hover {
+		background: var(--surface);
+	}
+	thead th {
+		color: var(--text-dim);
+		font-weight: 700;
+		font-size: 12.5px;
+		text-transform: uppercase;
+		letter-spacing: 0.07em;
+		font-family: var(--font);
+		background: var(--surface);
+	}
+	thead th[scope="col"] {
 		cursor: pointer;
 		user-select: none;
 		transition: color 0.15s ease;
 	}
-	th[scope="col"]:hover {
+	thead th[scope="col"]:hover {
 		color: var(--text);
+	}
+	tbody th {
+		font-weight: 700;
+		font-family: var(--font);
+		background: var(--bg);
+	}
+	tbody tr:hover th {
+		background: var(--surface);
 	}
 	.sort-btn {
 		display: inline-flex;
@@ -379,9 +591,7 @@ function fmtDate(s: string, e: string) {
 		border-radius: 2px;
 	}
 	th[aria-sort="ascending"],
-	th[aria-sort="descending"] {
-		color: var(--text);
-	}
+	th[aria-sort="descending"],
 	th[aria-sort="ascending"] .sort-btn,
 	th[aria-sort="descending"] .sort-btn {
 		color: var(--text);
@@ -419,15 +629,112 @@ function fmtDate(s: string, e: string) {
 	th[aria-sort="descending"] .sort-arrow-up {
 		opacity: 0.15;
 	}
-	td { font-family: var(--font); }
-	a { text-decoration: none; color: var(--text); }
-	td a:hover { color: var(--accent); }
-	.tier-mega, .tier-major, .tier-notable { font-family: var(--mono); font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; }
-	.cal-col { white-space: nowrap; text-align: right; }
-	.cal-link { color: var(--accent) !important; font-family: var(--font); font-size: 15px; }
-	.cal-link:hover { text-decoration: underline; }
-	.cal-link + .cal-link { margin-left: 10px; }
-	@media (max-width: 640px) {
-		.cal-col { display: none; }
+	td {
+		font-family: var(--font);
+	}
+	.date-cell {
+		font-family: var(--font);
+		font-size: 14px;
+		white-space: nowrap;
+		color: var(--text-dim);
+	}
+	.ev-cell a {
+		text-decoration: none;
+		color: var(--text);
+	}
+	.ev-cell a:hover {
+		color: var(--accent);
+	}
+	.topic-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+	}
+	.topic-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		font-family: var(--font);
+		font-size: 12px;
+		padding: 2px 7px;
+		border-radius: 4px;
+		background: var(--surface-2);
+		color: var(--text);
+		white-space: nowrap;
+	}
+	.topic-chip .dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+	}
+	.tier-mega, .tier-major, .tier-notable {
+		font-family: var(--font);
+		font-size: 13px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		white-space: nowrap;
+	}
+	.cal-col {
+		white-space: nowrap;
+		text-align: right;
+	}
+	.cal-link {
+		color: var(--accent);
+		font-family: var(--font);
+		font-size: 12.5px;
+		text-decoration: none;
+		border: 1px solid var(--border);
+		padding: 3px 7px;
+		border-radius: 4px;
+		background: var(--surface);
+	}
+	.cal-link:hover {
+		border-color: var(--accent);
+	}
+	.cal-link + .cal-link {
+		margin-left: 5px;
+	}
+
+	@container (width < 700px) {
+		table, thead, tbody, tr, th, td {
+			display: block;
+		}
+		thead {
+			display: none;
+		}
+		tr {
+			padding: 12px 14px;
+			border-bottom: 1px solid var(--border);
+		}
+		tbody th, tbody td {
+			padding: 4px 0;
+			border-bottom: none;
+		}
+		tbody th {
+			font-size: 17px;
+			margin-bottom: 2px;
+		}
+		td.date-cell::before {
+			content: var(--label-date) ": ";
+			font-family: var(--font);
+			color: var(--text-dim);
+		}
+		td.loc-cell::before {
+			content: var(--label-loc) ": ";
+			font-family: var(--font);
+			font-size: 12.5px;
+			color: var(--text-dim);
+		}
+		td.tier-cell::before {
+			content: var(--label-size) ": ";
+			font-family: var(--font);
+			font-weight: 400;
+			color: var(--text-dim);
+		}
+		.cal-col {
+			text-align: left;
+			margin-top: 6px;
+		}
 	}
 </style>

@@ -1,4 +1,5 @@
 ---
+import SiteHeader from "../components/SiteHeader.astro";
 import eventsData from "../data/events.json";
 import { regionsFor } from "../lib/regions.js";
 import { TYPES } from "../lib/areas.mjs";
@@ -49,7 +50,6 @@ const cartoKey = import.meta.env.PUBLIC_CARTO_KEY;
 			description: `${events.length} upcoming tech, startup, AI and fintech conferences across ${new Set(events.map((e) => e.country)).size} countries, with dates, cities, coordinates, topics and size tier. Refreshed daily.`,
 			url: "https://techeventsmap.com/",
 			creator: { "@id": "https://techeventsmap.com/#author" },
-			license: "https://github.com/CaptainDarkHeart/eventmap/blob/main/LICENSE",
 			isAccessibleForFree: true,
 			keywords: ["tech conferences", "startup events", "AI conferences", "fintech events", "developer conferences"],
 			dateModified: new Date().toISOString().slice(0, 10),
@@ -60,75 +60,73 @@ const cartoKey = import.meta.env.PUBLIC_CARTO_KEY;
 <link rel="icon" href="/favicon.svg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/pipboy.css">
-<script is:inline src="/pipboy.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/rt.css">
+<script is:inline src="/rt.js"></script>
 <script is:inline src="/track.js" defer></script>
 <style is:global>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#ffffff;--surface:#f7f7f7;--surface-2:#ececec;--border:#dddddd;--text:#000000;--text-dim:#666666;--accent:#e00000;--mega:#c04040;--major:#b8860b;--notable:#3a7a30;--font:'PT Sans',-apple-system,sans-serif;--mono:'PT Mono',monospace}
+:root{--bg:#ffffff;--surface:#f7f7f7;--surface-2:#ececec;--border:#dddddd;--text:#000000;--text-dim:#666666;--accent:#e00000;--mega:#c04040;--major:#b8860b;--notable:#3a7a30;--font:'PT Sans',-apple-system,sans-serif}
 html.dark{--bg:#0e0e0e;--surface:#161616;--surface-2:#222222;--border:#333333;--text:#f2f2f0;--text-dim:#9a9a9a;--accent:#ff2b2b;--mega:#ff6b6b;--major:#e8b84b;--notable:#7fb07f}
 html{height:100%;overflow:hidden;overscroll-behavior:none}
 body{font-family:var(--font);background:var(--bg);color:var(--text);height:100dvh;overflow:hidden;overscroll-behavior:none;position:relative}
-header{position:fixed;top:0;left:0;right:0;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;padding:12px 20px;border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:1000}
-.header-right{position:absolute;top:50%;right:20px;transform:translateY(-50%)}
-.logo{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:inherit}
-.logo h1{font-size:22.5px;font-weight:700;letter-spacing:0.01em;text-transform:uppercase}
-.logo span{font-family:var(--font);font-size:14px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em}
-nav{display:flex;align-items:center;gap:20px;justify-content:center}
-nav a{font-family:var(--font);font-size:15.5px;color:var(--text-dim);text-decoration:none;text-transform:uppercase;letter-spacing:0.06em;transition:color 0.15s}
-nav a:hover{color:var(--text)}
-.github-link{display:none}
-.github-link svg{display:block;width:19px;height:19px;flex-shrink:0}
-.header-right{display:flex;align-items:center;gap:12px;justify-content:flex-end}
-.theme-toggle{background:none;border:1px solid var(--border);color:var(--text-dim);font-size:17.5px;width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;flex-shrink:0}
-.theme-toggle:hover{border-color:var(--text-dim);color:var(--text)}
-.nav-toggle{display:none;align-items:center;justify-content:center;width:30px;height:30px;background:none;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:var(--font);font-size:19px;line-height:1;cursor:pointer;padding:0;flex-shrink:0}
 .main{position:fixed;inset:0;display:flex;overflow:hidden}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.sidebar{width:320px;flex-shrink:0;display:flex;flex-direction:column;border-right:1px solid var(--border);background:var(--bg);overflow:hidden;padding-top:54px}
-.filters{padding:12px;border-bottom:1px solid var(--border)}
-.filters-header{font-size:16px;font-weight:700;letter-spacing:-0.01em;color:var(--text);margin-bottom:10px}
-.filter-group{margin-bottom:10px}.filter-group:last-child{margin-bottom:0}
-.filter-group h2{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:7px}
-.filter-tags{display:flex;flex-wrap:wrap;gap:5px}
-.filter-tag{font-family:var(--font);font-size:14px;padding:4px 9px;border-radius:3px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all 0.15s;user-select:none;display:inline-flex;align-items:center;gap:5px}
+.sidebar{width:350px;flex-shrink:0;display:flex;flex-direction:column;border-right:1px solid var(--border);background:var(--bg);overflow:hidden;padding-top:56px;z-index:850}
+.filters{padding:12px 14px;border-bottom:1px solid var(--border);background:var(--surface)}
+.filters-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.filters-header{font-family:var(--font);font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text)}
+.filters-actions{display:flex;align-items:center;gap:8px}
+.reset-btn,.collapse-btn{background:none;border:none;font-family:var(--font);font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent);cursor:pointer;padding:2px 4px}
+.collapse-btn{color:var(--text-dim);border:1px solid var(--border);border-radius:3px;padding:2px 7px;background:var(--bg)}
+.collapse-btn:hover{color:var(--text);border-color:var(--text-dim)}
+.filters-body{display:flex;flex-direction:column;gap:10px}
+.filters-body.collapsed{display:none}
+.filter-group h2{font-family:var(--font);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);margin-bottom:6px}
+.filter-row-split{display:grid;grid-template-columns:1fr;gap:8px}
+.filter-tags{display:flex;flex-wrap:wrap;gap:4px}
+.filter-tag{font-family:var(--font);font-size:13px;padding:4px 8px;border-radius:4px;border:1px solid var(--border);background:var(--bg);color:var(--text-dim);cursor:pointer;transition:all 0.15s;user-select:none;display:inline-flex;align-items:center;gap:5px}
 .filter-tag:hover{border-color:var(--text-dim);color:var(--text)}
 .filter-tag.active{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 .filter-tag .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .search-wrap{position:relative;margin-bottom:10px}
-.search-input{width:100%;background:var(--surface-2);border:1px solid var(--border);color:var(--text);font-family:var(--font);font-size:16px;padding:7px 30px 7px 9px;border-radius:4px;outline:none}
+.search-input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--font);font-size:15px;padding:7px 10px;border-radius:4px;outline:none}
 .search-input::placeholder{color:var(--text-dim)}
 .search-input:focus{border-color:var(--accent)}
-.event-list{flex:1;overflow-y:auto;padding:6px}
-.event-list::-webkit-scrollbar{width:4px}
+.area-banner{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 12px;background:color-mix(in srgb,var(--accent) 10%,var(--surface));border-bottom:1px solid var(--border);font-family:var(--font);font-size:12.5px}
+.area-banner a{color:var(--accent);text-decoration:none;font-weight:700}
+.event-list{flex:1;overflow-y:auto;padding:8px}
+.event-list::-webkit-scrollbar{width:5px}
 .event-list::-webkit-scrollbar-track{background:transparent}
 .event-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
-.event-card{padding:10px;border-radius:5px;cursor:pointer;transition:background-color 0.15s,border-color 0.15s;border:1px solid transparent;margin-bottom:3px}
-.event-card:hover{background:var(--surface);border-color:var(--border)}
-.event-card.selected{background:var(--surface);border-color:var(--accent)}
-.event-card .name{font-size:17.5px;font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:6px}
-.event-card .name .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.event-card .meta{font-family:var(--font);font-size:14px;color:var(--text-dim);margin-bottom:5px}
-.event-card .tags{display:flex;flex-wrap:wrap;gap:3px}
-.event-card .card-links{margin-top:5px;font-size:13.5px}
-.event-card .card-links a{position:relative;z-index:1;color:var(--accent)}
-.mini-tag{font-family:var(--mono);font-size:12.5px;padding:2px 6px;border-radius:2px;background:var(--surface-2);color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em}
+.event-card{padding:11px 12px;border-radius:5px;cursor:pointer;transition:background-color 0.15s,border-color 0.15s;border:1px solid var(--border);background:var(--bg);margin-bottom:6px}
+.event-card:hover{background:var(--surface);border-color:var(--text-dim)}
+.event-card.selected{background:var(--surface);border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+.event-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px}
+.event-card .name{font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px;line-height:1.25}
+.event-card .name .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.event-card .meta{font-family:var(--font);font-size:12.5px;color:var(--text-dim);margin-bottom:6px}
+.event-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.event-card .tags{display:flex;flex-wrap:wrap;gap:4px}
+.event-card .card-links{font-family:var(--font);font-size:12px;flex-shrink:0}
+.event-card .card-links a{position:relative;z-index:1;color:var(--accent);text-decoration:none}
+.event-card .card-links a:hover{text-decoration:underline}
+.mini-tag{font-family:var(--font);font-size:11px;padding:2px 6px;border-radius:3px;background:var(--surface-2);color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em;flex-shrink:0}
 .mini-tag.mega{color:var(--mega)}
 .mini-tag.major{color:var(--major)}
 .mini-tag.notable{color:var(--notable)}
-.empty-state{padding:24px 14px;color:var(--text-dim);font-size:16px;text-align:center}
-.sidebar-footer{padding:10px 14px;border-top:1px solid var(--border);display:flex;align-items:center;background:var(--bg);flex-shrink:0}
-.sidebar-footer a{display:inline-flex;align-items:center;color:var(--text-dim);transition:color 0.15s;text-decoration:none}
-.sidebar-footer a:hover{color:var(--text)}
-.sidebar-footer svg{width:20px;height:20px;display:block}
+.empty-state{padding:28px 14px;color:var(--text-dim);font-family:var(--font);font-size:14px;text-align:center}
+.sidebar-footer{padding:9px 14px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--surface);flex-shrink:0;font-family:var(--font);font-size:12px;color:var(--text-dim)}
+.sidebar-footer a{display:inline-flex;align-items:center;gap:6px;color:var(--text-dim);transition:color 0.15s;text-decoration:none}
+.sidebar-footer a:hover{color:var(--accent)}
+.sidebar-footer svg{width:16px;height:16px;display:block}
 .map-container{flex:1;position:relative}
 #map{width:100%;height:100%}
 .leaflet-container{background:var(--surface)}.pulse-ring{background:none;border:none;pointer-events:none}
 .pulse-ring span{display:block;width:100%;height:100%;box-sizing:border-box;border:2px solid;border-radius:50%;opacity:0;animation:pulse-ring 2s ease-out infinite}
 @keyframes pulse-ring{0%{transform:scale(.8);opacity:.9}100%{transform:scale(2.6);opacity:0}}
 @media (prefers-reduced-motion:reduce){.pulse-ring span{animation:none;opacity:.6;transform:scale(1.5)}}
-.leaflet-top{margin-top:66px}
+.leaflet-top{margin-top:68px}
 .leaflet-control-zoom{border:1px solid var(--border)!important}
 .leaflet-control-zoom a{background:var(--surface)!important;color:var(--text)!important;border-color:var(--border)!important}
 .leaflet-control-zoom a:hover{background:var(--surface-2)!important}
@@ -136,95 +134,112 @@ nav a:hover{color:var(--text)}
 html.dark .leaflet-control-attribution{background:rgba(14,14,14,0.8)!important}
 .leaflet-control-attribution a{color:var(--text-dim)!important}
 .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--surface);color:var(--text)}
-.leaflet-popup-content{font-family:var(--font);font-size:16px}
+.leaflet-popup-content{font-family:var(--font);font-size:15px}
 .leaflet-popup-content a{color:var(--accent)}
-.popup-links{margin-top:6px;font-size:14px}
-.list-link{position:absolute;bottom:16px;right:16px;z-index:800;background:var(--surface);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:16px;text-decoration:none;color:var(--text);box-shadow:0 4px 16px rgba(0,0,0,0.12)}
-@media(max-width:900px){
-  header{padding:10px 16px}
-  nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--bg);border-bottom:1px solid var(--border);z-index:1001}
-  nav.open{display:flex}
-  nav a{width:100%;padding:14px 20px;border-top:1px solid var(--border)}
-  nav a:first-child{border-top:none}
-  .github-link{display:inline-flex;align-items:center;gap:8px}
-  .github-text{display:inline}
-  .sidebar{display:none}
+.popup-links{margin-top:6px;font-size:13.5px}
+.map-floating-bar{position:absolute;bottom:20px;right:20px;z-index:800;display:flex;align-items:center;gap:8px}
+.list-link{background:var(--bg);border:1px solid var(--border);padding:8px 14px;border-radius:6px;font-family:var(--font);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;text-decoration:none;color:var(--text);box-shadow:0 4px 16px rgba(0,0,0,0.14);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.list-link:hover{border-color:var(--accent);color:var(--accent)}
+.drawer-toggle-btn{display:none}
+.sidebar-close-mobile{display:none}
+@media(max-width:960px){
+  .sidebar{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    top:56px;
+    width:100%;
+    padding-top:0;
+    border-right:none;
+    border-top:1px solid var(--border);
+    transform:translateY(100%);
+    transition:transform 0.25s ease;
+    z-index:950;
+  }
+  .sidebar.drawer-open{
+    transform:translateY(0);
+  }
+  .sidebar-close-mobile{
+    display:inline-flex;
+    background:var(--bg);
+    border:1px solid var(--border);
+    color:var(--text);
+    font-family:var(--font);
+    font-size:12px;
+    padding:3px 8px;
+    border-radius:4px;
+    cursor:pointer;
+  }
   .leaflet-control-zoom{display:none!important}
-  .nav-toggle{display:inline-block}
+  .map-floating-bar{left:16px;right:16px;bottom:16px;justify-content:space-between}
+  .drawer-toggle-btn{display:inline-flex;background:var(--accent);border-color:var(--accent);color:var(--bg)}
+  .drawer-toggle-btn:hover{color:var(--bg);opacity:0.92}
 }
 </style>
 </head>
 <body>
-<header>
-  <a class="logo" href="/">
-    <h1>Tech Events</h1>
-    <span>Map</span>
-  </a>
-  <nav id="site-nav">
-    <a href="/">Map</a>
-    <a href="/events/">All Events</a>
-    <a href="/countries/">Browse</a>
-    <a href="/plan/">Plan</a>
-    <a href="/submit/">Submit Event</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-    <a class="github-link" href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener" aria-label="GitHub">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-      <span class="github-text">GitHub</span>
-    </a>
-  </nav>
-  <div class="header-right">
-    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light or dark theme" title="Toggle theme">&#9788;</button>
-    <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
-  </div>
-</header>
+<SiteHeader fixed={true} />
 
 <section class="sr-only" aria-label="About this map">
   <h2>Upcoming tech, startup, AI and fintech conferences</h2>
   <p>Tech Events Map lists {events.length} upcoming conferences in {new Set(events.map((e) => e.country)).size} countries, filterable by topic, size and date. Browse by <a href="/countries/">country</a>, <a href="/cities/">city</a>, <a href="/topics/">topic</a> or <a href="/regions/">region</a>, search <a href="/events/">every event</a>, or <a href="/plan/">plan a trip</a>.</p>
 </section>
 <div class="main">
-  <aside class="sidebar">
+  <aside class="sidebar" id="map-sidebar">
     <div class="filters">
-      <div class="filters-header">Filter</div>
+      <div class="filters-top">
+        <div class="filters-header" id="result-count">{events.length} events</div>
+        <div class="filters-actions">
+          <button id="reset-filters" class="reset-btn" type="button" hidden>Reset</button>
+          <button id="toggle-filters" class="collapse-btn" type="button" aria-expanded="true">Filters &#9662;</button>
+          <button id="close-drawer" class="sidebar-close-mobile" type="button">Map &#10005;</button>
+        </div>
+      </div>
       <div class="search-wrap">
         <input id="search" class="search-input" type="text" placeholder="Search events, cities, regions..." autocomplete="off">
       </div>
-      <div class="filter-group">
-        <h2>Topic</h2>
-        <div class="filter-tags" id="topic-tags">
-          <button class="filter-tag active" data-topic="all">All</button>
+      <div class="filters-body" id="filters-body">
+        <div class="filter-group">
+          <h2>Topic</h2>
+          <div class="filter-tags" id="topic-tags">
+            <button class="filter-tag active" data-topic="all">All</button>
+          </div>
         </div>
-      </div>
-      <div class="filter-group">
-        <h2>Size</h2>
-        <div class="filter-tags" id="tier-tags">
-          <button class="filter-tag active" data-tier="all">All</button>
-          <button class="filter-tag" data-tier="mega">Mega</button>
-          <button class="filter-tag" data-tier="major">Major</button>
-          <button class="filter-tag" data-tier="notable">Notable</button>
-        </div>
-      </div>
-      <div class="filter-group">
-        <h2>When</h2>
-        <div class="filter-tags" id="when-tags">
-          <button class="filter-tag active" data-when="all">All upcoming</button>
-          <button class="filter-tag" data-when="30">Next 30 days</button>
-          <button class="filter-tag" data-when="90">Next 3 months</button>
+        <div class="filter-row-split">
+          <div class="filter-group">
+            <h2>Size</h2>
+            <div class="filter-tags" id="tier-tags">
+              <button class="filter-tag active" data-tier="all">All</button>
+              <button class="filter-tag" data-tier="mega">Mega</button>
+              <button class="filter-tag" data-tier="major">Major</button>
+              <button class="filter-tag" data-tier="notable">Notable</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <h2>When</h2>
+            <div class="filter-tags" id="when-tags">
+              <button class="filter-tag active" data-when="all">All upcoming</button>
+              <button class="filter-tag" data-when="30">Next 30d</button>
+              <button class="filter-tag" data-when="90">Next 90d</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="event-list" id="event-list"></div>
     <div class="sidebar-footer">
-      <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener" aria-label="GitHub repository" title="GitHub repository">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-      </a>
+      <a href="/events/">Table &amp; CSV export &rarr;</a>
+      <a href="/plan/">Trip planner &rarr;</a>
     </div>
   </aside>
 
   <div class="map-container">
     <div id="map"></div>
-    <a class="list-link" href="/events/">View all events &rarr;</a>
+    <div class="map-floating-bar">
+      <button id="open-drawer" class="list-link drawer-toggle-btn" type="button">Filter &amp; List (<span id="mobile-count">{events.length}</span>)</button>
+      <a class="list-link" href="/events/">Table view &rarr;</a>
+    </div>
   </div>
 </div>
 
@@ -252,13 +267,8 @@ const TOPICS = {
 };
 const TIER_LABEL = { mega: "Mega", major: "Major", notable: "Notable" };
 
-function applyTheme(theme) {
-  if (window.PipBoy && PipBoy.active()) return;
-  document.documentElement.classList.toggle("dark", theme === "dark");
-  try { localStorage.setItem("em_theme", theme); } catch {}
-}
 (function () {
-  if (window.PipBoy && PipBoy.active()) return;
+  if (window.RT && RT.active()) return;
   var saved = null;
   try { saved = localStorage.getItem("em_theme"); } catch {}
   var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -323,6 +333,10 @@ function gcalLink(ev) {
 
 const sorted = [...events].sort((a, b) => a.start.localeCompare(b.start));
 const listEl = document.getElementById("event-list");
+const resultCountEl = document.getElementById("result-count");
+const mobileCountEl = document.getElementById("mobile-count");
+const resetBtn = document.getElementById("reset-filters");
+const mapSidebar = document.getElementById("map-sidebar");
 
 // Many sources give a generic city centroid rather than a venue address, so
 // events in the same city land on the exact same lat/lng and permanently
@@ -373,17 +387,24 @@ const items = sorted.map((ev) => {
     });
   }
 
+  const topicBadges = ev.topics.slice(0, 2).map((t) => `<span class="mini-tag">${TOPICS[t]?.label || t}</span>`).join("");
   const card = document.createElement("div");
   card.className = "event-card";
   card.id = `card-${ev.slug}`;
   card.innerHTML = `
-    <div class="name"><span class="dot" style="background:${color}"></span>${ev.name}</div>
+    <div class="event-card-top">
+      <div class="name"><span class="dot" style="background:${color}"></span>${ev.name}</div>
+      <span class="mini-tag ${ev.tier}">${TIER_LABEL[ev.tier]}</span>
+    </div>
     <div class="meta">${fmtDate(ev.start, ev.end)} &middot; ${ev.city}, ${ev.country}</div>
-    <div class="tags"><span class="mini-tag ${ev.tier}">${TIER_LABEL[ev.tier]}</span></div>
-    <div class="card-links"><a href="/events/${ev.slug}/">Details</a></div>
+    <div class="event-card-bottom">
+      <div class="tags">${topicBadges}</div>
+      <div class="card-links"><a href="/events/${ev.slug}/">Details &rarr;</a></div>
+    </div>
   `;
   card.addEventListener("click", (e) => {
     if (e.target.closest("a")) return;
+    mapSidebar.classList.remove("drawer-open");
     focusEvent(ev.slug);
   });
   listEl.appendChild(card);
@@ -418,6 +439,11 @@ function applyFilters() {
     card.style.display = visible ? "" : "none";
     if (visible) visibleCount++;
   }
+  const hasActiveFilter = state.topic !== "all" || state.tier !== "all" || state.when !== "all" || state.q.trim() !== "" || state.area !== "";
+  resultCountEl.textContent = hasActiveFilter ? `${visibleCount} of ${items.length} events` : `${visibleCount} events`;
+  if (mobileCountEl) mobileCountEl.textContent = String(visibleCount);
+  if (resetBtn) resetBtn.hidden = !hasActiveFilter;
+
   const anyVisible = visibleCount > 0;
   listEl.querySelector(".empty-state")?.remove();
   if (!anyVisible) {
@@ -438,10 +464,9 @@ function fitToVisible() {
 }
 if (state.area) {
   const label = state.area.split(":")[1].split("|")[0];
-  const chip = document.createElement("a");
-  chip.href = "/";
-  chip.className = "list-link";
-  chip.textContent = `Showing: ${label} \u2715 show all`;
+  const chip = document.createElement("div");
+  chip.className = "area-banner";
+  chip.innerHTML = `<span>Scoped: <strong>${label}</strong></span><a href="/">Show all &times;</a>`;
   listEl.parentNode.insertBefore(chip, listEl);
   fitToVisible();
 }
@@ -494,25 +519,43 @@ document.getElementById("when-tags").addEventListener("click", (e) => {
   state.when = btn.dataset.when;
   applyFilters();
 });
-// secret Pip-Boy theme (see public/pipboy.js): keep basemap in step when it flips on/off
-if (window.PipBoy) PipBoy.onChange(() => tileLayer.setUrl(tileUrl(document.documentElement.classList.contains("dark"))));
-document.getElementById("search").addEventListener("input", (e) => {
-  state.q = e.target.value;
+resetBtn?.addEventListener("click", () => {
+  state.topic = "all";
+  state.tier = "all";
+  state.when = "all";
+  state.q = "";
+  state.area = "";
+  document.getElementById("search").value = "";
+  document.querySelectorAll("#topic-tags .filter-tag, #tier-tags .filter-tag, #when-tags .filter-tag").forEach((b) => {
+    b.classList.toggle("active", b.dataset.topic === "all" || b.dataset.tier === "all" || b.dataset.when === "all");
+  });
+  document.querySelector(".area-banner")?.remove();
   applyFilters();
 });
 
-document.getElementById("theme-toggle").addEventListener("click", () => {
-  if (window.PipBoy && PipBoy.active()) return;
-  const isDark = !document.documentElement.classList.contains("dark");
-  applyTheme(isDark ? "dark" : "light");
-  tileLayer.setUrl(tileUrl(isDark));
+const toggleFiltersBtn = document.getElementById("toggle-filters");
+const filtersBody = document.getElementById("filters-body");
+toggleFiltersBtn?.addEventListener("click", () => {
+  const collapsed = filtersBody.classList.toggle("collapsed");
+  toggleFiltersBtn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  toggleFiltersBtn.innerHTML = collapsed ? "Filters &#9656;" : "Filters &#9662;";
 });
 
-const navToggle = document.getElementById("nav-toggle");
-const siteNav = document.getElementById("site-nav");
-navToggle.addEventListener("click", () => {
-  const open = siteNav.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+document.getElementById("open-drawer")?.addEventListener("click", () => {
+  mapSidebar.classList.add("drawer-open");
+});
+document.getElementById("close-drawer")?.addEventListener("click", () => {
+  mapSidebar.classList.remove("drawer-open");
+});
+
+// secret terminal theme (see public/rt.js): keep basemap in step when it flips on/off
+if (window.RT) RT.onChange(() => tileLayer.setUrl(tileUrl(document.documentElement.classList.contains("dark"))));
+window.addEventListener("em-theme-change", (e) => {
+  tileLayer.setUrl(tileUrl(e.detail.dark));
+});
+document.getElementById("search").addEventListener("input", (e) => {
+  state.q = e.target.value;
+  applyFilters();
 });
 </script>
 </body>

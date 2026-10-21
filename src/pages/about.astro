@@ -4,137 +4,235 @@ import SiteHeader from "../components/SiteHeader.astro";
 import events from "../data/events.json";
 
 const sourceCount = new Set(events.map((e) => e.source)).size;
+const sources = [
+	{ name: "Dealroom", url: "https://dealroom.co/events/", desc: "Global startup & tech events" },
+	{ name: "Techmeme", url: "https://www.techmeme.com/events", desc: "Major tech industry conferences" },
+	{ name: "dev.events", url: "https://dev.events/", desc: "Developer & engineering conferences" },
+	{ name: "Sesamers", url: "https://sesamers.com/events/", desc: "Tech, startup & industry tradeshows, mostly Europe" },
+	{ name: "Black Unicorn PR", url: "https://www.blackunicornpr.com/", desc: "European & North American startup events" },
+	{ name: "confs.tech", url: "https://confs.tech/", desc: "Open source, crowd-sourced developer & AI conferences" },
+	{ name: "Tech.eu", url: "https://tech.eu/events", desc: "European tech and startup events" },
+	{ name: "TechCrunch", url: "https://techcrunch.com/events/", desc: "Startup, VC & founder events" },
+	{ name: "Ballou PR", url: "https://balloupr.com/events-2026/", desc: "European tech, cybersecurity & blockchain events" },
+	{ name: "Gallium Ventures", url: "https://galliumventures.com/blog/", desc: "Flagship international AI, fintech & cybersecurity events" },
+	{ name: "Qolaig", url: "https://www.qolaig.com/en/articles/tech-events-in-europe-2026-2027", desc: "Large European tech, marketing & fintech events" },
+	{ name: "JapanConf", url: "https://japanconf.com/en/timeline/", desc: "Tech & startup conferences in Japan" },
+	{ name: "FinTech Weekly", url: "https://www.fintechweekly.com/fintech-conferences/", desc: "Global fintech, payments & banking conferences" },
+	{ name: "Vestbee", url: "https://www.vestbee.com/insights/articles/must-attend-startup-and-vc-events-in-2026", desc: "CEE and European VC, investor & founder events" },
+	{ name: "Linux Foundation AI Calendar", url: "https://events.linuxfoundation.org/calendar/ai-conferences/", desc: "Industry & startup AI, agent and ML engineering conferences" },
+	{ name: "StartupEvents.org", url: "https://startupevents.org/startup-events-calendar", desc: "Global startup conferences & founder events" },
+	{ name: "Manual research", url: "", desc: "Individually verified against each event's official site" },
+];
 ---
-<Layout title="About — Tech Events Map" description="What Tech Events Map is, where the data comes from, and who built it." breadcrumbs={[{ name: "Home", path: "/" }, { name: "About", path: "/about/" }]}>
+<Layout title="About | Tech Events Map" description="What Tech Events Map is, where the data comes from, and who built it." breadcrumbs={[{ name: "Home", path: "/" }, { name: "About", path: "/about/" }]}>
 	<SiteHeader />
-	<div class="wrap">
-		<h1>About Tech Events Map</h1>
-		<p>Tech Events Map is a free, open source interactive map of tech, startup, AI and fintech conferences worldwide. It pulls listings from several sources into one place, on a map, so you can see what's happening and where without trawling separate event calendars city by city.</p>
-
-		<h2>Data &amp; Accuracy</h2>
-		<p>Event dates and details are compiled from {sourceCount} public event listing sources:</p>
-		<table class="sources">
-			<thead>
-				<tr>
-					<th>Source</th>
-					<th>What it covers</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="https://dealroom.co/events/" target="_blank" rel="noopener">Dealroom</a></td>
-					<td>Global startup &amp; tech ecosystem events</td>
-				</tr>
-				<tr>
-					<td><a href="https://www.techmeme.com/events" target="_blank" rel="noopener">Techmeme</a></td>
-					<td>Major tech industry conferences</td>
-				</tr>
-				<tr>
-					<td><a href="https://dev.events/" target="_blank" rel="noopener">dev.events</a></td>
-					<td>Developer &amp; engineering conferences</td>
-				</tr>
-				<tr>
-					<td><a href="https://sesamers.com/events/" target="_blank" rel="noopener">Sesamers</a></td>
-					<td>Tech, startup &amp; industry tradeshows, mostly Europe</td>
-				</tr>
-				<tr>
-					<td><a href="https://www.blackunicornpr.com/" target="_blank" rel="noopener">Black Unicorn PR</a></td>
-					<td>European &amp; North American startup events</td>
-				</tr>
-				<tr>
-					<td><a href="https://confs.tech/" target="_blank" rel="noopener">confs.tech</a></td>
-					<td>Open source, crowd sourced developer &amp; AI conferences</td>
-				</tr>
-				<tr>
-					<td><a href="https://tech.eu/events" target="_blank" rel="noopener">Tech.eu</a></td>
-					<td>European tech and startup ecosystem events</td>
-				</tr>
-				<tr>
-					<td><a href="https://techcrunch.com/events/" target="_blank" rel="noopener">TechCrunch</a></td>
-					<td>Startup, VC &amp; founder events</td>
-				</tr>
-				<tr>
-					<td><a href="https://balloupr.com/events-2026/" target="_blank" rel="noopener">Ballou PR</a></td>
-					<td>European tech, cybersecurity &amp; blockchain events</td>
-				</tr>
-				<tr>
-					<td><a href="https://galliumventures.com/blog/" target="_blank" rel="noopener">Gallium Ventures</a></td>
-					<td>Flagship international AI, fintech &amp; cybersecurity events</td>
-				</tr>
-				<tr>
-					<td><a href="https://www.qolaig.com/en/articles/tech-events-in-europe-2026-2027" target="_blank" rel="noopener">Qolaig</a></td>
-					<td>Large European tech, marketing &amp; fintech events</td>
-				</tr>
-				<tr>
-					<td><a href="https://japanconf.com/en/timeline/" target="_blank" rel="noopener">JapanConf</a></td>
-					<td>Tech &amp; startup conferences in Japan</td>
-				</tr>
-				<tr>
-					<td><a href="https://www.fintechweekly.com/fintech-conferences/" target="_blank" rel="noopener">FinTech Weekly</a></td>
-					<td>Global fintech, payments &amp; banking conferences</td>
-				</tr>
-				<tr>
-					<td><a href="https://www.vestbee.com/insights/articles/must-attend-startup-and-vc-events-in-2026" target="_blank" rel="noopener">Vestbee</a></td>
-					<td>CEE and European VC, investor &amp; founder events</td>
-				</tr>
-				<tr>
-					<td><a href="https://events.linuxfoundation.org/calendar/ai-conferences/" target="_blank" rel="noopener">Linux Foundation AI Calendar</a></td>
-					<td>Industry &amp; startup AI, agent and ML engineering conferences</td>
-				</tr>
-				<tr>
-					<td><a href="https://startupevents.org/startup-events-calendar" target="_blank" rel="noopener">StartupEvents.org</a></td>
-					<td>Global startup conferences &amp; founder events</td>
-				</tr>
-				<tr>
-					<td>Manual research</td>
-					<td>Individually verified against each event's official site</td>
-				</tr>
-			</tbody>
-		</table>
-		<p>Dates can shift year to year, so always confirm on the event's official site before booking travel. Every event page on this site links through to the official site where one is known.</p>
-		<p>Spot something wrong or missing? Get in touch below and I'll fix it.</p>
-
-		<h2>Open Source &amp; Contributing</h2>
-		<p>Tech Events Map is completely open source under the <a href="https://github.com/CaptainDarkHeart/eventmap/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>. The site source code, automated discovery pipeline, and conference dataset are hosted on GitHub at <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">CaptainDarkHeart/eventmap</a>.</p>
-		<p>Community contributions are warmly welcomed! You can suggest new conferences, fix existing details, or propose code improvements by submitting a pull request or opening an issue on GitHub. You can also submit new events via the <a href="/submit/">submission form</a>.</p>
-
-		<h2>Who Built This</h2>
-		<div class="builder-row">
-			<div class="builder-text">
-				<p>Tech Events Map was built by me, <a href="https://dantaylor.me" target="_blank" rel="noopener">Dan Taylor</a>. I do a bunch of things, but mostly web development, photography, and PR-related stuff.</p>
-				<p>I built this map as an open source project in response to the wide variety of tech event listings that are scattered across dozens of separate sites. Each has its own format and there's no easy way to compare them. This map seeks to bring them all together in one place, laid out on one map, so that you can see at a glance where and when things are happening instead of digging through calendars city by city.</p>
-			</div>
-			<div class="builder-pin">
-				<span class="pin-shape"><img src="/dan.jpg" alt="Dan Taylor" width="72" height="72" /></span>
-				<p class="pin-name"><a href="https://dantaylor.me" target="_blank" rel="noopener">Dan Taylor</a><br /><span class="pin-role">Builder</span></p>
-			</div>
+	<main class="wrap-wide">
+		<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span>About</nav>
+		<div class="about-hero">
+			<h1>About Tech Events Map</h1>
+			<p class="lead">Tech Events Map is a free, open source interactive map of tech, startup, AI and fintech conferences worldwide. It pulls listings from several sources into one place, on a map, so you can see what's happening and where without trawling separate event calendars city by city.</p>
 		</div>
 
-		<h2>Get in Touch</h2>
-		<p>Event suggestions, corrections, and feedback: <a href="mailto:hello@techeventsmap.com">hello@techeventsmap.com</a>, or open an issue on <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">GitHub</a>.</p>
-	</div>
+		<div class="about-top-grid">
+			<section class="builder-card card">
+				<div class="builder-row">
+					<div class="builder-text">
+						<span class="sec-kicker">Who Built This</span>
+						<h2>Dan Taylor</h2>
+						<p>Tech Events Map was built by me, <a href="https://dantaylor.me" target="_blank" rel="noopener">Dan Taylor</a>. I do a bunch of things, but mostly web development, photography, and PR-related stuff.</p>
+						<p>I built this map as an open source project in response to the wide variety of tech event listings that are scattered across dozens of separate sites. Each has its own format and there is no easy way to compare them. This map brings them together in one place so you can see at a glance where and when things are happening.</p>
+					</div>
+					<div class="builder-pin">
+						<span class="pin-shape"><img src="/dan.jpg" alt="Dan Taylor" width="76" height="76" /></span>
+						<p class="pin-name"><a href="https://dantaylor.me" target="_blank" rel="noopener">Dan Taylor</a><br /><span class="pin-role">Builder</span></p>
+					</div>
+				</div>
+			</section>
+
+			<section class="oss-card card">
+				<span class="sec-kicker">Contributing &amp; Feedback</span>
+				<h2>Suggest an Event or Fix</h2>
+				<p>Every listing on Tech Events Map is verified against public event directories and each conference's official website. Concluded events are pruned automatically each day so the map only shows what is ahead.</p>
+				<p>If you know a conference that is missing from the map, or if you spot a date or location that has changed, send it over.</p>
+				<div class="oss-actions">
+					<a class="btn btn-primary" href="/submit/">+ Submit Event</a>
+					<a class="btn" href="/contact/">Contact Me</a>
+				</div>
+			</section>
+		</div>
+
+		<section class="sources-section">
+			<div class="sources-head">
+				<div>
+					<h2>Data &amp; Accuracy ({sourceCount} active sources)</h2>
+					<p class="sub">Event dates and details are compiled from public event listing sources and verified against official event sites. Dates can shift year to year, so always confirm on the official site before booking travel.</p>
+				</div>
+			</div>
+			<div class="sources-grid">
+				{sources.map((s) => (
+					<div class="source-card card">
+						<div class="source-name">
+							{s.url ? <a href={s.url} target="_blank" rel="noopener">{s.name} &rarr;</a> : <strong>{s.name}</strong>}
+						</div>
+						<p class="source-desc">{s.desc}</p>
+					</div>
+				))}
+			</div>
+		</section>
+	</main>
 </Layout>
 
 <style>
-	.wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 60px; }
-	h1 { margin: 14px 0 16px; font-size: 32.5px; font-weight: 700; }
-	h2 { margin: 28px 0 8px; font-size: 19px; font-weight: 700; }
-	p { color: var(--text); font-size: 17.5px; line-height: 1.6; margin: 0 0 10px; }
-	a { color: var(--accent); }
-	table.sources { width: 100%; border-collapse: collapse; font-size: 17px; margin: 12px 0 16px; }
-	table.sources th, table.sources td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
-	table.sources th { color: var(--text-dim); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; }
-	table.sources td a { text-decoration: none; font-weight: 700; }
-	table.sources td a:hover { text-decoration: underline; }
-	.builder-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
-	.builder-text { flex: 1; min-width: 0; }
-	.builder-text p:last-child { margin-bottom: 0; }
-	.builder-pin { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.6rem; flex-shrink: 0; }
-	.pin-shape { display: block; width: 72px; height: 72px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); overflow: hidden; border: 3px solid var(--text); }
-	.pin-shape img { display: block; width: 100%; height: 100%; object-fit: cover; transform: rotate(45deg) scale(1.4); }
-	.pin-name { margin: 0; font-size: 0.9rem; line-height: 1.4; }
-	.pin-role { font-size: 0.8rem; opacity: 0.7; }
+	.about-hero {
+		max-width: 780px;
+		margin-bottom: 28px;
+	}
+	h1 {
+		margin: 0 0 10px;
+		font-size: 34px;
+		font-weight: 700;
+		line-height: 1.15;
+	}
+	.lead {
+		margin: 0;
+		font-size: 18px;
+		line-height: 1.6;
+		color: var(--text);
+	}
+	.about-top-grid {
+		display: grid;
+		grid-template-columns: 1.25fr 1fr;
+		gap: 20px;
+		margin-bottom: 36px;
+	}
+	.sec-kicker {
+		display: block;
+		font-family: var(--font);
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--accent);
+		margin-bottom: 4px;
+	}
+	h2 {
+		margin: 0 0 12px;
+		font-size: 22px;
+		font-weight: 700;
+	}
+	p {
+		color: var(--text);
+		font-size: 16.5px;
+		line-height: 1.6;
+		margin: 0 0 12px;
+	}
+	a {
+		color: var(--accent);
+	}
+	.builder-row {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 24px;
+	}
+	.builder-text {
+		flex: 1;
+		min-width: 0;
+	}
+	.builder-text p:last-child {
+		margin-bottom: 0;
+	}
+	.builder-pin {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 10px;
+		flex-shrink: 0;
+		padding-top: 8px;
+	}
+	.pin-shape {
+		display: block;
+		width: 76px;
+		height: 76px;
+		border-radius: 50% 50% 50% 0;
+		transform: rotate(-45deg);
+		overflow: hidden;
+		border: 3px solid var(--text);
+	}
+	.pin-shape img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transform: rotate(45deg) scale(1.4);
+	}
+	.pin-name {
+		margin: 0;
+		font-size: 14.5px;
+		line-height: 1.35;
+	}
+	.pin-role {
+		font-family: var(--font);
+		font-size: 12px;
+		color: var(--text-dim);
+		text-transform: uppercase;
+	}
+	.oss-card {
+		display: flex;
+		flex-direction: column;
+	}
+	.oss-actions {
+		margin-top: auto;
+		padding-top: 12px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+	.sources-head {
+		margin-bottom: 16px;
+	}
+	.sources-head .sub {
+		color: var(--text-dim);
+		max-width: 760px;
+		margin: 0;
+	}
+	.sources-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 12px;
+	}
+	.source-card {
+		padding: 14px 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+	.source-name a,
+	.source-name strong {
+		font-size: 16.5px;
+		font-weight: 700;
+		text-decoration: none;
+		color: var(--text);
+	}
+	.source-name a:hover {
+		color: var(--accent);
+	}
+	.source-desc {
+		margin: 0;
+		font-size: 14.5px;
+		color: var(--text-dim);
+		line-height: 1.45;
+	}
+	@media (max-width: 860px) {
+		.about-top-grid {
+			grid-template-columns: 1fr;
+		}
+	}
 	@media (max-width: 520px) {
-		.builder-row { flex-direction: column-reverse; align-items: flex-start; }
+		.builder-row {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+		}
 	}
 </style>

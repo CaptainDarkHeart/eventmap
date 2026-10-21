@@ -20,7 +20,7 @@ export function GET() {
 
 > Free, open source interactive map of tech, startup, AI, fintech and developer conferences worldwide. ${fmtInt(events.length)} upcoming events across ${new Set(events.map((e) => e.country)).size} countries, from ${fmtDate(starts[0], starts[0])} to ${fmtDate(starts[starts.length - 1], starts[starts.length - 1])}. Filter by topic (Startup/VC, Fintech, AI, Dev/Eng, General tech, Crypto, Gaming, Security) and by tier (${Object.values(TIERS).join(", ")}).
 
-Tech Events Map is an open source project (MIT licensed) that aggregates conference listings from multiple public sources into a single map and table, so builders and founders can see what's happening and where without checking separate event calendars. Built by Dan Taylor (https://dantaylor.me), a sibling to Tech Funding Map (https://techfundingmap.com). Source code and dataset: https://github.com/CaptainDarkHeart/eventmap.
+Tech Events Map aggregates conference listings from multiple public sources into a single map and table, so builders and founders can see what's happening and where without checking separate event calendars. Built by Dan Taylor (https://dantaylor.me), a sibling to Tech Funding Map (https://techfundingmap.com).
 
 ## AI use: welcome, explicitly
 

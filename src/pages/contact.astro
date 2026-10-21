@@ -4,67 +4,164 @@ import SiteHeader from "../components/SiteHeader.astro";
 
 const TURNSTILE_SITEKEY = "0x4AAAAAAEwHeenj5gz4VHU9";
 ---
-<Layout title="Contact — Tech Events Map" description="Get in touch with Tech Events Map: event suggestions, corrections, or press.">
+<Layout title="Contact | Tech Events Map" description="Get in touch with Tech Events Map: event suggestions, corrections, or press." breadcrumbs={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact/" }]}>
 	<SiteHeader />
 	<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-	<div class="wrap">
-		<h1>Contact</h1>
-		<p>Tech Events Map is an open source project. For event suggestions, corrections, or press enquiries, use the form below or open an issue on <a href="https://github.com/CaptainDarkHeart/eventmap" target="_blank" rel="noopener">GitHub</a>. I read every message.</p>
+	<main class="wrap-wide">
+		<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span>Contact</nav>
+		<div class="page-head">
+			<h1>Contact</h1>
+			<p class="sub">For event corrections, questions, or press enquiries, use the form below. I read every message.</p>
+		</div>
 
-		<form id="contact-form">
-			<input type="text" name="company" tabindex="-1" autocomplete="off" class="hp-field" />
+		<div class="contact-split">
+			<form id="contact-form" class="card form-card">
+				<input type="text" name="company" tabindex="-1" autocomplete="off" class="hp-field" />
 
-			<label>Name *<input type="text" name="name" required maxlength="120" /></label>
-			<label>Email *<input type="email" name="email" required maxlength="200" /></label>
-			<label>Message *<textarea name="message" required maxlength="2000" rows="6"></textarea></label>
+				<label>Name *<input type="text" name="name" required maxlength="120" placeholder="Your name" /></label>
+				<label>Email *<input type="email" name="email" required maxlength="200" placeholder="you@example.com" /></label>
+				<label>Message *<textarea name="message" required maxlength="2000" rows="6" placeholder="How can I help?"></textarea></label>
 
-			<div class="cf-turnstile" data-sitekey={TURNSTILE_SITEKEY}></div>
+				<div class="cf-turnstile" data-sitekey={TURNSTILE_SITEKEY}></div>
 
-			<button type="submit">Send message</button>
-			<p id="contact-result" role="status"></p>
-		</form>
+				<div class="submit-row">
+					<button type="submit" class="btn btn-primary">Send message</button>
+					<p id="contact-result" role="status"></p>
+				</div>
+			</form>
 
-		<p class="alt">Prefer email? <a href="mailto:hello@techeventsmap.com">hello@techeventsmap.com</a></p>
-	</div>
+			<aside class="info-col">
+				<div class="card info-card">
+					<span class="kicker">Direct Email</span>
+					<h2>Other Ways to Reach Me</h2>
+					<p>Prefer email? Write directly to <a href="mailto:contact@techeventsmap.com">contact@techeventsmap.com</a>.</p>
+				</div>
+
+				<div class="card info-card">
+					<span class="kicker">Adding a Conference</span>
+					<h2>Missing an Event?</h2>
+					<p>If you want to add a new tech, startup, AI, or fintech conference to the map, use the dedicated submission form for automated verification.</p>
+					<a class="btn" href="/submit/">+ Submit an Event &rarr;</a>
+				</div>
+			</aside>
+		</div>
+	</main>
 </Layout>
 
 <style>
-	.wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 60px; }
-	h1 { margin: 14px 0 16px; font-size: 32.5px; font-weight: 700; }
-	p { color: var(--text); font-size: 17.5px; line-height: 1.6; margin: 0 0 10px; }
-	a { color: var(--accent); }
-	form { display: flex; flex-direction: column; gap: 16px; max-width: 480px; margin: 24px 0; }
-	form label { display: flex; flex-direction: column; gap: 6px; font-family: var(--font); font-size: 15px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
+	.page-head {
+		margin-bottom: 24px;
+	}
+	h1 {
+		margin: 0 0 6px;
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 1.15;
+	}
+	.sub {
+		color: var(--text-dim);
+		font-size: 16.5px;
+		margin: 0;
+	}
+	.contact-split {
+		display: grid;
+		grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+		gap: 28px;
+		align-items: start;
+	}
+	.form-card {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	form label {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		font-family: var(--font);
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--text-dim);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+	}
 	form input[type="text"], form input[type="email"], form textarea {
-		padding: 10px 12px;
-		font: inherit;
-		font-size: 17px;
+		padding: 9px 12px;
+		font-family: var(--font);
+		font-size: 16px;
+		font-weight: 400;
 		text-transform: none;
 		letter-spacing: normal;
 		color: var(--text);
-		background: var(--surface);
+		background: var(--bg);
 		border: 1px solid var(--border);
-		border-radius: 6px;
+		border-radius: 5px;
+		outline: none;
 	}
-	form textarea { resize: vertical; }
-	.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-	form button {
-		align-self: flex-start;
-		padding: 10px 22px;
+	form input:focus, form textarea:focus {
+		border-color: var(--accent);
+	}
+	form textarea {
+		resize: vertical;
+	}
+	.hp-field {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+	.submit-row {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		flex-wrap: wrap;
+	}
+	form button:disabled {
+		opacity: 0.6;
+		cursor: default;
+	}
+	#contact-result {
+		font-size: 14.5px;
+		margin: 0;
 		font-family: var(--font);
-		font-size: 15.5px;
+	}
+	.info-col {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	.kicker {
+		display: block;
+		font-family: var(--font);
+		font-size: 11.5px;
 		font-weight: 700;
 		text-transform: uppercase;
-		letter-spacing: 0.06em;
-		color: var(--bg);
-		background: var(--accent);
-		border: none;
-		border-radius: 6px;
-		cursor: pointer;
+		letter-spacing: 0.08em;
+		color: var(--accent);
+		margin-bottom: 4px;
 	}
-	form button:disabled { opacity: 0.6; cursor: default; }
-	#contact-result { font-size: 15.5px; margin-top: 4px; }
-	.alt { font-size: 16px; color: var(--text-dim); }
+	.info-card h2 {
+		margin: 0 0 10px;
+		font-size: 19px;
+	}
+	.info-card p {
+		margin: 0 0 12px;
+		font-size: 15.5px;
+		line-height: 1.55;
+		color: var(--text-dim);
+	}
+	.info-card p:last-child {
+		margin-bottom: 0;
+	}
+	.info-card a:not(.btn) {
+		color: var(--accent);
+	}
+	@media (max-width: 820px) {
+		.contact-split {
+			grid-template-columns: 1fr;
+		}
+	}
 </style>
 
 <script>

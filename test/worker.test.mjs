@@ -11,8 +11,8 @@ test("307 trailing-slash redirect becomes 301", async () => {
 	assert.equal(out.headers.get("location"), "/events/");
 });
 
-test("ics, data and pb-stats responses are noindex", async () => {
-	for (const p of ["/events.ics", "/events/slush-2026.ics", "/data/events.csv", "/pb-stats.json"]) {
+test("ics, data and rt.json responses are noindex", async () => {
+	for (const p of ["/events.ics", "/events/slush-2026.ics", "/data/events.csv", "/rt.json"]) {
 		const out = await run(p, new Response("x", { status: 200 }));
 		assert.match(out.headers.get("x-robots-tag"), /noindex/, p);
 	}

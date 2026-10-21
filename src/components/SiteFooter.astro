@@ -1,0 +1,128 @@
+---
+import events from "../data/events.json";
+const eventCount = events.length;
+const countryCount = new Set(events.map((e) => e.country)).size;
+---
+<footer class="site-footer">
+	<div class="footer-inner">
+		<div class="footer-brand">
+			<a class="footer-logo" href="/">
+				<strong>Tech Events</strong> <span>Map</span>
+			</a>
+			<p class="footer-meta">{eventCount} upcoming conferences across {countryCount} countries, refreshed daily.</p>
+		</div>
+		<nav class="footer-links" aria-label="Footer navigation">
+			<div class="footer-col">
+				<span class="footer-heading">Explore</span>
+				<a href="/">Interactive Map</a>
+				<a href="/events/">All Events</a>
+				<a href="/plan/">Trip Planner</a>
+			</div>
+			<div class="footer-col">
+				<span class="footer-heading">Browse by</span>
+				<a href="/countries/">Countries</a>
+				<a href="/cities/">Cities</a>
+				<a href="/topics/">Topics</a>
+				<a href="/regions/">Regions</a>
+			</div>
+			<div class="footer-col">
+				<span class="footer-heading">Data &amp; Feeds</span>
+				<a href="/events.ics" rel="nofollow">Calendar Feed (.ics)</a>
+				<a href="/data/events.csv" rel="nofollow">Download CSV</a>
+				<a href="/llms.txt">llms.txt</a>
+			</div>
+			<div class="footer-col">
+				<span class="footer-heading">Project</span>
+				<a href="/submit/">Submit Event</a>
+				<a href="/about/">About &amp; Sources</a>
+				<a href="/contact/">Contact</a>
+			</div>
+		</nav>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		border-top: 1px solid var(--border);
+		background: var(--surface);
+		margin-top: auto;
+		padding: 36px 24px 44px;
+		font-size: 15px;
+	}
+	.footer-inner {
+		max-width: 1120px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 32px;
+		flex-wrap: wrap;
+	}
+	.footer-brand {
+		max-width: 280px;
+	}
+	.footer-logo {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 6px;
+		text-decoration: none;
+		color: var(--text);
+		font-size: 18px;
+		text-transform: uppercase;
+		letter-spacing: 0.02em;
+	}
+	.footer-logo span {
+		font-family: var(--font);
+		font-size: 12px;
+		color: var(--accent);
+		letter-spacing: 0.08em;
+		font-weight: 700;
+	}
+	.footer-meta {
+		margin: 8px 0 0;
+		color: var(--text-dim);
+		font-size: 14px;
+		line-height: 1.5;
+	}
+	.footer-links {
+		display: flex;
+		gap: 40px;
+		flex-wrap: wrap;
+	}
+	.footer-col {
+		display: flex;
+		flex-direction: column;
+		gap: 7px;
+	}
+	.footer-heading {
+		font-family: var(--font);
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--text-dim);
+		margin-bottom: 3px;
+	}
+	.footer-col a {
+		color: var(--text);
+		text-decoration: none;
+		font-size: 14.5px;
+		transition: color 0.15s;
+	}
+	.footer-col a:hover {
+		color: var(--accent);
+	}
+	@media (max-width: 640px) {
+		.site-footer {
+			padding: 28px 16px 36px;
+		}
+		.footer-links {
+			gap: 24px 32px;
+			width: 100%;
+		}
+		.footer-col {
+			min-width: 120px;
+		}
+	}
+</style>
+

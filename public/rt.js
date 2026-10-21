@@ -1,21 +1,21 @@
-/* Secret Pip-Boy theme controller. Load synchronously in <head> (applies saved state before paint).
-   Triggers: Konami code, or a double tap/click on the logo. Same triggers switch it back off.
-   Exposes window.PipBoy = { active, set, onChange }. */
+/* Hidden theme controller. Load synchronously in <head> (applies saved state before paint).
+   Triggers: Konami code, or a triple tap/click on the logo. Same triggers switch it back off.
+   Exposes window.RT = { active, set, onChange }. */
 (function () {
   var VARIANTS = {
     green: "#1bff80",
     amber: "#ffb642",
     blue: "#4fd8ff",
   };
-  var KEY = "em_pipboy"; // active variant name, absent when off
+  var KEY = "em_rt"; // active variant name, absent when off
   var root = document.documentElement;
   var listeners = [];
   var booting = false;
 
   function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function write(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} }
-  function active() { return root.classList.contains("pipboy"); }
-  function variant() { for (var v in VARIANTS) if (root.classList.contains("pb-" + v)) return v; return null; }
+  function active() { return root.classList.contains("rt"); }
+  function variant() { for (var v in VARIANTS) if (root.classList.contains("rt-" + v)) return v; return null; }
   function reduced() { return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
   function emit() { listeners.forEach(function (fn) { try { fn(active()); } catch (e) {} }); }
 
@@ -26,12 +26,12 @@
   }
 
   function apply(v) {
-    Object.keys(VARIANTS).forEach(function (k) { root.classList.remove("pb-" + k); });
+    Object.keys(VARIANTS).forEach(function (k) { root.classList.remove("rt-" + k); });
     if (v && VARIANTS[v]) {
-      root.classList.add("pipboy", "pb-" + v, "dark");
+      root.classList.add("rt", "rt-" + v, "dark");
       write(KEY, v);
     } else {
-      root.classList.remove("pipboy");
+      root.classList.remove("rt");
       write(KEY, null);
       restoreBaseTheme();
     }
@@ -57,15 +57,15 @@
 
   function syncPicker() {
     var host = document.querySelector(".header-right");
-    var picker = document.querySelector(".pb-variants");
-    var exit = document.querySelector(".pb-exit");
+    var picker = document.querySelector(".rt-variants");
+    var exit = document.querySelector(".rt-exit");
     if (!active()) { if (picker) picker.remove(); if (exit) exit.remove(); return; }
     if (!host) return;
     if (!picker) {
       picker = document.createElement("div");
-      picker.className = "pb-variants";
+      picker.className = "rt-variants";
       picker.setAttribute("role", "group");
-      picker.setAttribute("aria-label", "Pip-Boy phosphor colour");
+      picker.setAttribute("aria-label", "Phosphor colour");
       Object.keys(VARIANTS).forEach(function (k) {
         var b = document.createElement("button");
         b.type = "button";
@@ -81,9 +81,9 @@
     if (!exit) {
       exit = document.createElement("button");
       exit.type = "button";
-      exit.className = "pb-exit";
+      exit.className = "rt-exit";
       exit.textContent = "[ EXIT ]";
-      exit.title = "Leave the Pip-Boy terminal";
+      exit.title = "Leave the terminal";
       exit.addEventListener("click", function () { set(null); });
       host.insertBefore(exit, picker.nextSibling); // right of the colour swatches
     }
@@ -92,12 +92,12 @@
   }
 
   // ---- boot sequence ----
-  // Real dataset numbers for the terminal screen, from the build-time /pb-stats.json.
+  // Real dataset numbers for the terminal screen, from the build-time /rt.json.
   // Fetched lazily (warm() runs on the first trigger keystroke/tap), so normal visitors never request it.
   var statsPromise = null;
   function warm() {
     if (!statsPromise) {
-      statsPromise = fetch("/pb-stats.json").then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+      statsPromise = fetch("/rt.json").then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
     }
     return statsPromise;
   }
@@ -129,7 +129,7 @@
     return [
       "  .----------------------------.",
       "  | .------------------------. |",
-      row("PIP-BOY 3000 MK IV"),
+      row("TERMINAL 3000 MK IV"),
     ].concat(inner, [
       "  | '------------------------' |",
       "  |  (o)   [STAT][INV][DATA]   |",
@@ -141,9 +141,9 @@
     if (booting || !document.body) return;
     booting = true;
     var el = document.createElement("div");
-    el.id = "pb-boot";
+    el.id = "rt-boot";
     el.setAttribute("role", "status");
-    el.setAttribute("aria-label", "Pip-Boy terminal starting");
+    el.setAttribute("aria-label", "Terminal starting");
     var art = document.createElement("div");
     art.className = "art";
     var text = document.createElement("span");
@@ -263,34 +263,32 @@
   document.addEventListener("DOMContentLoaded", function () {
     syncPicker();
 
-    // double tap/click on the logo (mobile friendly). On the map page the link is a no-op, so the first tap is
-    // swallowed. Elsewhere the first tap holds the navigation home briefly, so a second tap can still land.
+    // triple tap/click on the logo (mobile friendly). On the map page the link is a no-op, so clicks are
+    // swallowed. Elsewhere each click holds the navigation home briefly, so the next tap can still land.
     var logo = document.querySelector(".logo");
-    var last = 0, navTimer = null;
+    var count = 0, last = 0, navTimer = null;
     if (logo) {
       logo.addEventListener("click", function (e) {
         var now = Date.now();
-        var second = now - last < 600;
+        count = now - last < 600 ? count + 1 : 1;
         last = now;
-        if (second) {
-          e.preventDefault();
-          clearTimeout(navTimer);
+        e.preventDefault();
+        clearTimeout(navTimer);
+        if (count >= 3) {
+          count = 0;
           last = 0;
           toggle();
           return;
         }
-        warm();
+        if (count === 2) warm();
         if (location.pathname !== "/") {
-          e.preventDefault();
           navTimer = setTimeout(function () { location.href = logo.getAttribute("href") || "/"; }, 650);
-        } else {
-          e.preventDefault();
         }
       });
     }
   });
 
-  window.PipBoy = {
+  window.RT = {
     active: active,
     set: set,
     onChange: function (fn) { listeners.push(fn); },

@@ -1,7 +1,7 @@
 import events from "../data/events.json";
 import { regionsFor } from "../lib/regions.js";
 
-// Real dataset numbers for the secret Pip-Boy boot screen (public/pipboy.js fetches this on demand).
+// Real dataset numbers for the secret terminal boot screen (public/rt.js fetches this on demand).
 // Static at build time, so it always matches the shipped events.json.
 export function GET() {
 	const pct = (n: number) => Math.round((n / events.length) * 100);

@@ -1,4 +1,6 @@
 ---
+import SiteFooter from "../components/SiteFooter.astro";
+
 interface Props {
 	title?: string;
 	description?: string;
@@ -65,7 +67,7 @@ const ogImageURL = new URL(image, Astro.site);
 
 		{extraLd.map((o) => <script is:inline type="application/ld+json" set:html={JSON.stringify(o)} />)}
 
-		<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
 		<script is:inline>
 			(function () {
 				var saved = null;
@@ -74,12 +76,13 @@ const ogImageURL = new URL(image, Astro.site);
 				document.documentElement.classList.toggle("dark", theme === "dark");
 			})();
 		</script>
-		<link rel="stylesheet" href="/pipboy.css" />
-		<script is:inline src="/pipboy.js"></script>
+		<link rel="stylesheet" href="/rt.css" />
+		<script is:inline src="/rt.js"></script>
 		<script is:inline src="/track.js" defer></script>
 	</head>
 	<body>
 		<slot />
+		<SiteFooter />
 	</body>
 </html>
 
@@ -96,7 +99,6 @@ const ogImageURL = new URL(image, Astro.site);
 		--major: #b8860b;
 		--notable: #3a7a30;
 		--font: "PT Sans", -apple-system, sans-serif;
-		--mono: "PT Mono", monospace;
 	}
 	html.dark {
 		--bg: #0e0e0e;
@@ -114,24 +116,68 @@ const ogImageURL = new URL(image, Astro.site);
 	html, body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
 		background: var(--bg);
 		color: var(--text);
 		font-family: var(--font);
-		font-size: 20px;
+		font-size: 18px;
+		line-height: 1.5;
+	}
+	body {
+		display: flex;
+		flex-direction: column;
+		min-height: 100dvh;
 	}
 	a { color: inherit; }
+	.wrap-wide {
+		width: 100%;
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 32px 24px 64px;
+	}
+	.wrap-narrow {
+		width: 100%;
+		max-width: 820px;
+		margin: 0 auto;
+		padding: 32px 24px 64px;
+	}
+	@media (max-width: 640px) {
+		.wrap-wide, .wrap-narrow {
+			padding: 20px 16px 48px;
+		}
+	}
+	.crumbs {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 6px;
+		font-family: var(--font);
+		font-size: 13px;
+		color: var(--text-dim);
+		margin-bottom: 10px;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.crumbs a {
+		color: var(--text-dim);
+		text-decoration: none;
+	}
+	.crumbs a:hover {
+		color: var(--accent);
+	}
+	.crumbs span {
+		opacity: 0.5;
+	}
 	.pill {
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		padding: 5px 11px;
+		padding: 4px 10px;
 		border-radius: 999px;
 		border: 1px solid var(--border);
-		background: transparent;
-		font-family: var(--mono);
-		font-size: 15px;
-		cursor: pointer;
+		background: var(--surface);
+		font-family: var(--font);
+		font-size: 13px;
 		color: var(--text-dim);
 		user-select: none;
 		white-space: nowrap;
@@ -140,6 +186,76 @@ const ogImageURL = new URL(image, Astro.site);
 		border-color: var(--accent);
 		background: var(--accent);
 		color: var(--bg);
+	}
+	.filter-tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-family: var(--font);
+		font-size: 14px;
+		padding: 5px 11px;
+		border-radius: 4px;
+		border: 1px solid var(--border);
+		background: var(--surface);
+		color: var(--text-dim);
+		cursor: pointer;
+		transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+		user-select: none;
+		white-space: nowrap;
+	}
+	.filter-tag:hover {
+		border-color: var(--text-dim);
+		color: var(--text);
+	}
+	.filter-tag.active {
+		background: var(--accent);
+		border-color: var(--accent);
+		color: var(--bg);
+	}
+	.filter-tag .dot {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 7px;
+		font-family: var(--font);
+		font-size: 13.5px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		padding: 8px 14px;
+		border-radius: 5px;
+		border: 1px solid var(--border);
+		background: var(--surface);
+		color: var(--text);
+		text-decoration: none;
+		cursor: pointer;
+		transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+		white-space: nowrap;
+	}
+	.btn:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+	.btn-primary {
+		background: var(--accent);
+		border-color: var(--accent);
+		color: var(--bg);
+	}
+	.btn-primary:hover {
+		opacity: 0.9;
+		color: var(--bg);
+	}
+	.card {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		padding: 20px;
 	}
 	.tier-mega { color: var(--mega); }
 	.tier-major { color: var(--major); }
