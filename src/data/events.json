@@ -1,23 +1,5 @@
 [
   {
-    "id": 157,
-    "slug": "cloudflare-connect-2026",
-    "name": "Cloudflare Connect",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-10-19",
-    "end": "2026-10-21",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "techmeme",
-    "url": "https://www.cloudflare.com/connect/",
-    "v": 1
-  },
-  {
     "id": 158,
     "slug": "swampup-europe-2026",
     "name": "swampUP Europe",
@@ -162,24 +144,6 @@
     "v": 1
   },
   {
-    "id": 24,
-    "slug": "money20-20-usa",
-    "name": "Money20/20 USA",
-    "city": "Las Vegas",
-    "country": "United States",
-    "lat": 36.1699,
-    "lng": -115.1398,
-    "start": "2026-10-18",
-    "end": "2026-10-21",
-    "tier": "major",
-    "topics": [
-      "fintech"
-    ],
-    "source": "dealroom",
-    "url": "https://us.money2020.com/",
-    "v": 1
-  },
-  {
     "id": 25,
     "slug": "oslo-innovation-week",
     "name": "Oslo Innovation Week",
@@ -249,24 +213,6 @@
     ],
     "source": "dealroom",
     "url": "https://vds.tech/",
-    "v": 1
-  },
-  {
-    "id": 28,
-    "slug": "webrazzi-summit",
-    "name": "Webrazzi Summit",
-    "city": "Istanbul",
-    "country": "Turkey",
-    "lat": 41.0082,
-    "lng": 28.9784,
-    "start": "2026-10-21",
-    "end": "2026-10-21",
-    "tier": "major",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://webrazzi.com/en/etkinlik/2026/summit/",
     "v": 1
   },
   {
@@ -2664,25 +2610,6 @@
     "v": 1
   },
   {
-    "id": 261,
-    "slug": "future-of-ai-tel-aviv-2026",
-    "name": "Future of AI",
-    "city": "Tel Aviv",
-    "country": "Israel",
-    "lat": 32.0884,
-    "lng": 34.7699,
-    "start": "2026-10-21",
-    "end": "2026-10-21",
-    "tier": "major",
-    "topics": [
-      "ai",
-      "startup-vc"
-    ],
-    "source": "manual",
-    "url": "https://events.lynx.co/future-of-ai/",
-    "v": 1
-  },
-  {
     "id": 262,
     "slug": "israel-mobile-summit-2026",
     "name": "Israel Mobile Summit",
@@ -3220,25 +3147,6 @@
     "v": 1
   },
   {
-    "id": 314,
-    "slug": "high-tech-ventures-days-2026",
-    "name": "High Tech Ventures Days",
-    "city": "Dresden",
-    "country": "Germany",
-    "lat": 51.0504,
-    "lng": 13.7373,
-    "start": "2026-10-20",
-    "end": "2026-10-21",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "vestbee",
-    "url": "https://www.hightech-venture-days.com/",
-    "organizer": "HTSB | HighTech Startbahn",
-    "v": 1
-  },
-  {
     "id": 315,
     "slug": "nvidia-gtc-berlin-2026",
     "name": "NVIDIA GTC Berlin",
@@ -3491,25 +3399,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 344,
-    "slug": "pytorch-conference-north-america-2026",
-    "name": "PyTorch Conference North America",
-    "city": "San Jose",
-    "country": "United States",
-    "lat": 37.3382,
-    "lng": -121.8863,
-    "start": "2026-10-20",
-    "end": "2026-10-21",
-    "tier": "major",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "lfai",
-    "url": "https://events.linuxfoundation.org/pytorch-conference-north-america/",
     "v": 1
   },
   {
