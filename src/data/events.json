@@ -4989,5 +4989,23 @@
     "source": "manual",
     "url": "https://techweekend.org/",
     "v": 1
+  },
+  {
+    "id": 428,
+    "slug": "superai-london-2027",
+    "name": "SuperAI London",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-05-26",
+    "end": "2027-05-27",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "lfai",
+    "url": "https://www.superai.com/",
+    "v": 1
   }
 ]
