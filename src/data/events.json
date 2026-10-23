@@ -4896,5 +4896,23 @@
     "source": "lfai",
     "url": "https://www.superai.com/",
     "v": 1
+  },
+  {
+    "id": 429,
+    "slug": "fintech-meetup-2027",
+    "name": "Fintech Meetup",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2027-02-22",
+    "end": "2027-02-24",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "manual",
+    "url": "https://www.fintechmeetup.com/",
+    "v": 1
   }
 ]
