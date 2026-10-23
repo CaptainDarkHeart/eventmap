@@ -1,23 +1,5 @@
 [
   {
-    "id": 158,
-    "slug": "swampup-europe-2026",
-    "name": "swampUP Europe",
-    "city": "Barcelona",
-    "country": "Spain",
-    "lat": 41.3874,
-    "lng": 2.1686,
-    "start": "2026-10-20",
-    "end": "2026-10-22",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "confstech",
-    "url": "https://swampup.jfrog.com/europe/",
-    "v": 1
-  },
-  {
     "id": 159,
     "slug": "github-universe-2026",
     "name": "GitHub Universe",
@@ -108,24 +90,6 @@
     "v": 1
   },
   {
-    "id": 141,
-    "slug": "unleash",
-    "name": "UNLEASH",
-    "city": "Paris",
-    "country": "France",
-    "lat": 48.8566,
-    "lng": 2.3522,
-    "start": "2026-10-20",
-    "end": "2026-10-22",
-    "tier": "notable",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "balloupr",
-    "url": "https://unleash.ai/",
-    "v": 1
-  },
-  {
     "id": 138,
     "slug": "techcrunch-founder-summit",
     "name": "TechCrunch Founder Summit",
@@ -195,24 +159,6 @@
     ],
     "source": "dealroom",
     "url": "https://www.tecweek.com.ar/",
-    "v": 1
-  },
-  {
-    "id": 27,
-    "slug": "valencia-digital-summit",
-    "name": "Valencia Digital Summit",
-    "city": "Valencia",
-    "country": "Spain",
-    "lat": 39.4699,
-    "lng": -0.3763,
-    "start": "2026-10-21",
-    "end": "2026-10-22",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://vds.tech/",
     "v": 1
   },
   {
@@ -2156,25 +2102,6 @@
     "v": 1
   },
   {
-    "id": 211,
-    "slug": "agentic-engineering-day-new-zealand-2026",
-    "name": "Agentic Engineering Day New Zealand",
-    "city": "Auckland",
-    "country": "New Zealand",
-    "lat": -36.8485,
-    "lng": 174.7633,
-    "start": "2026-10-21",
-    "end": "2026-10-22",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "manual",
-    "url": "https://www.agenticbuild.day/",
-    "v": 1
-  },
-  {
     "id": 212,
     "slug": "sunrise-aotearoa-2026",
     "name": "Sunrise Aotearoa",
@@ -2226,25 +2153,6 @@
     ],
     "source": "manual",
     "url": "https://nztechrally.nz/",
-    "v": 1
-  },
-  {
-    "id": 226,
-    "slug": "mobius-2026",
-    "name": "Mobius",
-    "city": "Saint Petersburg",
-    "country": "Russia",
-    "lat": 59.8055,
-    "lng": 30.334,
-    "start": "2026-10-21",
-    "end": "2026-10-22",
-    "tier": "notable",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "devevents",
-    "url": "https://mobiusconf.com/",
     "v": 1
   },
   {
@@ -2780,24 +2688,6 @@
     "v": 1
   },
   {
-    "id": 275,
-    "slug": "cymrusec-summit-2026",
-    "name": "CymruSec Summit",
-    "city": "Cardiff",
-    "country": "United Kingdom",
-    "lat": 51.4816,
-    "lng": -3.1791,
-    "start": "2026-10-22",
-    "end": "2026-10-22",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "manual",
-    "url": "https://www.cymrusec.com/",
-    "v": 1
-  },
-  {
     "id": 281,
     "slug": "data-ai-leaders-summit-paris-2026",
     "name": "Data & AI Leaders Summit",
@@ -3147,24 +3037,6 @@
     "v": 1
   },
   {
-    "id": 315,
-    "slug": "nvidia-gtc-berlin-2026",
-    "name": "NVIDIA GTC Berlin",
-    "city": "Berlin",
-    "country": "Germany",
-    "lat": 52.52,
-    "lng": 13.405,
-    "start": "2026-10-20",
-    "end": "2026-10-22",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "techmeme",
-    "url": "https://www.nvidia.com/en-eu/gtc/",
-    "v": 1
-  },
-  {
     "id": 316,
     "slug": "grace-hopper-celebration-2026",
     "name": "Grace Hopper Celebration",
@@ -3307,24 +3179,6 @@
     ],
     "source": "fintechweekly",
     "url": "https://insurance-innovators.com/events/summit/",
-    "v": 1
-  },
-  {
-    "id": 333,
-    "slug": "engaged-investments-conference-2026",
-    "name": "Engaged Investments Conference",
-    "city": "Prague",
-    "country": "Czech Republic",
-    "lat": 50.0755,
-    "lng": 14.4378,
-    "start": "2026-10-21",
-    "end": "2026-10-22",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://engaged.investments/",
     "v": 1
   },
   {
@@ -4841,24 +4695,6 @@
     ],
     "source": "techmeme",
     "url": "https://jonthebeach.com/",
-    "v": 1
-  },
-  {
-    "id": 426,
-    "slug": "masters-of-scale-summit-2026",
-    "name": "Masters of Scale Summit",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-10-20",
-    "end": "2026-10-22",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "techmeme",
-    "url": "https://www.summit.mastersofscale.com/",
     "v": 1
   },
   {
