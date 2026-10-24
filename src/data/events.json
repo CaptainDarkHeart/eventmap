@@ -108,42 +108,6 @@
     "v": 1
   },
   {
-    "id": 25,
-    "slug": "oslo-innovation-week",
-    "name": "Oslo Innovation Week",
-    "city": "Oslo",
-    "country": "Norway",
-    "lat": 59.9139,
-    "lng": 10.7522,
-    "start": "2026-10-19",
-    "end": "2026-10-23",
-    "tier": "major",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://www.oiw.no/",
-    "v": 1
-  },
-  {
-    "id": 101,
-    "slug": "gartner-it-symposium-xpo",
-    "name": "Gartner IT Symposium/Xpo",
-    "city": "Orlando",
-    "country": "United States",
-    "lat": 28.5383,
-    "lng": -81.3792,
-    "start": "2026-10-19",
-    "end": "2026-10-23",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "techmeme",
-    "url": "",
-    "v": 1
-  },
-  {
     "id": 26,
     "slug": "tecweek",
     "name": "Tecweek",
@@ -1497,26 +1461,6 @@
     "v": 1
   },
   {
-    "id": 170,
-    "slug": "japan-it-week-autumn-2026",
-    "name": "Japan IT Week Autumn",
-    "city": "Chiba",
-    "country": "Japan",
-    "lat": 35.6074,
-    "lng": 140.1065,
-    "start": "2026-10-21",
-    "end": "2026-10-23",
-    "tier": "mega",
-    "topics": [
-      "general-tech",
-      "ai",
-      "security"
-    ],
-    "source": "manual",
-    "url": "https://www.japan-it.jp/autumn/en-gb.html",
-    "v": 1
-  },
-  {
     "id": 171,
     "slug": "apidays-australia-2026",
     "name": "apidays Australia",
@@ -2231,25 +2175,6 @@
     "v": 1
   },
   {
-    "id": 238,
-    "slug": "devopsdays-bogota-2026",
-    "name": "DevOpsDays Bogotá",
-    "city": "Bogotá",
-    "country": "Colombia",
-    "lat": 4.6591,
-    "lng": -74.0934,
-    "start": "2026-10-23",
-    "end": "2026-10-23",
-    "tier": "notable",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "devevents",
-    "url": "https://devopsdays.org/events/2026-bogota/welcome/",
-    "v": 1
-  },
-  {
     "id": 239,
     "slug": "connect-ia-2026",
     "name": "ConnectIA",
@@ -2650,25 +2575,6 @@
     "v": 1
   },
   {
-    "id": 270,
-    "slug": "birmingham-tech-week-2026",
-    "name": "Birmingham Tech Week",
-    "city": "Birmingham",
-    "country": "United Kingdom",
-    "lat": 52.4862,
-    "lng": -1.8904,
-    "start": "2026-10-19",
-    "end": "2026-10-23",
-    "tier": "notable",
-    "topics": [
-      "startup-vc",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://birminghamtechweek.com/",
-    "v": 1
-  },
-  {
     "id": 272,
     "slug": "digit-expo-2026",
     "name": "DIGIT Expo",
@@ -3019,24 +2925,6 @@
     "v": 1
   },
   {
-    "id": 312,
-    "slug": "czech-startup-week-2026",
-    "name": "Czech Startup Week",
-    "city": "Prague",
-    "country": "Czech Republic",
-    "lat": 50.0755,
-    "lng": 14.4378,
-    "start": "2026-10-19",
-    "end": "2026-10-23",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "vestbee",
-    "url": "https://czechstartups.gov.cz/en/czech-startup-week/",
-    "v": 1
-  },
-  {
     "id": 316,
     "slug": "grace-hopper-celebration-2026",
     "name": "Grace Hopper Celebration",
@@ -3253,25 +3141,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 345,
-    "slug": "agntcon-plus-mcpcon-north-america-2026",
-    "name": "AGNTCon + MCPCon North America",
-    "city": "San Jose",
-    "country": "United States",
-    "lat": 37.3382,
-    "lng": -121.8863,
-    "start": "2026-10-22",
-    "end": "2026-10-23",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "lfai",
-    "url": "https://events.linuxfoundation.org/agntcon-mcpcon-north-america/",
     "v": 1
   },
   {
