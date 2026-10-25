@@ -4619,5 +4619,97 @@
     "source": "manual",
     "url": "https://www.fintechmeetup.com/",
     "v": 1
+  },
+  {
+    "id": 430,
+    "slug": "gdc-2027",
+    "name": "GDC (Game Developers Conference)",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2027-03-01",
+    "end": "2027-03-04",
+    "tier": "mega",
+    "topics": [
+      "gaming",
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://gdconf.com/",
+    "v": 1
+  },
+  {
+    "id": 431,
+    "slug": "dreamhack-stockholm-2026",
+    "name": "DreamHack Stockholm",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "lat": 59.3293,
+    "lng": 18.0686,
+    "start": "2026-11-27",
+    "end": "2026-11-29",
+    "tier": "major",
+    "topics": [
+      "gaming"
+    ],
+    "source": "techmeme",
+    "url": "https://dreamhack.com/stockholm/",
+    "v": 1
+  },
+  {
+    "id": 432,
+    "slug": "open-source-in-finance-forum-new-york-2026",
+    "name": "Open Source in Finance Forum New York",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "start": "2026-11-04",
+    "end": "2026-11-05",
+    "tier": "notable",
+    "topics": [
+      "fintech",
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://events.linuxfoundation.org/open-source-finance-forum-new-york/",
+    "v": 1
+  },
+  {
+    "id": 433,
+    "slug": "it-sa-2026",
+    "name": "it-sa Expo&Congress",
+    "city": "Nuremberg",
+    "country": "Germany",
+    "lat": 49.4521,
+    "lng": 11.0767,
+    "start": "2026-10-27",
+    "end": "2026-10-29",
+    "tier": "major",
+    "topics": [
+      "security"
+    ],
+    "source": "devevents",
+    "url": "https://www.itsa365.de/en/it-sa-expo-congress",
+    "v": 1
+  },
+  {
+    "id": 434,
+    "slug": "seamless-saudi-arabia-2026",
+    "name": "Seamless Saudi Arabia",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "lat": 24.7136,
+    "lng": 46.6753,
+    "start": "2026-11-09",
+    "end": "2026-11-10",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "fintechweekly",
+    "url": "https://www.terrapinn.com/exhibition/seamless-saudi-arabia/index.stm",
+    "v": 1
   }
 ]
