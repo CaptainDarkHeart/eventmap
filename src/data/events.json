@@ -2100,25 +2100,6 @@
     "v": 1
   },
   {
-    "id": 227,
-    "slug": "holyjs-2026",
-    "name": "HolyJS",
-    "city": "Saint Petersburg",
-    "country": "Russia",
-    "lat": 59.8055,
-    "lng": 30.334,
-    "start": "2026-10-23",
-    "end": "2026-10-24",
-    "tier": "notable",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "devevents",
-    "url": "https://holyjs.ru/",
-    "v": 1
-  },
-  {
     "id": 228,
     "slug": "ai-journey-2026",
     "name": "AI Journey",
@@ -2343,25 +2324,6 @@
     ],
     "source": "manual",
     "url": "https://www.alaskatel.org/events",
-    "v": 1
-  },
-  {
-    "id": 255,
-    "slug": "seagl-2026",
-    "name": "SeaGL",
-    "city": "Seattle",
-    "country": "United States",
-    "lat": 47.6553,
-    "lng": -122.3035,
-    "start": "2026-10-23",
-    "end": "2026-10-24",
-    "tier": "notable",
-    "topics": [
-      "dev-eng",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://seagl.org/",
     "v": 1
   },
   {
@@ -2832,24 +2794,6 @@
     ],
     "source": "manual",
     "url": "https://codegarden.umbraco.com/",
-    "v": 1
-  },
-  {
-    "id": 302,
-    "slug": "plan-b-forum-lugano",
-    "name": "Plan ₿ Forum",
-    "city": "Lugano",
-    "country": "Switzerland",
-    "lat": 46.0037,
-    "lng": 8.9511,
-    "start": "2026-10-23",
-    "end": "2026-10-24",
-    "tier": "notable",
-    "topics": [
-      "crypto"
-    ],
-    "source": "fintechweekly",
-    "url": "https://planb.lugano.ch/planb-forum/",
     "v": 1
   },
   {
