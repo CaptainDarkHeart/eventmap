@@ -3857,25 +3857,6 @@
     "v": 1
   },
   {
-    "id": 388,
-    "slug": "open-source-ai-week-2026",
-    "name": "Open Source AI Week",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-10-16",
-    "end": "2026-10-25",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "lfai",
-    "url": "https://events.linuxfoundation.org/open-source-ai-week/",
-    "v": 1
-  },
-  {
     "id": 390,
     "slug": "one-way-summit-2026",
     "name": "One Way Summit",
