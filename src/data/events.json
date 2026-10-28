@@ -4636,5 +4636,24 @@
     "source": "fintechweekly",
     "url": "https://www.terrapinn.com/exhibition/seamless-saudi-arabia/index.stm",
     "v": 1
+  },
+  {
+    "id": 435,
+    "slug": "techbbq-2027",
+    "name": "TechBBQ",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6761,
+    "lng": 12.5683,
+    "start": "2027-09-08",
+    "end": "2027-09-09",
+    "tier": "major",
+    "topics": [
+      "startup-vc",
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://techbbq.dk/",
+    "v": 1
   }
 ]
