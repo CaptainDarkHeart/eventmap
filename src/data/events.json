@@ -4655,5 +4655,23 @@
     "source": "dealroom",
     "url": "https://techbbq.dk/",
     "v": 1
+  },
+  {
+    "id": 436,
+    "slug": "money20-20-asia",
+    "name": "Money20/20 Asia",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "lat": 13.7563,
+    "lng": 100.5018,
+    "start": "2027-04-27",
+    "end": "2027-04-29",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "manual",
+    "url": "https://asia.money2020.com/",
+    "v": 1
   }
 ]
