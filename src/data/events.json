@@ -2797,24 +2797,6 @@
     "v": 1
   },
   {
-    "id": 303,
-    "slug": "moneylive-nordic-banking",
-    "name": "MoneyLIVE Nordic Banking",
-    "city": "Copenhagen",
-    "country": "Denmark",
-    "lat": 55.6761,
-    "lng": 12.5683,
-    "start": "2026-10-27",
-    "end": "2026-10-28",
-    "tier": "notable",
-    "topics": [
-      "fintech"
-    ],
-    "source": "fintechweekly",
-    "url": "https://moneylive-insights.com/events/nordic-banking/",
-    "v": 1
-  },
-  {
     "id": 304,
     "slug": "fintech-connect",
     "name": "FinTech Connect",
@@ -2848,24 +2830,6 @@
     ],
     "source": "fintechweekly",
     "url": "https://moneylive-insights.com/events/summit/",
-    "v": 1
-  },
-  {
-    "id": 306,
-    "slug": "oracle-ai-world",
-    "name": "Oracle AI World",
-    "city": "Las Vegas",
-    "country": "United States",
-    "lat": 36.1699,
-    "lng": -115.1398,
-    "start": "2026-10-25",
-    "end": "2026-10-28",
-    "tier": "major",
-    "topics": [
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://www.oracle.com/ai-world/",
     "v": 1
   },
   {
