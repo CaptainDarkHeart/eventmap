@@ -4344,5 +4344,23 @@
     "source": "manual",
     "url": "https://asia.money2020.com/",
     "v": 1
+  },
+  {
+    "id": 437,
+    "slug": "meout-summit-2026",
+    "name": "MeOut Summit 2026",
+    "city": "Budapest",
+    "country": "Hungary",
+    "lat": 47.4979,
+    "lng": 19.0402,
+    "start": "2026-11-25",
+    "end": "2026-11-26",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://meoutsummit.com/",
+    "v": 1
   }
 ]
