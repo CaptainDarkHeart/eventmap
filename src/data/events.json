@@ -4362,5 +4362,24 @@
     "source": "manual",
     "url": "https://meoutsummit.com/",
     "v": 1
+  },
+  {
+    "id": 438,
+    "slug": "inmerge-innovation-summit-2026",
+    "name": "INMerge Innovation Summit 2026",
+    "city": "Baku",
+    "country": "Azerbaijan",
+    "lat": 40.4093,
+    "lng": 49.8671,
+    "start": "2026-11-30",
+    "end": "2026-12-01",
+    "tier": "notable",
+    "topics": [
+      "startup-vc",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://www.inmerge.az/",
+    "v": 1
   }
 ]
