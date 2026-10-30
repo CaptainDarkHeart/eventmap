@@ -1,23 +1,5 @@
 [
   {
-    "id": 159,
-    "slug": "github-universe-2026",
-    "name": "GitHub Universe",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-10-28",
-    "end": "2026-10-29",
-    "tier": "major",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "techmeme",
-    "url": "https://githubuniverse.com/",
-    "v": 1
-  },
-  {
     "id": 160,
     "slug": "nullcon-berlin-2026",
     "name": "Nullcon Berlin",
@@ -126,24 +108,6 @@
     "v": 1
   },
   {
-    "id": 29,
-    "slug": "future-investment-initiative-fii10",
-    "name": "Future Investment Initiative (FII10)",
-    "city": "Riyadh",
-    "country": "Saudi Arabia",
-    "lat": 24.7136,
-    "lng": 46.6753,
-    "start": "2026-10-26",
-    "end": "2026-10-29",
-    "tier": "major",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://fii-institute.org/conference/fii-10th-edition/",
-    "v": 1
-  },
-  {
     "id": 30,
     "slug": "mexico-tech-week",
     "name": "Mexico Tech Week",
@@ -159,60 +123,6 @@
     ],
     "source": "dealroom",
     "url": "https://www.mexicotechweek.mx/",
-    "v": 1
-  },
-  {
-    "id": 31,
-    "slug": "0100-international",
-    "name": "0100 International",
-    "city": "Milan",
-    "country": "Italy",
-    "lat": 45.4642,
-    "lng": 9.19,
-    "start": "2026-10-27",
-    "end": "2026-10-29",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://www.0100conferences.com/conferences/0100-international",
-    "v": 1
-  },
-  {
-    "id": 32,
-    "slug": "switch",
-    "name": "SWITCH",
-    "city": "Singapore",
-    "country": "Singapore",
-    "lat": 1.3521,
-    "lng": 103.8198,
-    "start": "2026-10-27",
-    "end": "2026-10-29",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://www.switchsg.org/",
-    "v": 1
-  },
-  {
-    "id": 33,
-    "slug": "moonshot-by-techcabal",
-    "name": "Moonshot by TechCabal",
-    "city": "Lagos",
-    "country": "Nigeria",
-    "lat": 6.5244,
-    "lng": 3.3792,
-    "start": "2026-10-28",
-    "end": "2026-10-29",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://moonshot.techcabal.com/",
     "v": 1
   },
   {
@@ -1260,24 +1170,6 @@
     "v": 1
   },
   {
-    "id": 133,
-    "slug": "kubecon-cloudnativecon-north-america",
-    "name": "KubeCon + CloudNativeCon North America",
-    "city": "Los Angeles",
-    "country": "United States",
-    "lat": 34.0522,
-    "lng": -118.2437,
-    "start": "2026-10-26",
-    "end": "2026-10-29",
-    "tier": "major",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "confstech",
-    "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2026",
-    "v": 1
-  },
-  {
     "id": 134,
     "slug": "ai-engineering-summit",
     "name": "AI Engineering Summit",
@@ -1458,25 +1350,6 @@
     ],
     "source": "manual",
     "url": "https://mxtconference.com/",
-    "v": 1
-  },
-  {
-    "id": 171,
-    "slug": "apidays-australia-2026",
-    "name": "apidays Australia",
-    "city": "Melbourne",
-    "country": "Australia",
-    "lat": -37.8136,
-    "lng": 144.9631,
-    "start": "2026-10-28",
-    "end": "2026-10-29",
-    "tier": "notable",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "devevents",
-    "url": "https://www.apidays.global/australia/",
     "v": 1
   },
   {
@@ -1740,25 +1613,6 @@
     ],
     "source": "devevents",
     "url": "https://devoxx.ma/",
-    "v": 1
-  },
-  {
-    "id": 187,
-    "slug": "ai-expo-africa-2026",
-    "name": "AI Expo Africa",
-    "city": "Johannesburg",
-    "country": "South Africa",
-    "lat": -26.1065,
-    "lng": 28.0538,
-    "start": "2026-10-28",
-    "end": "2026-10-29",
-    "tier": "major",
-    "topics": [
-      "ai",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://aiexpoafrica.com/",
     "v": 1
   },
   {
@@ -2046,24 +1900,6 @@
     "v": 1
   },
   {
-    "id": 212,
-    "slug": "sunrise-aotearoa-2026",
-    "name": "Sunrise Aotearoa",
-    "city": "Auckland",
-    "country": "New Zealand",
-    "lat": -36.8485,
-    "lng": 174.7633,
-    "start": "2026-10-29",
-    "end": "2026-10-29",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "manual",
-    "url": "https://www.thesunrise.live/",
-    "v": 1
-  },
-  {
     "id": 213,
     "slug": "fintech-hui-taumata-2027",
     "name": "FinTech Hui Taumata",
@@ -2309,24 +2145,6 @@
     "v": 1
   },
   {
-    "id": 252,
-    "slug": "broadband-tech-showcase-2026",
-    "name": "Broadband Tech Showcase",
-    "city": "Anchorage",
-    "country": "United States",
-    "lat": 61.2175,
-    "lng": -149.8778,
-    "start": "2026-10-28",
-    "end": "2026-10-29",
-    "tier": "notable",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://www.alaskatel.org/events",
-    "v": 1
-  },
-  {
     "id": 256,
     "slug": "sc26",
     "name": "SC26",
@@ -2402,26 +2220,6 @@
     ],
     "source": "manual",
     "url": "https://renderatl.com/",
-    "v": 1
-  },
-  {
-    "id": 262,
-    "slug": "israel-mobile-summit-2026",
-    "name": "Israel Mobile Summit",
-    "city": "Tel Aviv",
-    "country": "Israel",
-    "lat": 32.1065,
-    "lng": 34.808,
-    "start": "2026-10-29",
-    "end": "2026-10-29",
-    "tier": "major",
-    "topics": [
-      "gaming",
-      "dev-eng",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://www.israelmobilesummit.com/",
     "v": 1
   },
   {
@@ -3049,24 +2847,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 346,
-    "slug": "odsc-ai-west-2026",
-    "name": "ODSC AI West",
-    "city": "Burlingame",
-    "country": "United States",
-    "lat": 37.5841,
-    "lng": -122.3661,
-    "start": "2026-10-27",
-    "end": "2026-10-29",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "lfai",
-    "url": "https://odsc.ai/west/",
     "v": 1
   },
   {
@@ -3821,24 +3601,6 @@
     "v": 1
   },
   {
-    "id": 390,
-    "slug": "one-way-summit-2026",
-    "name": "One Way Summit",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-10-28",
-    "end": "2026-10-29",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "startupevents",
-    "url": "https://www.onewaysummit.com/",
-    "v": 1
-  },
-  {
     "id": 391,
     "slug": "ai-expo-europe-2026",
     "name": "AI Expo Europe",
@@ -4346,25 +4108,6 @@
     "v": 1
   },
   {
-    "id": 420,
-    "slug": "ripple-swell-2026",
-    "name": "Ripple Swell",
-    "city": "New York",
-    "country": "United States",
-    "lat": 40.7128,
-    "lng": -74.006,
-    "start": "2026-10-27",
-    "end": "2026-10-29",
-    "tier": "notable",
-    "topics": [
-      "crypto",
-      "fintech"
-    ],
-    "source": "techmeme",
-    "url": "https://swell.ripple.com/",
-    "v": 1
-  },
-  {
     "id": 421,
     "slug": "qcon-ai-new-york-2026",
     "name": "QCon AI New York",
@@ -4417,24 +4160,6 @@
     ],
     "source": "manual",
     "url": "https://blackhatmea.com",
-    "v": 1
-  },
-  {
-    "id": 424,
-    "slug": "sap-teched-berlin-2026",
-    "name": "SAP TechEd Berlin",
-    "city": "Berlin",
-    "country": "Germany",
-    "lat": 52.52,
-    "lng": 13.405,
-    "start": "2026-10-27",
-    "end": "2026-10-29",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "techmeme",
-    "url": "https://www.sap.com/events/teched/berlin.html",
     "v": 1
   },
   {
@@ -4563,24 +4288,6 @@
     ],
     "source": "techmeme",
     "url": "https://events.linuxfoundation.org/open-source-finance-forum-new-york/",
-    "v": 1
-  },
-  {
-    "id": 433,
-    "slug": "it-sa-2026",
-    "name": "it-sa Expo&Congress",
-    "city": "Nuremberg",
-    "country": "Germany",
-    "lat": 49.4521,
-    "lng": 11.0767,
-    "start": "2026-10-27",
-    "end": "2026-10-29",
-    "tier": "major",
-    "topics": [
-      "security"
-    ],
-    "source": "devevents",
-    "url": "https://www.itsa365.de/en/it-sa-expo-congress",
     "v": 1
   },
   {
