@@ -1,7 +1,7 @@
 // GENERATED copy lives in each project's worker/. Source: ~/Claude/agents/analytics/track-handler.js
 // First-party event log to Workers Analytics Engine (binding ANALYTICS). Never fails the request.
 // Columns: blob1 event, blob2 path, blob3 target, blob4 country, blob5 hostname.
-const TRACKED = new Set(["csv_export", "calendar_ics", "calendar_google", "outbound", "event_view", "search", "form_submit"]);
+const TRACKED = new Set(["csv_export", "calendar_ics", "calendar_google", "outbound", "event_view", "search", "form_submit", "contact_click", "tel_click", "form_start", "form_sent", "form_error"]);
 
 export async function handleTrack(request, env) {
 	try {
