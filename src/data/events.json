@@ -126,24 +126,6 @@
     "v": 1
   },
   {
-    "id": 34,
-    "slug": "crossroads",
-    "name": "Crossroads",
-    "city": "Sofia",
-    "country": "Bulgaria",
-    "lat": 42.6977,
-    "lng": 23.3219,
-    "start": "2026-10-29",
-    "end": "2026-10-30",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://www.startupcrossroads.com/",
-    "v": 1
-  },
-  {
     "id": 35,
     "slug": "hong-kong-fintech-week",
     "name": "Hong Kong FinTech Week",
@@ -2501,26 +2483,6 @@
     "v": 1
   },
   {
-    "id": 296,
-    "slug": "driving-it-2026",
-    "name": "Driving IT",
-    "city": "Copenhagen",
-    "country": "Denmark",
-    "lat": 55.6669,
-    "lng": 12.5694,
-    "start": "2026-10-30",
-    "end": "2026-10-30",
-    "tier": "major",
-    "topics": [
-      "dev-eng",
-      "general-tech",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://ida.dk/arrangementer-og-kurser/konferencer/driving-it",
-    "v": 1
-  },
-  {
     "id": 297,
     "slug": "digital-tech-summit-2026",
     "name": "Digital Tech Summit",
@@ -2628,24 +2590,6 @@
     ],
     "source": "fintechweekly",
     "url": "https://moneylive-insights.com/events/summit/",
-    "v": 1
-  },
-  {
-    "id": 316,
-    "slug": "grace-hopper-celebration-2026",
-    "name": "Grace Hopper Celebration",
-    "city": "Anaheim",
-    "country": "United States",
-    "lat": 33.8366,
-    "lng": -117.9143,
-    "start": "2026-10-27",
-    "end": "2026-10-30",
-    "tier": "mega",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "techmeme",
-    "url": "https://ghc.anitab.org/",
     "v": 1
   },
   {
@@ -3710,24 +3654,6 @@
     "v": 1
   },
   {
-    "id": 398,
-    "slug": "tedai-vienna-2026",
-    "name": "TEDAI Vienna",
-    "city": "Vienna",
-    "country": "Austria",
-    "lat": 48.2082,
-    "lng": 16.3738,
-    "start": "2026-10-28",
-    "end": "2026-10-30",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "techmeme",
-    "url": "https://tedai-vienna.ted.com/",
-    "v": 1
-  },
-  {
     "id": 399,
     "slug": "dubai-fintech-summit-2026",
     "name": "Dubai FinTech Summit",
@@ -4160,24 +4086,6 @@
     ],
     "source": "manual",
     "url": "https://blackhatmea.com",
-    "v": 1
-  },
-  {
-    "id": 425,
-    "slug": "j-on-the-beach-2026",
-    "name": "J On the Beach",
-    "city": "Málaga",
-    "country": "Spain",
-    "lat": 36.7213,
-    "lng": -4.4214,
-    "start": "2026-10-29",
-    "end": "2026-10-30",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "techmeme",
-    "url": "https://jonthebeach.com/",
     "v": 1
   },
   {
