@@ -90,24 +90,6 @@
     "v": 1
   },
   {
-    "id": 26,
-    "slug": "tecweek",
-    "name": "Tecweek",
-    "city": "Buenos Aires",
-    "country": "Argentina",
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "start": "2026-10-21",
-    "end": "2026-10-31",
-    "tier": "notable",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://www.tecweek.com.ar/",
-    "v": 1
-  },
-  {
     "id": 30,
     "slug": "mexico-tech-week",
     "name": "Mexico Tech Week",
@@ -1974,25 +1956,6 @@
     "v": 1
   },
   {
-    "id": 239,
-    "slug": "connect-ia-2026",
-    "name": "ConnectIA",
-    "city": "Montevideo",
-    "country": "Uruguay",
-    "lat": -34.8794,
-    "lng": -56.0716,
-    "start": "2026-10-31",
-    "end": "2026-10-31",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://connectia.uy/",
-    "v": 1
-  },
-  {
     "id": 240,
     "slug": "black-alpaca-2026",
     "name": "Black Alpaca",
@@ -2444,24 +2407,6 @@
     ],
     "source": "manual",
     "url": "https://datasciconference.com/",
-    "v": 1
-  },
-  {
-    "id": 292,
-    "slug": "kyiv-ai-day-2026",
-    "name": "Kyiv AI Day",
-    "city": "Kyiv",
-    "country": "Ukraine",
-    "lat": 50.4501,
-    "lng": 30.5234,
-    "start": "2026-10-31",
-    "end": "2026-10-31",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://aiconf.com.ua/kyiv",
     "v": 1
   },
   {
