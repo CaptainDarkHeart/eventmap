@@ -90,24 +90,6 @@
     "v": 1
   },
   {
-    "id": 30,
-    "slug": "mexico-tech-week",
-    "name": "Mexico Tech Week",
-    "city": "Mexico City",
-    "country": "Mexico",
-    "lat": 19.4326,
-    "lng": -99.1332,
-    "start": "2026-10-26",
-    "end": "2026-11-01",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://www.mexicotechweek.mx/",
-    "v": 1
-  },
-  {
     "id": 35,
     "slug": "hong-kong-fintech-week",
     "name": "Hong Kong FinTech Week",
