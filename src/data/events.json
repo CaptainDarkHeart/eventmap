@@ -3472,24 +3472,6 @@
     "v": 1
   },
   {
-    "id": 391,
-    "slug": "ai-expo-europe-2026",
-    "name": "AI Expo Europe",
-    "city": "Bucharest",
-    "country": "Romania",
-    "lat": 44.4268,
-    "lng": 26.1025,
-    "start": "2026-11-01",
-    "end": "2026-11-02",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "startupevents",
-    "url": "https://aiexpoeurope.com/",
-    "v": 1
-  },
-  {
     "id": 392,
     "slug": "saastr-ai-annual-2027",
     "name": "SaaStr AI Annual",
