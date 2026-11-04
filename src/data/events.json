@@ -3563,24 +3563,6 @@
     "v": 1
   },
   {
-    "id": 399,
-    "slug": "dubai-fintech-summit-2026",
-    "name": "Dubai FinTech Summit",
-    "city": "Dubai",
-    "country": "UAE",
-    "lat": 25.2048,
-    "lng": 55.2708,
-    "start": "2026-11-02",
-    "end": "2026-11-03",
-    "tier": "major",
-    "topics": [
-      "fintech"
-    ],
-    "source": "techmeme",
-    "url": "https://dubaifintechsummit.com/",
-    "v": 1
-  },
-  {
     "id": 400,
     "slug": "barcelona-cybersecurity-congress-2026",
     "name": "Barcelona Cybersecurity Congress",
@@ -3903,43 +3885,6 @@
     ],
     "source": "techmeme",
     "url": "https://www.binanceblockchainweek.com/event/Bangkok2026/Home",
-    "v": 1
-  },
-  {
-    "id": 418,
-    "slug": "gamesbeat-next-2026",
-    "name": "GamesBeat Next",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-11-02",
-    "end": "2026-11-03",
-    "tier": "notable",
-    "topics": [
-      "gaming"
-    ],
-    "source": "techmeme",
-    "url": "https://events.gamesbeat.com/next26/",
-    "v": 1
-  },
-  {
-    "id": 419,
-    "slug": "bloomberg-tech-london-2026",
-    "name": "Bloomberg Tech London",
-    "city": "London",
-    "country": "United Kingdom",
-    "lat": 51.5074,
-    "lng": -0.1278,
-    "start": "2026-11-02",
-    "end": "2026-11-03",
-    "tier": "notable",
-    "topics": [
-      "general-tech",
-      "ai"
-    ],
-    "source": "techmeme",
-    "url": "https://events.bloomberglive.com/event/TechLondon2026/summary",
     "v": 1
   },
   {
