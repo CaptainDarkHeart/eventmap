@@ -4217,5 +4217,24 @@
     "source": "manual",
     "url": "https://gscm.maltaenterprise.com/",
     "v": 1
+  },
+  {
+    "id": 440,
+    "slug": "digital-asset-summit-london-2026",
+    "name": "Digital Asset Summit London",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2026-11-10",
+    "end": "2026-11-11",
+    "tier": "notable",
+    "topics": [
+      "crypto",
+      "fintech"
+    ],
+    "source": "dealroom",
+    "url": "https://blockworks.com/event/digital-asset-summit-london",
+    "v": 1
   }
 ]
