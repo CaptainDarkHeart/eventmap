@@ -72,24 +72,6 @@
     "v": 1
   },
   {
-    "id": 138,
-    "slug": "techcrunch-founder-summit",
-    "name": "TechCrunch Founder Summit",
-    "city": "Boston",
-    "country": "United States",
-    "lat": 42.3601,
-    "lng": -71.0589,
-    "start": "2026-11-04",
-    "end": "2026-11-04",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "techcrunch",
-    "url": "https://techcrunch.com/events/techcrunch-founder-summit-2026/",
-    "v": 1
-  },
-  {
     "id": 35,
     "slug": "hong-kong-fintech-week",
     "name": "Hong Kong FinTech Week",
@@ -2626,24 +2608,6 @@
     ],
     "source": "manual",
     "url": "https://www.blackhat.com/us-27/",
-    "v": 1
-  },
-  {
-    "id": 325,
-    "slug": "insurance-innovators-summit",
-    "name": "Insurance Innovators Summit",
-    "city": "London",
-    "country": "United Kingdom",
-    "lat": 51.5074,
-    "lng": -0.1278,
-    "start": "2026-11-03",
-    "end": "2026-11-04",
-    "tier": "notable",
-    "topics": [
-      "fintech"
-    ],
-    "source": "fintechweekly",
-    "url": "https://insurance-innovators.com/events/summit/",
     "v": 1
   },
   {
