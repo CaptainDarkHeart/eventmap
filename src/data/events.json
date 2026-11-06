@@ -4145,5 +4145,41 @@
     "source": "dealroom",
     "url": "https://blockworks.com/event/digital-asset-summit-london",
     "v": 1
+  },
+  {
+    "id": 441,
+    "slug": "us-banktech-summit-2026",
+    "name": "U.S. BankTech Summit",
+    "city": "Oak Brook",
+    "country": "United States",
+    "lat": 41.8398,
+    "lng": -87.9528,
+    "start": "2026-12-07",
+    "end": "2026-12-09",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "manual",
+    "url": "https://www.usbanktechsummit.com/",
+    "v": 1
+  },
+  {
+    "id": 442,
+    "slug": "global-blockchain-show-abu-dhabi-2026",
+    "name": "Global Blockchain Show Abu Dhabi",
+    "city": "Abu Dhabi",
+    "country": "United Arab Emirates",
+    "lat": 24.4539,
+    "lng": 54.3773,
+    "start": "2026-12-10",
+    "end": "2026-12-11",
+    "tier": "notable",
+    "topics": [
+      "crypto"
+    ],
+    "source": "manual",
+    "url": "https://globalblockchainshow.com/",
+    "v": 1
   }
 ]
