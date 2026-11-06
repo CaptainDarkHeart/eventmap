@@ -1525,25 +1525,6 @@
     "v": 1
   },
   {
-    "id": 185,
-    "slug": "devoxx-morocco-2026",
-    "name": "Devoxx Morocco",
-    "city": "Casablanca",
-    "country": "Morocco",
-    "lat": 33.5731,
-    "lng": -7.5898,
-    "start": "2026-11-04",
-    "end": "2026-11-05",
-    "tier": "major",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "devevents",
-    "url": "https://devoxx.ma/",
-    "v": 1
-  },
-  {
     "id": 188,
     "slug": "africa-cyber-defense-forum-2026",
     "name": "Africa Cyber Defense Forum",
@@ -2282,25 +2263,6 @@
     "v": 1
   },
   {
-    "id": 283,
-    "slug": "big-data-ai-world-madrid-2026",
-    "name": "Big Data & AI World Madrid",
-    "city": "Madrid",
-    "country": "Spain",
-    "lat": 40.4168,
-    "lng": -3.7038,
-    "start": "2026-11-04",
-    "end": "2026-11-05",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://www.techshowmadrid.es/en/big-data-ai-world",
-    "v": 1
-  },
-  {
     "id": 284,
     "slug": "portugal-tech-week-2026",
     "name": "Portugal Tech Week",
@@ -2389,25 +2351,6 @@
     ],
     "source": "manual",
     "url": "https://ai-poland.pl/",
-    "v": 1
-  },
-  {
-    "id": 297,
-    "slug": "digital-tech-summit-2026",
-    "name": "Digital Tech Summit",
-    "city": "Copenhagen",
-    "country": "Denmark",
-    "lat": 55.6698,
-    "lng": 12.5604,
-    "start": "2026-11-04",
-    "end": "2026-11-05",
-    "tier": "major",
-    "topics": [
-      "general-tech",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://digital-tech-summit.dk/",
     "v": 1
   },
   {
@@ -3527,24 +3470,6 @@
     "v": 1
   },
   {
-    "id": 400,
-    "slug": "barcelona-cybersecurity-congress-2026",
-    "name": "Barcelona Cybersecurity Congress",
-    "city": "Barcelona",
-    "country": "Spain",
-    "lat": 41.3874,
-    "lng": 2.1686,
-    "start": "2026-11-03",
-    "end": "2026-11-05",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "techmeme",
-    "url": "https://www.barcelonacybersecuritycongress.com/",
-    "v": 1
-  },
-  {
     "id": 401,
     "slug": "bitcoin-amsterdam-2026",
     "name": "Bitcoin Amsterdam",
@@ -3633,24 +3558,6 @@
     ],
     "source": "techmeme",
     "url": "https://cerebralvalley.com",
-    "v": 1
-  },
-  {
-    "id": 406,
-    "slug": "current-2026",
-    "name": "Current",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-11-04",
-    "end": "2026-11-05",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "techmeme",
-    "url": "https://current.confluent.io",
     "v": 1
   },
   {
@@ -3777,24 +3684,6 @@
     ],
     "source": "manual",
     "url": "https://informaconnect.com/finovatespring/",
-    "v": 1
-  },
-  {
-    "id": 414,
-    "slug": "saas-north-2026",
-    "name": "SaaS North",
-    "city": "Ottawa",
-    "country": "Canada",
-    "lat": 45.4215,
-    "lng": -75.6972,
-    "start": "2026-11-04",
-    "end": "2026-11-05",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "manual",
-    "url": "https://www.saasnorth.com",
     "v": 1
   },
   {
@@ -3995,25 +3884,6 @@
     ],
     "source": "techmeme",
     "url": "https://dreamhack.com/stockholm/",
-    "v": 1
-  },
-  {
-    "id": 432,
-    "slug": "open-source-in-finance-forum-new-york-2026",
-    "name": "Open Source in Finance Forum New York",
-    "city": "New York",
-    "country": "United States",
-    "lat": 40.7128,
-    "lng": -74.006,
-    "start": "2026-11-04",
-    "end": "2026-11-05",
-    "tier": "notable",
-    "topics": [
-      "fintech",
-      "dev-eng"
-    ],
-    "source": "techmeme",
-    "url": "https://events.linuxfoundation.org/open-source-finance-forum-new-york/",
     "v": 1
   },
   {
