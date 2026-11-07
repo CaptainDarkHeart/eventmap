@@ -4051,5 +4051,23 @@
     "source": "manual",
     "url": "https://globalblockchainshow.com/",
     "v": 1
+  },
+  {
+    "id": 443,
+    "slug": "nexus-luxembourg-2027",
+    "name": "Nexus Luxembourg 2027",
+    "city": "Luxembourg",
+    "country": "Luxembourg",
+    "lat": 49.6116,
+    "lng": 6.1319,
+    "start": "2027-03-09",
+    "end": "2027-03-10",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://www.nexusluxembourg.com/",
+    "v": 1
   }
 ]
