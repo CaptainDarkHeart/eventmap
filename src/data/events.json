@@ -1,23 +1,5 @@
 [
   {
-    "id": 160,
-    "slug": "nullcon-berlin-2026",
-    "name": "Nullcon Berlin",
-    "city": "Berlin",
-    "country": "Germany",
-    "lat": 52.52,
-    "lng": 13.405,
-    "start": "2026-11-02",
-    "end": "2026-11-06",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "confstech",
-    "url": "https://nullcon.net/event/nullcon-berlin-2026/",
-    "v": 1
-  },
-  {
     "id": 161,
     "slug": "microsoft-ignite-2026",
     "name": "Microsoft Ignite",
@@ -69,42 +51,6 @@
     ],
     "source": "galliumventures",
     "url": "https://informaconnect.com/finovateeurope/",
-    "v": 1
-  },
-  {
-    "id": 35,
-    "slug": "hong-kong-fintech-week",
-    "name": "Hong Kong FinTech Week",
-    "city": "Hong Kong",
-    "country": "Hong Kong",
-    "lat": 22.3193,
-    "lng": 114.1694,
-    "start": "2026-11-02",
-    "end": "2026-11-06",
-    "tier": "mega",
-    "topics": [
-      "fintech"
-    ],
-    "source": "dealroom",
-    "url": "https://www.fintechweek.hk/",
-    "v": 1
-  },
-  {
-    "id": 36,
-    "slug": "startup-nights",
-    "name": "Startup Nights",
-    "city": "Winterthur",
-    "country": "Switzerland",
-    "lat": 47.5,
-    "lng": 8.75,
-    "start": "2026-11-05",
-    "end": "2026-11-06",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://www.startup-nights.ch/",
     "v": 1
   },
   {
@@ -1525,43 +1471,6 @@
     "v": 1
   },
   {
-    "id": 188,
-    "slug": "africa-cyber-defense-forum-2026",
-    "name": "Africa Cyber Defense Forum",
-    "city": "Nairobi",
-    "country": "Kenya",
-    "lat": -1.2647,
-    "lng": 36.8045,
-    "start": "2026-11-02",
-    "end": "2026-11-06",
-    "tier": "major",
-    "topics": [
-      "security",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://africacyberdefenseforum.com/",
-    "v": 1
-  },
-  {
-    "id": 189,
-    "slug": "droidcon-kenya-2026",
-    "name": "Droidcon Kenya",
-    "city": "Nairobi",
-    "country": "Kenya",
-    "lat": -1.2921,
-    "lng": 36.8219,
-    "start": "2026-11-05",
-    "end": "2026-11-06",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://droidcon.co.ke/",
-    "v": 1
-  },
-  {
     "id": 190,
     "slug": "tech-in-ghana-2026",
     "name": "Tech in Ghana",
@@ -2497,24 +2406,6 @@
     ],
     "source": "techmeme",
     "url": "https://www.twitchcon.com/san-diego-2026/",
-    "v": 1
-  },
-  {
-    "id": 320,
-    "slug": "afrotech-conference-2026",
-    "name": "AfroTech Conference",
-    "city": "Houston",
-    "country": "United States",
-    "lat": 29.7604,
-    "lng": -95.3698,
-    "start": "2026-11-02",
-    "end": "2026-11-06",
-    "tier": "mega",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "techmeme",
-    "url": "https://afrotechconference.com/",
     "v": 1
   },
   {
@@ -3467,24 +3358,6 @@
     ],
     "source": "manual",
     "url": "https://www.bitsandpretzels.com/",
-    "v": 1
-  },
-  {
-    "id": 401,
-    "slug": "bitcoin-amsterdam-2026",
-    "name": "Bitcoin Amsterdam",
-    "city": "Amsterdam",
-    "country": "Netherlands",
-    "lat": 52.3676,
-    "lng": 4.9041,
-    "start": "2026-11-05",
-    "end": "2026-11-06",
-    "tier": "notable",
-    "topics": [
-      "crypto"
-    ],
-    "source": "techmeme",
-    "url": "https://www.bitcoin.amsterdam/",
     "v": 1
   },
   {
