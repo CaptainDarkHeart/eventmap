@@ -3942,5 +3942,41 @@
     "source": "manual",
     "url": "https://www.nexusluxembourg.com/",
     "v": 1
+  },
+  {
+    "id": 444,
+    "slug": "blockchain-life-dubai-2026",
+    "name": "Blockchain Life 2026 Dubai",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "lat": 25.2048,
+    "lng": 55.2708,
+    "start": "2026-12-01",
+    "end": "2026-12-02",
+    "tier": "notable",
+    "topics": [
+      "crypto"
+    ],
+    "source": "fintechweekly",
+    "url": "https://blockchain-life.com/",
+    "v": 1
+  },
+  {
+    "id": 445,
+    "slug": "ftt-fintech-festival-north-america-2026",
+    "name": "FTT Fintech Festival North America",
+    "city": "Austin",
+    "country": "United States",
+    "lat": 30.2672,
+    "lng": -97.7431,
+    "start": "2026-12-08",
+    "end": "2026-12-09",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "fintechweekly",
+    "url": "https://www.fintechtalents.com/events/north-america/ftt-fintech-festival/",
+    "v": 1
   }
 ]
