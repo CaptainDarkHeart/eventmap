@@ -14,6 +14,10 @@ yarn-error.log*
 pnpm-debug.log*
 logs/
 
+# Google service account keys (keep outside the repo; this is a safety net)
+*-key.json
+service-account*.json
+
 # environment variables
 .env
 .env.production

@@ -19,6 +19,7 @@
     "validate-events": "node scripts/validate-events.mjs",
     "prune-past-events": "node scripts/prune-past-events.mjs",
     "check-urls": "node scripts/check-urls.mjs",
+    "gsc": "node scripts/gsc-report.mjs",
     "deploy": "node scripts/prune-past-events.mjs && astro build && wrangler deploy",
     "test": "node --test test/*.test.mjs"
   },
