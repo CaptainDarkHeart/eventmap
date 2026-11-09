@@ -3998,5 +3998,42 @@
     "source": "manual",
     "url": "https://productworld.co/",
     "v": 1
+  },
+  {
+    "id": 447,
+    "slug": "kubecon-cloudnativecon-north-america-2026",
+    "name": "KubeCon + CloudNativeCon North America",
+    "city": "Salt Lake City",
+    "country": "United States",
+    "lat": 40.7608,
+    "lng": -111.891,
+    "start": "2026-11-09",
+    "end": "2026-11-12",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/",
+    "v": 1
+  },
+  {
+    "id": 448,
+    "slug": "interrupt-2027",
+    "name": "Interrupt 2027 (LangChain Agent Conference)",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2027-03-24",
+    "end": "2027-03-25",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "dev-eng"
+    ],
+    "source": "manual",
+    "url": "https://interrupt.langchain.com/",
+    "v": 1
   }
 ]
