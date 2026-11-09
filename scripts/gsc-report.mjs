@@ -2,12 +2,13 @@
 // Read-only Google Search Console report via the official API. No dependencies.
 //
 //   npm run gsc -- perf [days]     daily clicks/impressions/position + top pages and queries
+//   npm run gsc -- check           weekly health check, exits 2 with ALERT lines on problems
 //   npm run gsc -- inspect [n]     URL Inspection over the live sitemap (default all, quota ~2000/day)
 //
 // Auth: service account JSON key, added in Search Console as a Restricted user.
 // Key path: GSC_KEY_FILE, default ~/.config/gsc/techeventsmap-key.json (keep it OUTSIDE the repo).
 // Property: GSC_SITE, default sc-domain:techeventsmap.com.
-import { readFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { createSign } from "node:crypto";
 import os from "node:os";
 import path from "node:path";
@@ -112,12 +113,50 @@ async function inspect(limit) {
 	};
 	const queue = [...urls];
 	await Promise.all(Array.from({ length: 6 }, async () => { while (queue.length) await one(queue.shift()); }));
-	console.log(`Inspected ${urls.length} URLs`);
+	return { total: urls.length, tally, bad };
+}
+
+function printInspect({ total, tally, bad }) {
+	console.log(`Inspected ${total} URLs`);
 	console.table(tally);
 	if (bad.length) console.log("\nNot indexed / errors:\n" + bad.join("\n"));
 }
 
+// Weekly health check: compares the last 7 days of search traffic with the 7 before,
+// re-inspects the sitemap, and diffs against the previous run (logs/gsc-last.json).
+// Prints an ALERT line per problem and exits 2 if there is one, so the cron can notify.
+async function check() {
+	const tok = await token();
+	const day = (n) => ymd(new Date(Date.now() - n * 864e5));
+	const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;
+	const sum = async (a, b) => {
+		const r = (await api(url, tok, { startDate: day(a), endDate: day(b), type: "web" })).rows?.[0];
+		return { clicks: r?.clicks || 0, impressions: r?.impressions || 0 };
+	};
+	const cur = await sum(8, 2);
+	const prev = await sum(15, 9);
+	const res = await inspect(0);
+	const indexed = res.tally["Submitted and indexed"] || 0;
+	const errors = res.tally.error || 0;
+	const lastFile = new URL("../logs/gsc-last.json", import.meta.url);
+	let last = null;
+	try { last = JSON.parse(readFileSync(lastFile, "utf-8")); } catch {}
+	const alerts = [];
+	if (prev.impressions >= 100 && cur.impressions < prev.impressions * 0.5) alerts.push(`Impressions fell ${prev.impressions} -> ${cur.impressions} week on week`);
+	if (prev.clicks >= 5 && cur.clicks < prev.clicks * 0.5) alerts.push(`Clicks fell ${prev.clicks} -> ${cur.clicks} week on week`);
+	if (res.total && indexed / res.total < 0.8) alerts.push(`Only ${indexed}/${res.total} sitemap URLs indexed (${Math.round((indexed / res.total) * 100)}%)`);
+	if (last && indexed < last.indexed - 10) alerts.push(`Indexed URLs fell ${last.indexed} -> ${indexed} since ${last.date}`);
+	if (errors > res.total * 0.1) alerts.push(`${errors} inspection errors, API may be failing`);
+	console.log(`traffic 7d: ${cur.clicks} clicks, ${cur.impressions} impr (prev ${prev.clicks}, ${prev.impressions})`);
+	console.log(`indexed: ${indexed}/${res.total}`);
+	console.table(res.tally);
+	writeFileSync(lastFile, JSON.stringify({ date: ymd(new Date()), indexed, total: res.total, cur, prev }));
+	for (const a of alerts) console.log(`ALERT: ${a}`);
+	process.exit(alerts.length ? 2 : 0);
+}
+
 const [cmd, arg] = process.argv.slice(2);
 if (cmd === "perf") await perf(Number(arg) || 28);
-else if (cmd === "inspect") await inspect(Number(arg) || 0);
-else console.log("Usage: npm run gsc -- perf [days] | inspect [n]");
+else if (cmd === "inspect") printInspect(await inspect(Number(arg) || 0));
+else if (cmd === "check") await check();
+else console.log("Usage: npm run gsc -- perf [days] | inspect [n] | check");
