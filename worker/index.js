@@ -222,7 +222,7 @@ export default {
 
 		// Calendar feeds and raw data files are not pages: keep them out of the index.
 		// Static Astro endpoints cannot set response headers, so it is done here.
-		if (res.status === 200 && (/\.ics$/.test(url.pathname) || url.pathname.startsWith("/data/") || url.pathname === "/rt.json")) {
+		if (res.status === 200 && (/\.ics$/.test(url.pathname) || url.pathname.startsWith("/data/") || url.pathname === "/rt.json" || url.pathname === "/llms.txt" || url.pathname === "/llms-full.txt")) {
 			const out = new Response(res.body, res);
 			out.headers.set("x-robots-tag", "noindex, nofollow");
 			return out;

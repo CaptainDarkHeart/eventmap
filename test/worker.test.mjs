@@ -12,7 +12,7 @@ test("307 trailing-slash redirect becomes 301", async () => {
 });
 
 test("ics, data and rt.json responses are noindex", async () => {
-	for (const p of ["/events.ics", "/events/slush-2026.ics", "/data/events.csv", "/rt.json"]) {
+	for (const p of ["/events.ics", "/events/slush-2026.ics", "/data/events.csv", "/rt.json", "/llms.txt", "/llms-full.txt"]) {
 		const out = await run(p, new Response("x", { status: 200 }));
 		assert.match(out.headers.get("x-robots-tag"), /noindex/, p);
 	}
