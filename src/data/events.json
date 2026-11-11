@@ -4053,5 +4053,43 @@
     "source": "manual",
     "url": "https://events.unitedxr.eu/2026",
     "v": 1
+  },
+  {
+    "id": 450,
+    "slug": "startup-grind-conference-2027",
+    "name": "Startup Grind Conference 2027",
+    "city": "Redwood City",
+    "country": "United States",
+    "lat": 37.4852,
+    "lng": -122.2364,
+    "start": "2027-04-27",
+    "end": "2027-04-28",
+    "tier": "notable",
+    "topics": [
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://www.startupgrind.com/events/details/startup-grind-silicon-valley-san-francisco-bay-area-presents-startup-grind-conference-2027/",
+    "v": 1
+  },
+  {
+    "id": 451,
+    "slug": "toronto-tech-week-2027",
+    "name": "Toronto Tech Week 2027",
+    "city": "Toronto",
+    "country": "Canada",
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "start": "2027-05-31",
+    "end": "2027-06-04",
+    "tier": "notable",
+    "topics": [
+      "startup-vc",
+      "ai",
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://www.torontotechweek.com/",
+    "v": 1
   }
 ]
