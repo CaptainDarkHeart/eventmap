@@ -4035,5 +4035,23 @@
     "source": "manual",
     "url": "https://interrupt.langchain.com/",
     "v": 1
+  },
+  {
+    "id": 449,
+    "slug": "unitedxr-europe-2026",
+    "name": "UnitedXR Europe 2026",
+    "city": "Brussels",
+    "country": "Belgium",
+    "lat": 50.8503,
+    "lng": 4.3517,
+    "start": "2026-12-07",
+    "end": "2026-12-09",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://events.unitedxr.eu/2026",
+    "v": 1
   }
 ]
