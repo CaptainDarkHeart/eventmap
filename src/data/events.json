@@ -1450,27 +1450,6 @@
     "v": 1
   },
   {
-    "id": 184,
-    "slug": "cairo-ict-2026",
-    "name": "Cairo ICT",
-    "city": "Cairo",
-    "country": "Egypt",
-    "lat": 30.0444,
-    "lng": 31.2357,
-    "start": "2026-11-07",
-    "end": "2026-11-10",
-    "tier": "mega",
-    "topics": [
-      "general-tech",
-      "ai",
-      "security",
-      "fintech"
-    ],
-    "source": "manual",
-    "url": "https://cairoict.com/",
-    "v": 1
-  },
-  {
     "id": 190,
     "slug": "tech-in-ghana-2026",
     "name": "Tech in Ghana",
@@ -3633,24 +3612,6 @@
     "v": 1
   },
   {
-    "id": 422,
-    "slug": "ftt-fintech-festival-london-2026",
-    "name": "FTT Fintech Festival",
-    "city": "London",
-    "country": "United Kingdom",
-    "lat": 51.5074,
-    "lng": -0.1278,
-    "start": "2026-11-09",
-    "end": "2026-11-10",
-    "tier": "notable",
-    "topics": [
-      "fintech"
-    ],
-    "source": "techmeme",
-    "url": "https://www.fintechtalents.com/events/europe/festival-london/",
-    "v": 1
-  },
-  {
     "id": 423,
     "slug": "black-hat-mea-2026",
     "name": "Black Hat MEA",
@@ -3757,24 +3718,6 @@
     ],
     "source": "techmeme",
     "url": "https://dreamhack.com/stockholm/",
-    "v": 1
-  },
-  {
-    "id": 434,
-    "slug": "seamless-saudi-arabia-2026",
-    "name": "Seamless Saudi Arabia",
-    "city": "Riyadh",
-    "country": "Saudi Arabia",
-    "lat": 24.7136,
-    "lng": 46.6753,
-    "start": "2026-11-09",
-    "end": "2026-11-10",
-    "tier": "notable",
-    "topics": [
-      "fintech"
-    ],
-    "source": "fintechweekly",
-    "url": "https://www.terrapinn.com/exhibition/seamless-saudi-arabia/index.stm",
     "v": 1
   },
   {
