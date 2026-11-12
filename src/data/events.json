@@ -2020,43 +2020,6 @@
     "v": 1
   },
   {
-    "id": 264,
-    "slug": "ai-week-tel-aviv-2026",
-    "name": "AI Week",
-    "city": "Tel Aviv",
-    "country": "Israel",
-    "lat": 32.1118,
-    "lng": 34.8028,
-    "start": "2026-11-09",
-    "end": "2026-11-11",
-    "tier": "major",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "manual",
-    "url": "https://ai-week.com/",
-    "v": 1
-  },
-  {
-    "id": 265,
-    "slug": "bsidestlv-2026",
-    "name": "BSidesTLV",
-    "city": "Tel Aviv",
-    "country": "Israel",
-    "lat": 32.1118,
-    "lng": 34.8028,
-    "start": "2026-11-11",
-    "end": "2026-11-11",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "manual",
-    "url": "https://bsidestlv.com/",
-    "v": 1
-  },
-  {
     "id": 266,
     "slug": "reversim-summit-2026",
     "name": "Reversim Summit",
@@ -3811,25 +3774,6 @@
     ],
     "source": "manual",
     "url": "https://gscm.maltaenterprise.com/",
-    "v": 1
-  },
-  {
-    "id": 440,
-    "slug": "digital-asset-summit-london-2026",
-    "name": "Digital Asset Summit London",
-    "city": "London",
-    "country": "United Kingdom",
-    "lat": 51.5074,
-    "lng": -0.1278,
-    "start": "2026-11-10",
-    "end": "2026-11-11",
-    "tier": "notable",
-    "topics": [
-      "crypto",
-      "fintech"
-    ],
-    "source": "dealroom",
-    "url": "https://blockworks.com/event/digital-asset-summit-london",
     "v": 1
   },
   {
