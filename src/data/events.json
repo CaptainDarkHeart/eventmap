@@ -4034,5 +4034,60 @@
     "source": "manual",
     "url": "https://www.torontotechweek.com/",
     "v": 1
+  },
+  {
+    "id": 452,
+    "slug": "wearedevelopers-world-congress-2027",
+    "name": "WeAreDevelopers World Congress",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "start": "2027-07-14",
+    "end": "2027-07-16",
+    "tier": "major",
+    "topics": [
+      "dev-eng",
+      "ai"
+    ],
+    "source": "manual",
+    "url": "https://www.wearedevelopers.com/world-congress",
+    "v": 1
+  },
+  {
+    "id": 453,
+    "slug": "token2049-dubai-2027",
+    "name": "TOKEN2049 Dubai",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "lat": 25.2048,
+    "lng": 55.2708,
+    "start": "2027-04-21",
+    "end": "2027-04-22",
+    "tier": "major",
+    "topics": [
+      "crypto"
+    ],
+    "source": "manual",
+    "url": "https://token2049.com/dubai/",
+    "v": 1
+  },
+  {
+    "id": 454,
+    "slug": "iot-tech-expo-global-2027",
+    "name": "IoT Tech Expo Global",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-02-03",
+    "end": "2027-02-04",
+    "tier": "notable",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "manual",
+    "url": "https://www.iottechexpo.com/global/",
+    "v": 1
   }
 ]
