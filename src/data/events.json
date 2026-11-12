@@ -4033,5 +4033,27 @@
     "source": "manual",
     "url": "https://www.iottechexpo.com/global/",
     "v": 1
+  },
+  {
+    "id": 455,
+    "slug": "accelerate-tomorrow-ai-summit-2027",
+    "name": "Accelerate Tomorrow AI Summit 2027",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.5174,
+    "lng": 13.3951,
+    "start": "2027-06-15",
+    "end": "2027-06-16",
+    "tier": "notable",
+    "topics": [
+      "fintech",
+      "ai",
+      "dev-eng",
+      "general-tech",
+      "security"
+    ],
+    "source": "manual",
+    "url": "https://www.acceleratetomorrow.com",
+    "v": 1
   }
 ]
