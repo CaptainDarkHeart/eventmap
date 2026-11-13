@@ -4055,5 +4055,23 @@
     "source": "manual",
     "url": "https://www.acceleratetomorrow.com",
     "v": 1
+  },
+  {
+    "id": 456,
+    "slug": "money20-20-usa-2027",
+    "name": "Money20/20 USA",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2027-10-19",
+    "end": "2027-10-21",
+    "tier": "mega",
+    "topics": [
+      "fintech"
+    ],
+    "source": "fintechweekly",
+    "url": "https://us.money2020.com/",
+    "v": 1
   }
 ]
