@@ -54,24 +54,6 @@
     "v": 1
   },
   {
-    "id": 37,
-    "slug": "web-summit",
-    "name": "Web Summit",
-    "city": "Lisbon",
-    "country": "Portugal",
-    "lat": 38.7223,
-    "lng": -9.1393,
-    "start": "2026-11-09",
-    "end": "2026-11-12",
-    "tier": "mega",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://websummit.com/",
-    "v": 1
-  },
-  {
     "id": 38,
     "slug": "africa-tech-festival-africacom",
     "name": "Africa Tech Festival (AfricaCom)",
@@ -2001,25 +1983,6 @@
     "v": 1
   },
   {
-    "id": 263,
-    "slug": "cyber-week-tel-aviv-2026",
-    "name": "Cyber Week",
-    "city": "Tel Aviv",
-    "country": "Israel",
-    "lat": 32.1133,
-    "lng": 34.8044,
-    "start": "2026-11-09",
-    "end": "2026-11-12",
-    "tier": "mega",
-    "topics": [
-      "security",
-      "dev-eng"
-    ],
-    "source": "manual",
-    "url": "https://cyberweek.tau.ac.il/",
-    "v": 1
-  },
-  {
     "id": 266,
     "slug": "reversim-summit-2026",
     "name": "Reversim Summit",
@@ -2296,24 +2259,6 @@
     "v": 1
   },
   {
-    "id": 317,
-    "slug": "adobe-max-2026",
-    "name": "Adobe MAX",
-    "city": "Miami Beach",
-    "country": "United States",
-    "lat": 25.7907,
-    "lng": -80.13,
-    "start": "2026-11-10",
-    "end": "2026-11-12",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "techmeme",
-    "url": "https://max.adobe.com/",
-    "v": 1
-  },
-  {
     "id": 318,
     "slug": "electronica-2026",
     "name": "electronica",
@@ -2458,25 +2403,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 347,
-    "slug": "ai-engineer-code-summit-2026",
-    "name": "AI Engineer Code Summit",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-11-10",
-    "end": "2026-11-12",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "lfai",
-    "url": "https://ai.engineer/code/2026",
     "v": 1
   },
   {
@@ -3357,25 +3283,6 @@
     "v": 1
   },
   {
-    "id": 405,
-    "slug": "cerebral-valley-ai-summit-2026",
-    "name": "Cerebral Valley AI Summit",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-11-12",
-    "end": "2026-11-12",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "startup-vc"
-    ],
-    "source": "techmeme",
-    "url": "https://cerebralvalley.com",
-    "v": 1
-  },
-  {
     "id": 407,
     "slug": "tech-osaka-summit-2027",
     "name": "Tech Osaka Summit",
@@ -3884,24 +3791,6 @@
     ],
     "source": "manual",
     "url": "https://productworld.co/",
-    "v": 1
-  },
-  {
-    "id": 447,
-    "slug": "kubecon-cloudnativecon-north-america-2026",
-    "name": "KubeCon + CloudNativeCon North America",
-    "city": "Salt Lake City",
-    "country": "United States",
-    "lat": 40.7608,
-    "lng": -111.891,
-    "start": "2026-11-09",
-    "end": "2026-11-12",
-    "tier": "major",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "manual",
-    "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/",
     "v": 1
   },
   {
