@@ -8,6 +8,7 @@ interface Props {
 	type?: "website" | "article";
 	breadcrumbs?: { name: string; path: string }[];
 	jsonLd?: object | object[];
+	noindex?: boolean;
 }
 const {
 	title = "Tech Events Map | Global startup & tech conferences",
@@ -16,6 +17,7 @@ const {
 	type = "website",
 	breadcrumbs,
 	jsonLd,
+	noindex = false,
 } = Astro.props;
 const abs = (path: string) => new URL(path, Astro.site).toString();
 const extraLd = [
@@ -41,6 +43,7 @@ const ogImageURL = new URL(image, Astro.site);
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		{noindex && <meta name="robots" content="noindex, follow" />}
 		<link rel="canonical" href={canonicalURL} />
 
 		<meta property="og:type" content={type} />

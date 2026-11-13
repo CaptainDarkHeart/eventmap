@@ -4,7 +4,7 @@ import SiteHeader from "../components/SiteHeader.astro";
 
 const TURNSTILE_SITEKEY = "0x4AAAAAAEwHeenj5gz4VHU9";
 ---
-<Layout title="Contact | Tech Events Map" description="Get in touch with Tech Events Map: event suggestions, corrections, or press." breadcrumbs={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact/" }]}>
+<Layout title="Contact | Tech Events Map" description="Get in touch with Tech Events Map: event suggestions, corrections, or press." noindex breadcrumbs={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact/" }]}>
 	<SiteHeader />
 	<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 	<main class="wrap-wide">

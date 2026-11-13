@@ -50,8 +50,20 @@ faqs.push({
 	a: "Event dates come from public listings including Dealroom, Techmeme, dev.events and others, plus individually verified additions. Dates can shift year to year, so always confirm on the official event site before booking travel.",
 });
 
-const title = `${h1}: ${fmtInt(g.count)} upcoming | Tech Events Map`;
-const description = `${fmtInt(g.count)} upcoming tech, startup, AI and fintech conferences ${scope}. Next up: ${next.name}, ${fmtDate(next.start, next.end)}. Dates, cities and topics.`;
+// City-states (Singapore) have a city page and a country page for the same place. Tag the city
+// variant so title and description stay unique across the two.
+const cityIsCountry = g.type === "cities" && g.name === g.cityCountry;
+const metaName = cityIsCountry ? `${g.name} (city)` : g.name;
+const metaScope = cityIsCountry ? t.scope(metaName) : scope;
+const title = `${cityIsCountry ? t.title(metaName) : h1}: ${fmtInt(g.count)} upcoming | Tech Events Map`;
+// Keep the meta description within 160 characters: drop the tail first, then trim the event name.
+const descHead = `${fmtInt(g.count)} upcoming tech, startup, AI and fintech conferences ${metaScope}. Next up: `;
+const descDate = `, ${fmtDate(next.start, next.end)}.`;
+const descTail = " Dates, cities and topics.";
+const fitName = (room) => (next.name.length > room ? `${next.name.slice(0, Math.max(room - 1, 1)).trimEnd()}…` : next.name);
+const description = (descHead + next.name + descDate + descTail).length <= 160
+	? descHead + next.name + descDate + descTail
+	: descHead + fitName(160 - descHead.length - descDate.length) + descDate;
 const path = `/${g.type}/${g.slug}/`;
 ---
 <Layout title={title} description={description}
