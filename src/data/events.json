@@ -1570,24 +1570,6 @@
     "v": 1
   },
   {
-    "id": 203,
-    "slug": "b-dash-camp-2026-fall-fukuoka",
-    "name": "B Dash Camp 2026 Fall in Fukuoka",
-    "city": "Fukuoka",
-    "country": "Japan",
-    "lat": 33.5904,
-    "lng": 130.4017,
-    "start": "2026-11-11",
-    "end": "2026-11-13",
-    "tier": "major",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "japanconf",
-    "url": "https://camp.bdashventures.com/fukuoka/",
-    "v": 1
-  },
-  {
     "id": 204,
     "slug": "code-blue-2026",
     "name": "CODE BLUE",
@@ -2256,25 +2238,6 @@
     ],
     "source": "fintechweekly",
     "url": "https://moneylive-insights.com/events/summit/",
-    "v": 1
-  },
-  {
-    "id": 318,
-    "slug": "electronica-2026",
-    "name": "electronica",
-    "city": "Munich",
-    "country": "Germany",
-    "lat": 48.1351,
-    "lng": 11.582,
-    "start": "2026-11-10",
-    "end": "2026-11-13",
-    "tier": "mega",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "techmeme",
-    "url": "https://electronica.de/en/",
-    "organizer": "Messe München GmbH",
     "v": 1
   },
   {
