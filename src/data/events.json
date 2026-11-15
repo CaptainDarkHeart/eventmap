@@ -1753,42 +1753,6 @@
     "v": 1
   },
   {
-    "id": 240,
-    "slug": "black-alpaca-2026",
-    "name": "Black Alpaca",
-    "city": "Lima",
-    "country": "Peru",
-    "lat": -12.0969,
-    "lng": -77.0354,
-    "start": "2026-11-14",
-    "end": "2026-11-14",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "manual",
-    "url": "https://blackalpaca.org/",
-    "v": 1
-  },
-  {
-    "id": 241,
-    "slug": "devopsdays-brasilia-2026",
-    "name": "DevOpsDays Brasília",
-    "city": "Brasília",
-    "country": "Brazil",
-    "lat": -15.7942,
-    "lng": -47.8822,
-    "start": "2026-11-14",
-    "end": "2026-11-14",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "devevents",
-    "url": "https://devopsdays.org/events/2026-brasilia/welcome/",
-    "v": 1
-  },
-  {
     "id": 242,
     "slug": "gitex-ai-latam-2027",
     "name": "GITEX AI LATAM",
