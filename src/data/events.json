@@ -2023,25 +2023,6 @@
     "v": 1
   },
   {
-    "id": 284,
-    "slug": "portugal-tech-week-2026",
-    "name": "Portugal Tech Week",
-    "city": "Lisbon",
-    "country": "Portugal",
-    "lat": 38.7223,
-    "lng": -9.1393,
-    "start": "2026-11-06",
-    "end": "2026-11-15",
-    "tier": "major",
-    "topics": [
-      "startup-vc",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://portugaltechweek.com/",
-    "v": 1
-  },
-  {
     "id": 288,
     "slug": "ai-festival-prague-2026",
     "name": "AI Festival Prague",
@@ -2202,24 +2183,6 @@
     ],
     "source": "fintechweekly",
     "url": "https://moneylive-insights.com/events/summit/",
-    "v": 1
-  },
-  {
-    "id": 319,
-    "slug": "twitchcon-san-diego-2026",
-    "name": "TwitchCon San Diego",
-    "city": "San Diego",
-    "country": "United States",
-    "lat": 32.7157,
-    "lng": -117.1611,
-    "start": "2026-11-13",
-    "end": "2026-11-15",
-    "tier": "major",
-    "topics": [
-      "gaming"
-    ],
-    "source": "techmeme",
-    "url": "https://www.twitchcon.com/san-diego-2026/",
     "v": 1
   },
   {
