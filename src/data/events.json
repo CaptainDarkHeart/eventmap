@@ -3852,5 +3852,23 @@
     "source": "fintechweekly",
     "url": "https://us.money2020.com/",
     "v": 1
+  },
+  {
+    "id": 457,
+    "slug": "finovatefall-2027",
+    "name": "FinovateFall",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "start": "2027-09-13",
+    "end": "2027-09-15",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "manual",
+    "url": "https://informaconnect.com/finovatefall/",
+    "v": 1
   }
 ]
