@@ -2041,24 +2041,6 @@
     "v": 1
   },
   {
-    "id": 290,
-    "slug": "genai-summit-athens-2026",
-    "name": "GenAI Summit Athens",
-    "city": "Athens",
-    "country": "Greece",
-    "lat": 37.9838,
-    "lng": 23.7275,
-    "start": "2026-11-16",
-    "end": "2026-11-16",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://www.genaisummitseeurope.com/",
-    "v": 1
-  },
-  {
     "id": 291,
     "slug": "dsc-europe-2026",
     "name": "DSC Europe",
