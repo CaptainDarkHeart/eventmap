@@ -3101,24 +3101,6 @@
     "v": 1
   },
   {
-    "id": 402,
-    "slug": "solana-breakpoint-2026",
-    "name": "Solana Breakpoint",
-    "city": "London",
-    "country": "United Kingdom",
-    "lat": 51.5074,
-    "lng": -0.1278,
-    "start": "2026-11-15",
-    "end": "2026-11-17",
-    "tier": "major",
-    "topics": [
-      "crypto"
-    ],
-    "source": "techmeme",
-    "url": "https://solana.com/breakpoint",
-    "v": 1
-  },
-  {
     "id": 403,
     "slug": "droidcon-london-2026",
     "name": "droidcon London",
@@ -3534,25 +3516,6 @@
     ],
     "source": "manual",
     "url": "https://www.inmerge.az/",
-    "v": 1
-  },
-  {
-    "id": 439,
-    "slug": "gscm-2026",
-    "name": "GSCM 2026 (Global Semiconductor Conference Malta)",
-    "city": "St Julian's",
-    "country": "Malta",
-    "lat": 35.9187,
-    "lng": 14.493,
-    "start": "2026-11-16",
-    "end": "2026-11-17",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://gscm.maltaenterprise.com/",
     "v": 1
   },
   {
