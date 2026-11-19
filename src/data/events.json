@@ -1570,24 +1570,6 @@
     "v": 1
   },
   {
-    "id": 204,
-    "slug": "code-blue-2026",
-    "name": "CODE BLUE",
-    "city": "Tokyo",
-    "country": "Japan",
-    "lat": 35.6762,
-    "lng": 139.6503,
-    "start": "2026-11-17",
-    "end": "2026-11-18",
-    "tier": "notable",
-    "topics": [
-      "security"
-    ],
-    "source": "japanconf",
-    "url": "https://codeblue.jp/en/",
-    "v": 1
-  },
-  {
     "id": 205,
     "slug": "open-source-summit-japan-2026",
     "name": "Open Source Summit Japan",
@@ -2275,25 +2257,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 348,
-    "slug": "mlops-world-genai-summit-2026",
-    "name": "MLOps World | GenAI Summit",
-    "city": "Austin",
-    "country": "United States",
-    "lat": 30.2672,
-    "lng": -97.7431,
-    "start": "2026-11-16",
-    "end": "2026-11-18",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "lfai",
-    "url": "https://mlopsworld.com/",
     "v": 1
   },
   {
