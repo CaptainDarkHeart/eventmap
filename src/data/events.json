@@ -3687,5 +3687,117 @@
     "source": "manual",
     "url": "https://websummit.com/",
     "v": 1
+  },
+  {
+    "id": 459,
+    "slug": "ai-dev-nyc-2026",
+    "name": "AI Dev NYC",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "start": "2026-11-30",
+    "end": "2026-12-01",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "dev-eng"
+    ],
+    "source": "techmeme",
+    "url": "https://ai-dev.deeplearning.ai/",
+    "v": 1
+  },
+  {
+    "id": 460,
+    "slug": "dld-munich-2027",
+    "name": "DLD Munich",
+    "city": "Munich",
+    "country": "Germany",
+    "lat": 48.1351,
+    "lng": 11.582,
+    "start": "2027-01-14",
+    "end": "2027-01-16",
+    "tier": "major",
+    "topics": [
+      "general-tech",
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "https://dld-conference.com/",
+    "v": 1
+  },
+  {
+    "id": 461,
+    "slug": "emerge-americas-2027",
+    "name": "eMerge Americas",
+    "city": "Miami Beach",
+    "country": "United States",
+    "lat": 25.7907,
+    "lng": -80.13,
+    "start": "2027-03-02",
+    "end": "2027-03-04",
+    "tier": "major",
+    "topics": [
+      "general-tech",
+      "startup-vc"
+    ],
+    "source": "dealroom",
+    "url": "https://emergeamericas.com/",
+    "v": 1
+  },
+  {
+    "id": 462,
+    "slug": "adobe-summit-2027",
+    "name": "Adobe Summit",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "start": "2027-03-22",
+    "end": "2027-03-25",
+    "tier": "major",
+    "topics": [
+      "general-tech",
+      "ai"
+    ],
+    "source": "techmeme",
+    "url": "https://summit.adobe.com/na/",
+    "v": 1
+  },
+  {
+    "id": 463,
+    "slug": "ethdenver-2027",
+    "name": "ETHDenver",
+    "city": "Denver",
+    "country": "United States",
+    "lat": 39.7392,
+    "lng": -104.9903,
+    "start": "2027-03-24",
+    "end": "2027-03-25",
+    "tier": "major",
+    "topics": [
+      "crypto"
+    ],
+    "source": "techmeme",
+    "url": "https://ethdenver.com/",
+    "v": 1
+  },
+  {
+    "id": 464,
+    "slug": "stripe-sessions-2027",
+    "name": "Stripe Sessions",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "start": "2027-05-04",
+    "end": "2027-05-06",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "dealroom",
+    "url": "https://stripesessions.com/",
+    "v": 1
   }
 ]
