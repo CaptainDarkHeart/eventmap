@@ -54,42 +54,6 @@
     "v": 1
   },
   {
-    "id": 38,
-    "slug": "africa-tech-festival-africacom",
-    "name": "Africa Tech Festival (AfricaCom)",
-    "city": "Cape Town",
-    "country": "South Africa",
-    "lat": -33.9249,
-    "lng": 18.4241,
-    "start": "2026-11-17",
-    "end": "2026-11-19",
-    "tier": "major",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://africatechfestival.com/africacom/",
-    "v": 1
-  },
-  {
-    "id": 39,
-    "slug": "bengaluru-tech-summit",
-    "name": "Bengaluru Tech Summit",
-    "city": "Bengaluru",
-    "country": "India",
-    "lat": 12.9716,
-    "lng": 77.5946,
-    "start": "2026-11-17",
-    "end": "2026-11-19",
-    "tier": "mega",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "dealroom",
-    "url": "https://www.bengalurutechsummit.com/",
-    "v": 1
-  },
-  {
     "id": 40,
     "slug": "singapore-fintech-festival",
     "name": "Singapore FinTech Festival",
@@ -105,24 +69,6 @@
     ],
     "source": "dealroom",
     "url": "https://www.fintechfestival.sg/",
-    "v": 1
-  },
-  {
-    "id": 41,
-    "slug": "slush",
-    "name": "Slush",
-    "city": "Helsinki",
-    "country": "Finland",
-    "lat": 60.1699,
-    "lng": 24.9384,
-    "start": "2026-11-18",
-    "end": "2026-11-19",
-    "tier": "mega",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://www.slush.org/",
     "v": 1
   },
   {
@@ -1967,44 +1913,6 @@
     "v": 1
   },
   {
-    "id": 272,
-    "slug": "digit-expo-2026",
-    "name": "DIGIT Expo",
-    "city": "Edinburgh",
-    "country": "United Kingdom",
-    "lat": 55.9533,
-    "lng": -3.1883,
-    "start": "2026-11-19",
-    "end": "2026-11-19",
-    "tier": "notable",
-    "topics": [
-      "general-tech",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://digit-expo.com/",
-    "v": 1
-  },
-  {
-    "id": 281,
-    "slug": "data-ai-leaders-summit-paris-2026",
-    "name": "Data & AI Leaders Summit",
-    "city": "Paris",
-    "country": "France",
-    "lat": 48.8566,
-    "lng": 2.3522,
-    "start": "2026-11-18",
-    "end": "2026-11-19",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://www.dataaisummit.fr/",
-    "v": 1
-  },
-  {
     "id": 288,
     "slug": "ai-festival-prague-2026",
     "name": "AI Festival Prague",
@@ -2257,24 +2165,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 349,
-    "slug": "global-ai-show-abu-dhabi-2026",
-    "name": "Global AI Show Abu Dhabi",
-    "city": "Abu Dhabi",
-    "country": "United Arab Emirates",
-    "lat": 24.4539,
-    "lng": 54.3773,
-    "start": "2026-11-18",
-    "end": "2026-11-19",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "lfai",
-    "url": "https://www.globalaishow.com/abu-dhabi/",
     "v": 1
   },
   {
