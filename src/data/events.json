@@ -1,23 +1,5 @@
 [
   {
-    "id": 161,
-    "slug": "microsoft-ignite-2026",
-    "name": "Microsoft Ignite",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7749,
-    "lng": -122.4194,
-    "start": "2026-11-17",
-    "end": "2026-11-20",
-    "tier": "mega",
-    "topics": [
-      "general-tech"
-    ],
-    "source": "techmeme",
-    "url": "https://ignite.microsoft.com/",
-    "v": 1
-  },
-  {
     "id": 162,
     "slug": "neurips-2026",
     "name": "NeurIPS",
@@ -51,24 +33,6 @@
     ],
     "source": "galliumventures",
     "url": "https://informaconnect.com/finovateeurope/",
-    "v": 1
-  },
-  {
-    "id": 40,
-    "slug": "singapore-fintech-festival",
-    "name": "Singapore FinTech Festival",
-    "city": "Singapore",
-    "country": "Singapore",
-    "lat": 1.3521,
-    "lng": 103.8198,
-    "start": "2026-11-18",
-    "end": "2026-11-20",
-    "tier": "mega",
-    "topics": [
-      "fintech"
-    ],
-    "source": "dealroom",
-    "url": "https://www.fintechfestival.sg/",
     "v": 1
   },
   {
@@ -972,42 +936,6 @@
     "v": 1
   },
   {
-    "id": 134,
-    "slug": "ai-engineering-summit",
-    "name": "AI Engineering Summit",
-    "city": "Berlin",
-    "country": "Germany",
-    "lat": 52.52,
-    "lng": 13.405,
-    "start": "2026-11-16",
-    "end": "2026-11-20",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "confstech",
-    "url": "https://ai-engineering-summit.de",
-    "v": 1
-  },
-  {
-    "id": 135,
-    "slug": "react-summit-us",
-    "name": "React Summit US",
-    "city": "New York",
-    "country": "United States",
-    "lat": 40.7128,
-    "lng": -74.006,
-    "start": "2026-11-17",
-    "end": "2026-11-20",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "confstech",
-    "url": "https://reactsummit.us",
-    "v": 1
-  },
-  {
     "id": 136,
     "slug": "wearedevelopers-conference-india",
     "name": "WeAreDevelopers Conference India",
@@ -1779,45 +1707,6 @@
     "v": 1
   },
   {
-    "id": 256,
-    "slug": "sc26",
-    "name": "SC26",
-    "city": "Chicago",
-    "country": "United States",
-    "lat": 41.8781,
-    "lng": -87.6298,
-    "start": "2026-11-15",
-    "end": "2026-11-20",
-    "tier": "mega",
-    "topics": [
-      "dev-eng",
-      "ai",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://sc26.supercomputing.org/",
-    "v": 1
-  },
-  {
-    "id": 257,
-    "slug": "qcon-san-francisco-2026",
-    "name": "QCon San Francisco",
-    "city": "San Francisco",
-    "country": "United States",
-    "lat": 37.7941,
-    "lng": -122.3956,
-    "start": "2026-11-16",
-    "end": "2026-11-20",
-    "tier": "major",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://qconsf.com/",
-    "v": 1
-  },
-  {
     "id": 258,
     "slug": "def-con-35",
     "name": "DEF CON 35",
@@ -1946,24 +1835,6 @@
     ],
     "source": "manual",
     "url": "https://datasciconference.com/",
-    "v": 1
-  },
-  {
-    "id": 293,
-    "slug": "ai-poland-2026",
-    "name": "AI Poland",
-    "city": "Warsaw",
-    "country": "Poland",
-    "lat": 52.2297,
-    "lng": 21.0122,
-    "start": "2026-11-16",
-    "end": "2026-11-20",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://ai-poland.pl/",
     "v": 1
   },
   {
@@ -2165,25 +2036,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 350,
-    "slug": "mcp-dev-summit-nairobi-2026",
-    "name": "MCP Dev Summit Nairobi",
-    "city": "Nairobi",
-    "country": "Kenya",
-    "lat": -1.2921,
-    "lng": 36.8219,
-    "start": "2026-11-19",
-    "end": "2026-11-20",
-    "tier": "notable",
-    "topics": [
-      "ai",
-      "dev-eng"
-    ],
-    "source": "lfai",
-    "url": "https://events.linuxfoundation.org/mcp-dev-summit-nairobi/",
     "v": 1
   },
   {
@@ -2827,24 +2679,6 @@
     "v": 1
   },
   {
-    "id": 386,
-    "slug": "fintech-nerdcon-2026",
-    "name": "Fintech NerdCon",
-    "city": "San Diego",
-    "country": "United States",
-    "lat": 32.7157,
-    "lng": -117.1611,
-    "start": "2026-11-19",
-    "end": "2026-11-20",
-    "tier": "notable",
-    "topics": [
-      "fintech"
-    ],
-    "source": "startupevents",
-    "url": "https://www.fintechnerdcon.com/",
-    "v": 1
-  },
-  {
     "id": 387,
     "slug": "world-startup-fest-2027",
     "name": "World Startup Fest",
@@ -3204,24 +3038,6 @@
     ],
     "source": "manual",
     "url": "https://blackhatmea.com",
-    "v": 1
-  },
-  {
-    "id": 427,
-    "slug": "tech-weekend-silicon-valley-2026",
-    "name": "Tech Weekend Silicon Valley",
-    "city": "Menlo Park",
-    "country": "United States",
-    "lat": 37.4419,
-    "lng": -122.1737,
-    "start": "2026-11-19",
-    "end": "2026-11-20",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "manual",
-    "url": "https://techweekend.org/",
     "v": 1
   },
   {
