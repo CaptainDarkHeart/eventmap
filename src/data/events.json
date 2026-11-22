@@ -3577,5 +3577,99 @@
     "source": "dealroom",
     "url": "https://stripesessions.com/",
     "v": 1
+  },
+  {
+    "id": 465,
+    "slug": "leap-2027",
+    "name": "LEAP",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "lat": 24.7136,
+    "lng": 46.6753,
+    "start": "2027-04-12",
+    "end": "2027-04-15",
+    "tier": "mega",
+    "topics": [
+      "general-tech",
+      "ai",
+      "startup-vc"
+    ],
+    "source": "manual",
+    "url": "https://onegiantleap.com/",
+    "v": 1
+  },
+  {
+    "id": 466,
+    "slug": "hannover-messe-2027",
+    "name": "HANNOVER MESSE",
+    "city": "Hannover",
+    "country": "Germany",
+    "lat": 52.3759,
+    "lng": 9.732,
+    "start": "2027-04-05",
+    "end": "2027-04-08",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "techmeme",
+    "url": "https://www.hannovermesse.de/en/",
+    "v": 1
+  },
+  {
+    "id": 467,
+    "slug": "asu-gsv-summit-2027",
+    "name": "ASU+GSV Summit",
+    "city": "San Diego",
+    "country": "United States",
+    "lat": 32.7157,
+    "lng": -117.1611,
+    "start": "2027-04-04",
+    "end": "2027-04-07",
+    "tier": "major",
+    "topics": [
+      "startup-vc",
+      "general-tech"
+    ],
+    "source": "dealroom",
+    "url": "https://www.asugsvsummit.com/",
+    "v": 1
+  },
+  {
+    "id": 468,
+    "slug": "insurtech-insights-europe-2027",
+    "name": "Insurtech Insights Europe",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-03-03",
+    "end": "2027-03-04",
+    "tier": "major",
+    "topics": [
+      "fintech"
+    ],
+    "source": "fintechweekly",
+    "url": "https://www.insurtechinsights.com/europe/",
+    "v": 1
+  },
+  {
+    "id": 469,
+    "slug": "hello-tomorrow-summit-2027",
+    "name": "Hello Tomorrow Summit",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2027-06-02",
+    "end": "2027-06-03",
+    "tier": "notable",
+    "topics": [
+      "startup-vc",
+      "general-tech"
+    ],
+    "source": "startupevents",
+    "url": "https://hello-tomorrow.org/summit/",
+    "v": 1
   }
 ]
