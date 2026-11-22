@@ -1083,25 +1083,6 @@
     "v": 1
   },
   {
-    "id": 172,
-    "slug": "meet-taipei-2026",
-    "name": "Meet Taipei Startup Festival",
-    "city": "Taipei",
-    "country": "Taiwan",
-    "lat": 25.033,
-    "lng": 121.5654,
-    "start": "2026-11-19",
-    "end": "2026-11-21",
-    "tier": "major",
-    "topics": [
-      "startup-vc",
-      "ai"
-    ],
-    "source": "dealroom",
-    "url": "https://meettaipei.tw/",
-    "v": 1
-  },
-  {
     "id": 173,
     "slug": "yow-melbourne-2026",
     "name": "YOW! Melbourne",
@@ -1343,25 +1324,6 @@
     ],
     "source": "manual",
     "url": "https://aotlagos.com/",
-    "v": 1
-  },
-  {
-    "id": 196,
-    "slug": "cpp-and-system-software-summit-2026",
-    "name": "Global C++ and System Software Technology Conference",
-    "city": "Shanghai",
-    "country": "China",
-    "lat": 31.2304,
-    "lng": 121.4737,
-    "start": "2026-11-20",
-    "end": "2026-11-21",
-    "tier": "notable",
-    "topics": [
-      "dev-eng",
-      "ai"
-    ],
-    "source": "devevents",
-    "url": "https://cpp-summit.org/",
     "v": 1
   },
   {
