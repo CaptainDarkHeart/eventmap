@@ -3671,5 +3671,170 @@
     "source": "startupevents",
     "url": "https://hello-tomorrow.org/summit/",
     "v": 1
+  },
+  {
+    "id": 470,
+    "slug": "adopt-ai-grand-palais-2026",
+    "name": "Adopt AI Grand Palais",
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "start": "2026-12-03",
+    "end": "2026-12-04",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "dealroom",
+    "url": "https://adoptai.artefact.com/",
+    "v": 1
+  },
+  {
+    "id": 471,
+    "slug": "celosphere-2026",
+    "name": "Celosphere",
+    "city": "Munich",
+    "country": "Germany",
+    "lat": 48.1351,
+    "lng": 11.582,
+    "start": "2026-12-01",
+    "end": "2026-12-03",
+    "tier": "notable",
+    "topics": [
+      "general-tech",
+      "ai"
+    ],
+    "source": "techmeme",
+    "url": "https://www.celonis.com/celosphere/",
+    "v": 1
+  },
+  {
+    "id": 472,
+    "slug": "insurtech-insights-asia-2026",
+    "name": "Insurtech Insights Asia",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "lat": 22.3193,
+    "lng": 114.1694,
+    "start": "2026-12-02",
+    "end": "2026-12-03",
+    "tier": "notable",
+    "topics": [
+      "fintech"
+    ],
+    "source": "fintechweekly",
+    "url": "https://www.insurtechinsights.com/asia/",
+    "v": 1
+  },
+  {
+    "id": 473,
+    "slug": "integrated-systems-europe-2027",
+    "name": "Integrated Systems Europe (ISE)",
+    "city": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3874,
+    "lng": 2.1686,
+    "start": "2027-02-02",
+    "end": "2027-02-05",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "techmeme",
+    "url": "https://www.iseurope.org/",
+    "v": 1
+  },
+  {
+    "id": 474,
+    "slug": "embedded-world-2027",
+    "name": "embedded world",
+    "city": "Nuremberg",
+    "country": "Germany",
+    "lat": 49.4521,
+    "lng": 11.0767,
+    "start": "2027-03-16",
+    "end": "2027-03-18",
+    "tier": "mega",
+    "topics": [
+      "dev-eng",
+      "general-tech"
+    ],
+    "source": "startupstash",
+    "url": "https://www.embedded-world.de/en",
+    "v": 1
+  },
+  {
+    "id": 475,
+    "slug": "ai-engineer-miami-2027",
+    "name": "AI Engineer Miami",
+    "city": "Miami",
+    "country": "United States",
+    "lat": 25.7617,
+    "lng": -80.1918,
+    "start": "2027-04-26",
+    "end": "2027-04-27",
+    "tier": "notable",
+    "topics": [
+      "ai",
+      "dev-eng"
+    ],
+    "source": "dealroom",
+    "url": "https://ai.engineer/miami/2027",
+    "v": 1
+  },
+  {
+    "id": 476,
+    "slug": "emtech-ai-2027",
+    "name": "EmTech AI",
+    "city": "Cambridge",
+    "country": "United States",
+    "lat": 42.3601,
+    "lng": -71.0942,
+    "start": "2027-05-11",
+    "end": "2027-05-13",
+    "tier": "notable",
+    "topics": [
+      "ai"
+    ],
+    "source": "dealroom",
+    "url": "https://event.technologyreview.com/emtech-ai-2027/",
+    "v": 1
+  },
+  {
+    "id": 477,
+    "slug": "infosecurity-europe-2027",
+    "name": "Infosecurity Europe",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-06-08",
+    "end": "2027-06-10",
+    "tier": "mega",
+    "topics": [
+      "security"
+    ],
+    "source": "startupstash",
+    "url": "https://www.infosecurityeurope.com/",
+    "v": 1
+  },
+  {
+    "id": 478,
+    "slug": "world-summit-ai-amsterdam-2027",
+    "name": "World Summit AI Amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "start": "2027-10-06",
+    "end": "2027-10-07",
+    "tier": "major",
+    "topics": [
+      "ai"
+    ],
+    "source": "startupstash",
+    "url": "https://worldsummit.ai/",
+    "v": 1
   }
 ]
