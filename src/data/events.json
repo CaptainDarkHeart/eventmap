@@ -1764,24 +1764,6 @@
     "v": 1
   },
   {
-    "id": 288,
-    "slug": "ai-festival-prague-2026",
-    "name": "AI Festival Prague",
-    "city": "Prague",
-    "country": "Czechia",
-    "lat": 50.0755,
-    "lng": 14.4378,
-    "start": "2026-11-21",
-    "end": "2026-11-23",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://ai-festival.cz/en/",
-    "v": 1
-  },
-  {
     "id": 291,
     "slug": "dsc-europe-2026",
     "name": "DSC Europe",
