@@ -936,24 +936,6 @@
     "v": 1
   },
   {
-    "id": 136,
-    "slug": "wearedevelopers-conference-india",
-    "name": "WeAreDevelopers Conference India",
-    "city": "Bengaluru",
-    "country": "India",
-    "lat": 12.9716,
-    "lng": 77.5946,
-    "start": "2026-11-25",
-    "end": "2026-11-26",
-    "tier": "notable",
-    "topics": [
-      "dev-eng"
-    ],
-    "source": "confstech",
-    "url": "https://www.wearedevelopers.com/conference-india",
-    "v": 1
-  },
-  {
     "id": 142,
     "slug": "tech-show-london",
     "name": "Tech Show London",
@@ -1960,24 +1942,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 351,
-    "slug": "agentiq-world-amsterdam-2026",
-    "name": "Agentiq World Amsterdam",
-    "city": "Amsterdam",
-    "country": "Netherlands",
-    "lat": 52.3676,
-    "lng": 4.9041,
-    "start": "2026-11-25",
-    "end": "2026-11-26",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "lfai",
-    "url": "https://www.agentiqworld.com/",
     "v": 1
   },
   {
@@ -3072,24 +3036,6 @@
     ],
     "source": "manual",
     "url": "https://asia.money2020.com/",
-    "v": 1
-  },
-  {
-    "id": 437,
-    "slug": "meout-summit-2026",
-    "name": "MeOut Summit 2026",
-    "city": "Budapest",
-    "country": "Hungary",
-    "lat": 47.4979,
-    "lng": 19.0402,
-    "start": "2026-11-25",
-    "end": "2026-11-26",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "manual",
-    "url": "https://meoutsummit.com/",
     "v": 1
   },
   {
