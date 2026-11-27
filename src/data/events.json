@@ -3853,5 +3853,95 @@
     "source": "startupstash",
     "url": "https://devoxx.be/",
     "v": 1
+  },
+  {
+    "id": 485,
+    "slug": "ndc-london-2027",
+    "name": "NDC London",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-01-25",
+    "end": "2027-01-29",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "startupstash",
+    "url": "https://ndclondon.com/",
+    "v": 1
+  },
+  {
+    "id": 486,
+    "slug": "jfokus-2027",
+    "name": "Jfokus",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "lat": 59.3293,
+    "lng": 18.0686,
+    "start": "2027-02-08",
+    "end": "2027-02-10",
+    "tier": "notable",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "startupstash",
+    "url": "https://www.jfokus.se/",
+    "v": 1
+  },
+  {
+    "id": 487,
+    "slug": "cisco-live-emea-2027",
+    "name": "Cisco Live EMEA",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "start": "2027-02-08",
+    "end": "2027-02-12",
+    "tier": "mega",
+    "topics": [
+      "general-tech"
+    ],
+    "source": "startupstash",
+    "url": "https://www.ciscolive.com/emea.html",
+    "v": 1
+  },
+  {
+    "id": 488,
+    "slug": "black-hat-asia-2027",
+    "name": "Black Hat Asia",
+    "city": "Singapore",
+    "country": "Singapore",
+    "lat": 1.3521,
+    "lng": 103.8198,
+    "start": "2027-02-28",
+    "end": "2027-03-03",
+    "tier": "major",
+    "topics": [
+      "security"
+    ],
+    "source": "startupstash",
+    "url": "https://www.blackhat.com/asia/",
+    "v": 1
+  },
+  {
+    "id": 489,
+    "slug": "devoxx-france-2027",
+    "name": "Devoxx France",
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "start": "2027-04-07",
+    "end": "2027-04-09",
+    "tier": "major",
+    "topics": [
+      "dev-eng"
+    ],
+    "source": "startupstash",
+    "url": "https://www.devoxx.fr/",
+    "v": 1
   }
 ]
