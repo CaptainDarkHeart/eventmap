@@ -36,24 +36,6 @@
     "v": 1
   },
   {
-    "id": 42,
-    "slug": "case-conferencia-anual-de-startups-e-empreendedorismo",
-    "name": "CASE - Conferencia Anual de Startups e Empreendedorismo",
-    "city": "Sao Paulo",
-    "country": "Brazil",
-    "lat": -23.5505,
-    "lng": -46.6333,
-    "start": "2026-11-26",
-    "end": "2026-11-27",
-    "tier": "notable",
-    "topics": [
-      "startup-vc"
-    ],
-    "source": "dealroom",
-    "url": "https://case.abstartups.com.br/",
-    "v": 1
-  },
-  {
     "id": 43,
     "slug": "aws-re-invent",
     "name": "AWS re:Invent",
@@ -1477,25 +1459,6 @@
     "v": 1
   },
   {
-    "id": 228,
-    "slug": "ai-journey-2026",
-    "name": "AI Journey",
-    "city": "Moscow",
-    "country": "Russia",
-    "lat": 55.7001,
-    "lng": 37.5796,
-    "start": "2026-11-25",
-    "end": "2026-11-27",
-    "tier": "mega",
-    "topics": [
-      "ai",
-      "general-tech"
-    ],
-    "source": "manual",
-    "url": "https://ai-journey.ru/",
-    "v": 1
-  },
-  {
     "id": 229,
     "slug": "highload-plus-plus-2026",
     "name": "HighLoad++",
@@ -1726,24 +1689,6 @@
     "v": 1
   },
   {
-    "id": 291,
-    "slug": "dsc-europe-2026",
-    "name": "DSC Europe",
-    "city": "Belgrade",
-    "country": "Serbia",
-    "lat": 44.7866,
-    "lng": 20.4489,
-    "start": "2026-11-23",
-    "end": "2026-11-27",
-    "tier": "major",
-    "topics": [
-      "ai"
-    ],
-    "source": "manual",
-    "url": "https://datasciconference.com/",
-    "v": 1
-  },
-  {
     "id": 298,
     "slug": "v2-security-aarhus-2027",
     "name": "V2 Security Aarhus",
@@ -1942,24 +1887,6 @@
     ],
     "source": "manual",
     "url": "https://www.developerweek.com/",
-    "v": 1
-  },
-  {
-    "id": 352,
-    "slug": "data-science-summit-2026",
-    "name": "Data Science Summit",
-    "city": "Warsaw",
-    "country": "Poland",
-    "lat": 52.2297,
-    "lng": 21.0122,
-    "start": "2026-11-26",
-    "end": "2026-11-27",
-    "tier": "notable",
-    "topics": [
-      "ai"
-    ],
-    "source": "lfai",
-    "url": "https://main.dssconf.pl/",
     "v": 1
   },
   {
